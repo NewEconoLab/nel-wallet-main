@@ -130,7 +130,6 @@
     white-space: nowrap;
 }
 
-
 .nel-input {
     background: #198CEE;
     border: 1px solid #D2E2EF;
@@ -150,7 +149,7 @@
     opacity: 1;
 }
 
-#nel-search > input::-webkit-input-placeholder {
+#nel-search>input::-webkit-input-placeholder {
     color: #D2E2EF;
     opacity: 1;
 }
@@ -258,8 +257,13 @@
     font-family: PingFangSC-Medium;
     font-size: 20px;
     line-height: 20px;
-    padding-bottom: 8px;
-    border-bottom: 4px solid #198CEE;
+    padding-left: 8px;
+    border-left: 4px solid #198CEE;
+}
+
+.title {
+    padding-bottom: 32px;
+    padding-top: 40px;
 }
 
 .caption .title-summary {
@@ -276,8 +280,7 @@
     padding-bottom: 30px;
 }
 
-
-table>thead>tr{
+table>thead>tr {
     font-family: PingFangSC-Regular;
     font-size: 12px;
     color: #333333;
@@ -297,10 +300,13 @@ table>tbody>tr {
     border-radius: 5px 5px 5px 5px;
 }
 
-.table-nel > tbody > tr:nth-of-type(odd) {
+.table-nel>tbody>tr:nth-of-type(odd) {
     background-color: #F5F5F5;
 }
-.table-nel{background-color:#fff}
+
+.table-nel {
+    background-color: #fff
+}
 
 a {
     color: #198CEE;
@@ -342,18 +348,15 @@ a:hover, a:focus {
     user-select: none;
 }
 
-.page-previous.disabled, 
-.page-next.disabled {
+.page-previous.disabled, .page-next.disabled {
     background: #0E5C9E;
 }
 
-.page-previous:hover, 
-.page-next:hover {
+.page-previous:hover, .page-next:hover {
     background: #4DADFF;
 }
 
-.page-next.disabled:hover, 
-.page-previous.disabled:hover {
+.page-next.disabled:hover, .page-previous.disabled:hover {
     background: #0E5C9E;
 }
 
@@ -367,17 +370,14 @@ a:hover, a:focus {
 
 .list-nel {
     background-color: #fff;
-    border-collapse: separate;    
+    border-collapse: separate;
 }
 
-.list-body > .line:nth-of-type(odd) {
+.list-body>.line:nth-of-type(odd) {
     background-color: #F5F5F5
 }
 
-.list-head .title-content,
-.list-head .line .title-nel,
-.list-body .line .title-nel,
-.list-body .line .content-nel {
+.list-head .title-content, .list-head .line .title-nel, .list-body .line .title-nel, .list-body .line .content-nel {
     color: #333333;
 }
 
@@ -385,7 +385,20 @@ a:hover, a:focus {
     color: #333333;
 }
 
-
-.table-nel > div:nth-of-type(odd) {
+.table-nel>div:nth-of-type(odd) {
     background-color: #F5F5F5;
+}
+
+body {
+    color: #333333;
+}
+
+.btn-nel.btn-big {
+    height: 56px;
+    width: 138px;
+    margin-left: 20px;
+}
+
+.nel-input.big {
+    height: 56px;
 }

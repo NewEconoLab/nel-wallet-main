@@ -257,8 +257,13 @@
     font-family: PingFangSC-Medium;
     font-size: 20px;
     line-height: 20px;
-    padding-bottom: 8px;
-    border-bottom: 4px solid #198CEE;
+    padding-left: 8px;
+    border-left: 4px solid #198CEE;
+}
+
+.title {
+    padding-bottom: 32px;
+    padding-top: 40px;
 }
 
 .caption .title-summary {

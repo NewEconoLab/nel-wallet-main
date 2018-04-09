@@ -20,12 +20,9 @@
               <v-link href="#wallet">Wallet</v-link>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" v-if="loginshow">
             <li>
               <v-link ref="login" href="#login">logout</v-link>
-            </li>
-            <li>
-              <v-link href="#generate">Generate</v-link>
             </li>
           </ul>
         </div>
@@ -48,11 +45,17 @@ import Vue from "vue";
   }
 })
 export default class Main extends Vue {
+  loginshow: boolean = false;
   mounted() {
+    if (this.$root["currentRoute"] == "") {
+      this.$root["currentRoute"] = "#login";
+    }
     if (this.$root["currentRoute"] == "#login") {
       document.body.classList.add("login-body");
+      this.loginshow = false;
     } else {
       document.body.classList.remove("login-body");
+      this.loginshow = true;
     }
   }
 }

@@ -32,16 +32,18 @@ export default class transfer extends Vue
     }
     mounted() 
     {
-        var choose = StorageTool.getStorage("transfer_choose");
-        this.asset = choose;
         var str = StorageTool.getStorage("balances_asset");
         this.balances = JSON.parse(str) as BalanceInfo[];
+        var choose = StorageTool.getStorage("transfer_choose");
+        this.asset = (choose == null ? this.balances[ 0 ].asset : choose);
         var n: number = this.balances.findIndex(b => b.asset == this.asset);
         this.balance = this.balances[ n ];
+        this.history();
     }
-    choose()
+    choose(assetid: string)
     {
-        StorageTool.setStorage("transfer_choose", this.asset);
+        this.asset = assetid
+        StorageTool.setStorage("transfer_choose", assetid);
         var n: number = this.balances.findIndex(b => b.asset == this.asset);
         this.balance = this.balances[ n ];
     }
@@ -59,5 +61,10 @@ export default class transfer extends Vue
         var res: Result = await CoinTool.rawTransaction(this.targetaddr, this.asset, this.amount);
         if (!res.err)
             mui.alert(res.info);
+    }
+    async history()
+    {
+        var res = await WWW.api_getAddressTxs(LoginInfo.getCurrentAddress(), 20, 1);
+        console.log(res);
     }
 }

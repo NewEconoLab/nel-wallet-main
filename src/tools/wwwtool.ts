@@ -104,12 +104,21 @@ export class WWW
         return r;
     }
 
+    static async api_getAddressTxs(address: string, size: number, page: number)
+    {
+        var postdata = WWW.makeRpcPostBody("getaddresstxs", address, size, page);
+        var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        var r = json[ "result" ];
+        return r;
+    }
+
     static async api_postRawTransaction(data: Uint8Array): Promise<boolean>
     {
         var postdata = WWW.makeRpcPostBody("sendrawtransaction", data.toHexString());
         var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json[ "result" ] as boolean;
+        var r = json[ "result" ][ 0 ] as boolean;
         return r;
     }
 

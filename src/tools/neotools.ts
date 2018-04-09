@@ -165,7 +165,6 @@ export class neotools
                 try
                 {
                     let result: Result = await neotools.getPriKeyfromAccount(wallet.scrypt, password, account);
-                    console.log("getpkformacc:" + result);
                     arr.push(result.info);
                 } catch (error)
                 {
@@ -204,7 +203,6 @@ export class neotools
                         var address = ThinNeo.Helper.GetAddressFromPublicKey(pubkey);
                         var wif = ThinNeo.Helper.GetWifFromPrivateKey(result as Uint8Array);
                         var hexkey = (result as Uint8Array).toHexString();
-                        console.log(info + "|" + address + " wif=" + wif);
                         res.err = false;
                         res.info = { pubkey: pubkey, address: address, prikey: result as Uint8Array };
                         resolve(res);

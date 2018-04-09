@@ -14,11 +14,11 @@
                 <span :class="[transfer]"></span> Transfer
               </v-link>
             </li>
-            <li>
+            <!-- <li>
               <v-link ref="nns" href="#nns">
                 <span :class="[nns]"></span> NNS
               </v-link>
-            </li>
+            </li> -->
             <li>
               <v-link ref="setting" href="#settings">
                 <span :class="[setting]"></span> Settings
@@ -66,9 +66,9 @@ export default class FeatureComponent extends Vue {
     this.transfer = this.$refs["transfer"]["isActive"]
       ? "icon-transfer-select"
       : "icon-transfer-unselect";
-    this.nns = this.$refs["nns"]["isActive"]
-      ? "icon-nns-select"
-      : "icon-nns-unselect";
+    // this.nns = this.$refs["nns"]["isActive"]
+    //   ? "icon-nns-select"
+    //   : "icon-nns-unselect";
     this.setting = this.$refs["setting"]["isActive"]
       ? "icon-setting-select"
       : "icon-setting-unselect";

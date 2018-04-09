@@ -1,13 +1,11 @@
 <template>
     <wallet-layout>
         <div class="container">
-            <div class="line-title">
-                <div class="title">
-                    <span>NEO Balance</span>
-                    <div style="float:right">
-                        <span>Key Address ：{{currentAddress}}</span>
-                        <button class="btn btn-nel">Switch</button>
-                    </div>
+            <div class="title">
+                <span>NEO Balance</span>
+                <div style="float:right">
+                    <span>Key Address ：{{currentAddress}}</span>
+                    <button class="btn btn-nel">Switch</button>
                 </div>
             </div>
             <div class="neobalance">

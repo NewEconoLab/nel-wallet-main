@@ -1,21 +1,31 @@
 <template>
     <wallet-layout>
         <div class="container">
-            <div class="line-title">
-                <div class="title">
-                    <span>NEO Balance</span>
-                </div>
+            <div class="title">
+                <span>Transfer</span>
             </div>
         </div>
         <div class="container">
             <div class="transfer-panel">
                 <div class="form-horizontal">
                     <div class="col-sm-12">
-                        <label for="firstname" class="col-sm-2 control-label">Asset：</label>
-                        <div class="col-sm-10">
-                            <select @change="choose" v-model="asset" style="width:150px">
-                                <option v-for="balance in balances" :key="balance.asset" :value="balance.asset">{{balance.names}}</option>
-                            </select>
+                        <label for="firstname" class="col-sm-2 control-label" style="padding-top:20px;">Asset：</label>
+                        <div class="col-sm-3">
+                            <div class="dropdown">
+                                <div type="button" class="btn dropdown-toggle select-nel" id="dropdownMenu1" data-toggle="dropdown">
+                                    <div class="select-title">{{balance.names}}</div>
+                                    <div class="select-caret">
+                                        <span class="caret"></span>
+                                    </div>
+                                </div>
+                                <ul class="dropdown-menu dropdown-nel" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li role="presentation" v-for="balance in balances" :key="balance.asset" :value="balance.asset">
+                                        <a role="menuitem" tabindex="-1" @click="choose(balance.asset)">{{balance.names}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" style="padding-top:20px;">
                             <span> &nbsp;&nbsp;&nbsp;&nbsp; {{balance.balance}} {{balance.names}} available</span>
                         </div>
                     </div>
@@ -62,6 +72,31 @@
 
 
 <style>
+.select-nel {
+  background: #198cee;
+  border-radius: 5px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0;
+}
+.select-title {
+  padding-top: 15px;
+  float: left;
+  width: 110px;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 16px;
+}
+.select-caret {
+  padding-top: 15px;
+  margin-top: 0;
+  width: 36px;
+  float: right;
+  background: #ffffff;
+  border-radius: 0 5px 5px 0;
+  height: 54px;
+}
 .mess {
   padding-top: 45px;
 }
