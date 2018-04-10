@@ -14,13 +14,27 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li>
-              <v-link href="#explorer">Explorer</v-link>
+              <a href="https://scan.nel.group/#mainnet" target="_blank">Explorer</a>
             </li>
             <li>
-              <v-link href="#wallet">Wallet</v-link>
+              <a class="active-nel" href="#wallet">Wallet</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right" v-if="loginshow">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="text" id="network">MainNet</span>
+                <span class=" caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-nel">
+                <li id="testnet-btn">
+                  <a id="testa">TestNet</a>
+                </li>
+                <li id="mainnet-btn" class="active">
+                  <a id="maina">MainNet</a>
+                </li>
+              </ul>
+            </li>
             <li>
               <v-link ref="login" href="#login">logout</v-link>
             </li>
@@ -62,5 +76,7 @@ export default class Main extends Vue {
 </script>
 
 <style>
-
+.active-nel {
+  border-bottom: 4px solid #ffffff;
+}
 </style>

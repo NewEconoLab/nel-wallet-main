@@ -72,7 +72,7 @@
     display: none;
     float: left;
     min-width: 160px;
-    padding: 5px 0;
+    padding: 0px 0;
     margin: 2px 0 0;
     font-size: 14px;
     text-align: left;
@@ -94,6 +94,7 @@
 }
 
 .dropdown-nel>li>a {
+    text-align: center;
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -101,6 +102,8 @@
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
+    height: 38px;
+    padding-top: 8px;
 }
 
 .dropdown-nel>li>a:hover, .dropdown-nel>li>a:focus {
@@ -119,6 +122,14 @@
 
 .dropdown-nel>.disabled>a, .dropdown-nel>.disabled>a:hover, .dropdown-nel>.disabled>a:focus {
     color: #777;
+}
+
+#testa {
+    border-radius: 5px 5px 0px 0px;
+}
+
+#maina {
+    border-radius: 0px 0px 0px 0px;
 }
 
 .dropdown-header {

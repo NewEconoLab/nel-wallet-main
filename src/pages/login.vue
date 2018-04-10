@@ -3,13 +3,16 @@
     <div style="height:180px"></div>
     <div class="container">
       <div class="row login-container">
-        <div class="col-xs-2">
-          <div style="height:116px;text-align:center;margin:0 auto; line-height:116px;"><img src="../../static/img/NeoLogo.svg" alt=""></div>
-          <div style="text-align:center;height:70px;background: #198CEE;border-radius: 10px 0 0 10px;">
-            <v-link ref="login" href="#login">login</v-link>
+        <div class="col-xs-2 container-left">
+          <div class="container-icon"><img src="../../static/img/NeoLogo.svg" alt=""></div>
+          <div class="container-title active">
+            <a ref="login" href="#login">login</a>
+          </div>
+          <div class="container-title">
+            <a ref="login" href="#login">Generate</a>
           </div>
         </div>
-        <div class="col-xs-10 login-right">
+        <div class="col-xs-10 container-right">
           <div v-if="moudle_nep6" class="nep6-imp">
 
             <div class="title-login">
@@ -86,6 +89,31 @@
 </script>
 
 <style>
+.container-left .container-icon {
+  height: 116px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 116px;
+}
+
+.container-left .container-title {
+  padding-top: 20px;
+  text-align: center;
+  height: 70px;
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+}
+.container-title > a {
+  color: #b2b2b2;
+}
+.container-title.active {
+  background: #198cee;
+  border-radius: 10px 0 0 10px;
+}
+.container-title.active > a {
+  color: #ffffff;
+}
+
 .login-btn {
   width: 417px;
   margin: 0 auto;
@@ -161,7 +189,7 @@
   box-shadow: 0 2px 10px 0 #2c80c8;
   border-radius: 10px;
 }
-.login-container .login-right {
+.login-container .container-right {
   background: #ffffff;
   box-shadow: -3px 0 4px 0 #d1e8fc;
   border-radius: 0 10px 10px 0;
