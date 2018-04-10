@@ -86,6 +86,10 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
+.navbar-nav>li>.dropdown-menu {
+    border-radius: 5px;
+}
+
 .dropdown-nel .divider {
     height: 1px;
     margin: 9px 0;
@@ -117,19 +121,18 @@
     text-decoration: none;
     outline: 0;
     background: #77BCF6;
-    border-radius: 5px 0 0 0 0 5px 0 0 0 0 0 0;
 }
 
 .dropdown-nel>.disabled>a, .dropdown-nel>.disabled>a:hover, .dropdown-nel>.disabled>a:focus {
     color: #777;
 }
 
-#testa {
+.dropdown-nel li:first-child a {
     border-radius: 5px 5px 0px 0px;
 }
 
-#maina {
-    border-radius: 0px 0px 0px 0px;
+.dropdown-nel li:last-child a {
+    border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown-header {
