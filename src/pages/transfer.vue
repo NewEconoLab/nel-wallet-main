@@ -100,22 +100,6 @@
 .mess {
   padding-top: 45px;
 }
-.err .mess > p {
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #f25151;
-  line-height: 12px;
-}
-.success input {
-  border: 1px solid #b2b2b2;
-  box-shadow: 0 0 3px 0 #2dde4f;
-  border-radius: 5px;
-}
-.err input {
-  border: 1px solid #b2b2b2;
-  box-shadow: 0 0 3px 0 #f25151;
-  border-radius: 5px;
-}
 .line-title {
   padding-top: 40px;
   padding-bottom: 20px;
