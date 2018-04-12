@@ -1,10 +1,10 @@
 <template>
     <wallet-layout>
         <div class="container">
-            <div class="title">
+            <div class="title" style="padding-bottom:28px;">
                 <span>NEO Balance</span>
                 <div style="float:right">
-                    <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
+                    <span style="margin-right: 11px;" class="user-select-ok">Key Address ：{{currentAddress}}</span>
                     <button class="btn" :class="chooseAddress && chooseAddress.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
                 </div>
             </div>
@@ -61,10 +61,6 @@
 .btn-transfer:hover {
   color: #198cee;
 }
-.line-title {
-  padding-top: 40px;
-  padding-bottom: 20px;
-}
 .balance-type {
   font-family: PingFangSC-Medium;
   font-size: 20px;
@@ -75,10 +71,6 @@
   font-family: PingFangSC-Medium;
   font-size: 30px;
   line-height: 30px;
-}
-.line-title span {
-  font-size: 16px;
-  line-height: 16px;
 }
 .neobalance .claim {
   font-size: 16px;
