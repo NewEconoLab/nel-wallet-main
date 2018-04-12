@@ -12,7 +12,7 @@
                         <label for="firstname" class="col-sm-2 control-label" style="padding-top:20px;">Asset：</label>
                         <div class="col-sm-3">
                             <div class="dropdown">
-                                <div type="button" class="btn dropdown-toggle select-nel" id="dropdownMenu1" data-toggle="dropdown">
+                                <div type="button" class="btn dropdown-toggle select-nel" id="dropdownMenu1" data-toggle="dropdown" :class="balance.length>0 ? '' : 'select-disabled' ">
                                     <div class="select-title">{{balance.names}}</div>
                                     <div class="select-caret">
                                         <span class="caret"></span>
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="col-sm-4" style="padding-top:20px;">
-                            <span> &nbsp;&nbsp;&nbsp;&nbsp; {{balance.balance}} {{balance.names}} available</span>
+                            <span> &nbsp;&nbsp;&nbsp;&nbsp; {{balance.balance}} {{balance.names ? balance.names + "available" : ""}} </span>
                         </div>
                     </div>
                     <div class="col-sm-12" :class="addrerr!=''?(addrerr == 'true' ?'err':'success') :''">
@@ -78,6 +78,10 @@
   height: 56px;
   margin: 0 auto;
   padding: 0;
+}
+.select-disabled {
+  background: #77bcf6;
+  cursor: not-allowed;
 }
 .select-title {
   padding-top: 15px;

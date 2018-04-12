@@ -12,6 +12,7 @@
           <!-- <a class="navbar-brand" href="#"><img width="40" height="40" src="../assets/favicon.png" alt=""></a> -->
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <div class="logo"></div>
           <ul class="nav navbar-nav navbar-left">
             <li>
               <a href="https://scan.nel.group/#mainnet" target="_blank">Explorer</a>

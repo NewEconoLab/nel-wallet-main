@@ -4,27 +4,27 @@
             <div class="title">
                 <span>NEO Balance</span>
                 <div style="float:right">
-                    <span>Key Address ：{{currentAddress}}</span>
-                    <button class="btn btn-nel">Switch</button>
+                    <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
+                    <button class="btn" :class="chooseAddress && chooseAddress.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
                 </div>
             </div>
             <div class="neobalance">
                 <div>
-                    <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
+                    <div style="padding: 30px; padding-bottom: 40px;">
                         <span class="balance-type">NEO&nbsp;</span>
                         <span class="balance-amount">{{neoasset.neo}}</span>
                     </div>
-                    <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
+                    <div style="padding-left: 30px; padding-bottom: 30px;">
                         <span class="balance-type">GAS&nbsp;</span>
                         <span class="balance-amount">{{neoasset.gas}}</span>
                     </div>
-                    <div class="claim" style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
-                        GAS available to claim : {{neoasset.claim}}
+                    <div class="claim" style="padding: 30px; padding-left: 2.3%;">
+                        <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
                         <button class="btn btn-nel" v-if="neoasset.claim>0">Claim</button>
                     </div>
                 </div>
             </div>
-            <div class="balance-asset">
+            <div class="balance-asset" v-if="balances.length">
                 <div class="title">
                     <span>Asset</span>
                 </div>
