@@ -234,6 +234,7 @@
 .wif_imp input {
   font-size: 16px;
   line-height: 16px;
+  height:56px;
 }
 .back {
   padding-bottom: 8.4%;
