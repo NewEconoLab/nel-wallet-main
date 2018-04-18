@@ -281,7 +281,7 @@
   margin: 0 auto;
 }
 .nel-input-blg > input {
-  height: 100%;
+  height: 56px;
 }
 .hr-more {
   height: 20px;
