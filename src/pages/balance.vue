@@ -1,72 +1,72 @@
 <template>
-    <wallet-layout>
-        <div class="container">
-            <div class="title">
-                <span>NEO Balance</span>
-                <div style="float:right">
-                    <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
-                    <button class="btn" :class="chooseAddressarr && chooseAddressarr.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
-                </div>
-            </div>
-            <div class="neobalance">
-                <div>
-                    <div style="padding: 30px; padding-bottom: 40px;">
-                        <span class="balance-type">NEO&nbsp;</span>
-                        <span class="balance-amount">{{neoasset.neo}}</span>
-                    </div>
-                    <div style="padding-left: 30px; padding-bottom: 30px;">
-                        <span class="balance-type">GAS&nbsp;</span>
-                        <span class="balance-amount">{{neoasset.gas}}</span>
-                    </div>
-                    <div class="claim" style="padding: 30px; padding-left: 2.3%;">
-                        <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
-                        <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">Claim</button>
-                        <div class="spinner-wrap" v-if="!claimbtn">
-                            <div class="spinner">
-                                <div class="spinner-container container1">
-                                    <div class="circle1"></div>
-                                    <div class="circle2"></div>
-                                    <div class="circle3"></div>
-                                    <div class="circle4"></div>
-                                </div>
-                                <div class="spinner-container container2">
-                                    <div class="circle1"></div>
-                                    <div class="circle2"></div>
-                                    <div class="circle3"></div>
-                                    <div class="circle4"></div>
-                                </div>
-                                <div class="spinner-container container3">
-                                    <div class="circle1"></div>
-                                    <div class="circle2"></div>
-                                    <div class="circle3"></div>
-                                    <div class="circle4"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="loadmsg">&nbsp;{{loadmsg}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="balance-asset" v-if="balances.length">
-                <div class="title">
-                    <span>Asset</span>
-                </div>
-                <div v-for="balance in balances" :key="balance.asset" class="assetrow">
-                    <div class="row">
-                        <div class="col-lg-2 info">
-                            <span>{{balance.names}}</span>
-                        </div>
-                        <div class="col-lg-8 info">
-                            <span> {{balance.balance}}</span>
-                        </div>
-                        <div class="col-lg-2 transfer-btn">
-                            <span class="btn btn-transfer" @click="toTransfer(balance.asset)">Transfer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <wallet-layout>
+    <div class="container">
+      <div class="title" style="padding-bottom:28px;">
+        <span>NEO Balance</span>
+        <div style="float:right">
+          <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
+          <button class="btn" :class="chooseAddressarr && chooseAddressarr.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
         </div>
-    </wallet-layout>
+      </div>
+      <div class="neobalance">
+        <div>
+          <div style="padding: 30px; padding-bottom: 40px;">
+            <span class="balance-type">NEO&nbsp;</span>
+            <span class="balance-amount">{{neoasset.neo}}</span>
+          </div>
+          <div style="padding-left: 30px; padding-bottom: 30px;">
+            <span class="balance-type">GAS&nbsp;</span>
+            <span class="balance-amount">{{neoasset.gas}}</span>
+          </div>
+          <div class="claim" style="padding: 30px; padding-left: 2.3%;">
+            <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
+            <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">Claim</button>
+            <div class="spinner-wrap" v-if="!claimbtn">
+              <div class="spinner">
+                <div class="spinner-container container1">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+                </div>
+              </div>
+            </div>
+            <span class="loadmsg">&nbsp;{{loadmsg}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="balance-asset" v-if="balances.length">
+        <div class="title">
+          <span>Asset</span>
+        </div>
+        <div v-for="balance in balances" :key="balance.asset" class="assetrow">
+          <div class="row">
+            <div class="col-lg-2 info">
+              <span>{{balance.names}}</span>
+            </div>
+            <div class="col-lg-8 info">
+              <span> {{balance.balance}}</span>
+            </div>
+            <div class="col-lg-2 transfer-btn">
+              <span class="btn btn-transfer" @click="toTransfer(balance.asset)">Transfer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </wallet-layout>
 </template>
 
 <script lang="ts" src="./balance.ts">
@@ -84,10 +84,6 @@
 .btn-transfer:hover {
   color: #198cee;
 }
-.line-title {
-  padding-top: 40px;
-  padding-bottom: 20px;
-}
 .balance-type {
   font-family: PingFangSC-Medium;
   font-size: 20px;
@@ -98,10 +94,6 @@
   font-family: PingFangSC-Medium;
   font-size: 30px;
   line-height: 30px;
-}
-.line-title span {
-  font-size: 16px;
-  line-height: 16px;
 }
 .neobalance .claim {
   font-size: 16px;

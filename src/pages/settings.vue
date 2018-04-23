@@ -7,12 +7,12 @@
             <div class="panel panel-default settings">
                 <div>
                     <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
-                        <span>My Wallet Adress : &nbsp;{{address}}</span>
+                        <span>My Wallet Adress : &nbsp;<span class="user-select-ok">{{address}}</span></span>
                     </div>
                     <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
                         <span>My WIF : &nbsp;&nbsp;</span>
                         <button class="btn btn-nel" @click="visibleWif">Visible</button>
-                        <span>&nbsp;&nbsp;{{wif}}</span>
+                        <span class="user-select-ok">&nbsp;&nbsp;{{wif}}</span>
                     </div>
                     <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
                         <span>My Wallet file : &nbsp;&nbsp;</span>
@@ -20,8 +20,8 @@
                         <a v-if="href!=''" :download="walletname" :href="href">download</a>
                     </div>
                     <div style="padding-top: 2.8%; padding-bottom: 0.9%; padding-left: 2.3%;">
-                        <p>These information are very important , it may cause your lost if you lose them .
-                            <br> Save your keystore file and make copys of your wallet adress and your wif . Do not lose them!
+                        <p>This information is very important . It may cause your loss if you lose it .  
+                            <br> Save your keystore file and make copies of your wallet address and your WIF . Don't lose them .
                         </p>
                     </div>
                 </div>

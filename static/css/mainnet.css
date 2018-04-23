@@ -238,9 +238,8 @@
 .btn-disabled{
     color: #fff;
     background: #77BCF6;
-    box-shadow: 0 2px 4px 0 rgba(130,189,240,0.50);
     cursor: not-allowed;
-    padding: 12px 25px;
+    padding: 12px 23px;
     border-radius: 5px;
     font-size: 18px;
     line-height: 18px;
@@ -249,8 +248,7 @@
 .btn-nel {
     color: #fff;
     background-color: #198CEE;
-    padding: 12px 25px;
-    box-shadow: 0 2px 4px 0 #82BDF0;
+    padding: 12px 23px;
     border-radius: 5px;
     font-size: 18px;
     line-height: 18px;
@@ -305,7 +303,7 @@
     font-family: PingFangSC-Medium;
     font-size: 20px;
     line-height: 20px;
-    padding-left: 8px;
+    padding-left: 10px;
     border-left: 4px solid #198CEE;
 }
 
@@ -468,4 +466,12 @@ body {
     border: 1px solid #b2b2b2;
     box-shadow: 0 0 3px 0 #f25151;
     border-radius: 5px;
+}
+
+.user-select-ok{
+    -moz-user-select: text; 
+    -webkit-user-select: text; 
+    -ms-user-select: text; 
+    -khtml-user-select: text; 
+    user-select: text; 
 }

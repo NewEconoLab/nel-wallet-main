@@ -234,6 +234,7 @@
 .wif_imp input {
   font-size: 16px;
   line-height: 16px;
+  height:56px;
 }
 .back {
   padding-bottom: 8.4%;
@@ -280,7 +281,7 @@
   margin: 0 auto;
 }
 .nel-input-blg > input {
-  height: 100%;
+  height: 56px;
 }
 .hr-more {
   height: 20px;
