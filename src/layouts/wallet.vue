@@ -42,6 +42,7 @@ import Component from "vue-class-component";
 import MainLayout from "./Main.vue";
 import VLink from "../components/VLink.vue";
 import { WWW } from "../tools/wwwtool";
+import { StorageTool } from "../tools/storagetool";
 @Component({
   components: {
     VLink,
@@ -70,18 +71,21 @@ export default class FeatureComponent extends Vue {
     this.transfer = this.$refs["transfer"]["isActive"]
       ? "icon-transfer-select"
       : "icon-transfer-unselect";
-    // this.nns = this.$refs["nns"]["isActive"]
-    //   ? "icon-nns-select"
-    //   : "icon-nns-unselect";
     this.setting = this.$refs["setting"]["isActive"]
       ? "icon-setting-select"
       : "icon-setting-unselect";
 
     this.getHeight();
+    // StorageTool.heightRefresh();
   }
 
   async getHeight() {
-    this.blockheight = await WWW.api_getHeight();
+    WWW.api_getHeight().then(res => {
+      this.blockheight = res;
+    });
+    setTimeout(() => {
+      this.getHeight();
+    }, 15000);
   }
 }
 </script>

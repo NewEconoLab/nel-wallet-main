@@ -56,6 +56,34 @@ export class BalanceInfo
     name: { lang: string, name: string }[];
     names: string;
     type: string;
+
+    static jsonToArray(json: {}[])
+    {
+        let arr = new Array<BalanceInfo>();
+        for (const i in json)
+        {
+            if (json.hasOwnProperty(i))
+            {
+                const element = json[ i ];
+                let balance = new BalanceInfo();
+                balance.asset = element[ "asset" ];
+                balance.balance = element[ "balance" ];
+                balance.name = element[ "balance" ];
+                balance.names = element[ "names" ];
+                balance.type = element[ "type" ];
+                arr.push(balance);
+            }
+        }
+        return arr;
+
+    }
+}
+
+export class Nep5Balance
+{
+    assetid: string;
+    symbol: string;
+    balance: number;
 }
 
 export class Result
@@ -74,7 +102,45 @@ export class NeoAsset
 {
     neo: number;
     gas: number;
-    claim: number;
+    claim: string;
+}
+
+export class OldUTXO
+{
+    height: number;
+    txid: string;
+    n: number;
+    constructor(txid: string, n: number)
+    {
+        this.n = n;
+        this.txid = txid;
+    }
+
+    static oldutxosPush(olds: OldUTXO[])
+    {
+        let arr: OldUTXO[] = this.getOldutxos();
+        StorageTool.setStorage("old-utxos", JSON.stringify(arr.concat(olds)));
+    }
+
+    static setOldutxos(olds: OldUTXO[])
+    {
+        // let arr: OldUTXO[] = this.getOldutxos();
+        StorageTool.setStorage("old-utxos", JSON.stringify(olds));
+    }
+
+    static getOldutxos()
+    {
+        var arr: OldUTXO[] = new Array<OldUTXO>();
+        var str = StorageTool.getStorage("old-utxos");
+        if (str)
+            arr = JSON.parse(str) as OldUTXO[];
+        return arr;
+    }
+
+    compareUtxo(utxo: UTXO)
+    {
+        return this.txid == utxo.txid && this.n == utxo.n;
+    }
 }
 
 export class UTXO
@@ -84,12 +150,70 @@ export class UTXO
     n: number;
     asset: string;
     count: Neo.Fixed8;
+
+    static ArrayToString(utxos: UTXO[]): Array<any>
+    {
+        var str = "";
+        var obj = [];
+        for (var i = 0; i < utxos.length; i++)
+        {
+            obj.push({});
+            obj[ i ].n = utxos[ i ].n;
+            obj[ i ].addr = utxos[ i ].addr;
+            obj[ i ].txid = utxos[ i ].txid;
+            obj[ i ].asset = utxos[ i ].asset;
+            obj[ i ].count = utxos[ i ].count.toString();
+        }
+        return obj
+    }
+    static StringToArray(obj: Array<any>): UTXO[]
+    {
+        var utxos: Array<UTXO> = new Array<UTXO>();
+        for (var i = 0; i < obj.length; i++)
+        {
+            utxos.push(new UTXO);
+            var str: string = obj[ i ].count;
+            utxos[ i ].n = obj[ i ].n;
+            utxos[ i ].addr = obj[ i ].addr;
+            utxos[ i ].txid = obj[ i ].txid;
+            utxos[ i ].asset = obj[ i ].asset;
+            utxos[ i ].count = Neo.Fixed8.parse(str);
+        }
+        return utxos;
+    }
+
+    static setAssets(assets: { [ id: string ]: UTXO[] })
+    {
+        var obj = {}
+        for (var asset in assets)
+        {
+            let arr = UTXO.ArrayToString(assets[ asset ]);
+            obj[ asset ] = arr;
+        }
+        sessionStorage.setItem("current-assets-utxos", JSON.stringify(obj));
+    }
+    static getAssets()  
+    {
+        let assets = null;
+        var str = sessionStorage.getItem("current-assets-utxos");
+        if (str !== null && str != undefined && str != '')
+        {
+            assets = JSON.parse(str);
+            for (const asset in assets)
+            {
+                assets[ asset ] = UTXO.StringToArray(assets[ asset ]);
+            }
+        }
+        return assets;
+    }
 }
 
 export class Consts
 {
-    static baseContract = "0xdffbdd534a41dd4c56ba5ccba9dfaaf4f84e1362";
+    // static baseContract = "0x2172f8d5b17c2d45fa3ff58dee8e8a4c3f51ef72";
+    static baseContract = "954f285a93eed7b4aed9396a7806a5812f1a5950";
     static registerContract = "d6a5e965f67b0c3e5bec1f04f028edb9cb9e3f7c";
+    // static domainContract = '954f285a93eed7b4aed9396a7806a5812f1a5950';
 }
 
 export class DomainInfo
@@ -107,5 +231,67 @@ export class RootDomainInfo extends DomainInfo
     constructor()
     {
         super();
+    }
+}
+
+export class Transactionforaddr
+{
+    addr: string;
+    blockindex: number;
+    blocktime: { $date: number }
+    txid: string;
+}
+export interface Transaction
+{
+    txid: string;
+    type: string;
+    vin: { txid: string, vout: number }[];
+    vout: { n: number, asset: string, value: string, address: string }[];
+}
+export class History
+{
+    n: number;
+    asset: string;
+    value: string;
+    address: string;
+    assetname: string;
+    txtype: string;
+    time: string; txid: string;
+}
+export class Claim
+{
+    addr: string;//"ALfnhLg7rUyL6Jr98bzzoxz5J7m64fbR4s"
+    asset: string;//"0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b"
+    claimed: boolean;//""
+    createHeight: number;//1365554
+    n: number;//0
+    txid: string;//"0x90800a9dde3f00b61e16a387aa4a2ea15e4c7a4711a51aa9751da224d9178c64"
+    useHeight: number;//1373557
+    used: string;//"0x47bf58edae75796b1ba4fd5085e5012c3661109e2e82ad9b84666740e561c795"
+    value: number;//"1"
+
+    constructor(json: {})
+    {
+        this.addr = json[ 'addr' ];
+        this.asset = json[ 'asset' ];
+        this.claimed = json[ 'claimed' ];
+        this.createHeight = json[ 'createHeight' ];
+        this.n = json[ 'n' ];
+        this.txid = json[ 'txid' ];
+        this.useHeight = json[ 'useHeight' ];
+        this.used = json[ 'used' ];
+        this.value = json[ 'value' ];
+    }
+    static strToClaimArray(arr: {}[]): Claim[]
+    {
+        let claimarr = new Array<Claim>();
+        for (const i in arr)
+        {
+            if (arr.hasOwnProperty(i))
+            {
+                claimarr.push(new Claim(arr[ i ]));
+            }
+        }
+        return claimarr;
     }
 }

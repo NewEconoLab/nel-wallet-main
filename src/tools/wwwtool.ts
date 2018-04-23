@@ -1,14 +1,11 @@
 import { Result, BalanceInfo, AssetEnum } from './entity';
+import { CoinTool } from './cointool';
 export class WWW
 {
     static api: string = "https://api.nel.group/api/mainnet";
-    static rpc: string = "http://47.96.168.8:20332/mainnet";
-    static otcgo: string = "http://state-api.otcgo.cn/api/v1/mainnet";
-    static rpcName: string = "";
+    static apiaggr: string = "https://apiaggr.nel.group/api/mainnet";
     static makeRpcUrl(url: string, method: string, ..._params: any[])
     {
-
-
         if (url[ url.length - 1 ] != '/')
             url = url + "/";
         var urlout = url + "?jsonrpc=2.0&id=1&method=" + method + "&params=[";
@@ -36,6 +33,20 @@ export class WWW
         return body;
     }
 
+    static async gettransbyaddress(address: string, pagesize: number, pageindex: number)
+    {
+        var postdata =
+            WWW.makeRpcPostBody(
+                "gettransbyaddress",
+                "ARFe4mTKRTETerRoMsyzBXoPt2EKBvBXFX",
+                pagesize,
+                pageindex
+            );
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        var r = json[ "result" ];
+        return r;
+    }
 
     static async  api_getHeight()
     {
@@ -61,46 +72,30 @@ export class WWW
         var json = await result.json();
         var r = json[ "result" ];
         return r;
-
+    }
+    static async api_getnep5Balance(address: string)
+    {
+        var str = WWW.makeRpcUrl(WWW.api, "getallnep5assetofaddress", address, 1);
+        var result = await fetch(str, { "method": "get" });
+        var json = await result.json();
+        var r = json[ "result" ];
+        return r;
     }
     static async api_getBalance(address: string)
     {
-        var res: Result = new Result();
         var str = WWW.makeRpcUrl(WWW.api, "getbalance", address);
         var value = await fetch(str, { "method": "get" });
         var json = await value.json();
-        if (json[ "result" ])
-        {
-            var r = json[ "result" ];
-            var balances = r as Array<BalanceInfo>;
-            balances.map(balance => balance.names = balance.name.map(name => name.name).join('|'));
-            balances.map((balance) =>
-            {
-                if (balance.asset == AssetEnum.NEO)
-                {
-                    balance.names = "NEO";
-                }
-                if (balance.asset == AssetEnum.GAS)
-                {
-                    balance.names = "GAS";
-                }
-            });
-            res.err = false;
-            res.info = balances;
-        } else
-        {
-            res.err = true;
-            res.info = json[ "error" ];
-        }
-        return res;
+        var r = json[ "result" ];
+        return r;
     }
 
-    static async otc_getBalances(address: string)
+    static async getNep5Asset(asset: string)
     {
-        var str = WWW.otcgo + "/address/balances/{" + address + "}";
-        var value = await fetch(str, { "method": "get" });
-        var json = await value.json();
-        var r = json[ "data" ];
+        var postdata = WWW.makeRpcPostBody("getnep5asset", asset);
+        var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        var r = json[ "result" ][ 0 ];
         return r;
     }
 
@@ -122,27 +117,29 @@ export class WWW
         return r;
     }
 
-    static async api_getclaimgas(address: string): Promise<number>
+    static async api_getclaimgas(address: string, type: number)
     {
-        var str = WWW.makeRpcUrl(WWW.api, "getclaimgas", address);
+        if (type)
+            var str = WWW.makeRpcUrl(WWW.api, "getclaimgas", address, type);
+        else
+            var str = WWW.makeRpcUrl(WWW.api, "getclaimgas", address);
         var result = await fetch(str, { "method": "get" });
         var json = await result.json();
         var r = json[ "result" ];
         if (r == undefined)
             return 0;
-        return r[ 0 ][ "gas" ];
+        return r[ 0 ];
     }
 
-    static async rpc_getURL()
+    static async api_getclaimtxhex(address: string): Promise<string>
     {
-        var str = WWW.makeRpcUrl(WWW.api, "getnoderpcapi");
+        var str = WWW.makeRpcUrl(WWW.api, "getclaimtxhex", address);
         var result = await fetch(str, { "method": "get" });
         var json = await result.json();
-        var r = json[ "result" ][ 0 ];
-        var url = r.nodeList[ 0 ];
-        WWW.rpc = url;
-        WWW.rpcName = r.nodeType;
-        return url;
+        var r = json[ "result" ];
+        if (r == undefined)
+            return "";
+        return r[ 0 ][ "claimtxhex" ];
     }
 
     static async  rpc_getHeight()
@@ -173,7 +170,37 @@ export class WWW
         var json = await result.json();
         if (json[ "result" ] == null)
             return null;
-        var r = json[ "result" ]
+        var r = json[ "result" ][ 0 ]
         return r;
     }
+    static async getrawtransaction(txid: string)
+    {
+        var str = WWW.makeRpcUrl(WWW.api, "getrawtransaction", txid);
+        var result = await fetch(str, { "method": "get" });
+        var json = await result.json();
+        if (!json[ "result" ])
+            return null;
+        var r = json[ "result" ][ 0 ]
+        return r;
+    }
+
+    //注册域名时塞值
+    static async setnnsinfo(address: string, name: string, time: number)
+    {
+        var str = WWW.makeRpcUrl(WWW.api, "setnnsinfo", address, name, time);
+        var result = await fetch(str, { "method": "get" });
+        var json = await result.json();
+        if (json[ "result" ] == null)
+            return null;
+        var r = json[ "result" ][ 0 ]
+        return r;
+    }
+    static async getnnsinfo(address: string)
+    {
+    }
+    static async delnnsinfo(address: string, domain: string)
+    {
+    }
+
+
 }

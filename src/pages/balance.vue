@@ -5,7 +5,7 @@
                 <span>NEO Balance</span>
                 <div style="float:right">
                     <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
-                    <button class="btn" :class="chooseAddress && chooseAddress.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
+                    <button class="btn" :class="chooseAddressarr && chooseAddressarr.length>1 ? 'btn-nel' : 'btn-disabled' ">Switch</button>
                 </div>
             </div>
             <div class="neobalance">
@@ -20,7 +20,30 @@
                     </div>
                     <div class="claim" style="padding: 30px; padding-left: 2.3%;">
                         <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
-                        <button class="btn btn-nel" v-if="neoasset.claim>0">Claim</button>
+                        <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">Claim</button>
+                        <div class="spinner-wrap" v-if="!claimbtn">
+                            <div class="spinner">
+                                <div class="spinner-container container1">
+                                    <div class="circle1"></div>
+                                    <div class="circle2"></div>
+                                    <div class="circle3"></div>
+                                    <div class="circle4"></div>
+                                </div>
+                                <div class="spinner-container container2">
+                                    <div class="circle1"></div>
+                                    <div class="circle2"></div>
+                                    <div class="circle3"></div>
+                                    <div class="circle4"></div>
+                                </div>
+                                <div class="spinner-container container3">
+                                    <div class="circle1"></div>
+                                    <div class="circle2"></div>
+                                    <div class="circle3"></div>
+                                    <div class="circle4"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="loadmsg">&nbsp;{{loadmsg}}</span>
                     </div>
                 </div>
             </div>
@@ -109,6 +132,157 @@
 .balance-asset .assetrow {
   padding-top: 20px;
   text-align: center;
+}
+.loadmsg {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #b2b2b2;
+  line-height: 12px;
+}
+/* 加载动画 */
+.spinner-wrap {
+  display: inline-block;
+  background-color: #198cee;
+  padding: 12px 23px;
+  border-radius: 5px;
+  vertical-align: middle;
+  width: 46px;
+  height: 18px;
+  box-sizing: content-box;
+  text-align: center;
+}
+.spinner {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-left: 13px;
+}
+
+.container1 > div,
+.container2 > div,
+.container3 > div {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+
+  border-radius: 100%;
+  position: absolute;
+  -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+  animation: bouncedelay 1.2s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .spinner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.container2 {
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+.container3 {
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+}
+
+.circle1 {
+  top: 0;
+  left: 0;
+}
+.circle2 {
+  top: 0;
+  right: 0;
+}
+.circle3 {
+  right: 0;
+  bottom: 0;
+}
+.circle4 {
+  left: 0;
+  bottom: 0;
+}
+
+.container2 .circle1 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.container3 .circle1 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.container1 .circle2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.container2 .circle2 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+.container3 .circle2 {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s;
+}
+
+.container1 .circle3 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+
+.container2 .circle3 {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+
+.container3 .circle3 {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+
+.container1 .circle4 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.container2 .circle4 {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+
+.container3 .circle4 {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
 }
 </style>
 
