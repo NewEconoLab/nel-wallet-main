@@ -1807,8 +1807,6 @@ var neotools = /** @class */ (function () {
                     var r = 8;
                     var p = 8;
                     ThinNeo.Helper.GetPrivateKeyFromNep2(nep2, password, n, r, p, function (info, result) {
-                        //spanNep2.textContent = "info=" + info + " result=" + result;
-                        console.log("result=" + "info=" + info + " result=" + result);
                         login.prikey = result;
                         if (login.prikey != null) {
                             login.pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(login.prikey);

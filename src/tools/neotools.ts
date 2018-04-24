@@ -121,8 +121,6 @@ export class neotools
             var p: number = 8
             ThinNeo.Helper.GetPrivateKeyFromNep2(nep2, password, n, r, p, (info, result) =>
             {
-                //spanNep2.textContent = "info=" + info + " result=" + result;
-                console.log("result=" + "info=" + info + " result=" + result);
                 login.prikey = result as Uint8Array;
                 if (login.prikey != null)
                 {
