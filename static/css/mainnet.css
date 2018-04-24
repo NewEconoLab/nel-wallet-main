@@ -58,6 +58,7 @@
 .navbar-nel .navbar-collapse, .navbar-nel .navbar-form {
     border-color: #fff;
 }
+
 .navbar-nel .navbar-collapse .logo {
     width: 161px;
     height: 50px;
@@ -235,7 +236,7 @@
     color: #444;
 }
 
-.btn-disabled{
+.btn-disabled {
     color: #fff;
     background: #77BCF6;
     cursor: not-allowed;
@@ -468,10 +469,30 @@ body {
     border-radius: 5px;
 }
 
-.user-select-ok{
-    -moz-user-select: text; 
-    -webkit-user-select: text; 
-    -ms-user-select: text; 
-    -khtml-user-select: text; 
-    user-select: text; 
+.user-select-ok {
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    -khtml-user-select: text;
+    user-select: text;
+}
+
+.page {
+    width: 101px;
+    height: 38px;
+    margin: 0 auto;
+    /* Firefox */
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    /* Safari, Chrome, and Opera */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    /* W3C */
+    display: box;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }

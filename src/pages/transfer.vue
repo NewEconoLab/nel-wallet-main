@@ -172,8 +172,8 @@
   line-height: 16px;
 }
 .history-panel {
-  background: #454f60;
-  color: #ffffff;
+  background: #fff;
+  color: #333;
   border-radius: 5px;
   padding-bottom: 30px;
   margin-bottom: 15px;
@@ -199,7 +199,6 @@
 .history .address {
   font-family: PingFangSC-Medium;
   font-size: 16px;
-  color: #ffffff;
   line-height: 16px;
 }
 .history > div {
@@ -209,7 +208,7 @@
   padding-top: 8px;
 }
 .history .time {
-  border-top: 1px solid #b2b2b2;
+  border-top: 1px solid #f2f2f2;
 }
 </style>
 
