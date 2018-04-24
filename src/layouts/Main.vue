@@ -21,7 +21,7 @@
               <a class="active-nel" href="#wallet">Wallet</a>
             </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" v-if="loginshow">
+          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span class="text" id="network">MainNet</span>
@@ -29,7 +29,7 @@
               </a>
               <ul class="dropdown-menu dropdown-nel">
                 <li id="testnet-btn">
-                  <a id="testa">TestNet</a>
+                  <a id="testa" target="_blank" href="https://testwallet.nel.group/#login">TestNet</a>
                 </li>
                 <li id="mainnet-btn" class="active">
                   <a id="maina">MainNet</a>
@@ -37,7 +37,7 @@
               </ul>
             </li>
             <li>
-              <v-link ref="login" href="#login">logout</v-link>
+              <v-link ref="login" href="#login" v-if="loginshow">logout</v-link>
             </li>
           </ul>
         </div>
