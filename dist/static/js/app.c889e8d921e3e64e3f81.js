@@ -65,6 +65,7 @@ var vue_class_component_1 = __webpack_require__("c+8m");
 var Main_vue_1 = __webpack_require__("l7Tq");
 var VLink_vue_1 = __webpack_require__("N5E8");
 var wwwtool_1 = __webpack_require__("50aY");
+var storagetool_1 = __webpack_require__("5LD5");
 var FeatureComponent = /** @class */ (function (_super) {
     __extends(FeatureComponent, _super);
     function FeatureComponent() {
@@ -87,6 +88,10 @@ var FeatureComponent = /** @class */ (function (_super) {
             ? "icon-setting-select"
             : "icon-setting-unselect";
         this.getHeight();
+        var arr = storagetool_1.StorageTool.getLoginArr();
+        if (arr.length == 0) {
+            window.location.hash = "#login";
+        }
         // StorageTool.heightRefresh();
     };
     FeatureComponent.prototype.getHeight = function () {
@@ -1923,14 +1928,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var wallet = __webpack_require__("1d4v");
 var wallet_default = /*#__PURE__*/__webpack_require__.n(wallet);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-63f5a113","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/layouts/wallet.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-dd301d12","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/layouts/wallet.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',[_c('nav',{staticClass:"navbar navbar-wallet"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"navbar-collapse collapse",attrs:{"id":"navbar"}},[_c('ul',{staticClass:"nav navbar-nav navbar-left"},[_c('li',[_c('v-link',{ref:"balance",attrs:{"href":"#balance"}},[_c('span',{class:[_vm.balance]}),_vm._v(" Balance\n            ")])],1),_vm._v(" "),_c('li',[_c('v-link',{ref:"transfer",attrs:{"href":"#transfer"}},[_c('span',{class:[_vm.transfer]}),_vm._v(" Transfer\n            ")])],1),_vm._v(" "),_c('li',[_c('v-link',{ref:"setting",attrs:{"href":"#settings"}},[_c('span',{class:[_vm.setting]}),_vm._v(" Settings\n            ")])],1)]),_vm._v(" "),_c('div',{staticClass:"blockheight"},[_vm._v("Block Height："+_vm._s(_vm.blockheight))])])])]),_vm._v(" "),_vm._t("default")],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var layouts_wallet = (esExports);
 // CONCATENATED MODULE: ./src/layouts/wallet.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("V49g")
+  __webpack_require__("YdiV")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -2011,14 +2016,14 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "V49g":
+/***/ "Vgzj":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ "Vgzj":
+/***/ "YdiV":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

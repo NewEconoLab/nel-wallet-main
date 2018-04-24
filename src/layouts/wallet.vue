@@ -76,6 +76,10 @@ export default class FeatureComponent extends Vue {
       : "icon-setting-unselect";
 
     this.getHeight();
+    let arr = StorageTool.getLoginArr();
+    if (arr.length == 0) {
+      window.location.hash = "#login";
+    }
     // StorageTool.heightRefresh();
   }
 
