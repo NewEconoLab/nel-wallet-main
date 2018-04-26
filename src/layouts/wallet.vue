@@ -93,7 +93,7 @@ export default class FeatureComponent extends Vue {
   }
 }
 </script>
-<style>
+<style lang="less">
 .container {
   padding-left: 0px;
   padding-right: 0px;

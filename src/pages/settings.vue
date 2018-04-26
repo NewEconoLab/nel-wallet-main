@@ -33,7 +33,7 @@
 <script lang="ts" src="./settings.ts">
 </script>
 
-<style>
+<style lang="less">
 .settings span {
   font-family: PingFangSC-Medium;
   font-size: 16px;

@@ -98,7 +98,7 @@
 </script>
 
 
-<style>
+<style lang="less">
 .select-nel {
   background: #198cee;
   border-radius: 5px;

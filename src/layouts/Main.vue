@@ -76,7 +76,7 @@ export default class Main extends Vue {
 }
 </script>
 
-<style>
+<style lang="less">
 .active-nel {
   border-bottom: 4px solid #ffffff;
 }

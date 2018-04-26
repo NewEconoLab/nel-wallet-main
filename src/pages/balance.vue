@@ -101,7 +101,7 @@
 
 <script lang="ts" src="./balance.ts">
 </script>
-<style>
+<style lang="less">
 .neobalance {
   background: #ffffff;
   border-radius: 5px;

@@ -23,7 +23,7 @@
 <script lang="ts" src="./nns.ts">
 </script>
 
-<style>
+<style lang="less">
 .input-err {
   box-shadow: 0 0 3px 0 rgba(255, 106, 106, 0.5);
 }

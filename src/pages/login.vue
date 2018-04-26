@@ -1,9 +1,9 @@
 <template>
   <main-layout>
     <div style="height:180px"></div>
-    <div class="container">
+    <div class="container-box">
       <div class="row login-container">
-        <div class="col-xs-2 container-left">
+        <div class="container-left">
           <div class="container-icon"><img src="../../static/img/NeoLogo.svg" alt=""></div>
           <div class="container-title" @click="cutModual('nep6')" :class="{'active':!(moudle_generate||moudle_download)}">
             <span ref="login">login</span>
@@ -12,7 +12,7 @@
             <span ref="login">Generate</span>
           </div>
         </div>
-        <div class="col-xs-10 container-right">
+        <div class="container-right">
           <div v-if="moudle_nep6" class="nep6-imp">
 
             <div class="title-login">
@@ -135,6 +135,7 @@
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </main-layout>
@@ -143,7 +144,46 @@
 <script lang="ts" src="./login.ts">
 </script>
 
-<style>
+<style lang="less">
+.container-box {
+  width: 835px;
+  min-width: 835px;
+  margin: 0 auto;
+  .login-container {
+    background: #ffffff;
+    box-shadow: 0 2px 10px 0 #2c80c8;
+    border-radius: 10px;
+    .container-left {
+      // padding-left: 0px;
+      // padding-right: 0px;
+      width: 185px;
+      height: 580px;
+      float: left;
+      border-radius: 10px 0 0 10px;
+      .container-icon {
+        height: 116px;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 116px;
+      }
+      .container-title {
+        padding-top: 20px;
+        text-align: center;
+        height: 70px;
+        font-family: PingFangSC-Medium;
+        font-size: 20px;
+      }
+    }
+    .container-right {
+      background: #ffffff;
+      box-shadow: -3px 0 4px 0 #d1e8fc;
+      width: 680px;
+      height: 580px;
+      float: right;
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
 .guide {
   padding-bottom: 30px;
   font-family: PingFangSC-Medium;
@@ -188,24 +228,7 @@
   margin-top: 1%;
   padding-bottom: 10.4%;
 }
-.container-left {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.container-left .container-icon {
-  height: 116px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 116px;
-}
 
-.container-left .container-title {
-  padding-top: 20px;
-  text-align: center;
-  height: 70px;
-  font-family: PingFangSC-Medium;
-  font-size: 20px;
-}
 .container-title > span {
   color: #b2b2b2;
 }
@@ -234,7 +257,7 @@
 .wif_imp input {
   font-size: 16px;
   line-height: 16px;
-  height:56px;
+  height: 56px;
 }
 .back {
   padding-bottom: 8.4%;
@@ -287,25 +310,16 @@
   height: 20px;
   width: 129px;
   position: relative;
-  left: 50%;
+  left: 41%;
   top: -30px;
-
+  color: #b2b2b2;
   font: normal 1.2em/20px;
   vertical-align: middle;
   text-align: center;
   border-radius: 4px;
   background-color: #ffffff;
 }
-.login-container {
-  background: #ffffff;
-  box-shadow: 0 2px 10px 0 #2c80c8;
-  border-radius: 10px;
-}
-.login-container .container-right {
-  background: #ffffff;
-  box-shadow: -3px 0 4px 0 #d1e8fc;
-  border-radius: 0 10px 10px 0;
-}
+
 .input-group-addon {
   padding: 0;
   border: 0;
