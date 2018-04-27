@@ -14,7 +14,6 @@
         </div>
         <div class="container-right">
           <div v-if="moudle_nep6" class="nep6-imp">
-
             <div class="title-login">
               <span>
                 Login your wallet
@@ -135,9 +134,9 @@
             </div>
           </div>
         </div>
-        
       </div>
     </div>
+    <!-- <alert></alert> -->
   </main-layout>
 </template>
 
