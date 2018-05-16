@@ -6,7 +6,6 @@ import { neotools } from "./../tools/neotools";
 import { StorageTool } from '../tools/storagetool';
 import { LoginInfo } from './../tools/entity';
 import VLink from "../components/VLink.vue";
-import Alert from "../components/alert.vue";
 /// <reference path="../tools/neo-ts.d.ts"/>
 
 declare const mui;
@@ -15,8 +14,7 @@ declare const mui;
   components:
     {
       "main-layout": MainLayout,
-      "v-link": VLink,
-      "alert": Alert,
+      "v-link": VLink
     }
 })
 export default class login extends Vue 

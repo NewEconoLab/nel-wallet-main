@@ -1,13 +1,14 @@
 import { WWW } from '../tools/wwwtool';
 import { CoinTool } from '../tools/cointool';
 import { neotools } from '../tools/neotools';
-import { LoginInfo, BalanceInfo, Result, NeoAsset, Transactionforaddr, Transaction, History } from './../tools/entity';
+import { LoginInfo, BalanceInfo, Result, NeoAsset, Transactionforaddr, Transaction, History, Nep5Balance } from '../tools/entity';
 import { StorageTool } from '../tools/storagetool';
 import WalletLayout from "../layouts/wallet.vue";
 import axios from "axios"
 import Vue from "vue";
 import Component from "vue-class-component";
 import { DateTool } from '../tools/timetool';
+import { NNSTool } from '../tools/nnstool';
 
 declare const mui;
 @Component({
@@ -17,7 +18,9 @@ declare const mui;
 })
 export default class transfer extends Vue 
 {
-    targetaddr: string;
+    target: string;
+    isDomain: boolean;
+    toaddress: string;
     amount: string;
     asset: string;
     balances: BalanceInfo[] = [];
@@ -31,10 +34,13 @@ export default class transfer extends Vue
     constructor() 
     {
         super();
-        this.targetaddr = "";
+        this.target = "";
+        this.isDomain = false;
+        this.toaddress = "";
         this.amount = "";
         this.asset = "";
         this.txpage = 1;
+        Neo.Cryptography.RandomNumberGenerator.startCollectors();
     }
     mounted() 
     {
@@ -47,10 +53,13 @@ export default class transfer extends Vue
             var choose = StorageTool.getStorage("transfer_choose");
             this.asset = (choose == null ? this.balances[ 0 ].asset : choose);
             var n: number = this.balances.findIndex(b => b.asset == this.asset);
+            n = n < 0 ? 0 : n;
             this.balance = this.balances[ n ];
             this.history();
+            // this.awaitHeight();
         }
     }
+
     cutPage(btn: string)
     {
         btn == "next" ? this.txpage++ : (this.txpage <= 1 ? this.txpage = 1 : this.txpage--);
@@ -64,11 +73,42 @@ export default class transfer extends Vue
         this.balance = this.balances[ n ];
         this.verify_Amount();
     }
-    verify_addr()
+
+    async updateBalances()
     {
-        if (neotools.verifyPublicKey(this.targetaddr))
+        let currcountAddr = LoginInfo.getCurrentAddress();
+        var balances = await WWW.api_getBalance(currcountAddr) as BalanceInfo[];
+        var nep5balances = await WWW.api_getnep5Balance(currcountAddr) as Nep5Balance[];
+        let height = await WWW.api_getHeight();
+        this.balances = BalanceInfo.getBalancesByArr(balances, nep5balances, height);
+        StorageTool.setStorage("balances_asset", JSON.stringify(this.balances));
+    }
+
+    async verify_addr()
+    {
+        let isDomain = NNSTool.verifyDomain(this.target);
+        let isAddress = NNSTool.verifyAddr(this.target);
+        if (isDomain)
         {
-            this.addrerr = 'false'; return true;
+            let addr = await NNSTool.resolveData(this.target);
+            if (addr)
+            {
+                this.toaddress = addr;
+                this.isDomain = true;
+                this.addrerr = 'false'; return true;
+            }
+            else
+            {
+                this.addrerr = 'true'; return false;
+            }
+        }
+        else if (isAddress)
+        {
+            if (neotools.verifyPublicKey(this.target))
+            {
+                this.toaddress = this.target;
+                this.addrerr = 'false'; return true;
+            }
         }
         else { this.addrerr = 'true'; return false; }
     }
@@ -86,15 +126,57 @@ export default class transfer extends Vue
         {
             if (this.verify_addr() && this.verify_Amount())
             {
-                if (this.balance.type == "nep5")
+                if (!!this.balance[ "type" ] && this.balance.type == "nep5")
                 {
-                    let res = await CoinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.targetaddr, this.asset, this.amount);
+                    let res = await CoinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, this.amount);
                     if (!res[ "err" ])
+                    {
                         mui.toast("Your transaction has been sent, please check it later");
+                        let his: History = new History();
+                        his.address = this.toaddress;
+                        his.asset = this.asset;
+                        his.value = this.amount;
+                        his.txtype = "in";
+                        his[ "waiting" ] = true;
+                        his.time = DateTool.dateFtt("yyyy-MM-dd hh:mm:ss", new Date());
+                        his.assetname = this.balance.names;
+                        his.txid = res.info;
+                        this.txs = [ his ].concat(this.txs);
+                        let num = parseFloat(this.balance.balance + "");
+                        let bear = num - parseFloat(this.amount);
+                        this.balance.balance = bear;
+                        this.amount = "";
+                        var height = await WWW.api_getHeight();
+                        BalanceInfo.setBalanceSotre(this.balance, height);
+                        History.setHistoryStore(his, height);
+                        StorageTool.setStorage("current-height", height + "");
+                    }
+                    else
+                    {
+                        mui.alert("Transaction failure");
+                    }
                 } else
                 {
-                    let res: Result = await CoinTool.rawTransaction(this.targetaddr, this.asset, this.amount);
+                    let res: Result = await CoinTool.rawTransaction(this.toaddress, this.asset, this.amount);
                     mui.toast(res.info);
+                    let his: History = new History();
+                    his.address = this.toaddress;
+                    his.asset = this.asset;
+                    his.value = this.amount;
+                    his.txtype = "in";
+                    his[ "waiting" ] = true;
+                    his.time = DateTool.dateFtt("yyyy-MM-dd hh:mm:ss", new Date());
+                    his.assetname = this.balance.names;
+                    his.txid = res.info;
+                    this.txs = [ his ].concat(this.txs);
+                    let num = parseFloat(this.balance.balance + "");
+                    let bear = num - parseFloat(this.amount);
+                    this.amount = "";
+                    this.balance.balance = bear;
+                    var height = await WWW.api_getHeight();
+                    BalanceInfo.setBalanceSotre(this.balance, height);
+                    History.setHistoryStore(his, height);
+                    StorageTool.setStorage("current-height", height + "");
                 }
             }
         } catch (error)
@@ -107,57 +189,65 @@ export default class transfer extends Vue
         await CoinTool.initAllAsset();
         var currentAddress = LoginInfo.getCurrentAddress();
         var res = await WWW.gettransbyaddress(currentAddress, 5, this.txpage);
+        var h = await WWW.api_getHeight();
         res = res ? res : []; //将空值转为长度0的数组
         this.txpage == 1 && res.length > 5 ? this.cutshow = false : this.cutshow = true;
+        History.delHistoryStoreByHeight(h);
+        let his = History.getHistoryStore();
         if (res.length > 0)
         {
             this.txs = [];
+            if (his.length)
+            {
+                his.map(hi => { this.txs.push(hi.history) });
+            }
             for (let index = 0; index < res.length; index++)
             {
                 const tx = res[ index ];
-                let time = "";
-                let txid = tx[ "txid" ];
+                let txid = tx[ "txid" ] as string;
+                txid = txid.replace('0x', '');
                 let vins = tx[ "vin" ];
+                let type = tx[ "type" ];
                 let vouts = tx[ "vout" ];
                 let value = tx[ "value" ];
-                let txtype = tx[ "type" ];
+                let txtype = tx[ "txType" ];
                 let assetType = tx[ "assetType" ]
                 let blockindex = tx[ "blockindex" ];
-                if (txtype == "out")
+                let time: number = tx[ "blocktime" ].includes("$date") ? JSON.parse(tx[ "blocktime" ])[ "$date" ] : parseInt(tx[ "blocktime" ] + "000");
+                let date: string = DateTool.dateFtt("yyyy-MM-dd hh:mm:ss", new Date(time));
+
+                if (type == "out")
                 {
                     if (vins && vins.length == 1)
                     {
-                        const vin = vins[ 0 ];
-                        let address = vin[ "address" ];
-                        let asset = vin[ "asset" ];
-                        let amount = vin[ "value" ];
                         let assetname = "";
+                        const vin = vins[ 0 ];
+                        let asset = vin[ "asset" ];
+                        let amount = value[ asset ];
+                        let address = vin[ "address" ];
                         if (assetType == "utxo")
                         {
                             assetname = CoinTool.assetID2name[ asset ];
-                            time = JSON.parse(tx[ "blocktime" ])[ "$date" ];
-                            time = DateTool.dateFtt("yyyy-MM-dd hh:mm:ss", new Date(time));
                         }
                         else
                         {
                             let nep5 = await WWW.getNep5Asset(asset);
-                            // let block = await WWW.
                             assetname = nep5[ "name" ];
-                            time = "";
                         }
                         var history = new History();
-                        history.time = time;
+                        history.time = date;
                         history.txid = txid;
                         history.assetname = assetname;
                         history.address = address;
-                        history.value = amount;
-                        history.txtype = txtype;
+                        history.value = parseFloat(amount).toString();
+                        history.txtype = type;
                         this.txs.push(history);
                     }
                 }
                 else
                 {
                     var arr = {}
+                    let currcount = 0;
                     for (const index in vouts)
                     {
                         let i = parseInt(index);
@@ -166,26 +256,50 @@ export default class transfer extends Vue
                         let amount = out[ "value" ];
                         let asset = out[ "asset" ];
                         let assetname = "";
-                        if (assetType == "utxo")
-                            assetname = CoinTool.assetID2name[ asset ];
-                        else
+
+                        if (address != currentAddress)
                         {
-                            let nep5 = await WWW.getNep5Asset(asset);
-                            assetname = nep5[ "name" ];
+                            if (assetType == "utxo")
+                                assetname = CoinTool.assetID2name[ asset ];
+                            else
+                            {
+                                let nep5 = await WWW.getNep5Asset(asset);
+                                assetname = nep5[ "name" ];
+                            }
+                            let n = out[ "n" ];
+                            if (arr[ address ] && arr[ address ][ assetname ])
+                            {
+                                arr[ address ][ assetname ] += amount;
+                            } else
+                            {
+                                var assets = {}
+                                assets[ assetname ] = amount;
+                                arr[ address ] = assets;
+                            }
+                        } else { currcount++ }
+                    }
+                    if (currcount == vouts.length)
+                    {
+                        for (const asset in value)
+                        {
+                            if (value.hasOwnProperty(asset))
+                            {
+                                const amount = value[ asset ];
+
+                                let assetname = "";
+                                if (assetType == "utxo")
+                                    assetname = CoinTool.assetID2name[ asset ];
+                                else
+                                {
+                                    let nep5 = await WWW.getNep5Asset(asset);
+                                    assetname = nep5[ "name" ];
+                                }
+
+                                var assets = {}
+                                assets[ assetname ] = amount;
+                                arr[ currentAddress ] = assets;
+                            }
                         }
-                        let n = out[ "n" ];
-                        // if (address != currentAddress)
-                        // {
-                        if (arr[ address ] && arr[ address ][ assetname ])
-                        {
-                            arr[ address ][ assetname ] += amount;
-                        } else
-                        {
-                            var assets = {}
-                            assets[ assetname ] = amount;
-                            arr[ address ] = assets;
-                        }
-                        // }
                     }
                     for (const address in arr)
                     {
@@ -198,12 +312,12 @@ export default class transfer extends Vue
                                 {
                                     const amount = data[ asset ];
                                     var history = new History();
-                                    history.time = time;
+                                    history.time = date;
                                     history.txid = txid;
                                     history.assetname = asset;
                                     history.address = address;
-                                    history.value = amount;
-                                    history.txtype = txtype;
+                                    history.value = parseFloat(amount).toString();
+                                    history.txtype = type;
                                     this.txs.push(history);
                                 }
                             }
@@ -217,4 +331,23 @@ export default class transfer extends Vue
         this.txpage > 1 && res == 0 ? this.txpage-- : this.txpage;   //判断是否到最后一页
 
     }
+
+    async awaitHeight()
+    {
+        let str = StorageTool.getStorage("current-height");
+        let currentheight = await WWW.api_getHeight();
+        let oldheight = currentheight;
+        str ? oldheight = parseInt(str) : StorageTool.setStorage("current-height", currentheight + "");
+        if (currentheight - oldheight >= 2)
+        {
+            await this.history();
+            sessionStorage.removeItem("current-height");
+            return;
+        }
+        setTimeout(() =>
+        {
+            this.awaitHeight();
+        }, 5000);
+    }
+
 }

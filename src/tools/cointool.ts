@@ -289,10 +289,10 @@ export class CoinTool
     }
 
     /**
-     * invokeTrans 方式调用合约
+     * invokeTrans 方式调用合约塞入attributes
      * @param script 合约的script
      */
-    static async contractInvokeTrans(script: Uint8Array)
+    static async contractInvokeTrans_attributes(script: Uint8Array)
     {
         let current: LoginInfo = LoginInfo.getCurrentLogin();
         var addr = current.address;
@@ -318,6 +318,41 @@ export class CoinTool
         tran.AddWitness(signdata, pubkey, addr);
         var data: Uint8Array = tran.GetRawData();
 
+        var res: Result = new Result();
+        var result = await WWW.api_postRawTransaction(data);
+        res.err = !result[ "sendrawtransactionresult" ];
+        res.info = result[ "txid" ];
+        return res;
+    }
+
+    /**
+     * invokeTrans 方式调用合约塞入attributes
+     * @param script 合约的script
+     */
+    static async contractInvokeTrans(script: Uint8Array)
+    {
+        let current: LoginInfo = LoginInfo.getCurrentLogin();
+        var addr = current.address;
+        let assetid = CoinTool.id_GAS;
+        //let _count = Neo.Fixed8.Zero;   //十个gas内都不要钱滴
+        var utxos = await CoinTool.getassets();
+        let tranmsg = CoinTool.makeTran(utxos, current.address, assetid, Neo.Fixed8.Zero);
+        let tran: ThinNeo.Transaction = tranmsg.info[ 'tran' ];
+        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+        tran.extdata = new ThinNeo.InvokeTransData();
+        //塞入脚本
+        (tran.extdata as ThinNeo.InvokeTransData).script = script;
+        // (tran.extdata as ThinNeo.InvokeTransData).gas = Neo.Fixed8.fromNumber(1.0);
+
+        if (tran.witnesses == null)
+            tran.witnesses = [];
+        var msg = tran.GetMessage().clone();
+        var pubkey = current.pubkey.clone();
+        var prekey = current.prikey.clone();
+        var signdata = ThinNeo.Helper.Sign(msg, prekey);
+        tran.AddWitness(signdata, pubkey, addr);
+        var data: Uint8Array = tran.GetRawData();
+        console.log(data);
         var res: Result = new Result();
         var result = await WWW.api_postRawTransaction(data);
         res.err = !result;
@@ -347,10 +382,17 @@ export class CoinTool
 
         var sb = new ThinNeo.ScriptBuilder();
         var scriptaddress = asset.hexToBytes().reverse();
+        //生成随机数
+        let random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues<Uint8Array>(new Uint8Array(32));
+        let random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+        //塞入随机数
+        sb.EmitPushNumber(random_int);
+        sb.Emit(ThinNeo.OpCode.DROP);
+        //塞值
         sb.EmitParamJson([ "(address)" + address, "(address)" + tatgeraddr, "(integer)" + intv ]);//第二个参数是个数组
-        sb.EmitPushString("transfer");//第一个参数
-        sb.EmitAppCall(scriptaddress);  //资产合约
-        var result = await CoinTool.contractInvokeTrans(sb.ToArray())
+        sb.EmitPushString("transfer");
+        sb.EmitAppCall(scriptaddress);
+        var result = await CoinTool.contractInvokeTrans_attributes(sb.ToArray())
         return result;
     }
 

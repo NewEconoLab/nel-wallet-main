@@ -31,3 +31,8 @@ export default {
 };
 </script>
 
+<style scoped>
+.active {
+  color: #ffffff;
+}
+</style>

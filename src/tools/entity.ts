@@ -1,4 +1,5 @@
 import { StorageTool } from "./storagetool";
+import { CoinTool } from "./cointool";
 
 export class LoginInfo
 {
@@ -77,6 +78,52 @@ export class BalanceInfo
         return arr;
 
     }
+
+    static getBalancesByArr(balances, nep5balances, height: number)
+    {
+        let balancearr: BalanceInfo[] = [];
+        if (balances) //余额不唯空
+        {
+            balances.map(
+                (item) =>
+                {
+
+                    item.names = CoinTool.assetID2name[ item.asset ];
+                    let a = StorageTool.getStorage(item.asset);
+                    if (a)
+                    {
+                        let obj = JSON.parse(a)
+                        let h = obj[ "height" ];
+                        height - h > 1 ? StorageTool.delStorage(item.asset) : item.balance = obj[ "balance" ][ "balance" ];
+                    }
+                }
+            ); //将列表的余额资产名称赋值
+            balancearr = balances; //塞入页面modual
+        }
+        if (nep5balances)
+        {
+            for (let index = 0; index < nep5balances.length; index++)
+            {
+                const nep5 = nep5balances[ index ];
+                var nep5b: BalanceInfo = new BalanceInfo();
+                let id = nep5.assetid.replace("0x", "");
+                id = id.substring(0, 4) + '...' + id.substring(id.length - 4);
+                nep5b.asset = nep5.assetid;
+                nep5b.balance = nep5.balance;
+                nep5b.names = nep5.symbol + "(" + id + ")";
+                nep5b.type = "nep5";
+                balancearr.push(nep5b);
+            }
+        }
+        return balancearr;
+    }
+
+    static setBalanceSotre(balance: BalanceInfo, height: number)
+    {
+        StorageTool.setStorage(balance.asset, JSON.stringify({ height, balance }))
+        console.log(StorageTool.getStorage(balance.asset));
+    }
+
 }
 
 export class Nep5Balance
@@ -210,7 +257,7 @@ export class UTXO
 
 export class Consts
 {
-    // static baseContract = "0x2172f8d5b17c2d45fa3ff58dee8e8a4c3f51ef72";
+    // static baseContract = "0x2172f8d5b17c2d45fa3ff58dee8e8a4c3f51ef72";0x954f285a93eed7b4aed9396a7806a5812f1a5950
     static baseContract = "954f285a93eed7b4aed9396a7806a5812f1a5950";
     static registerContract = "d6a5e965f67b0c3e5bec1f04f028edb9cb9e3f7c";
     // static domainContract = '954f285a93eed7b4aed9396a7806a5812f1a5950';
@@ -221,7 +268,7 @@ export class DomainInfo
     owner: Uint8Array//所有者
     register: Uint8Array//注册器
     resolver: Uint8Array//解析器
-    ttl: Neo.BigInteger//到期时间
+    ttl: string//到期时间
 }
 
 export class RootDomainInfo extends DomainInfo
@@ -256,7 +303,40 @@ export class History
     address: string;
     assetname: string;
     txtype: string;
-    time: string; txid: string;
+    time: string;
+    txid: string;
+
+    static setHistoryStore(history: History, height: number)
+    {
+        let arr = this.getHistoryStore();
+        arr.push({ height, history })
+        StorageTool.setStorage("history-txs", JSON.stringify(arr));
+    }
+
+    static getHistoryStore(): Array<any>
+    {
+        let str = StorageTool.getStorage("history-txs");
+        let arr = !!str ? JSON.parse(str) : [];
+        return arr;
+    }
+
+    static delHistoryStoreByHeight(height: number)
+    {
+        let arr = this.getHistoryStore();
+        if (arr.length > 0)
+        {
+            let newarr = [];
+            arr.map(his =>
+            {
+                let h = parseInt(his.height);
+                if (height - h < 2)
+                {
+                    newarr.push(his);
+                }
+            });
+            StorageTool.setStorage("history-txs", JSON.stringify(newarr));
+        }
+    }
 }
 export class Claim
 {
@@ -293,5 +373,54 @@ export class Claim
             }
         }
         return claimarr;
+    }
+}
+
+export class Domainmsg
+{
+    domainname: string;
+    resolver: string;
+    mapping: string;
+    time: string;
+    isExpiration: boolean;
+    await_resolver: boolean;
+    await_mapping: boolean;
+    await_register: boolean;
+}
+
+export class DomainStatus
+{
+    domainname: string;
+    resolver: string;
+    mapping: string;
+    await_mapping: boolean;
+    await_register: boolean;
+    await_resolver: boolean;
+
+    static setStatus(domain: DomainStatus)
+    {
+        let str = sessionStorage.getItem("domain-status")
+        var arr = {};
+        if (str)
+        {
+            arr = JSON.parse(str);
+            let msg = arr[ domain.domainname ] as DomainStatus;
+            msg ? msg : msg = new DomainStatus();
+            domain.await_mapping ? msg[ "await_mapping" ] = domain.await_mapping : "";
+            domain.await_register ? msg[ "await_register" ] = domain.await_register : "";
+            domain.await_resolver ? msg[ "await_resolver" ] = domain.await_resolver : "";
+            domain.mapping ? msg[ "mapping" ] = domain.mapping : "";
+            domain.resolver ? msg[ "resolver" ] = domain.resolver.replace("0x", "") : "";
+            arr[ domain.domainname ] = msg;
+        } else
+        {
+            arr[ domain.domainname ] = domain;
+        }
+        sessionStorage.setItem("domain-status", JSON.stringify(arr));
+    }
+    static getStatus()
+    {
+        let str = sessionStorage.getItem("domain-status");
+        return str ? JSON.parse(sessionStorage.getItem("domain-status")) : {};
     }
 }

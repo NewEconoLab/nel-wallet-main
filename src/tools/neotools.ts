@@ -3,22 +3,31 @@ import { Result, LoginInfo } from './entity';
 export class neotools
 {
     constructor() { }
+
     /**
-     * verifyPublicKey 验证公钥
+     * verifyAddress
+     * @param addr
+     */
+    public static verifyAddress(addr: string): boolean
+    {
+        var verify = /^[a-zA-Z0-9]{34,34}$/;
+        var res: boolean = verify.test(addr) ? neotools.verifyPublicKey(addr) : verify.test(addr);
+        return res;
+    }
+
+    /**
+     * verifyPublicKey 验证地址
      * @param publicKey 公钥
      */
     public static verifyPublicKey(publicKey: string)
     {
         var array: Uint8Array = Neo.Cryptography.Base58.decode(publicKey);
-        //var hexstr = array.toHexString();
-        //var salt = array.subarray(0, 1);
-        //var hash = array.subarray(1, 1 + 20);
         var check = array.subarray(21, 21 + 4); //
 
         var checkdata = array.subarray(0, 21);//
         var hashd = Neo.Cryptography.Sha256.computeHash(checkdata);//
         hashd = Neo.Cryptography.Sha256.computeHash(hashd);//
-        var hashd = hashd.slice(0, 4);//
+        var hashd = hashd.slice(0, 4);//    
         var checked = new Uint8Array(hashd);//
 
         var error = false;
@@ -133,7 +142,6 @@ export class neotools
                 else
                 {
                     res.err = true;
-                    // spanWif.textContent = "result=" + "info=" + info + " result=" + result;
                     reject(res);
                 }
             });
@@ -163,6 +171,7 @@ export class neotools
                 try
                 {
                     let result: Result = await neotools.getPriKeyfromAccount(wallet.scrypt, password, account);
+                    // console.log("getpkformacc:" + result);
                     arr.push(result.info);
                 } catch (error)
                 {
@@ -201,6 +210,7 @@ export class neotools
                         var address = ThinNeo.Helper.GetAddressFromPublicKey(pubkey);
                         var wif = ThinNeo.Helper.GetWifFromPrivateKey(result as Uint8Array);
                         var hexkey = (result as Uint8Array).toHexString();
+                        // console.log(info + "|" + address + " wif=" + wif);
                         res.err = false;
                         res.info = { pubkey: pubkey, address: address, prikey: result as Uint8Array };
                         resolve(res);

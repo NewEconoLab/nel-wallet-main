@@ -21,28 +21,9 @@
           <div class="claim" style="padding: 30px; padding-left: 2.3%;">
             <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
             <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">Claim</button>
-            <div class="spinner-wrap" v-if="!claimbtn">
-              <div class="spinner">
-                <div class="spinner-container container1">
-                  <div class="circle1"></div>
-                  <div class="circle2"></div>
-                  <div class="circle3"></div>
-                  <div class="circle4"></div>
-                </div>
-                <div class="spinner-container container2">
-                  <div class="circle1"></div>
-                  <div class="circle2"></div>
-                  <div class="circle3"></div>
-                  <div class="circle4"></div>
-                </div>
-                <div class="spinner-container container3">
-                  <div class="circle1"></div>
-                  <div class="circle2"></div>
-                  <div class="circle3"></div>
-                  <div class="circle4"></div>
-                </div>
-              </div>
-            </div>
+            <span v-if="!claimbtn">
+              <spinner-wrap :isbig="false"></spinner-wrap>
+            </span>
             <span class="loadmsg">&nbsp;{{loadmsg}}</span>
           </div>
         </div>
