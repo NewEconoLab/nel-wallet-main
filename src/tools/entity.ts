@@ -106,11 +106,11 @@ export class BalanceInfo
             {
                 const nep5 = nep5balances[ index ];
                 var nep5b: BalanceInfo = new BalanceInfo();
-                let id = nep5.assetid.replace("0x", "");
-                id = id.substring(0, 4) + '...' + id.substring(id.length - 4);
+                // let id = nep5.assetid.replace("0x", "");
+                // id = id.substring(0, 4) + '...' + id.substring(id.length - 4);
                 nep5b.asset = nep5.assetid;
                 nep5b.balance = nep5.balance;
-                nep5b.names = nep5.symbol + "(" + id + ")";
+                nep5b.names = nep5.symbol;
                 nep5b.type = "nep5";
                 balancearr.push(nep5b);
             }
