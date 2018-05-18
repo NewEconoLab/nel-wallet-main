@@ -2,16 +2,16 @@
   <wallet-layout>
     <div class="container nns">
       <div class="title">
-        <span>Register Neo Name</span>
+        <span>{{$t('nns.title1')}}</span>
       </div>
       <div class="form-inline">
         <div class="input-group nns-register" v-bind:class="{ 'input-err': domainerr }">
-          <input @input="verifyDomain" type="text" class="form-control nel" v-model="nnsstr" placeholder="type a name">
+          <input @input="verifyDomain" type="text" class="form-control nel" v-model="nnsstr" :placeholder="$t('nns.placeholder1')">
           <span class="input-group-addon nel ">
             <Span>{{network}}</Span>
           </span>
         </div>
-        <button class="btn btn-nel btn-big" @click="nnsRegister">Register</button>
+        <button class="btn btn-nel btn-big" @click="nnsRegister">{{$t('nns.register')}}</button>
         <div>
           <span>{{errmsg}}</span>
         </div>

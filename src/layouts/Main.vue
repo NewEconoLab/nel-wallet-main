@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">{{$t('navbar.toggle')}}</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -15,29 +15,45 @@
           <div class="logo"></div>
           <ul class="nav navbar-nav navbar-left">
             <li>
-              <a href="https://scan.nel.group/#mainnet" target="_blank">Explorer</a>
+              <a href="https://scan.nel.group/#mainnet" target="_blank">{{$t('navbar.explorer')}}</a>
             </li>
             <li>
-              <a class="active-nel" href="#wallet">Wallet</a>
+              <a class="active-nel" href="#wallet">{{$t('navbar.wallet')}}</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="text" id="network">MainNet</span>
+                <span class="text" id="network">{{$t('navbar.mainnet')}}</span>
                 <span class=" caret"></span>
               </a>
               <ul class="dropdown-menu dropdown-nel">
                 <li id="testnet-btn">
-                  <a id="testa" target="_blank" href="https://testwallet.nel.group/#login">TestNet</a>
+                  <a id="testa" target="_blank" href="https://testwallet.nel.group/#login">{{$t('navbar.testnet')}}</a>
                 </li>
                 <li id="mainnet-btn" class="active">
-                  <a id="maina">MainNet</a>
+                  <a id="maina">{{$t('navbar.mainnet')}}</a>
                 </li>
               </ul>
             </li>
             <li>
-              <v-link ref="login" href="#login" v-if="loginshow">logout</v-link>
+              <v-link ref="login" href="#login" v-if="loginshow">{{$t('navbar.logout')}}</v-link>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="text">{{currentLanguage}}</span>
+                <span class=" caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-nel">
+                <li id="testnet-btn" :class="currentLanguage=='English'?'active':''">
+                  <a  @click="cutLanguage(1)">English</a>
+                </li>
+                <li id="mainnet-btn" :class="currentLanguage!='English'?'active':''">
+                  <a @click="cutLanguage(2)" >中文</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -61,6 +77,9 @@ import Vue from "vue";
 })
 export default class Main extends Vue {
   loginshow: boolean = false;
+  currentLanguage: string = sessionStorage.getItem("language") == "cn"
+    ? "中文"
+    : "English";
   mounted() {
     if (this.$root["currentRoute"] == "") {
       this.$root["currentRoute"] = "#login";
@@ -71,6 +90,22 @@ export default class Main extends Vue {
     } else {
       document.body.classList.remove("login-body");
       this.loginshow = true;
+    }
+  }
+  cutLanguage(lang: number) {
+    switch (lang) {
+      case 1:
+        this.currentLanguage = "English";
+        sessionStorage.setItem("language", "en");
+        this.$i18n.locale = "en";
+        break;
+      case 2:
+        this.currentLanguage = "中文";
+        sessionStorage.setItem("language", "cn");
+        this.$i18n.locale = "cn";
+        break;
+      default:
+        break;
     }
   }
 }

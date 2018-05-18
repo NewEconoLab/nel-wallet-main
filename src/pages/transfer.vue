@@ -2,14 +2,14 @@
     <wallet-layout>
         <div class="container">
             <div class="title">
-                <span>Transfer</span>
+                <span>{{$t('transfer.transfer')}}</span>
             </div>
         </div>
         <div class="container">
             <div class="transfer-panel">
                 <div class="form-horizontal">
                     <div class="col-sm-12">
-                        <label for="firstname" class="col-sm-2 control-label" style="padding-top:20px;">Asset：</label>
+                        <label for="firstname" class="col-sm-2 control-label" style="padding-top:20px;">{{$t('transfer.title1')}}:</label>
                         <div class="col-sm-3">
                             <div class="dropdown">
                                 <div type="button" class="btn dropdown-toggle select-nel" id="dropdownMenu1" data-toggle="dropdown" :class="balances.length>0 ? '' : 'select-disabled' ">
@@ -26,27 +26,27 @@
                             </div>
                         </div>
                         <div class="col-sm-4" style="padding-top:20px;">
-                            <span> &nbsp;&nbsp;&nbsp;&nbsp; {{balance.balance}} {{balance.names ? balance.names + "available" : ""}} </span>
+                            <span> &nbsp;&nbsp;&nbsp;&nbsp; {{balance.balance}} {{balance.names ? balance.names +" "+ $t('transfer.msg5') : ""}} </span>
                         </div>
                     </div>
                     <div class="col-sm-12" :class="addrerr!=''?(addrerr == 'true' ?'err':'success') :''">
                         <label for="" class="col-sm-2 control-label">
-                            <div style="padding-top:40px;">Address:</div>
+                            <div style="padding-top:40px;">{{$t('transfer.title2')}}:</div>
                         </label>
                         <div class="col-sm-7">
                             <div style="padding-top:30px;">
-                                <input type="text" v-model="target" class="nel-input big" placeholder="Please enter an address or domain name " @input="verify_addr">
+                                <input type="text" v-model="target" class="nel-input big" :placeholder="$t('transfer.placeholder')" @input="verify_addr">
                             </div>
                             <p v-if="isDomain">{{toaddress}}</p>
                         </div>
                         <div class="col-sm-3 mess">
-                            <p v-if="addrerr=='true'"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp; Your adress is incorrect.</p>
+                            <p v-if="addrerr=='true'"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp;{{$t('transfer.msg1')}}</p>
                             <p v-if="addrerr=='false'"><img src="../../static/img/correct.svg" alt=""></p>
                         </div>
                     </div>
                     <div class="col-sm-12" :class="amounterr!=''?(amounterr == 'true' ?'err':'success') :''">
                         <label for="" class="col-sm-2 control-label">
-                            <div style="padding-top:40px;">Amount:</div>
+                            <div style="padding-top:40px;">{{$t('transfer.title3')}}:</div>
                         </label>
                         <div class="col-sm-7">
                             <div style="padding-top:30px;">
@@ -61,8 +61,8 @@
                     <div class="col-sm-12" style="padding-top:30px;">
                         <div class="col-sm-6"></div>
                         <div class="col-sm-3">
-                            <button class="btn btn-link">Details</button>
-                            <button class="btn btn-nel btn-big" @click="send">Send</button>
+                            <button class="btn btn-link">{{$t('transfer.details')}}</button>
+                            <button class="btn btn-nel btn-big" @click="send">{{$t('transfer.send')}}</button>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
         </div>
         <div class="container">
             <div class="title">
-                <span>History</span>
+                <span>{{$t('transfer.title4')}}</span>
             </div>
         </div>
         <div class="container">
@@ -80,12 +80,12 @@
                     <div v-for="tx in txs" class="history" :key="tx.index">
                         <div class="number" :class="tx.txtype">
                             {{tx.txtype == 'out'?'+ ':'- '}}{{tx.value}}&nbsp;{{tx.assetname}}</div>
-                        <div class="address"> Send {{tx.txtype == 'out'?'form':'to'}} : {{tx.address}}</div>
+                        <div class="address">{{tx.txtype == 'out'?$t('transfer.from'):$t('transfer.to')}} : {{tx.address}}</div>
                         <div class="time">
                             <a :href="'https://scan.nel.group/#mainnet/transaction/'+tx.txid" target="_blank">
                                 {{tx.txid.substring(0, 4) + '...' + tx.txid.substring(tx.txid.length - 4)}}
                             </a> &nbsp;{{tx.time}}
-                            <div v-if="tx.waiting">(Waiting)</div>
+                            <div v-if="tx.waiting">({{$t(nns.waiting)}})</div>
                         </div>
                     </div>
                 </div>

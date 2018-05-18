@@ -2,10 +2,10 @@
   <wallet-layout>
     <div class="container">
       <div class="title" style="padding-bottom:28px;">
-        <span>NEO Balance</span>
+        <span>{{$t('balance.title1')}}</span>
         <div style="float:right">
-          <span style="margin-right: 11px;">Key Address ：{{currentAddress}}</span>
-          <button class="btn" data-toggle="modal" data-target="#selectAddr" v-if="chooseAddressarr&&chooseAddressarr>1">Switch</button>
+          <span style="margin-right: 11px;">{{$t('balance.title2')}} ：{{currentAddress}}</span>
+          <button class="btn" data-toggle="modal" data-target="#selectAddr" v-if="chooseAddressarr&&chooseAddressarr>1">{{$t('btn.switch')}}</button>
         </div>
       </div>
       <div class="neobalance">
@@ -19,8 +19,8 @@
             <span class="balance-amount">{{neoasset.gas}}</span>
           </div>
           <div class="claim" style="padding: 30px; padding-left: 2.3%;">
-            <span style="margin-right: 17px;">GAS available to claim : {{neoasset.claim}}</span>
-            <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">Claim</button>
+            <span style="margin-right: 17px;">{{$t('balance.title3')}} : {{neoasset.claim}}</span>
+            <button class="btn btn-nel" v-if="neoasset.claim!='0'&&claimbtn" @click="toClaimGas">{{$t('btn.claim')}}</button>
             <span v-if="!claimbtn">
               <spinner-wrap :isbig="false"></spinner-wrap>
             </span>
@@ -30,7 +30,7 @@
       </div>
       <div class="balance-asset" v-if="balances.length">
         <div class="title">
-          <span>Asset</span>
+          <span>{{$t('balance.title4')}}</span>
         </div>
         <div v-for="balance in balances" :key="balance.asset" class="assetrow">
           <div class="row">
@@ -41,7 +41,7 @@
               <span> {{balance.balance}}</span>
             </div>
             <div class="col-lg-2 transfer-btn">
-              <span class="btn btn-transfer" @click="toTransfer(balance.asset)">Transfer</span>
+              <span class="btn btn-transfer" @click="toTransfer(balance.asset)">{{$t('btn.transfer')}}</span>
             </div>
           </div>
         </div>
@@ -56,12 +56,12 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="exampleModalLabel">Choose address</h4>
+            <h4 class="modal-title" id="exampleModalLabel">{{$t('balance.title5')}}</h4>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="exampleInputFile">Select Nep6 File:</label>
+                <label for="exampleInputFile">{{$t('balance.title6')}}:</label>
                 <div class="radio" id="selectAddress">
                   <label v-for="item in chooseAddressarr" :key="item.address">
                     <input type="radio" v-model="chooseAddress" :value="item.address">{{item.address}}
@@ -71,8 +71,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addressSwitch()">confirm</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{$t('btn.close')}}</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addressSwitch()">{{$t('btn.confirm')}}</button>
           </div>
         </div>
       </div>

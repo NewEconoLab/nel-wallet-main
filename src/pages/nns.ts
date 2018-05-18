@@ -39,7 +39,7 @@ export default class Nnsmanage extends Vue
         if (!re.exec(this.nnsstr))
         { //验证输入的字符串是否符合规则 
             this.domainerr = true;
-            this.errmsg = "Please enter a domain name in the correct format ";
+            this.errmsg = "" + this.$t("nns.msg4");
             return;
         } else
         {
@@ -47,7 +47,7 @@ export default class Nnsmanage extends Vue
             if (domains)
             {
                 this.domainerr = true;
-                mui.toast("The current domain name is registered : " + domains);
+                mui.toast("" + this.$t("nns.msg5") + domains);
             } else
             {
                 this.domainerr = false;
@@ -65,7 +65,7 @@ export default class Nnsmanage extends Vue
                 console.error(res.info);
             } else
             {
-                mui.alert("Domain name registration contract has been issued, please see ")
+                mui.alert("" + this.$t("nns.msg6"))
                 mui.toast(res.info);
             }
         }
