@@ -525,8 +525,8 @@ var WWW = /** @class */ (function () {
         for (var _i = 2; _i < arguments.length; _i++) {
             _params[_i - 2] = arguments[_i];
         }
-        if (url[url.length - 1] != '/')
-            url = url + "/";
+        // if (url[ url.length - 1 ] != '/')
+        //     url = url + "/";
         var urlout = url + "?jsonrpc=2.0&id=1&method=" + method + "&params=[";
         for (var i = 0; i < _params.length; i++) {
             urlout += JSON.stringify(_params[i]);

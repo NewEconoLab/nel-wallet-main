@@ -6,8 +6,8 @@ export class WWW
     static apiaggr: string = "https://apiaggr.nel.group/api/mainnet";
     static makeRpcUrl(url: string, method: string, ..._params: any[])
     {
-        if (url[ url.length - 1 ] != '/')
-            url = url + "/";
+        // if (url[ url.length - 1 ] != '/')
+        //     url = url + "/";
         var urlout = url + "?jsonrpc=2.0&id=1&method=" + method + "&params=[";
         for (var i = 0; i < _params.length; i++)
         {
