@@ -1732,9 +1732,11 @@ var login = /** @class */ (function (_super) {
             var walletstr = _this.reader.result;
             var isotc = !walletstr.includes("accounts");
             if (isotc) {
+                _this.wallet.accounts = undefined;
                 _this.otcgo.fromJsonStr(walletstr);
             }
             else {
+                _this.otcgo.address = undefined;
                 _this.wallet.fromJsonStr(walletstr);
             }
         };
@@ -1750,55 +1752,67 @@ var login = /** @class */ (function (_super) {
     };
     // Lifecycle hook
     login.prototype.fileChange = function ($event) {
-        this.file = $event.target.files[0];
-        this.filename = this.file.name;
-        if (this.filename.includes(".json")) {
-            this.reader.readAsText(this.file);
+        if ($event.target.files[0]) {
+            this.file = $event.target.files[0];
+            this.filename = this.file.name;
+            if (this.filename.includes(".json")) {
+                this.reader.readAsText(this.file);
+            }
         }
     };
     login.prototype.loginFile = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var result, loginarray;
+            var loginarray_1, error_1, result, loginarray;
             return __generator(this, function (_a) {
-                mui.toast("" + this.$t("toast.msg1"));
-                if (!!this.wallet.accounts) {
-                    neotools_1.neotools.nep6Load(this.wallet, this.password)
-                        .then(function (res) {
-                        var loginarray = res.info;
-                        storagetool_1.StorageTool.setLoginArr(loginarray);
-                        entity_2.LoginInfo.setCurrentAddress(loginarray[0].address);
-                        mui.toast("" + _this.$t("toast.msg2"), { duration: 'long', type: 'div' });
+                switch (_a.label) {
+                    case 0:
+                        if (!this.filename) {
+                            mui.toast("" + this.$t("toast.msg5"));
+                            return [2 /*return*/];
+                        }
+                        mui.toast("" + this.$t("toast.msg1"));
+                        if (!!!this.wallet.accounts) return [3 /*break*/, 4];
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, neotools_1.neotools.nep6Load(this.wallet, this.password)];
+                    case 2:
+                        loginarray_1 = _a.sent();
+                        storagetool_1.StorageTool.setLoginArr(loginarray_1);
+                        entity_2.LoginInfo.setCurrentAddress(loginarray_1[0].address);
+                        mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' });
                         window.location.hash = "#balance";
-                    })
-                        .catch(function (e) {
-                        mui.alert("" + _this.$t("toast.msg3") + e);
-                    });
-                }
-                if (!!this.otcgo.address) {
-                    try {
-                        this.otcgo.otcgoDecrypt(this.password);
-                        result = this.otcgo.doValidatePwd();
-                        if (result) {
-                            loginarray = new Array();
-                            loginarray.push(new entity_2.LoginInfo());
-                            loginarray[0].address = this.otcgo.address;
-                            loginarray[0].prikey = this.otcgo.prikey;
-                            loginarray[0].pubkey = this.otcgo.pubkey;
-                            storagetool_1.StorageTool.setLoginArr(loginarray);
-                            entity_2.LoginInfo.setCurrentAddress(loginarray[0].address);
-                            mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' });
-                            window.location.hash = "#balance";
-                        }
-                        else {
-                            mui.alert("" + this.$t("toast.msg3"));
-                        }
-                    }
-                    catch (error) {
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
                         mui.alert("" + this.$t("toast.msg3"));
-                    }
+                        return [3 /*break*/, 4];
+                    case 4:
+                        if (!!this.otcgo.address) {
+                            try {
+                                this.otcgo.otcgoDecrypt(this.password);
+                                result = this.otcgo.doValidatePwd();
+                                if (result) {
+                                    loginarray = new Array();
+                                    loginarray.push(new entity_2.LoginInfo());
+                                    loginarray[0].address = this.otcgo.address;
+                                    loginarray[0].prikey = this.otcgo.prikey;
+                                    loginarray[0].pubkey = this.otcgo.pubkey;
+                                    storagetool_1.StorageTool.setLoginArr(loginarray);
+                                    entity_2.LoginInfo.setCurrentAddress(loginarray[0].address);
+                                    mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' });
+                                    window.location.hash = "#balance";
+                                }
+                                else {
+                                    mui.alert("" + this.$t("toast.msg3"));
+                                }
+                            }
+                            catch (error) {
+                                mui.alert("" + this.$t("toast.msg3"));
+                            }
+                        }
+                        return [2 /*return*/];
                 }
-                return [2 /*return*/];
             });
         });
     };
@@ -1996,14 +2010,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var login = __webpack_require__("ILH5");
 var login_default = /*#__PURE__*/__webpack_require__.n(login);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-26e95b6a","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/pages/login.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',[_c('div',{staticStyle:{"height":"180px"}}),_vm._v(" "),_c('div',{staticClass:"container-box"},[_c('div',{staticClass:"row login-container"},[_c('div',{staticClass:"container-left"},[_c('div',{staticClass:"container-icon"},[_c('img',{attrs:{"src":__webpack_require__("4+Dl"),"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"container-title",class:{'active':!(_vm.moudle_generate||_vm.moudle_download)},on:{"click":function($event){_vm.cutModual('nep6')}}},[_c('span',{ref:"login"},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"container-title",class:{'active':(_vm.moudle_generate || _vm.moudle_download)},on:{"click":function($event){_vm.cutModual('generate')}}},[_c('span',{ref:"login"},[_vm._v(_vm._s(_vm.$t("generate.generate")))])])]),_vm._v(" "),_c('div',{staticClass:"container-right"},[(_vm.moudle_nep6)?_c('div',{staticClass:"nep6-imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v("\n              "+_vm._s(_vm.$t("login.title"))+"\n            ")])]),_vm._v(" "),_c('div',{staticClass:"input-login"},[_c('div',{staticClass:"input-group nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.filename),expression:"filename"}],staticClass:"form-control",attrs:{"type":"text","placeholder":_vm.$t('login.selectplaceholder'),"disabled":"true"},domProps:{"value":(_vm.filename)},on:{"input":function($event){if($event.target.composing){ return; }_vm.filename=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"input-group-addon"},[_c('button',{staticClass:"btn btn-nel fileinput-button"},[_c('span',[_vm._v(_vm._s(_vm.$t("login.selectbtn")))]),_vm._v(" "),_c('input',{attrs:{"type":"file"},on:{"change":_vm.fileChange}})])])])]),_vm._v(" "),_c('div',{staticClass:"input-login",staticStyle:{"padding-top":"40px"}},[_c('div',{staticClass:"input-group nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.password),expression:"password"}],staticClass:"form-control",attrs:{"placeholder":_vm.$t('login.passwordholder'),"type":"password"},domProps:{"value":(_vm.password)},on:{"input":function($event){if($event.target.composing){ return; }_vm.password=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"input-group-addon"},[_c('button',{staticClass:"btn btn-nel fileinput-button",on:{"click":_vm.loginFile}},[_vm._v("\n                  "+_vm._s(_vm.$t("login.login"))+"\n                ")])])])]),_vm._v(" "),_c('div',{staticStyle:{"height":"36px","padding-top":"80px","padding-bottom":"30px","text-align":"center"}},[_c('hr',{attrs:{"width":"80%","color":"#987cb9"}}),_vm._v(" "),_c('div',{staticClass:"hr-more"},[_vm._v(_vm._s(_vm.$t("login.cutlinemsg")))])]),_vm._v(" "),_c('div',{staticStyle:{"width":"417px","margin":"0 auto","padding-top":"30px"}},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.cutModual('wif')}}},[_vm._v(_vm._s(_vm.$t("login.wifmsg")))])]),_vm._v(" "),_c('div',{staticStyle:{"width":"417px","margin":"0 auto","padding-top":"20px","padding-bottom":"5.9%"}},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.cutModual('nep2')}}},[_vm._v(_vm._s(_vm.$t("login.nep2msg")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_wif)?_c('div',{staticClass:"wif_imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("wif.title")))])]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.wif),expression:"wif"}],attrs:{"type":"text","placeholder":_vm.$t('wif.wifplaceholder')},domProps:{"value":(_vm.wif)},on:{"input":function($event){if($event.target.composing){ return; }_vm.wif=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.login('wif')}}},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"back"},[_c('a',{on:{"click":function($event){_vm.cutModual('nep6')}}},[_vm._v("< "+_vm._s(_vm.$t("wif.back")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_nep2)?_c('div',{staticClass:"nep2_imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v("Nep2")])]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nep2),expression:"nep2"}],attrs:{"type":"text","placeholder":_vm.$t('nep2.placeholder')},domProps:{"value":(_vm.nep2)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nep2=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nep2pwd),expression:"nep2pwd"}],attrs:{"type":"password","placeholder":_vm.$t('nep2.password')},domProps:{"value":(_vm.nep2pwd)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nep2pwd=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.login('nep2')}}},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"back"},[_c('a',{on:{"click":function($event){_vm.cutModual('nep6')}}},[_vm._v("< "+_vm._s(_vm.$t("wif.back")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_generate)?_c('div',{staticClass:"generate"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("generate.title")))])]),_vm._v(" "),_c('div',{class:_vm.nameerr!=''?( _vm.nameerr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.walletname),expression:"walletname"}],attrs:{"type":"text","placeholder":_vm.$t('generate.name')},domProps:{"value":(_vm.walletname)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.walletname=$event.target.value},_vm.verifyName],"blur":_vm.verifyName}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.nameerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.nameempty')))]):_vm._e(),_vm._v(" "),(_vm.nameerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+" ")]):_vm._e()])]),_vm._v(" "),_c('div',{class:_vm.pwderr!=''?( _vm.pwderr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.walletpwd),expression:"walletpwd"}],attrs:{"type":"password","placeholder":_vm.$t('generate.password')},domProps:{"value":(_vm.walletpwd)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.walletpwd=$event.target.value},_vm.verifypwd],"blur":_vm.verifypwd}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.pwderr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.pwdmsg)+"\n              ")]):_vm._e(),_vm._v(" "),(_vm.pwderr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+"\n              ")]):_vm._e()])]),_vm._v(" "),_c('div',{class:_vm.confirmerr!=''?( _vm.confirmerr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.confirmpwd),expression:"confirmpwd"}],attrs:{"type":"password","placeholder":_vm.$t('generate.password')},domProps:{"value":(_vm.confirmpwd)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.confirmpwd=$event.target.value},_vm.verifyConfirm],"blur":_vm.verifyConfirm}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.confirmerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.pwderrmsg3'))+"\n              ")]):_vm._e(),_vm._v(" "),(_vm.confirmerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+"\n              ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.generate()}}},[_vm._v(_vm._s(_vm.$t("generate.generate")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_download)?_c('div',{staticClass:"generate download"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("generate.createmsg")))])]),_vm._v(" "),_c('p',{staticClass:"guide"},[_vm._v(_vm._s(_vm.$t("generate.downloadmsg")))]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('a',{staticClass:"btn btn-nel btn-import",attrs:{"download":_vm.download_name,"href":_vm.download_href}},[_vm._v(_vm._s(_vm.$t("generate.download")))])]),_vm._v(" "),_c('div',{staticClass:"remind"},[_c('p',{staticClass:"title-remind"},[_vm._v(_vm._s(_vm.$t("generate.msg")))]),_vm._v(" "),_c('p',{staticClass:"content-remind"},[_vm._v(_vm._s(_vm.$t("generate.msg2")))])])]):_vm._e()])])])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-a6d29b26","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/pages/login.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',[_c('div',{staticStyle:{"height":"180px"}}),_vm._v(" "),_c('div',{staticClass:"container-box"},[_c('div',{staticClass:"row login-container"},[_c('div',{staticClass:"container-left"},[_c('div',{staticClass:"container-icon"},[_c('img',{attrs:{"src":__webpack_require__("4+Dl"),"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"container-title",class:{'active':!(_vm.moudle_generate||_vm.moudle_download)},on:{"click":function($event){_vm.cutModual('nep6')}}},[_c('span',{ref:"login"},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"container-title",class:{'active':(_vm.moudle_generate || _vm.moudle_download)},on:{"click":function($event){_vm.cutModual('generate')}}},[_c('span',{ref:"login"},[_vm._v(_vm._s(_vm.$t("generate.generate")))])])]),_vm._v(" "),_c('div',{staticClass:"container-right"},[(_vm.moudle_nep6)?_c('div',{staticClass:"nep6-imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v("\n              "+_vm._s(_vm.$t("login.title"))+"\n            ")])]),_vm._v(" "),_c('div',{staticClass:"input-login"},[_c('div',{staticClass:"input-group nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.filename),expression:"filename"}],staticClass:"form-control",attrs:{"type":"text","placeholder":_vm.$t('login.selectplaceholder'),"disabled":"true"},domProps:{"value":(_vm.filename)},on:{"input":function($event){if($event.target.composing){ return; }_vm.filename=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"input-group-addon"},[_c('button',{staticClass:"btn btn-nel fileinput-button"},[_c('span',[_vm._v(_vm._s(_vm.$t("login.selectbtn")))]),_vm._v(" "),_c('input',{attrs:{"type":"file"},on:{"change":_vm.fileChange}})])])])]),_vm._v(" "),_c('div',{staticClass:"input-login",staticStyle:{"padding-top":"40px"}},[_c('div',{staticClass:"input-group nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.password),expression:"password"}],staticClass:"form-control",attrs:{"placeholder":_vm.$t('login.passwordholder'),"type":"password"},domProps:{"value":(_vm.password)},on:{"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key)){ return null; }_vm.loginFile($event)},"input":function($event){if($event.target.composing){ return; }_vm.password=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"input-group-addon"},[_c('button',{staticClass:"btn btn-nel fileinput-button",on:{"click":_vm.loginFile}},[_vm._v("\n                  "+_vm._s(_vm.$t("login.login"))+"\n                ")])])])]),_vm._v(" "),_c('div',{staticStyle:{"height":"36px","padding-top":"80px","padding-bottom":"30px","text-align":"center"}},[_c('hr',{attrs:{"width":"80%","color":"#987cb9"}}),_vm._v(" "),_c('div',{staticClass:"hr-more"},[_vm._v(_vm._s(_vm.$t("login.cutlinemsg")))])]),_vm._v(" "),_c('div',{staticStyle:{"width":"417px","margin":"0 auto","padding-top":"30px"}},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.cutModual('wif')}}},[_vm._v(_vm._s(_vm.$t("login.wifmsg")))])]),_vm._v(" "),_c('div',{staticStyle:{"width":"417px","margin":"0 auto","padding-top":"20px","padding-bottom":"5.9%"}},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.cutModual('nep2')}}},[_vm._v(_vm._s(_vm.$t("login.nep2msg")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_wif)?_c('div',{staticClass:"wif_imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("wif.title")))])]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.wif),expression:"wif"}],attrs:{"type":"text","placeholder":_vm.$t('wif.wifplaceholder')},domProps:{"value":(_vm.wif)},on:{"input":function($event){if($event.target.composing){ return; }_vm.wif=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.login('wif')}}},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"back"},[_c('a',{on:{"click":function($event){_vm.cutModual('nep6')}}},[_vm._v("< "+_vm._s(_vm.$t("wif.back")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_nep2)?_c('div',{staticClass:"nep2_imp"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v("Nep2")])]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nep2),expression:"nep2"}],attrs:{"type":"text","placeholder":_vm.$t('nep2.placeholder')},domProps:{"value":(_vm.nep2)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nep2=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nep2pwd),expression:"nep2pwd"}],attrs:{"type":"password","placeholder":_vm.$t('nep2.password')},domProps:{"value":(_vm.nep2pwd)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nep2pwd=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.login('nep2')}}},[_vm._v(_vm._s(_vm.$t("login.login")))])]),_vm._v(" "),_c('div',{staticClass:"back"},[_c('a',{on:{"click":function($event){_vm.cutModual('nep6')}}},[_vm._v("< "+_vm._s(_vm.$t("wif.back")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_generate)?_c('div',{staticClass:"generate"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("generate.title")))])]),_vm._v(" "),_c('div',{class:_vm.nameerr!=''?( _vm.nameerr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.walletname),expression:"walletname"}],attrs:{"type":"text","placeholder":_vm.$t('generate.name')},domProps:{"value":(_vm.walletname)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.walletname=$event.target.value},_vm.verifyName],"blur":_vm.verifyName}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.nameerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.nameempty')))]):_vm._e(),_vm._v(" "),(_vm.nameerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+" ")]):_vm._e()])]),_vm._v(" "),_c('div',{class:_vm.pwderr!=''?( _vm.pwderr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.walletpwd),expression:"walletpwd"}],attrs:{"type":"password","placeholder":_vm.$t('generate.password')},domProps:{"value":(_vm.walletpwd)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.walletpwd=$event.target.value},_vm.verifypwd],"blur":_vm.verifypwd}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.pwderr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.pwdmsg)+"\n              ")]):_vm._e(),_vm._v(" "),(_vm.pwderr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+"\n              ")]):_vm._e()])]),_vm._v(" "),_c('div',{class:_vm.confirmerr!=''?( _vm.confirmerr == 'true' ?'err':'success') :''},[_c('div',{staticClass:"nel-input-blg"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.confirmpwd),expression:"confirmpwd"}],attrs:{"type":"password","placeholder":_vm.$t('generate.password')},domProps:{"value":(_vm.confirmpwd)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.confirmpwd=$event.target.value},_vm.verifyConfirm],"blur":_vm.verifyConfirm}})]),_vm._v(" "),_c('div',{staticClass:"message"},[(_vm.confirmerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.pwderrmsg3'))+"\n              ")]):_vm._e(),_vm._v(" "),(_vm.confirmerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}),_vm._v("   "+_vm._s(_vm.$t('generate.namepass'))+"\n              ")]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('button',{staticClass:"btn btn-nel btn-import",on:{"click":function($event){_vm.generate()}}},[_vm._v(_vm._s(_vm.$t("generate.generate")))])])]):_vm._e(),_vm._v(" "),(_vm.moudle_download)?_c('div',{staticClass:"generate download"},[_c('div',{staticClass:"title-login"},[_c('span',[_vm._v(_vm._s(_vm.$t("generate.createmsg")))])]),_vm._v(" "),_c('p',{staticClass:"guide"},[_vm._v(_vm._s(_vm.$t("generate.downloadmsg")))]),_vm._v(" "),_c('div',{staticClass:"login-btn"},[_c('a',{staticClass:"btn btn-nel btn-import",attrs:{"download":_vm.download_name,"href":_vm.download_href}},[_vm._v(_vm._s(_vm.$t("generate.download")))])]),_vm._v(" "),_c('div',{staticClass:"remind"},[_c('p',{staticClass:"title-remind"},[_vm._v(_vm._s(_vm.$t("generate.msg")))]),_vm._v(" "),_c('p',{staticClass:"content-remind"},[_vm._v(_vm._s(_vm.$t("generate.msg2")))])])]):_vm._e()])])])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var pages_login = (esExports);
 // CONCATENATED MODULE: ./src/pages/login.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("i44s")
+  __webpack_require__("yQKq")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -2311,21 +2325,15 @@ var neotools = /** @class */ (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         error_1 = _a.sent();
-                        console.error(error_1);
-                        res.err = true;
-                        res.info = error_1;
-                        return [2 /*return*/, res];
+                        throw error_1;
                     case 5:
                         keyindex++;
                         return [3 /*break*/, 1];
-                    case 6:
-                        res.err = false;
-                        res.info = arr;
-                        return [2 /*return*/, res];
+                    case 6: return [2 /*return*/, arr];
                     case 7:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 8];
+                        throw e_1;
                     case 8: return [2 /*return*/];
                 }
             });
@@ -3690,13 +3698,6 @@ exports.default = transfer;
 
 /***/ }),
 
-/***/ "i44s":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "l7Tq":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3920,7 +3921,8 @@ exports.default = {
         msg1: "Landing ...",
         msg2: "Authentication passed...",
         msg3: "Login failed. Please check your password or file.",
-        msg4: "Please enter the correct string"
+        msg4: "Please enter the correct string",
+        msg5: "Please select the file and enter the password"
     },
     login: {
         login: "Login",
@@ -4562,7 +4564,8 @@ exports.default = {
         msg1: "登陆中...",
         msg2: "登陆成功...",
         msg3: "登陆失败，请重新尝试",
-        msg4: "请输入正确的字符串"
+        msg4: "请输入正确的字符串",
+        msg5: "请选择文件并输入密码"
     },
     login: {
         login: "登陆",
@@ -4743,6 +4746,13 @@ window.addEventListener('popstate', function () {
     app.currentRoute = window.location.hash;
 });
 
+
+/***/ }),
+
+/***/ "yQKq":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

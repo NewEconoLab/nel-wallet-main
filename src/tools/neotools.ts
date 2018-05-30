@@ -152,7 +152,7 @@ export class neotools
     /**
      * nep6Load
      */
-    public static async nep6Load(wallet: ThinNeo.nep6wallet, password: string): Promise<Result>
+    public static async nep6Load(wallet: ThinNeo.nep6wallet, password: string): Promise<LoginInfo[]>
     {
         try
         {
@@ -175,19 +175,16 @@ export class neotools
                     arr.push(result.info);
                 } catch (error)
                 {
-                    console.error(error);
-                    res.err = true;
-                    res.info = error;
-                    return res;
+                    throw error;
                 }
             }
-            res.err = false;
-            res.info = arr;
-            return res;
+            return arr;
         }
         catch (e)
         {
             console.error(e);
+            throw e;
+
         }
         // });
         // return promise;
