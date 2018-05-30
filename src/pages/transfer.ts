@@ -177,6 +177,7 @@ export default class transfer extends Vue
                     BalanceInfo.setBalanceSotre(this.balance, height);
                     History.setHistoryStore(his, height);
                     StorageTool.setStorage("current-height", height + "");
+                    this.amount = "";
                 }
             }
         } catch (error)
