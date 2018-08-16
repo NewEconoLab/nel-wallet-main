@@ -93,7 +93,9 @@ export default {
         msg2: "您的交易已发送，请稍后查验",
         msg3: "交易失败",
         msg4: "您没有足够的utxo进行交易，请等待高度变化后再尝试下笔交易",
-        msg5: "可用"
+        msg5: "可用",
+        errnumber: "请输入正确格式的金额",
+        erramount: "余额不足",
     },
     nns: {
         nns: "NNS",

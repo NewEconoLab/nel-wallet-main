@@ -738,8 +738,14 @@ var WWW = /** @class */ (function () {
                         return [4 /*yield*/, result.json()];
                     case 2:
                         json = _a.sent();
-                        r = json["result"][0];
-                        return [2 /*return*/, r];
+                        if (json.result) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw json.error.data;
+                        }
+                        return [2 /*return*/];
                 }
             });
         });
@@ -938,7 +944,7 @@ var WWW = /** @class */ (function () {
         });
     };
     WWW.api = "https://api.nel.group/api/mainnet";
-    WWW.apiaggr = "https://apiaggr.nel.group/api/mainnet";
+    WWW.apiaggr = "https://apiwallet.nel.group/api/mainnet";
     return WWW;
 }());
 exports.WWW = WWW;
@@ -3291,12 +3297,14 @@ var transfer = /** @class */ (function (_super) {
         _this.balances = [];
         _this.balance = new entity_1.BalanceInfo();
         _this.addrerr = "";
-        _this.amounterr = "";
+        _this.amounterr = 0;
         _this.txs = [];
         _this.nextpage = true;
         _this.cutshow = true;
         _this.target = "";
         _this.isDomain = false;
+        _this.isNumber = false;
+        _this.isAddress = false;
         _this.toaddress = "";
         _this.amount = "";
         _this.asset = "";
@@ -3370,10 +3378,12 @@ var transfer = /** @class */ (function (_super) {
                         if (addr) {
                             this.toaddress = addr;
                             this.isDomain = true;
+                            this.isAddress = true;
                             this.addrerr = 'false';
                             return [2 /*return*/, true];
                         }
                         else {
+                            this.isAddress = false;
                             this.addrerr = 'true';
                             return [2 /*return*/, false];
                         }
@@ -3382,11 +3392,13 @@ var transfer = /** @class */ (function (_super) {
                         if (isAddress) {
                             if (neotools_1.neotools.verifyPublicKey(this.target)) {
                                 this.toaddress = this.target;
+                                this.isAddress = true;
                                 this.addrerr = 'false';
                                 return [2 /*return*/, true];
                             }
                         }
                         else {
+                            this.isAddress = false;
                             this.addrerr = 'true';
                             return [2 /*return*/, false];
                         }
@@ -3397,11 +3409,23 @@ var transfer = /** @class */ (function (_super) {
         });
     };
     transfer.prototype.verify_Amount = function () {
+        if (!(/^[0-9]+([.]{1}[0-9]+){0,1}$/.test(this.amount))) {
+            this.isNumber = false;
+            this.amounterr = 2;
+            return false;
+        }
         var balancenum = Neo.Fixed8.parse(this.balance.balance + '');
         var inputamount = Neo.Fixed8.parse(this.amount);
         var compare = balancenum.compareTo(inputamount);
-        compare >= 1 ? this.amount = this.amount : this.amount = balancenum.toString();
-        return true;
+        if (compare >= 0) {
+            this.isNumber = true;
+            this.amounterr = 1;
+        }
+        else {
+            this.isNumber = false;
+            this.amounterr = 3;
+        }
+        return this.isNumber;
     };
     transfer.prototype.send = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -3416,6 +3440,7 @@ var transfer = /** @class */ (function (_super) {
                     case 1:
                         res = _a.sent();
                         if (!!res["err"]) return [3 /*break*/, 3];
+                        this.isNumber = false;
                         mui.toast("" + this.$t("transfer.msg2"));
                         his = new entity_1.History();
                         his.address = this.toaddress;
@@ -3446,6 +3471,7 @@ var transfer = /** @class */ (function (_super) {
                     case 6:
                         res = _a.sent();
                         mui.toast(res.info);
+                        this.isNumber = false;
                         his = new entity_1.History();
                         his.address = this.toaddress;
                         his.asset = this.asset;
@@ -3838,13 +3864,6 @@ exports.default = Settings;
 
 /***/ }),
 
-/***/ "oPY0":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "owRU":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3855,14 +3874,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var transfer = __webpack_require__("f3HO");
 var transfer_default = /*#__PURE__*/__webpack_require__.n(transfer);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-66f8f1d7","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/pages/transfer.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('wallet-layout',[_c('div',{staticClass:"container"},[_c('div',{staticClass:"title"},[_c('span',[_vm._v(_vm._s(_vm.$t('transfer.transfer')))])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"transfer-panel"},[_c('div',{staticClass:"form-horizontal"},[_c('div',{staticClass:"col-sm-12"},[_c('label',{staticClass:"col-sm-2 control-label",staticStyle:{"padding-top":"20px"},attrs:{"for":"firstname"}},[_vm._v(_vm._s(_vm.$t('transfer.title1'))+":")]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('div',{staticClass:"dropdown"},[_c('div',{staticClass:"btn dropdown-toggle select-nel",class:_vm.balances.length>0 ? '' : 'select-disabled',attrs:{"type":"button","id":"dropdownMenu1","data-toggle":"dropdown"}},[_c('div',{staticClass:"select-title"},[_vm._v(_vm._s(_vm.balance.names))]),_vm._v(" "),_c('div',{staticClass:"select-caret"},[_c('span',{staticClass:"caret"})])]),_vm._v(" "),_c('ul',{staticClass:"dropdown-menu dropdown-nel",attrs:{"role":"menu","aria-labelledby":"dropdownMenu1"}},_vm._l((_vm.balances),function(balance){return _c('li',{key:balance.asset,class:_vm.asset==balance.asset?'active':'',attrs:{"role":"presentation","value":balance.asset}},[_c('a',{attrs:{"role":"menuitem","tabindex":"-1"},on:{"click":function($event){_vm.choose(balance.asset)}}},[_vm._v(_vm._s(balance.names))])])}))])]),_vm._v(" "),_c('div',{staticClass:"col-sm-4",staticStyle:{"padding-top":"20px"}},[_c('span',[_vm._v("      "+_vm._s(_vm.balance.balance)+" "+_vm._s(_vm.balance.names ? _vm.balance.names +" "+ _vm.$t('transfer.msg5') : "")+" ")])])]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",class:_vm.addrerr!=''?(_vm.addrerr == 'true' ?'err':'success') :''},[_c('label',{staticClass:"col-sm-2 control-label",attrs:{"for":""}},[_c('div',{staticStyle:{"padding-top":"40px"}},[_vm._v(_vm._s(_vm.$t('transfer.title2'))+":")])]),_vm._v(" "),_c('div',{staticClass:"col-sm-7"},[_c('div',{staticStyle:{"padding-top":"30px"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.target),expression:"target"}],staticClass:"nel-input big",attrs:{"type":"text","placeholder":_vm.$t('transfer.placeholder')},domProps:{"value":(_vm.target)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.target=$event.target.value},_vm.verify_addr]}})]),_vm._v(" "),(_vm.isDomain)?_c('p',[_vm._v(_vm._s(_vm.toaddress))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"col-sm-3 mess"},[(_vm.addrerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("  "+_vm._s(_vm.$t('transfer.msg1')))]):_vm._e(),_vm._v(" "),(_vm.addrerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}})]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",class:_vm.amounterr!=''?(_vm.amounterr == 'true' ?'err':'success') :''},[_c('label',{staticClass:"col-sm-2 control-label",attrs:{"for":""}},[_c('div',{staticStyle:{"padding-top":"40px"}},[_vm._v(_vm._s(_vm.$t('transfer.title3'))+":")])]),_vm._v(" "),_c('div',{staticClass:"col-sm-7"},[_c('div',{staticStyle:{"padding-top":"30px"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.amount),expression:"amount"}],staticClass:"nel-input big",attrs:{"type":"number"},domProps:{"value":(_vm.amount)},on:{"change":_vm.verify_Amount,"input":[function($event){if($event.target.composing){ return; }_vm.amount=$event.target.value},_vm.verify_Amount]}})])]),_vm._v(" "),_c('div',{staticClass:"col-sm-3 mess"})]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",staticStyle:{"padding-top":"30px"}},[_c('div',{staticClass:"col-sm-6"}),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('button',{staticClass:"btn btn-link"},[_vm._v(_vm._s(_vm.$t('transfer.details')))]),_vm._v(" "),_c('button',{staticClass:"btn btn-nel btn-big",on:{"click":_vm.send}},[_vm._v(_vm._s(_vm.$t('transfer.send')))])])])])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"title"},[_c('span',[_vm._v(_vm._s(_vm.$t('transfer.title4')))])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"history-panel"},[_c('div',[_c('div',{staticClass:"title"}),_vm._v(" "),_vm._l((_vm.txs),function(tx){return _c('div',{key:tx.index,staticClass:"history"},[_c('div',{staticClass:"number",class:tx.txtype},[_vm._v("\n                        "+_vm._s(tx.txtype == 'out'?'+ ':'- ')+_vm._s(tx.value)+" "+_vm._s(tx.assetname))]),_vm._v(" "),_c('div',{staticClass:"address"},[_vm._v(_vm._s(tx.txtype == 'out'?_vm.$t('transfer.from'):_vm.$t('transfer.to'))+" : "+_vm._s(tx.address))]),_vm._v(" "),_c('div',{staticClass:"time"},[_c('a',{attrs:{"href":'https://scan.nel.group/#mainnet/transaction/'+tx.txid,"target":"_blank"}},[_vm._v("\n                            "+_vm._s(tx.txid.substring(0, 4) + '...' + tx.txid.substring(tx.txid.length - 4))+"\n                        ")]),_vm._v("  "+_vm._s(tx.time)+"\n                        "),(tx.waiting)?_c('div',[_vm._v("("+_vm._s(_vm.$t('nns.waiting'))+")")]):_vm._e()])])})],2)]),_vm._v(" "),(_vm.cutshow)?_c('div',{staticClass:"page"},[_c('div',{staticClass:"page-previous",class:_vm.txpage<=1?'disabled':'',on:{"click":function($event){_vm.cutPage('pre')}}},[_c('img',{attrs:{"src":__webpack_require__("tt5S"),"alt":""}})]),_vm._v(" "),_c('div',{staticStyle:{"width":"1px"}}),_vm._v(" "),_c('div',{staticClass:"page-next",class:_vm.nextpage?'':'disabled',on:{"click":function($event){_vm.cutPage('next')}}},[_c('img',{attrs:{"src":__webpack_require__("pp3u"),"alt":""}})])]):_vm._e()])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-245e1754","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/pages/transfer.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('wallet-layout',[_c('div',{staticClass:"container"},[_c('div',{staticClass:"title"},[_c('span',[_vm._v(_vm._s(_vm.$t('transfer.transfer')))])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"transfer-panel"},[_c('div',{staticClass:"form-horizontal"},[_c('div',{staticClass:"col-sm-12"},[_c('label',{staticClass:"col-sm-2 control-label",staticStyle:{"padding-top":"20px"},attrs:{"for":"firstname"}},[_vm._v(_vm._s(_vm.$t('transfer.title1'))+":")]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('div',{staticClass:"dropdown"},[_c('div',{staticClass:"btn dropdown-toggle select-nel",class:_vm.balances.length>0 ? '' : 'select-disabled',attrs:{"type":"button","id":"dropdownMenu1","data-toggle":"dropdown"}},[_c('div',{staticClass:"select-title"},[_vm._v(_vm._s(_vm.balance.names))]),_vm._v(" "),_c('div',{staticClass:"select-caret"},[_c('span',{staticClass:"caret"})])]),_vm._v(" "),_c('ul',{staticClass:"dropdown-menu dropdown-nel",attrs:{"role":"menu","aria-labelledby":"dropdownMenu1"}},_vm._l((_vm.balances),function(balance){return _c('li',{key:balance.asset,class:_vm.asset==balance.asset?'active':'',attrs:{"role":"presentation","value":balance.asset}},[_c('a',{attrs:{"role":"menuitem","tabindex":"-1"},on:{"click":function($event){_vm.choose(balance.asset)}}},[_vm._v(_vm._s(balance.names))])])}))])]),_vm._v(" "),_c('div',{staticClass:"col-sm-4",staticStyle:{"padding-top":"20px"}},[_c('span',[_vm._v("      "+_vm._s(_vm.balance.balance)+" "+_vm._s(_vm.balance.names ? _vm.balance.names +" "+ _vm.$t('transfer.msg5') : "")+" ")])])]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",class:_vm.addrerr!=''?(_vm.addrerr == 'true' ?'err':'success') :''},[_c('label',{staticClass:"col-sm-2 control-label",attrs:{"for":""}},[_c('div',{staticStyle:{"padding-top":"40px"}},[_vm._v(_vm._s(_vm.$t('transfer.title2'))+":")])]),_vm._v(" "),_c('div',{staticClass:"col-sm-7"},[_c('div',{staticStyle:{"padding-top":"30px"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.target),expression:"target"}],staticClass:"nel-input big",attrs:{"type":"text","placeholder":_vm.$t('transfer.placeholder')},domProps:{"value":(_vm.target)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.target=$event.target.value},_vm.verify_addr]}})]),_vm._v(" "),(_vm.isDomain)?_c('p',[_vm._v(_vm._s(_vm.toaddress))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"col-sm-3 mess"},[(_vm.addrerr=='true')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("  "+_vm._s(_vm.$t('transfer.msg1')))]):_vm._e(),_vm._v(" "),(_vm.addrerr=='false')?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}})]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",class:_vm.amounterr>0?(_vm.amounterr >1 ?'err':'success') :''},[_c('label',{staticClass:"col-sm-2 control-label",attrs:{"for":""}},[_c('div',{staticStyle:{"padding-top":"40px"}},[_vm._v(_vm._s(_vm.$t('transfer.title3'))+":")])]),_vm._v(" "),_c('div',{staticClass:"col-sm-7"},[_c('div',{staticStyle:{"padding-top":"30px"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.amount),expression:"amount"}],staticClass:"nel-input big",attrs:{"type":"text","autocomplete":"off"},domProps:{"value":(_vm.amount)},on:{"change":_vm.verify_Amount,"input":[function($event){if($event.target.composing){ return; }_vm.amount=$event.target.value},_vm.verify_Amount]}})])]),_vm._v(" "),_c('div',{staticClass:"col-sm-3 mess"},[(_vm.amounterr==1)?_c('p',[_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}})]):_vm._e(),_vm._v(" "),(_vm.amounterr==2)?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("  "+_vm._s(_vm.$t('transfer.errnumber')))]):_vm._e(),_vm._v(" "),(_vm.amounterr==3)?_c('p',[_c('img',{attrs:{"src":__webpack_require__("7vgD"),"alt":""}}),_vm._v("  "+_vm._s(_vm.$t('transfer.erramount')))]):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"col-sm-12",staticStyle:{"padding-top":"30px"}},[_c('div',{staticClass:"col-sm-6"}),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('button',{staticClass:"btn btn-link"},[_vm._v(_vm._s(_vm.$t('transfer.details')))]),_vm._v(" "),_c('button',{staticClass:"btn btn-nel btn-big",class:{'btn-disabled':!_vm.isAddress||!_vm.isNumber},attrs:{"disabled":!_vm.isAddress||!_vm.isNumber},on:{"click":_vm.send}},[_vm._v(_vm._s(_vm.$t('transfer.send')))])])])])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"title"},[_c('span',[_vm._v(_vm._s(_vm.$t('transfer.title4')))])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"history-panel"},[_c('div',[_c('div',{staticClass:"title"}),_vm._v(" "),_vm._l((_vm.txs),function(tx){return _c('div',{key:tx.index,staticClass:"history"},[_c('div',{staticClass:"number",class:tx.txtype},[_vm._v("\n                        "+_vm._s(tx.txtype == 'out'?'+ ':'- ')+_vm._s(tx.value)+" "+_vm._s(tx.assetname))]),_vm._v(" "),_c('div',{staticClass:"address"},[_vm._v(_vm._s(tx.txtype == 'out'?_vm.$t('transfer.from'):_vm.$t('transfer.to'))+" : "+_vm._s(tx.address))]),_vm._v(" "),_c('div',{staticClass:"time"},[_c('a',{attrs:{"href":'https://scan.nel.group/#mainnet/transaction/'+tx.txid,"target":"_blank"}},[_vm._v("\n                            "+_vm._s(tx.txid.substring(0, 4) + '...' + tx.txid.substring(tx.txid.length - 4))+"\n                        ")]),_vm._v("  "+_vm._s(tx.time)+"\n                        "),(tx.waiting)?_c('div',[_vm._v("("+_vm._s(_vm.$t('nns.waiting'))+")")]):_vm._e()])])})],2)]),_vm._v(" "),(_vm.cutshow)?_c('div',{staticClass:"page"},[_c('div',{staticClass:"page-previous",class:_vm.txpage<=1?'disabled':'',on:{"click":function($event){_vm.cutPage('pre')}}},[_c('img',{attrs:{"src":__webpack_require__("tt5S"),"alt":""}})]),_vm._v(" "),_c('div',{staticStyle:{"width":"1px"}}),_vm._v(" "),_c('div',{staticClass:"page-next",class:_vm.nextpage?'':'disabled',on:{"click":function($event){_vm.cutPage('next')}}},[_c('img',{attrs:{"src":__webpack_require__("pp3u"),"alt":""}})])]):_vm._e()])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var pages_transfer = (esExports);
 // CONCATENATED MODULE: ./src/pages/transfer.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("oPY0")
+  __webpack_require__("rImD")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -3991,7 +4010,9 @@ exports.default = {
         msg2: "Your transaction has been sent, please check it later",
         msg3: "Transaction failure",
         msg4: "-_-!!!You don't have enough change, you have to wait for the block height to change before you can make the next transaction.",
-        msg5: "available"
+        msg5: "available",
+        errnumber: "Please enter the correct amount",
+        erramount: "Insufficient balance",
     },
     nns: {
         nns: "NNS",
@@ -4468,20 +4489,15 @@ var CoinTool = /** @class */ (function () {
      */
     CoinTool.nep5Transaction = function (address, tatgeraddr, asset, amount) {
         return __awaiter(this, void 0, void 0, function () {
-            var res, decimals, numarr, v, i, bnum, intv, sb, scriptaddress, random_uint8, random_int, result;
+            var res, decimals, tracount, count, sb, scriptaddress, random_uint8, random_int, result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, wwwtool_1.WWW.getNep5Asset(asset)];
                     case 1:
                         res = _a.sent();
                         decimals = res["decimals"];
-                        numarr = amount.split(".");
-                        decimals -= (numarr.length == 1 ? 0 : numarr[1].length);
-                        v = 1;
-                        for (i = 0; i < decimals; i++)
-                            v *= 10;
-                        bnum = new Neo.BigInteger(amount.replace(".", ""));
-                        intv = bnum.multiply(v).toString();
+                        tracount = parseFloat(amount).toFixed(decimals);
+                        count = tracount.replace(".", "");
                         sb = new ThinNeo.ScriptBuilder();
                         scriptaddress = asset.hexToBytes().reverse();
                         random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
@@ -4490,7 +4506,7 @@ var CoinTool = /** @class */ (function () {
                         sb.EmitPushNumber(random_int);
                         sb.Emit(ThinNeo.OpCode.DROP);
                         //塞值
-                        sb.EmitParamJson(["(address)" + address, "(address)" + tatgeraddr, "(integer)" + intv]); //第二个参数是个数组
+                        sb.EmitParamJson(["(address)" + address, "(address)" + tatgeraddr, "(integer)" + count]); //第二个参数是个数组
                         sb.EmitPushString("transfer");
                         sb.EmitAppCall(scriptaddress);
                         return [4 /*yield*/, CoinTool.contractInvokeTrans_attributes(sb.ToArray())];
@@ -4516,6 +4532,13 @@ exports.CoinTool = CoinTool;
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjE1cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE1IDE2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OSAoNTEwMDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0i5rWP6KeI5ZmoNCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImJsb2Nrcy1oYW5nb3ZlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTY1OC4wMDAwMDAsIC0xMTY1LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0ic3d0aWNoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OTAuMDAwMDAwLCAxMTU0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjUuMjc2MzkzMiwxMi4xNzEwMzk0IEwzMS42NTgzNTkyLDI0LjkzNDk3MTUgQzMxLjkwNTM0ODUsMjUuNDI4OTUgMzEuNzA1MTI0MSwyNi4wMjk2MjMgMzEuMjExMTQ1NiwyNi4yNzY2MTIzIEMzMS4wNzIyOTAyLDI2LjM0NjA0IDMwLjkxOTE3NzEsMjYuMzgyMTg1MSAzMC43NjM5MzIsMjYuMzgyMTg1MSBMMTgsMjYuMzgyMTg1MSBDMTcuNDQ3NzE1MywyNi4zODIxODUxIDE3LDI1LjkzNDQ2OTggMTcsMjUuMzgyMTg1MSBDMTcsMjUuMjI2OTQgMTcuMDM2MTQ1MSwyNS4wNzM4MjY5IDE3LjEwNTU3MjgsMjQuOTM0OTcxNSBMMjMuNDg3NTM4OCwxMi4xNzEwMzk0IEMyMy43MzQ1MjgxLDExLjY3NzA2MSAyNC4zMzUyMDExLDExLjQ3NjgzNjYgMjQuODI5MTc5NiwxMS43MjM4MjU5IEMyNS4wMjI3MDcsMTEuODIwNTg5NiAyNS4xNzk2Mjk1LDExLjk3NzUxMiAyNS4yNzYzOTMyLDEyLjE3MTAzOTQgWiIgaWQ9IlRyaWFuZ2xlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNC4zODIwNzYsIDE5LjAwMDExMCkgcm90YXRlKDkwLjAwMDAwMCkgdHJhbnNsYXRlKC0yNC4zODIwNzYsIC0xOS4wMDAxMTApICI+PC9wYXRoPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+
+/***/ }),
+
+/***/ "rImD":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -4634,7 +4657,9 @@ exports.default = {
         msg2: "您的交易已发送，请稍后查验",
         msg3: "交易失败",
         msg4: "您没有足够的utxo进行交易，请等待高度变化后再尝试下笔交易",
-        msg5: "可用"
+        msg5: "可用",
+        errnumber: "请输入正确格式的金额",
+        erramount: "余额不足",
     },
     nns: {
         nns: "NNS",

@@ -44,25 +44,26 @@
                             <p v-if="addrerr=='false'"><img src="../../static/img/correct.svg" alt=""></p>
                         </div>
                     </div>
-                    <div class="col-sm-12" :class="amounterr!=''?(amounterr == 'true' ?'err':'success') :''">
+                    <div class="col-sm-12" :class="amounterr>0?(amounterr >1 ?'err':'success') :''">
                         <label for="" class="col-sm-2 control-label">
                             <div style="padding-top:40px;">{{$t('transfer.title3')}}:</div>
                         </label>
                         <div class="col-sm-7">
                             <div style="padding-top:30px;">
-                                <input type="number" v-model="amount" class="nel-input big" @change="verify_Amount" @input="verify_Amount">
+                                <input type="text" v-model="amount" class="nel-input big" @change="verify_Amount" @input="verify_Amount" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-sm-3 mess">
-                            <!-- <p v-if="addrerr=='true'"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp; Your adress is incorrect.</p>
-                            <p v-if="addrerr=='false'"><img src="../../static/img/correct.svg" alt=""></p> -->
+                            <p v-if="amounterr==1"><img src="../../static/img/correct.svg" alt=""></p>
+                            <p v-if="amounterr==2"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp;{{$t('transfer.errnumber')}}</p>
+                            <p v-if="amounterr==3"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp;{{$t('transfer.erramount')}}</p>
                         </div>
                     </div>
                     <div class="col-sm-12" style="padding-top:30px;">
                         <div class="col-sm-6"></div>
                         <div class="col-sm-3">
                             <button class="btn btn-link">{{$t('transfer.details')}}</button>
-                            <button class="btn btn-nel btn-big" @click="send">{{$t('transfer.send')}}</button>
+                            <button class="btn btn-nel btn-big" :class="{'btn-disabled':!isAddress||!isNumber}" @click="send" :disabled="!isAddress||!isNumber">{{$t('transfer.send')}}</button>
                         </div>
                     </div>
                 </div>

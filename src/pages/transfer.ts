@@ -26,16 +26,20 @@ export default class transfer extends Vue
     balances: BalanceInfo[] = [];
     balance: BalanceInfo = new BalanceInfo();
     addrerr: string = "";
-    amounterr: string = "";
+    amounterr: number = 0;
     txs: History[] = [];
     nextpage: boolean = true;
     txpage: number;
     cutshow: boolean = true;
+    isNumber: boolean;//判断输入的交易金额是否正确
+    isAddress: boolean;
     constructor() 
     {
         super();
         this.target = "";
         this.isDomain = false;
+        this.isNumber = false;
+        this.isAddress = false;
         this.toaddress = "";
         this.amount = "";
         this.asset = "";
@@ -95,10 +99,12 @@ export default class transfer extends Vue
             {
                 this.toaddress = addr;
                 this.isDomain = true;
+                this.isAddress = true;
                 this.addrerr = 'false'; return true;
             }
             else
             {
+                this.isAddress = false;
                 this.addrerr = 'true'; return false;
             }
         }
@@ -107,18 +113,37 @@ export default class transfer extends Vue
             if (neotools.verifyPublicKey(this.target))
             {
                 this.toaddress = this.target;
+                this.isAddress = true;
                 this.addrerr = 'false'; return true;
             }
         }
-        else { this.addrerr = 'true'; return false; }
+        else
+        {
+            this.isAddress = false;
+            this.addrerr = 'true'; return false;
+        }
     }
     verify_Amount()
     {
+        if (!(/^[0-9]+([.]{1}[0-9]+){0,1}$/.test(this.amount)))
+        {
+            this.isNumber = false;
+            this.amounterr = 2;
+            return false;
+        }
         let balancenum = Neo.Fixed8.parse(this.balance.balance + '');
         let inputamount = Neo.Fixed8.parse(this.amount);
         let compare = balancenum.compareTo(inputamount);
-        compare >= 1 ? this.amount = this.amount : this.amount = balancenum.toString();
-        return true;
+        if (compare >= 0)
+        {
+            this.isNumber = true;
+            this.amounterr = 1;
+        } else
+        {
+            this.isNumber = false;
+            this.amounterr = 3;
+        }
+        return this.isNumber;
     }
     async send()
     {
@@ -131,6 +156,7 @@ export default class transfer extends Vue
                     let res = await CoinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, this.amount);
                     if (!res[ "err" ])
                     {
+                        this.isNumber = false;
                         mui.toast("" + this.$t("transfer.msg2"));
                         let his: History = new History();
                         his.address = this.toaddress;
@@ -159,6 +185,7 @@ export default class transfer extends Vue
                 {
                     let res: Result = await CoinTool.rawTransaction(this.toaddress, this.asset, this.amount);
                     mui.toast(res.info);
+                    this.isNumber = false;
                     let his: History = new History();
                     his.address = this.toaddress;
                     his.asset = this.asset;

@@ -93,7 +93,9 @@ export default {
         msg2: "Your transaction has been sent, please check it later",
         msg3: "Transaction failure",
         msg4: "-_-!!!You don't have enough change, you have to wait for the block height to change before you can make the next transaction.",
-        msg5: "available"
+        msg5: "available",
+        errnumber: "Please enter the correct amount",
+        erramount: "Insufficient balance",
     },
     nns: {
         nns: "NNS",

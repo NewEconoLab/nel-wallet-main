@@ -3,7 +3,7 @@ import { CoinTool } from './cointool';
 export class WWW
 {
     static api: string = "https://api.nel.group/api/mainnet";
-    static apiaggr: string = "https://apiaggr.nel.group/api/mainnet";
+    static apiaggr: string = "https://apiwallet.nel.group/api/mainnet";
     static makeRpcUrl(url: string, method: string, ..._params: any[])
     {
         // if (url[ url.length - 1 ] != '/')
@@ -122,8 +122,14 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("sendrawtransaction", data.toHexString());
         var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json[ "result" ][ 0 ] as boolean;
-        return r;
+        if (json.result)
+        {
+            var r = json[ "result" ][ 0 ] as boolean;
+            return r;
+        } else
+        {
+            throw json.error.data;
+        }
     }
 
     static async api_getclaimgas(address: string, type: number)

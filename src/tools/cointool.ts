@@ -371,15 +371,8 @@ export class CoinTool
     {
         let res = await WWW.getNep5Asset(asset);
         var decimals = res[ "decimals" ] as number;
-        var numarr = amount.split(".");
-        decimals -= (numarr.length == 1 ? 0 : numarr[ 1 ].length);
-
-        var v = 1;
-        for (var i = 0; i < decimals; i++)
-            v *= 10;
-        var bnum = new Neo.BigInteger(amount.replace(".", ""));
-        var intv = bnum.multiply(v).toString();
-
+        let tracount = parseFloat(amount).toFixed(decimals);
+        let count = tracount.replace(".", "");
         var sb = new ThinNeo.ScriptBuilder();
         var scriptaddress = asset.hexToBytes().reverse();
         //生成随机数
@@ -389,7 +382,7 @@ export class CoinTool
         sb.EmitPushNumber(random_int);
         sb.Emit(ThinNeo.OpCode.DROP);
         //塞值
-        sb.EmitParamJson([ "(address)" + address, "(address)" + tatgeraddr, "(integer)" + intv ]);//第二个参数是个数组
+        sb.EmitParamJson([ "(address)" + address, "(address)" + tatgeraddr, "(integer)" + count ]);//第二个参数是个数组
         sb.EmitPushString("transfer");
         sb.EmitAppCall(scriptaddress);
         var result = await CoinTool.contractInvokeTrans_attributes(sb.ToArray())
