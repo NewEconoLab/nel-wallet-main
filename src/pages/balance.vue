@@ -4,7 +4,7 @@
       <div class="title" style="padding-bottom:28px;">
         <span>{{$t('balance.title1')}}</span>
         <div style="float:right">
-          <span style="margin-right: 11px;">{{$t('balance.title2')}} ：{{currentAddress}}</span>
+          <span style="margin-right: 11px;">{{$t('balance.title2')}} ：<span class="user-select-ok">{{currentAddress}}</span></span>
           <button class="btn" data-toggle="modal" data-target="#selectAddr" v-if="chooseAddressarr&&chooseAddressarr>1">{{$t('btn.switch')}}</button>
         </div>
       </div>
