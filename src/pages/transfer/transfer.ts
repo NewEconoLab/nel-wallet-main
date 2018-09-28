@@ -333,14 +333,14 @@ export default class transfer extends Vue
                         else
                         {
                             let nep5 = await tools.wwwtool.getNep5Asset(asset);
-                            assetname = nep5[ "name" ];
+                            assetname = nep5[ "symbol" ];
                         }
                         var history = new History();
                         history.time = date;
                         history.txid = txid;
                         history.assetname = assetname;
                         history.address = address;
-                        history.value = parseFloat(amount).toString();
+                        history.value = Neo.Fixed8.parse(amount).toString();
                         history.txtype = type;
                         this.txs.push(history);
                     }
@@ -374,7 +374,7 @@ export default class transfer extends Vue
                             } else
                             {
                                 var assets = {}
-                                assets[ assetname ] = amount;
+                                assets[ assetname ] = Neo.Fixed8.parse(amount).toString();;
                                 arr[ address ] = assets;
                             }
                         } else { currcount++ }
@@ -397,7 +397,7 @@ export default class transfer extends Vue
                                 }
 
                                 var assets = {}
-                                assets[ assetname ] = amount;
+                                assets[ assetname ] = Neo.Fixed8.parse(amount).toString();
                                 arr[ currentAddress ] = assets;
                             }
                         }
@@ -417,7 +417,7 @@ export default class transfer extends Vue
                                     history.txid = txid;
                                     history.assetname = asset;
                                     history.address = address;
-                                    history.value = parseFloat(amount).toString();
+                                    history.value = Neo.Fixed8.parse(amount).toString();
                                     history.txtype = type;
                                     this.txs.push(history);
                                 }
