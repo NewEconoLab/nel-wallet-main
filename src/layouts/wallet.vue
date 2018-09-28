@@ -3,8 +3,9 @@
     <nav class="navbar navbar-wallet">
       <div class="blockheight">
         <div class="container">
-          <span>{{$t('navbar.blockheight')}}：{{blockheight}}</span>
+          <div class="notify-span">{{$t('notify.fee')}}</div>
           <div class="tranhistory-img fright">
+            <span class="blockheight-span">{{$t('navbar.blockheight')}}：{{blockheight}}</span>
             <img src="../../static/img/history.png" alt="" @click="onshowHistory">
             <div class="add-task" v-if="taskNumber">{{taskNumber>99?99:taskNumber}}<span v-if="taskNumber>99">+</span></div>
           </div>
@@ -398,14 +399,31 @@
     padding-top: 235px;
   }
 }
+.blockheight {
+  background: #ebeef1;
+  padding: 20px 0;
+}
+.notify-span {
+  display: inline-block;
+  font-size: 16px;
+  color: #198cee;
+}
 .tranhistory-img {
+  display: inline-block;
+  font-size: 16px;
+  color: #198cee;
   text-align: right;
+  float: right;
   position: relative;
 }
 .tranhistory-img img {
   width: 16px;
   height: 20px;
   cursor: pointer;
+}
+.blockheight-span {
+  display: inline-block;
+  margin-right: 40px;
 }
 .tranhistory-box {
   width: 16px;
