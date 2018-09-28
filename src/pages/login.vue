@@ -21,18 +21,18 @@
             </div>
             <div class="input-login">
               <div class="input-group nel-input-blg">
-                <input type="text" class="form-control" :placeholder="$t('login.selectplaceholder')" disabled="true" v-model="filename">
+                <input type="text" class="form-control" :placeholder="$t('login.selectplaceholder')" disabled="true" v-model="filename" autocomplete="off">
                 <span class="input-group-addon">
                   <button class="btn btn-nel fileinput-button">
                     <span>{{$t("login.selectbtn")}}</span>
-                    <input type="file" @change="fileChange">
                   </button>
+                  <input class="select-file" type="file" @change="fileChange">
                 </span>
               </div>
             </div>
             <div class="input-login" style="padding-top:40px;">
               <div class="input-group nel-input-blg">
-                <input class="form-control" :placeholder="$t('login.passwordholder')" type="password" v-model="password" @keyup.enter="loginFile">
+                <input class="form-control" :placeholder="$t('login.passwordholder')" type="password" v-model="password" @keyup.enter="loginFile" autocomplete="off">
                 <span class="input-group-addon">
                   <button class="btn btn-nel fileinput-button" @click="loginFile">
                     {{$t("login.login")}}
@@ -47,19 +47,17 @@
             <div style="width:417px; margin:0 auto; padding-top:30px">
               <button class="btn btn-nel btn-import" @click="cutModual('wif')">{{$t("login.wifmsg")}}</button>
             </div>
-
             <div style="width:417px; margin:0 auto; padding-top:20px;padding-bottom: 5.9%;">
               <button class="btn btn-nel btn-import" @click="cutModual('nep2')">{{$t("login.nep2msg")}}</button>
             </div>
-
           </div>
           <div v-if="moudle_wif" class="wif_imp">
             <div class="title-login">
               <span>{{$t("wif.title")}}</span>
             </div>
-            <div class="nel-input-blg"><input type="text" :placeholder="$t('wif.wifplaceholder')" v-model="wif"></div>
+            <div class="nel-input-blg"><input type="text" :placeholder="$t('wif.wifplaceholder')" v-model="wif" autocomplete="off"></div>
             <div class="login-btn">
-              <button class="btn btn-nel btn-import" @click="login('wif')">{{$t("login.login")}}</button>
+              <button class="btn btn-nel btn-import" @click="loginWif">{{$t("login.login")}}</button>
             </div>
             <div class="back">
               <a @click="cutModual('nep6')">&lt; {{$t("wif.back")}}</a>
@@ -69,10 +67,10 @@
             <div class="title-login">
               <span>Nep2</span>
             </div>
-            <div class="nel-input-blg"><input type="text" :placeholder="$t('nep2.placeholder')" v-model="nep2"></div>
-            <div class="nel-input-blg"><input type="password" :placeholder="$t('nep2.password')" v-model="nep2pwd"></div>
+            <div class="nel-input-blg"><input type="text" :placeholder="$t('nep2.placeholder')" v-model="nep2" autocomplete="off"></div>
+            <div class="nel-input-blg"><input type="password" :placeholder="$t('nep2.password')" v-model="nep2pwd" autocomplete="off"></div>
             <div class="login-btn">
-              <button class="btn btn-nel btn-import" @click="login('nep2')">{{$t("login.login")}}</button>
+              <button class="btn btn-nel btn-import" @click="loginNep2">{{$t("login.login")}}</button>
             </div>
             <div class="back">
               <a @click="cutModual('nep6')">&lt; {{$t("wif.back")}}</a>
@@ -83,16 +81,16 @@
               <span>{{$t("generate.title")}}</span>
             </div>
             <div :class="nameerr!=''?( nameerr == 'true' ?'err':'success') :''">
-              <div class="nel-input-blg"><input type="text" :placeholder="$t('generate.name')" @input="verifyName" @blur="verifyName" v-model="walletname">
+              <div class="nel-input-blg"><input type="text" :placeholder="$t('generate.name')" @input="verifyName" @blur="verifyName" v-model="walletname" autocomplete="off">
               </div>
               <div class="message">
                 <p v-if="nameerr=='true'"><img src="../../static/img/wrong.svg" alt="">&nbsp;&nbsp; {{$t('generate.nameempty')}}</p>
-                <p v-if="nameerr=='false'"><img src="../../static/img/correct.svg" alt="">&nbsp;&nbsp; {{$t('generate.namepass')}} </p>
+                <p v-if="nameerr=='false'"><img src="../../static/img/correct.svg" alt="">&nbsp;&nbsp; {{$t('generate.namepass')}}</p>
               </div>
             </div>
             <div :class="pwderr!=''?( pwderr == 'true' ?'err':'success') :''">
               <div class="nel-input-blg">
-                <input type="password" :placeholder="$t('generate.password')" @input="verifypwd" @blur="verifypwd" v-model="walletpwd">
+                <input type="password" :placeholder="$t('generate.password')" @input="verifypwd" @blur="verifypwd" v-model="walletpwd" autocomplete="off">
               </div>
               <div class="message">
                 <p v-if="pwderr=='true'">
@@ -105,7 +103,7 @@
             </div>
             <div :class="confirmerr!=''?( confirmerr == 'true' ?'err':'success') :''">
               <div class="nel-input-blg">
-                <input type="password" :placeholder="$t('generate.password')" @input="verifyConfirm" @blur="verifyConfirm" v-model="confirmpwd">
+                <input type="password" :placeholder="$t('generate.passwordagain')" @input="verifyConfirm" @blur="verifyConfirm" v-model="confirmpwd" autocomplete="off">
               </div>
               <div class="message">
                 <p v-if="confirmerr=='true'">
@@ -136,7 +134,6 @@
         </div>
       </div>
     </div>
-    <!-- <alert></alert> -->
   </main-layout>
 </template>
 
@@ -302,27 +299,44 @@
   height: 56px;
   margin: 0 auto;
 }
-.nel-input-blg > input {
+.nel-input-blg input {
   height: 56px;
 }
 .hr-more {
   height: 20px;
   width: 129px;
   position: relative;
-  left: 41%;
+  left: 50%;
   top: -30px;
-  color: #b2b2b2;
+  margin-left: -65px;
   font: normal 1.2em/20px;
   vertical-align: middle;
   text-align: center;
   border-radius: 4px;
   background-color: #ffffff;
+  font-size: 14px;
+  color: #b2b2b2;
+  line-height: 14px;
 }
 
+.login-container {
+  background: #ffffff;
+  box-shadow: 0 2px 10px 0 #2c80c8;
+  border-radius: 10px;
+}
+.login-container .container-right {
+  width: 680px;
+  height: 580px;
+  float: right;
+  background: #ffffff;
+  border-radius: 0 10px 10px 0;
+}
 .input-group-addon {
   padding: 0;
   border: 0;
+  position: relative;
 }
+
 .fileinput-button {
   border: 0;
   position: relative;
@@ -332,13 +346,15 @@
   height: 56px;
   border-radius: 0px 5px 5px 0px;
 }
-.fileinput-button input {
+.select-file {
   position: absolute;
   right: 0px;
   top: 0px;
   opacity: 0;
+  z-index: 2;
+  width: 97px;
   /* -ms-filter: 'alpha(opacity=0)'; */
-  font-size: 200px;
+  /* font-size: 200px; */
 }
 .btn-import {
   width: 417px;

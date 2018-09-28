@@ -10,17 +10,23 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "Buffer": "0.0.0",
+    "Math": "0.0.1-security",
     "axios": "^0.17.1",
+    "buffer": "^5.1.0",
+    "jsrsasign": "^7.2.2",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
-    "save": "^2.3.2",
     "vue": "^2.5.2",
     "vue-class-component": "^6.1.0",
-    "vue-i18n": "^7.7.0",
-    "vue-property-decorator": "^6.0.0"
+    "vue-i18n": "^7.8.0",
+    "vue-lazyload": "^1.2.6",
+    "vue-property-decorator": "^6.0.0",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/vue-i18n": "^7.0.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",
@@ -36,7 +42,6 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
-    "jsrsasign": "^7.2.0",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",

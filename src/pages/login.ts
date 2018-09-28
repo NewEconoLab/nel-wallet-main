@@ -1,21 +1,17 @@
-import { Result, WalletOtcgo } from './../tools/entity';
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import MainLayout from "../layouts/Main.vue";
-import { neotools } from "./../tools/neotools";
-import { StorageTool } from '../tools/storagetool';
-import { LoginInfo } from './../tools/entity';
-import VLink from "../components/VLink.vue";
-/// <reference path="../tools/neo-ts.d.ts"/>
+import { WalletOtcgo, LoginInfo, currentInfo, LoginType } from "../tools/entity";
+import { tools } from "../tools/importpack";
+/// <reference path="../tools/number.ts"/>
 
 declare const mui;
 
 @Component({
   components:
-    {
-      "main-layout": MainLayout,
-      "v-link": VLink
-    }
+  {
+    "main-layout": MainLayout
+  }
 })
 export default class login extends Vue 
 {
@@ -25,6 +21,7 @@ export default class login extends Vue
   wallet: ThinNeo.nep6wallet = new ThinNeo.nep6wallet();
   otcgo: WalletOtcgo = new WalletOtcgo();
   reader: FileReader;
+  isotc: boolean = false;
   filename: string = "";
   password: string = "";
   nep2: string = "";
@@ -63,14 +60,15 @@ export default class login extends Vue
         this.wallet.fromJsonStr(walletstr);
       }
     }
-    //初始化隨機數生成器
-    //該隨機數生成器的原理是收集鼠標事件，所以早點打開，效果好
+    //初始化随机数生成器
+    //该随机数生成器原理是，手机鼠标事件，所以早点打开效果好
     Neo.Cryptography.RandomNumberGenerator.startCollectors();
   }
 
   mounted()
   {
-    if (StorageTool.getLoginArr().length > 0)
+    let arr = sessionStorage.getItem("login-info-arr");
+    if (!!arr && arr.length > 0)
     {
       sessionStorage.clear();
     }
@@ -79,22 +77,20 @@ export default class login extends Vue
   // Lifecycle hook
   fileChange($event: any) 
   {
-    if ($event.target.files[ 0 ])
-    {
-      this.file = $event.target.files[ 0 ];
-      this.filename = this.file.name;
+    this.file = $event.target.files[ 0 ];
+    this.filename = this.file.name;
 
-      if (this.filename.includes(".json"))
-      {
-        this.reader.readAsText(this.file);
-      }
+    if (this.filename.includes(".json"))
+    {
+      this.reader.readAsText(this.file);
     }
   }
+
   async loginFile()
   {
     if (!this.filename)
     {
-      mui.toast("" + this.$t("toast.msg5"));
+      mui.alert("" + this.$t("toast.msg3"));
       return;
     }
     mui.toast("" + this.$t("toast.msg1"));
@@ -102,11 +98,20 @@ export default class login extends Vue
     {
       try
       {
-        let loginarray = await neotools.nep6Load(this.wallet, this.password);
-        StorageTool.setLoginArr(loginarray);
-        LoginInfo.setCurrentAddress(loginarray[ 0 ].address)
+        let loginarray = await tools.neotool.nep6Load(this.wallet, this.password)
+        let data = {} as currentInfo;
+        data.type = LoginType.nep6;
+        data.msg = {}
+        this.wallet.accounts.map(account =>
+        {
+          data[ "msg" ][ account.address ] = account.nep2key;
+        });
+        LoginInfo.info = loginarray[ this.wallet.accounts[ 0 ].address ];
+        sessionStorage.setItem('login-info-arr', JSON.stringify(data));
+        LoginInfo.setCurrentAddress(this.wallet.accounts[ 0 ].address);
+
         mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
-        window.location.hash = "#balance";
+        this.$router.push("balance");
       } catch (error)
       {
         mui.alert("" + this.$t("toast.msg3"));
@@ -120,16 +125,19 @@ export default class login extends Vue
         const result = this.otcgo.doValidatePwd();
         if (result)
         {
-          var loginarray: LoginInfo[] = new Array<LoginInfo>();
-          loginarray.push(new LoginInfo());
-          loginarray[ 0 ].address = this.otcgo.address;
-          loginarray[ 0 ].prikey = this.otcgo.prikey;
-          loginarray[ 0 ].pubkey = this.otcgo.pubkey;
+          var info: LoginInfo = new LoginInfo();
+          info.address = this.otcgo.address;
+          info.prikey = this.otcgo.prikey;
+          info.pubkey = this.otcgo.pubkey;
 
-          StorageTool.setLoginArr(loginarray);
-          LoginInfo.setCurrentAddress(loginarray[ 0 ].address)
+          let data = {} as currentInfo;
+          data.type = LoginType.otcgo;
+          data.msg = this.otcgo.toJson();
+          LoginInfo.info = info;
+          LoginInfo.setCurrentAddress(info.address)
+          sessionStorage.setItem('login-info-arr', JSON.stringify(data));
           mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
-          window.location.hash = "#balance";
+          this.$router.push("balance");
         } else
         {
           mui.alert("" + this.$t("toast.msg3"));
@@ -142,44 +150,51 @@ export default class login extends Vue
     }
   }
 
-  async login(type: string)
+  async loginWif()
   {
     mui.toast("" + this.$t("toast.msg1"));
-    if (type == "wif")
+    var res = tools.neotool.wifDecode(this.wif);
+    if (res.err)
     {
-      var res = neotools.wifDecode(this.wif);
-      if (res.err)
-      {
-        mui.toast("" + this.$t("toast.msg4"))
-      } else
-      {
-        var loginarray: LoginInfo[] = new Array<LoginInfo>();
-        var login: LoginInfo = res.info;
-        loginarray.push(login);
-        StorageTool.setLoginArr(loginarray);
-        LoginInfo.setCurrentAddress(login.address);
-        mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
-        window.location.hash = "#balance";
-      }
-    }
-    if (type == "nep2")
+      mui.toast("" + this.$t("toast.msg4"))
+    } else
     {
-      var res = await neotools.nep2ToWif(this.nep2, this.nep2pwd);
-      if (res.err)
-      {
-        mui.toast("" + this.$t("toast.msg4"))
-      } else
-      {
-        var loginarray: LoginInfo[] = new Array<LoginInfo>();
-        var login: LoginInfo = res.info;
-        loginarray.push(login);
-        StorageTool.setLoginArr(loginarray);
-        LoginInfo.setCurrentAddress(login.address);
-        mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
-        window.location.hash = "#balance";
-      }
+      // var loginarray: LoginInfo[] = new Array<LoginInfo>();
+      var login: LoginInfo = res.info;
+      LoginInfo.info = res.info;
+      let data = {} as currentInfo;
+      data.type = LoginType.wif;
+      data.msg = { wif: this.wif };
+      sessionStorage.setItem('login-info-arr', JSON.stringify(data));
+      LoginInfo.setCurrentAddress(login.address);
+      mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
+      this.$router.push("balance");
     }
   }
+
+  async loginNep2()
+  {
+    mui.toast("" + this.$t("toast.msg1"));
+    var res = await tools.neotool.nep2ToWif(this.nep2, this.nep2pwd);
+    if (res.err)
+    {
+      mui.toast("" + this.$t("toast.msg4"))
+    } else
+    {
+      LoginInfo.info = res.info;
+      let data = {} as currentInfo;
+      data.type = LoginType.nep2;
+      data.msg = {};
+      var login: LoginInfo = res.info;
+      data.msg[ login.address ] = this.nep2;
+      sessionStorage.setItem('login-info-arr', JSON.stringify(data));
+      LoginInfo.setCurrentAddress(login.address);
+      mui.toast("" + this.$t("toast.msg2"), { duration: 'long', type: 'div' })
+      this.$router.push("balance");
+    }
+  }
+
+  loginNeodun() { }
 
   cutModual(page: string)
   {
@@ -247,7 +262,7 @@ export default class login extends Vue
 
   verifyConfirm()
   {
-    if (this.walletpwd && this.walletpwd == this.confirmpwd)
+    if (this.confirmpwd && this.walletpwd == this.confirmpwd)
     {
       this.confirmerr = 'false';
       return true;
@@ -310,6 +325,5 @@ export default class login extends Vue
       });
     }
   }
-
 
 }

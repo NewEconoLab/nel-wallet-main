@@ -1,66 +1,58 @@
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
-import cn from "./language/cn"
-import en from "./language/en"
-import Home from './pages/home.vue'
-import About from './pages/about.vue'
-import Login from './pages/login.vue'
-import Balance from './pages/balance.vue'
-import Wallet from './layouts/wallet.vue'
-import Transfer from './pages/transfer.vue';
-import NNS from './pages/nns.vue';
-import Settings from './pages/settings.vue';
-import { CoinTool } from './tools/cointool';
-import { StorageTool } from './tools/storagetool';
+import { tools } from "./tools/importpack";
+import { TaskManager } from './tools/taskmanager';
+import components from './components/index';
+import { TaskFunction } from './tools/entity';
+import App from './pages/app.vue'
+import router from './config/router'
+import i18n from './config/I18n'
 
-Vue.use(VueI18n);
+Vue.use(components);
+
 // const notFound = () => import('./pages/404.vue');
-declare var require: (filename, resolve) => any;
 Vue.config.productionTip = false
-const notFound = Vue.component('notFound', (resolve) => require([ './pages/404.vue' ], resolve));
-let language = sessionStorage.getItem("language");
-!!language ? language : language = 'en';
-/*---------使用语言包-----------*/
-const i18n = new VueI18n({
-    locale: language,    // 语言标识
-    messages: {
-        'cn': cn,   // 中文语言包
-        'en': en    // 英文语言包
-    },
-});
 
-var app = new Vue({
+new Vue({
     el: '#app',
     i18n,
-    data: {
-        currentRoute: window.location.hash
-    },
-    computed: {
-        ViewComponent()
-        {
-            switch (this.currentRoute)
-            {
-                case "#balance":
-                    return Balance;
-                case "#login":
-                    return Login;
-                case "#transfer":
-                    return Transfer;
-                case "#nns":
-                    return NNS;
-                case "#settings":
-                    return Settings;
-            }
-            return notFound;
-        }
-    },
-    render(h)
-    {
-        return h(this.ViewComponent)
-    }
+    render: h => h(App),
+    router,
+    components
 });
 
-window.addEventListener('popstate', () =>
+
+//初始化鼠标随机方法
+Neo.Cryptography.RandomNumberGenerator.startCollectors();
+//初始化根域名
+tools.nnstool.initRootDomain("neo");
+tools.nnstool.initRootDomain("test");
+// console.log(tools.nnstool.root_neo.register.toString());
+
+
+setInterval(() =>
 {
-    app.currentRoute = window.location.hash;
-})
+    let oldBlock = new tools.sessionstoretool("block");
+    tools.wwwtool.api_getHeight()
+        .then((data) =>
+        {
+            let oldHeight = oldBlock.select("height");
+            if (oldHeight)
+            {
+                if (data > oldHeight)
+                {
+                    oldBlock.put("height", data);
+                    /**
+                     * 高度变化放在最开始高度变化就启动高度刷新
+                     */
+                    if (TaskFunction.heightRefresh)
+                    {
+                        TaskFunction.heightRefresh();
+                    }
+                    TaskManager.update();
+                }
+            } else
+            {
+                oldBlock.put("height", data);
+            }
+        })
+}, 15000);

@@ -1,7 +1,9 @@
-export class DateTool
+import { tools } from "./importpack";
+
+export default class DateTool
 {
     /**************************************时间格式化处理************************************/
-    static dateFtt(fmt, date)   
+    static dateFtt(fmt, date): string
     { //author: meizz   
         var o = {
             "M+": date.getMonth() + 1,                 //月份   
@@ -18,5 +20,41 @@ export class DateTool
             if (new RegExp("(" + k + ")").test(fmt))
                 fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[ k ]) : (("00" + o[ k ]).substr(("" + o[ k ]).length)));
         return fmt;
+    }
+
+    static getTime(date: number)
+    {
+        date = date.toString().length == 10 ? date * 1000 : date;
+        let time = new Date(date);
+        let language = localStorage.getItem("language");
+        if (!language || language == 'en')
+        {
+            return new Date(time).toUTCString();
+        } else
+        {
+            return this.dateFtt("yyyy/MM/dd hh:mm:ss", new Date(time));
+        }
+    }
+
+    static currentTime(time?: number | string): number
+    {
+        if (time)
+        {
+            let num = this.getDate(time).getTime();
+            return accDiv(num, 1000);
+        }
+        return parseInt(accDiv(new Date().getTime(), 1000).toString());
+    }
+
+    static getDate(time: string | number): Date
+    {
+        if (typeof time == "number")
+        {
+            time = (time.toString().length < 14) ? time * 1000 : time;
+            return new Date(time as number);
+        } else
+        {
+            return new Date(time as string);
+        }
     }
 }

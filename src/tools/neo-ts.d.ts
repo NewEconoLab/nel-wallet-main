@@ -1,15 +1,20 @@
-declare namespace Neo {
-    abstract class UintVariable {
+declare namespace Neo
+{
+    abstract class UintVariable
+    {
         protected _bits: Uint32Array;
         readonly bits: Uint32Array;
         constructor(bits: number | Uint8Array | Uint32Array | number[]);
         compareTo(other: UintVariable): number;
         equals(other: UintVariable): boolean;
         toString(): string;
+        toArray(): Uint8Array;
     }
 }
-declare namespace Neo {
-    class Uint64 extends UintVariable {
+declare namespace Neo
+{
+    class Uint64 extends UintVariable
+    {
         static readonly MaxValue: Uint64;
         static readonly MinValue: Uint64;
         static readonly Zero: Uint64;
@@ -29,8 +34,10 @@ declare namespace Neo {
         xor(other: number | Uint64): Uint64;
     }
 }
-declare namespace Neo {
-    class BigInteger {
+declare namespace Neo
+{
+    class BigInteger
+    {
         private _sign;
         private _bits;
         static readonly MinusOne: BigInteger;
@@ -49,10 +56,11 @@ declare namespace Neo {
         private static create(sign, bits, clamp?);
         static divide(x: number | BigInteger, y: number | BigInteger): BigInteger;
         divide(other: number | BigInteger): BigInteger;
-        static divRem(x: number | BigInteger, y: number | BigInteger): {
-            result: BigInteger;
-            remainder: BigInteger;
-        };
+        static divRem(x: number | BigInteger, y: number | BigInteger):
+            {
+                result: BigInteger;
+                remainder: BigInteger;
+            };
         static equals(x: number | BigInteger, y: number | BigInteger): boolean;
         equals(other: number | BigInteger): boolean;
         static fromString(str: string, radix?: number): BigInteger;
@@ -95,8 +103,10 @@ declare namespace Neo {
         toUint8ArrayWithSign(littleEndian?: boolean, length?: number): Uint8Array;
     }
 }
-declare namespace Neo {
-    class Fixed8 implements IO.ISerializable {
+declare namespace Neo
+{
+    class Fixed8 implements IO.ISerializable
+    {
         private data;
         static readonly MaxValue: Fixed8;
         static readonly MinusOne: Fixed8;
@@ -121,22 +131,27 @@ declare namespace Neo {
 }
 declare type Func<T, TResult> = (arg: T) => TResult;
 declare type Action<T> = Func<T, void>;
-interface Array<T> {
+interface Array<T>
+{
     fill(value: T, start?: number, end?: number): any;
 }
-interface ArrayConstructor {
+interface ArrayConstructor
+{
     copy<T>(src: ArrayLike<T>, srcOffset: number, dst: ArrayLike<T>, dstOffset: number, count: number): void;
     fromArray<T>(arr: ArrayLike<T>): Array<T>;
 }
-interface String {
+interface String
+{
     hexToBytes(): Uint8Array;
 }
-interface Uint8Array {
+interface Uint8Array
+{
     toHexString(): string;
     clone(): Uint8Array;
     concat(data: Uint8Array): Uint8Array;
 }
-interface Uint8ArrayConstructor {
+interface Uint8ArrayConstructor
+{
     fromArrayBuffer(buffer: ArrayBuffer | ArrayBufferView): Uint8Array;
 }
 declare class NeoMap<TKey, TValue> {
@@ -151,7 +166,8 @@ declare class NeoMap<TKey, TValue> {
     set(key: TKey, value: TValue): void;
 }
 declare type PromiseExecutor<T> = (resolve: Action<T | PromiseLike<T>>, reject: Action<any>) => void;
-declare enum PromiseState {
+declare enum PromiseState
+{
     pending = 0,
     fulfilled = 1,
     rejected = 2,
@@ -175,22 +191,422 @@ declare class NeoPromise<T> implements PromiseLike<T> {
     static resolve<T>(value: T | PromiseLike<T>): PromiseLike<T>;
     then<TResult>(onFulfilled?: Func<T, TResult | PromiseLike<TResult>>, onRejected?: Func<any, TResult | PromiseLike<TResult>>): PromiseLike<TResult>;
 }
-declare namespace Neo {
-    class Uint160 extends UintVariable {
+declare namespace Neo
+{
+    class Uint160 extends UintVariable
+    {
         static readonly Zero: Uint160;
         constructor(value?: ArrayBuffer);
         static parse(str: string): Uint160;
     }
 }
-declare namespace Neo {
-    class Uint256 extends UintVariable {
+declare namespace Neo
+{
+    class Uint256 extends UintVariable
+    {
         static readonly Zero: Uint256;
         constructor(value?: ArrayBuffer);
         static parse(str: string): Uint256;
     }
 }
-declare namespace ThinNeo {
-    class contract {
+declare namespace Neo.Cryptography
+{
+    class Aes
+    {
+        private static numberOfRounds;
+        private static rcon;
+        private static S;
+        private static Si;
+        private static T1;
+        private static T2;
+        private static T3;
+        private static T4;
+        private static T5;
+        private static T6;
+        private static T7;
+        private static T8;
+        private static U1;
+        private static U2;
+        private static U3;
+        private static U4;
+        private _Ke;
+        private _Kd;
+        private _lastCipherblock;
+        readonly mode: string;
+        constructor(key: ArrayBuffer | ArrayBufferView, iv: ArrayBuffer | ArrayBufferView);
+        private static convertToInt32(bytes);
+        decrypt(ciphertext: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+        decryptBlock(ciphertext: Uint8Array, plaintext: Uint8Array): void;
+        encrypt(plaintext: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+        encryptBlock(plaintext: Uint8Array, ciphertext: Uint8Array): void;
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class Base58
+    {
+        static Alphabet: string;
+        static decode(input: string): Uint8Array;
+        static encode(input: Uint8Array): string;
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class CryptoKey
+    {
+        type: string;
+        extractable: boolean;
+        algorithm: Algorithm;
+        usages: string[];
+        constructor(type: string, extractable: boolean, algorithm: Algorithm, usages: string[]);
+    }
+    class AesCryptoKey extends Neo.Cryptography.CryptoKey
+    {
+        private _key_bytes;
+        constructor(_key_bytes: Uint8Array);
+        static create(length: number): AesCryptoKey;
+        export(): Uint8Array;
+        static import(keyData: ArrayBuffer | ArrayBufferView): AesCryptoKey;
+    }
+    class ECDsaCryptoKey extends CryptoKey
+    {
+        publicKey: ECPoint;
+        privateKey: Uint8Array;
+        constructor(publicKey: ECPoint, privateKey?: Uint8Array);
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class ECCurve
+    {
+        Q: BigInteger;
+        A: ECFieldElement;
+        B: ECFieldElement;
+        N: BigInteger;
+        Infinity: ECPoint;
+        G: ECPoint;
+        static readonly secp256k1: ECCurve;
+        static readonly secp256r1: ECCurve;
+        constructor(Q: BigInteger, A: BigInteger, B: BigInteger, N: BigInteger, G: Uint8Array);
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class ECDsa
+    {
+        private key;
+        constructor(key: ECDsaCryptoKey);
+        private static calculateE(n, message);
+        static generateKey(curve: ECCurve):
+            {
+                privateKey: ECDsaCryptoKey;
+                publicKey: ECDsaCryptoKey;
+            };
+        sign(message: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+        private static sumOfTwoMultiplies(P, k, Q, l);
+        verify(message: ArrayBuffer | ArrayBufferView, signature: ArrayBuffer | ArrayBufferView): boolean;
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class ECFieldElement
+    {
+        value: BigInteger;
+        private curve;
+        constructor(value: BigInteger, curve: ECCurve);
+        add(other: ECFieldElement): ECFieldElement;
+        compareTo(other: ECFieldElement): number;
+        divide(other: ECFieldElement): ECFieldElement;
+        equals(other: ECFieldElement): boolean;
+        private static fastLucasSequence(p, P, Q, k);
+        multiply(other: ECFieldElement): ECFieldElement;
+        negate(): ECFieldElement;
+        sqrt(): ECFieldElement;
+        square(): ECFieldElement;
+        subtract(other: ECFieldElement): ECFieldElement;
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class ECPoint
+    {
+        x: ECFieldElement;
+        y: ECFieldElement;
+        curve: ECCurve;
+        constructor(x: ECFieldElement, y: ECFieldElement, curve: ECCurve);
+        static add(x: ECPoint, y: ECPoint): ECPoint;
+        compareTo(other: ECPoint): number;
+        static decodePoint(encoded: Uint8Array, curve: ECCurve): ECPoint;
+        private static decompressPoint(yTilde, X1, curve);
+        static deserializeFrom(reader: IO.BinaryReader, curve: ECCurve): ECPoint;
+        encodePoint(commpressed: boolean): Uint8Array;
+        equals(other: ECPoint): boolean;
+        static fromUint8Array(arr: Uint8Array, curve: ECCurve): ECPoint;
+        isInfinity(): boolean;
+        static multiply(p: ECPoint, n: Uint8Array | BigInteger): ECPoint;
+        negate(): ECPoint;
+        static parse(str: string, curve: ECCurve): ECPoint;
+        static subtract(x: ECPoint, y: ECPoint): ECPoint;
+        toString(): string;
+        twice(): ECPoint;
+        private static windowNaf(width, k);
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class RandomNumberGenerator
+    {
+        private static _entropy;
+        private static _strength;
+        private static _started;
+        private static _stopped;
+        private static _key;
+        private static addEntropy(data, strength);
+        static getRandomValues<T extends Int8Array | Uint8ClampedArray | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array>(array: T): T;
+        private static getWeakRandomValues(array);
+        private static processDeviceMotionEvent(event);
+        private static processEvent(event);
+        private static processMouseEvent(event);
+        private static processTouchEvent(event);
+        static startCollectors(): void;
+        private static stopCollectors();
+    }
+}
+interface String
+{
+    base58Decode(): Uint8Array;
+    base64UrlDecode(): Uint8Array;
+    toAesKey(): PromiseLike<ArrayBuffer>;
+}
+interface Uint8Array
+{
+    base58Encode(): string;
+    base64UrlEncode(): string;
+}
+declare function escape(s: string): string;
+declare function unescape(s: string): string;
+declare namespace Neo.Cryptography
+{
+}
+declare namespace Neo.Cryptography
+{
+    class RIPEMD160
+    {
+        private static zl;
+        private static zr;
+        private static sl;
+        private static sr;
+        private static hl;
+        private static hr;
+        private static bytesToWords(bytes);
+        private static wordsToBytes(words);
+        private static processBlock(H, M, offset);
+        private static f1(x, y, z);
+        private static f2(x, y, z);
+        private static f3(x, y, z);
+        private static f4(x, y, z);
+        private static f5(x, y, z);
+        private static rotl(x, n);
+        static computeHash(data: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+    }
+}
+declare namespace Neo.Cryptography
+{
+    class Sha256
+    {
+        private static K;
+        static computeHash(data: ArrayBuffer | ArrayBufferView): ArrayBuffer;
+        private static ROTR(n, x);
+        private static Σ0(x);
+        private static Σ1(x);
+        private static σ0(x);
+        private static σ1(x);
+        private static Ch(x, y, z);
+        private static Maj(x, y, z);
+    }
+}
+declare namespace Neo.IO
+{
+    class BinaryReader
+    {
+        private input;
+        private _buffer;
+        private array_uint8;
+        private array_int8;
+        private array_uint16;
+        private array_int16;
+        private array_uint32;
+        private array_int32;
+        private array_float32;
+        private array_float64;
+        constructor(input: Stream);
+        canRead(): number;
+        close(): void;
+        private fillBuffer(buffer, count);
+        read(buffer: ArrayBuffer, index: number, count: number): number;
+        readBoolean(): boolean;
+        readByte(): number;
+        readBytes(count: number): ArrayBuffer;
+        readDouble(): number;
+        readFixed8(): Fixed8;
+        readInt16(): number;
+        readInt32(): number;
+        readSByte(): number;
+        readSerializable(T: Function): ISerializable;
+        readSerializableArray(T: Function): ISerializable[];
+        readSingle(): number;
+        readUint16(): number;
+        readUint160(): Uint160;
+        readUint256(): Uint256;
+        readUint32(): number;
+        readUint64(): Uint64;
+        readVarBytes(max?: number): ArrayBuffer;
+        readVarInt(max?: number): number;
+        readVarString(): string;
+    }
+}
+declare namespace Neo.IO
+{
+    class BinaryWriter
+    {
+        private output;
+        private _buffer;
+        private array_uint8;
+        private array_int8;
+        private array_uint16;
+        private array_int16;
+        private array_uint32;
+        private array_int32;
+        private array_float32;
+        private array_float64;
+        constructor(output: Stream);
+        close(): void;
+        seek(offset: number, origin: SeekOrigin): number;
+        write(buffer: ArrayBuffer, index?: number, count?: number): void;
+        writeBoolean(value: boolean): void;
+        writeByte(value: number): void;
+        writeDouble(value: number): void;
+        writeInt16(value: number): void;
+        writeInt32(value: number): void;
+        writeSByte(value: number): void;
+        writeSerializableArray(array: ISerializable[]): void;
+        writeSingle(value: number): void;
+        writeUint16(value: number): void;
+        writeUint32(value: number): void;
+        writeUint64(value: Uint64): void;
+        writeUintVariable(value: UintVariable): void;
+        writeVarBytes(value: ArrayBuffer): void;
+        writeVarInt(value: number): void;
+        writeVarString(value: string): void;
+    }
+}
+interface Uint8Array
+{
+    asSerializable(T: Function): Neo.IO.ISerializable;
+}
+interface Uint8ArrayConstructor
+{
+    fromSerializable(obj: Neo.IO.ISerializable): Uint8Array;
+}
+declare namespace Neo.IO
+{
+    interface ISerializable
+    {
+        deserialize(reader: BinaryReader): void;
+        serialize(writer: BinaryWriter): void;
+    }
+}
+declare namespace Neo.IO
+{
+    enum SeekOrigin
+    {
+        Begin = 0,
+        Current = 1,
+        End = 2,
+    }
+    abstract class Stream
+    {
+        private _array;
+        abstract canRead(): boolean;
+        abstract canSeek(): boolean;
+        abstract canWrite(): boolean;
+        close(): void;
+        abstract length(): number;
+        abstract position(): number;
+        abstract read(buffer: ArrayBuffer, offset: number, count: number): number;
+        readByte(): number;
+        abstract seek(offset: number, origin: SeekOrigin): number;
+        abstract setLength(value: number): void;
+        abstract write(buffer: ArrayBuffer, offset: number, count: number): void;
+        writeByte(value: number): void;
+    }
+}
+declare namespace Neo.IO
+{
+    class MemoryStream extends Stream
+    {
+        private _buffers;
+        private _origin;
+        private _position;
+        private _length;
+        private _capacity;
+        private _expandable;
+        private _writable;
+        constructor(capacity?: number);
+        constructor(buffer: ArrayBuffer, writable?: boolean);
+        constructor(buffer: ArrayBuffer, index: number, count: number, writable?: boolean);
+        canRead(): boolean;
+        canSeek(): boolean;
+        canWrite(): boolean;
+        capacity(): number;
+        private findBuffer(position);
+        length(): number;
+        position(): number;
+        read(buffer: ArrayBuffer, offset: number, count: number): number;
+        private readInternal(dst, srcPos);
+        seek(offset: number, origin: SeekOrigin): number;
+        setLength(value: number): void;
+        toArray(): ArrayBuffer;
+        write(buffer: ArrayBuffer, offset: number, count: number): void;
+    }
+}
+declare namespace Neo.IO.Caching
+{
+    interface ITrackable<TKey>
+    {
+        key: TKey;
+        trackState: TrackState;
+    }
+}
+declare namespace Neo.IO.Caching
+{
+    enum TrackState
+    {
+        None = 0,
+        Added = 1,
+        Changed = 2,
+        Deleted = 3,
+    }
+}
+declare namespace Neo.IO.Caching
+{
+    class TrackableCollection<TKey, TItem extends ITrackable<TKey>> {
+        private _map;
+        constructor(items?: ArrayLike<TItem>);
+        add(item: TItem): void;
+        clear(): void;
+        commit(): void;
+        forEach(callback: (value: TItem, key: TKey, collection: TrackableCollection<TKey, TItem>) => void): void;
+        get(key: TKey): TItem;
+        getChangeSet(): TItem[];
+        has(key: TKey): boolean;
+        remove(key: TKey): void;
+    }
+}
+declare namespace ThinNeo
+{
+    class contract
+    {
         script: string;
         parameters: {
             "name": string;
@@ -198,26 +614,31 @@ declare namespace ThinNeo {
         }[];
         deployed: boolean;
     }
-    class nep6account {
+    class nep6account
+    {
         address: string;
         nep2key: string;
         contract: contract;
         getPrivateKey(scrypt: nep6ScryptParameters, password: string, callback: (info: string, result: string | Uint8Array) => void): void;
     }
-    class nep6ScryptParameters {
+    class nep6ScryptParameters
+    {
         N: number;
         r: number;
         p: number;
     }
-    class nep6wallet {
+    class nep6wallet
+    {
         scrypt: nep6ScryptParameters;
         accounts: nep6account[];
         fromJsonStr(jsonstr: string): void;
         toJson(): any;
     }
 }
-declare namespace ThinNeo {
-    class Base64 {
+declare namespace ThinNeo
+{
+    class Base64
+    {
         static lookup: any[];
         static revLookup: any[];
         static code: string;
@@ -231,8 +652,34 @@ declare namespace ThinNeo {
         static fromByteArray(uint8: Uint8Array): string;
     }
 }
-declare module ThinNeo {
-    class Helper {
+declare namespace ThinNeo
+{
+    class ScriptBuilder
+    {
+        writer: number[];
+        Offset: number;
+        constructor();
+        _WriteUint8(num: number): void;
+        _WriteUint16(num: number): void;
+        _WriteUint32(num: number): void;
+        _WriteUint8Array(nums: Uint8Array): void;
+        _ConvertInt16ToBytes(num: number): Uint8Array;
+        Emit(op: OpCode, arg?: Uint8Array): ScriptBuilder;
+        EmitAppCall(scriptHash: Uint8Array | Neo.Uint160, useTailCall?: boolean): ScriptBuilder;
+        EmitJump(op: OpCode, offset: number): ScriptBuilder;
+        EmitPushNumber(number: Neo.BigInteger): ScriptBuilder;
+        EmitPushBool(data: boolean): ScriptBuilder;
+        EmitPushBytes(data: Uint8Array): ScriptBuilder;
+        EmitPushString(data: string): ScriptBuilder;
+        EmitSysCall(api: string): ScriptBuilder;
+        ToArray(): Uint8Array;
+        EmitParamJson(param: any): ScriptBuilder;
+    }
+}
+declare module ThinNeo
+{
+    class Helper
+    {
         static GetPrivateKeyFromWIF(wif: string): Uint8Array;
         static GetWifFromPrivateKey(prikey: Uint8Array): string;
         static GetPublicKeyFromPrivateKey(privateKey: Uint8Array): Uint8Array;
@@ -240,7 +687,7 @@ declare module ThinNeo {
         static GetAddressCheckScriptFromPublicKey(publicKey: Uint8Array): Uint8Array;
         static GetPublicKeyScriptHashFromPublicKey(publicKey: Uint8Array): Uint8Array;
         static GetScriptHashFromScript(script: Uint8Array): Uint8Array;
-        static GetAddressFromScriptHash(scripthash: Uint8Array): string;
+        static GetAddressFromScriptHash(scripthash: Uint8Array | Neo.Uint160): string;
         static GetAddressFromPublicKey(publicKey: Uint8Array): string;
         static GetPublicKeyScriptHash_FromAddress(address: string): Uint8Array;
         static Sign(message: Uint8Array, privateKey: Uint8Array): Uint8Array;
@@ -254,8 +701,130 @@ declare module ThinNeo {
         static GetPrivateKeyFromNep2(nep2: string, passphrase: string, n: number, r: number, p: number, callback: (info: string, result: string | Uint8Array) => void): void;
     }
 }
-declare module ThinNeo {
-    enum OpCode {
+declare namespace ThinNeo
+{
+    enum TransactionType
+    {
+        MinerTransaction = 0,
+        IssueTransaction = 1,
+        ClaimTransaction = 2,
+        EnrollmentTransaction = 32,
+        RegisterTransaction = 64,
+        ContractTransaction = 128,
+        PublishTransaction = 208,
+        InvocationTransaction = 209,
+    }
+    enum TransactionAttributeUsage
+    {
+        ContractHash = 0,
+        ECDH02 = 2,
+        ECDH03 = 3,
+        Script = 32,
+        Vote = 48,
+        DescriptionUrl = 129,
+        Description = 144,
+        Hash1 = 161,
+        Hash2 = 162,
+        Hash3 = 163,
+        Hash4 = 164,
+        Hash5 = 165,
+        Hash6 = 166,
+        Hash7 = 167,
+        Hash8 = 168,
+        Hash9 = 169,
+        Hash10 = 170,
+        Hash11 = 171,
+        Hash12 = 172,
+        Hash13 = 173,
+        Hash14 = 174,
+        Hash15 = 175,
+        Remark = 240,
+        Remark1 = 241,
+        Remark2 = 242,
+        Remark3 = 243,
+        Remark4 = 244,
+        Remark5 = 245,
+        Remark6 = 246,
+        Remark7 = 247,
+        Remark8 = 248,
+        Remark9 = 249,
+        Remark10 = 250,
+        Remark11 = 251,
+        Remark12 = 252,
+        Remark13 = 253,
+        Remark14 = 254,
+        Remark15 = 255,
+    }
+    class Attribute
+    {
+        usage: TransactionAttributeUsage;
+        data: Uint8Array;
+    }
+    class TransactionOutput
+    {
+        assetId: Uint8Array;
+        value: Neo.Fixed8;
+        toAddress: Uint8Array;
+    }
+    class TransactionInput
+    {
+        hash: Uint8Array;
+        index: number;
+    }
+    class Witness
+    {
+        InvocationScript: Uint8Array;
+        VerificationScript: Uint8Array;
+        readonly Address: string;
+    }
+    interface IExtData
+    {
+        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
+        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
+    }
+    class InvokeTransData implements IExtData
+    {
+        script: Uint8Array;
+        gas: Neo.Fixed8;
+        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
+        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
+    }
+    class ClaimTransData implements IExtData
+    {
+        claims: TransactionInput[];
+        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
+        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
+    }
+    class MinerTransData implements IExtData
+    {
+        nonce: number;
+        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
+        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
+    }
+    class Transaction
+    {
+        type: TransactionType;
+        version: number;
+        attributes: Attribute[];
+        inputs: TransactionInput[];
+        outputs: TransactionOutput[];
+        witnesses: Witness[];
+        SerializeUnsigned(writer: Neo.IO.BinaryWriter): void;
+        Serialize(writer: Neo.IO.BinaryWriter): void;
+        extdata: IExtData;
+        DeserializeUnsigned(ms: Neo.IO.BinaryReader): void;
+        Deserialize(ms: Neo.IO.BinaryReader): void;
+        GetMessage(): Uint8Array;
+        GetRawData(): Uint8Array;
+        AddWitness(signdata: Uint8Array, pubkey: Uint8Array, addrs: string): void;
+        AddWitnessScript(vscript: Uint8Array, iscript: Uint8Array): void;
+        GetHash(): Uint8Array;
+    }
+}
+declare module ThinNeo
+{
+    enum OpCode
+    {
         PUSH0 = 0,
         PUSHF = 0,
         PUSHBYTES1 = 1,
@@ -361,465 +930,17 @@ declare module ThinNeo {
         THROWIFNOT = 241,
     }
 }
-declare namespace ThinNeo {
-    class ScriptBuilder {
-        writer: number[];
-        Offset: number;
-        constructor();
-        _WriteUint8(num: number): void;
-        _WriteUint16(num: number): void;
-        _WriteUint32(num: number): void;
-        _WriteUint8Array(nums: Uint8Array): void;
-        _ConvertInt16ToBytes(num: number): Uint8Array;
-        Emit(op: OpCode, arg?: Uint8Array): ScriptBuilder;
-        EmitAppCall(scriptHash: Uint8Array, useTailCall?: boolean): ScriptBuilder;
-        EmitJump(op: OpCode, offset: number): ScriptBuilder;
-        EmitPushNumber(number: Neo.BigInteger): ScriptBuilder;
-        EmitPushBool(data: boolean): ScriptBuilder;
-        EmitPushBytes(data: Uint8Array): ScriptBuilder;
-        EmitPushString(data: string): ScriptBuilder;
-        EmitSysCall(api: string): ScriptBuilder;
-        ToArray(): Uint8Array;
-        EmitParamJson(param: any): ScriptBuilder;
-    }
-}
-declare namespace ThinNeo {
-    enum TransactionType {
-        MinerTransaction = 0,
-        IssueTransaction = 1,
-        ClaimTransaction = 2,
-        EnrollmentTransaction = 32,
-        RegisterTransaction = 64,
-        ContractTransaction = 128,
-        PublishTransaction = 208,
-        InvocationTransaction = 209,
-    }
-    enum TransactionAttributeUsage {
-        ContractHash = 0,
-        ECDH02 = 2,
-        ECDH03 = 3,
-        Script = 32,
-        Vote = 48,
-        DescriptionUrl = 129,
-        Description = 144,
-        Hash1 = 161,
-        Hash2 = 162,
-        Hash3 = 163,
-        Hash4 = 164,
-        Hash5 = 165,
-        Hash6 = 166,
-        Hash7 = 167,
-        Hash8 = 168,
-        Hash9 = 169,
-        Hash10 = 170,
-        Hash11 = 171,
-        Hash12 = 172,
-        Hash13 = 173,
-        Hash14 = 174,
-        Hash15 = 175,
-        Remark = 240,
-        Remark1 = 241,
-        Remark2 = 242,
-        Remark3 = 243,
-        Remark4 = 244,
-        Remark5 = 245,
-        Remark6 = 246,
-        Remark7 = 247,
-        Remark8 = 248,
-        Remark9 = 249,
-        Remark10 = 250,
-        Remark11 = 251,
-        Remark12 = 252,
-        Remark13 = 253,
-        Remark14 = 254,
-        Remark15 = 255,
-    }
-    class Attribute {
-        usage: TransactionAttributeUsage;
-        data: Uint8Array;
-    }
-    class TransactionOutput {
-        assetId: Uint8Array;
-        value: Neo.Fixed8;
-        toAddress: Uint8Array;
-    }
-    class TransactionInput {
-        hash: Uint8Array;
-        index: number;
-    }
-    class Witness {
-        InvocationScript: Uint8Array;
-        VerificationScript: Uint8Array;
-        readonly Address: string;
-    }
-    interface IExtData {
-        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
-        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
-    }
-    class InvokeTransData implements IExtData {
-        script: Uint8Array;
-        gas: Neo.Fixed8;
-        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
-        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
-    }
-    class ClaimTransData implements IExtData {
-        claims: TransactionInput[];
-        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
-        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
-    }
-    class MinerTransData implements IExtData {
-        nonce: number;
-        Serialize(trans: Transaction, writer: Neo.IO.BinaryWriter): void;
-        Deserialize(trans: Transaction, reader: Neo.IO.BinaryReader): void;
-    }
-    class Transaction {
-        type: TransactionType;
-        version: number;
-        attributes: Attribute[];
-        inputs: TransactionInput[];
-        outputs: TransactionOutput[];
-        witnesses: Witness[];
-        SerializeUnsigned(writer: Neo.IO.BinaryWriter): void;
-        Serialize(writer: Neo.IO.BinaryWriter): void;
-        extdata: IExtData;
-        DeserializeUnsigned(ms: Neo.IO.BinaryReader): void;
-        Deserialize(ms: Neo.IO.BinaryReader): void;
-        GetMessage(): Uint8Array;
-        GetRawData(): Uint8Array;
-        AddWitness(signdata: Uint8Array, pubkey: Uint8Array, addrs: string): void;
-        AddWitnessScript(vscript: Uint8Array, iscript: Uint8Array): void;
-        GetHash(): Uint8Array;
-    }
-}
-declare namespace Neo.Cryptography {
-    class Aes {
-        private static numberOfRounds;
-        private static rcon;
-        private static S;
-        private static Si;
-        private static T1;
-        private static T2;
-        private static T3;
-        private static T4;
-        private static T5;
-        private static T6;
-        private static T7;
-        private static T8;
-        private static U1;
-        private static U2;
-        private static U3;
-        private static U4;
-        private _Ke;
-        private _Kd;
-        private _lastCipherblock;
-        readonly mode: string;
-        constructor(key: ArrayBuffer | ArrayBufferView, iv: ArrayBuffer | ArrayBufferView);
-        private static convertToInt32(bytes);
-        decrypt(ciphertext: ArrayBuffer | ArrayBufferView): ArrayBuffer;
-        decryptBlock(ciphertext: Uint8Array, plaintext: Uint8Array): void;
-        encrypt(plaintext: ArrayBuffer | ArrayBufferView): ArrayBuffer;
-        encryptBlock(plaintext: Uint8Array, ciphertext: Uint8Array): void;
-    }
-}
-declare namespace Neo.Cryptography {
-    class Base58 {
-        static Alphabet: string;
-        static decode(input: string): Uint8Array;
-        static encode(input: Uint8Array): string;
-    }
-}
-declare namespace Neo.Cryptography {
-    class CryptoKey {
-        type: string;
-        extractable: boolean;
-        algorithm: Algorithm;
-        usages: string[];
-        constructor(type: string, extractable: boolean, algorithm: Algorithm, usages: string[]);
-    }
-    class AesCryptoKey extends Neo.Cryptography.CryptoKey {
-        private _key_bytes;
-        constructor(_key_bytes: Uint8Array);
-        static create(length: number): AesCryptoKey;
-        export(): Uint8Array;
-        static import(keyData: ArrayBuffer | ArrayBufferView): AesCryptoKey;
-    }
-    class ECDsaCryptoKey extends CryptoKey {
-        publicKey: ECPoint;
-        privateKey: Uint8Array;
-        constructor(publicKey: ECPoint, privateKey?: Uint8Array);
-    }
-}
-declare namespace Neo.Cryptography {
-    class ECCurve {
-        Q: BigInteger;
-        A: ECFieldElement;
-        B: ECFieldElement;
-        N: BigInteger;
-        Infinity: ECPoint;
-        G: ECPoint;
-        static readonly secp256k1: ECCurve;
-        static readonly secp256r1: ECCurve;
-        constructor(Q: BigInteger, A: BigInteger, B: BigInteger, N: BigInteger, G: Uint8Array);
-    }
-}
-declare namespace Neo.Cryptography {
-    class ECDsa {
-        private key;
-        constructor(key: ECDsaCryptoKey);
-        private static calculateE(n, message);
-        static generateKey(curve: ECCurve): {
-            privateKey: ECDsaCryptoKey;
-            publicKey: ECDsaCryptoKey;
-        };
-        sign(message: ArrayBuffer | ArrayBufferView): ArrayBuffer;
-        private static sumOfTwoMultiplies(P, k, Q, l);
-        verify(message: ArrayBuffer | ArrayBufferView, signature: ArrayBuffer | ArrayBufferView): boolean;
-    }
-}
-declare namespace Neo.Cryptography {
-    class ECFieldElement {
-        value: BigInteger;
-        private curve;
-        constructor(value: BigInteger, curve: ECCurve);
-        add(other: ECFieldElement): ECFieldElement;
-        compareTo(other: ECFieldElement): number;
-        divide(other: ECFieldElement): ECFieldElement;
-        equals(other: ECFieldElement): boolean;
-        private static fastLucasSequence(p, P, Q, k);
-        multiply(other: ECFieldElement): ECFieldElement;
-        negate(): ECFieldElement;
-        sqrt(): ECFieldElement;
-        square(): ECFieldElement;
-        subtract(other: ECFieldElement): ECFieldElement;
-    }
-}
-declare namespace Neo.Cryptography {
-    class ECPoint {
-        x: ECFieldElement;
-        y: ECFieldElement;
-        curve: ECCurve;
-        constructor(x: ECFieldElement, y: ECFieldElement, curve: ECCurve);
-        static add(x: ECPoint, y: ECPoint): ECPoint;
-        compareTo(other: ECPoint): number;
-        static decodePoint(encoded: Uint8Array, curve: ECCurve): ECPoint;
-        private static decompressPoint(yTilde, X1, curve);
-        static deserializeFrom(reader: IO.BinaryReader, curve: ECCurve): ECPoint;
-        encodePoint(commpressed: boolean): Uint8Array;
-        equals(other: ECPoint): boolean;
-        static fromUint8Array(arr: Uint8Array, curve: ECCurve): ECPoint;
-        isInfinity(): boolean;
-        static multiply(p: ECPoint, n: Uint8Array | BigInteger): ECPoint;
-        negate(): ECPoint;
-        static parse(str: string, curve: ECCurve): ECPoint;
-        static subtract(x: ECPoint, y: ECPoint): ECPoint;
-        toString(): string;
-        twice(): ECPoint;
-        private static windowNaf(width, k);
-    }
-}
-declare namespace Neo.Cryptography {
-    class RandomNumberGenerator {
-        private static _entropy;
-        private static _strength;
-        private static _started;
-        private static _stopped;
-        private static _key;
-        private static addEntropy(data, strength);
-        static getRandomValues<T extends Int8Array | Uint8ClampedArray | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array>(array: T): T;
-        private static getWeakRandomValues(array);
-        private static processDeviceMotionEvent(event);
-        private static processEvent(event);
-        private static processMouseEvent(event);
-        private static processTouchEvent(event);
-        static startCollectors(): void;
-        private static stopCollectors();
-    }
-}
-interface String {
-    base58Decode(): Uint8Array;
-    base64UrlDecode(): Uint8Array;
-    toAesKey(): PromiseLike<ArrayBuffer>;
-}
-interface Uint8Array {
-    base58Encode(): string;
-    base64UrlEncode(): string;
-}
-declare function escape(s: string): string;
-declare function unescape(s: string): string;
-declare namespace Neo.Cryptography {
-}
-declare namespace Neo.Cryptography {
-    class RIPEMD160 {
-        private static zl;
-        private static zr;
-        private static sl;
-        private static sr;
-        private static hl;
-        private static hr;
-        private static bytesToWords(bytes);
-        private static wordsToBytes(words);
-        private static processBlock(H, M, offset);
-        private static f1(x, y, z);
-        private static f2(x, y, z);
-        private static f3(x, y, z);
-        private static f4(x, y, z);
-        private static f5(x, y, z);
-        private static rotl(x, n);
-        static computeHash(data: ArrayBuffer | ArrayBufferView): ArrayBuffer;
-    }
-}
-declare namespace Neo.Cryptography {
-    class Sha256 {
-        private static K;
-        static computeHash(data: ArrayBuffer | ArrayBufferView): ArrayBuffer;
-        private static ROTR(n, x);
-        private static Σ0(x);
-        private static Σ1(x);
-        private static σ0(x);
-        private static σ1(x);
-        private static Ch(x, y, z);
-        private static Maj(x, y, z);
-    }
-}
-declare namespace Neo.IO {
-    class BinaryReader {
-        private input;
-        private _buffer;
-        private array_uint8;
-        private array_int8;
-        private array_uint16;
-        private array_int16;
-        private array_uint32;
-        private array_int32;
-        private array_float32;
-        private array_float64;
-        constructor(input: Stream);
-        canRead(): number;
-        close(): void;
-        private fillBuffer(buffer, count);
-        read(buffer: ArrayBuffer, index: number, count: number): number;
-        readBoolean(): boolean;
-        readByte(): number;
-        readBytes(count: number): ArrayBuffer;
-        readDouble(): number;
-        readFixed8(): Fixed8;
-        readInt16(): number;
-        readInt32(): number;
-        readSByte(): number;
-        readSerializable(T: Function): ISerializable;
-        readSerializableArray(T: Function): ISerializable[];
-        readSingle(): number;
-        readUint16(): number;
-        readUint160(): Uint160;
-        readUint256(): Uint256;
-        readUint32(): number;
-        readUint64(): Uint64;
-        readVarBytes(max?: number): ArrayBuffer;
-        readVarInt(max?: number): number;
-        readVarString(): string;
-    }
-}
-declare namespace Neo.IO {
-    class BinaryWriter {
-        private output;
-        private _buffer;
-        private array_uint8;
-        private array_int8;
-        private array_uint16;
-        private array_int16;
-        private array_uint32;
-        private array_int32;
-        private array_float32;
-        private array_float64;
-        constructor(output: Stream);
-        close(): void;
-        seek(offset: number, origin: SeekOrigin): number;
-        write(buffer: ArrayBuffer, index?: number, count?: number): void;
-        writeBoolean(value: boolean): void;
-        writeByte(value: number): void;
-        writeDouble(value: number): void;
-        writeInt16(value: number): void;
-        writeInt32(value: number): void;
-        writeSByte(value: number): void;
-        writeSerializableArray(array: ISerializable[]): void;
-        writeSingle(value: number): void;
-        writeUint16(value: number): void;
-        writeUint32(value: number): void;
-        writeUint64(value: Uint64): void;
-        writeUintVariable(value: UintVariable): void;
-        writeVarBytes(value: ArrayBuffer): void;
-        writeVarInt(value: number): void;
-        writeVarString(value: string): void;
-    }
-}
-interface Uint8Array {
-    asSerializable(T: Function): Neo.IO.ISerializable;
-}
-interface Uint8ArrayConstructor {
-    fromSerializable(obj: Neo.IO.ISerializable): Uint8Array;
-}
-declare namespace Neo.IO {
-    interface ISerializable {
-        deserialize(reader: BinaryReader): void;
-        serialize(writer: BinaryWriter): void;
-    }
-}
-declare namespace Neo.IO {
-    enum SeekOrigin {
-        Begin = 0,
-        Current = 1,
-        End = 2,
-    }
-    abstract class Stream {
-        private _array;
-        abstract canRead(): boolean;
-        abstract canSeek(): boolean;
-        abstract canWrite(): boolean;
-        close(): void;
-        abstract length(): number;
-        abstract position(): number;
-        abstract read(buffer: ArrayBuffer, offset: number, count: number): number;
-        readByte(): number;
-        abstract seek(offset: number, origin: SeekOrigin): number;
-        abstract setLength(value: number): void;
-        abstract write(buffer: ArrayBuffer, offset: number, count: number): void;
-        writeByte(value: number): void;
-    }
-}
-declare namespace Neo.IO {
-    class MemoryStream extends Stream {
-        private _buffers;
-        private _origin;
-        private _position;
-        private _length;
-        private _capacity;
-        private _expandable;
-        private _writable;
-        constructor(capacity?: number);
-        constructor(buffer: ArrayBuffer, writable?: boolean);
-        constructor(buffer: ArrayBuffer, index: number, count: number, writable?: boolean);
-        canRead(): boolean;
-        canSeek(): boolean;
-        canWrite(): boolean;
-        capacity(): number;
-        private findBuffer(position);
-        length(): number;
-        position(): number;
-        read(buffer: ArrayBuffer, offset: number, count: number): number;
-        private readInternal(dst, srcPos);
-        seek(offset: number, origin: SeekOrigin): number;
-        setLength(value: number): void;
-        toArray(): ArrayBuffer;
-        write(buffer: ArrayBuffer, offset: number, count: number): void;
-    }
-}
-declare module ThinNeo.Compiler {
-    class Avm2Asm {
+declare module ThinNeo.Compiler
+{
+    class Avm2Asm
+    {
         static Trans(script: Uint8Array): Op[];
     }
 }
-declare module ThinNeo.Compiler {
-    class ByteReader {
+declare module ThinNeo.Compiler
+{
+    class ByteReader
+    {
         constructor(data: Uint8Array);
         data: Uint8Array;
         addr: number;
@@ -836,14 +957,17 @@ declare module ThinNeo.Compiler {
         readonly End: boolean;
     }
 }
-declare module ThinNeo.Compiler {
-    enum ParamType {
+declare module ThinNeo.Compiler
+{
+    enum ParamType
+    {
         None = 0,
         ByteArray = 1,
         String = 2,
         Addr = 3,
     }
-    class Op {
+    class Op
+    {
         addr: number;
         error: boolean;
         code: ThinNeo.OpCode;
@@ -854,33 +978,5 @@ declare module ThinNeo.Compiler {
         AsString(): string;
         AsAddr(): number;
         getCodeName(): string;
-    }
-}
-declare namespace Neo.IO.Caching {
-    interface ITrackable<TKey> {
-        key: TKey;
-        trackState: TrackState;
-    }
-}
-declare namespace Neo.IO.Caching {
-    class TrackableCollection<TKey, TItem extends ITrackable<TKey>> {
-        private _map;
-        constructor(items?: ArrayLike<TItem>);
-        add(item: TItem): void;
-        clear(): void;
-        commit(): void;
-        forEach(callback: (value: TItem, key: TKey, collection: TrackableCollection<TKey, TItem>) => void): void;
-        get(key: TKey): TItem;
-        getChangeSet(): TItem[];
-        has(key: TKey): boolean;
-        remove(key: TKey): void;
-    }
-}
-declare namespace Neo.IO.Caching {
-    enum TrackState {
-        None = 0,
-        Added = 1,
-        Changed = 2,
-        Deleted = 3,
     }
 }

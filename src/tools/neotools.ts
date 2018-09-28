@@ -1,5 +1,6 @@
-import { Result, LoginInfo } from './entity';
-///<reference path="./neo-ts.d.ts"/>
+import { Result, LoginInfo } from "./entity";
+import { tools } from "./importpack";
+
 export class neotools
 {
     constructor() { }
@@ -130,7 +131,10 @@ export class neotools
             var p: number = 8
             ThinNeo.Helper.GetPrivateKeyFromNep2(nep2, password, n, r, p, (info, result) =>
             {
+                if ("nep2 hash not match." == result)
+                    reject(result);
                 login.prikey = result as Uint8Array;
+                res.info = {};
                 if (login.prikey != null)
                 {
                     login.pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(login.prikey);
@@ -152,38 +156,43 @@ export class neotools
     /**
      * nep6Load
      */
-    public static async nep6Load(wallet: ThinNeo.nep6wallet, password: string): Promise<LoginInfo[]>
+    public static async nep6Load(wallet: ThinNeo.nep6wallet, password: string): Promise<{}>
     {
         try
         {
             //getPrivateKey 是异步方法，且同时只能执行一个
             var istart = 0;
             let res = new Result();
-            let arr: any[] = new Array<any>();
-            // getkey = async (keyindex: number) => {
-            for (let keyindex = 0; keyindex < wallet.accounts.length; keyindex++)
+            let arr = {}
+            if (wallet.accounts)
             {
-                let account = wallet.accounts[ keyindex ];
-                if (account.nep2key == null)
+                for (let keyindex = 0; keyindex < wallet.accounts.length; keyindex++)
                 {
-                    continue;
+                    let account = wallet.accounts[ keyindex ];
+                    if (account.nep2key == null)
+                    {
+                        continue;
+                    }
+                    try
+                    {
+                        let result: Result = await neotools.getPriKeyfromAccount(wallet.scrypt, password, account);
+                        // console.log("getpkformacc:" + result);
+                        arr[ account.address ] = (result.info);
+                        return arr;
+                    } catch (error)
+                    {
+                        throw error;
+                    }
                 }
-                try
-                {
-                    let result: Result = await neotools.getPriKeyfromAccount(wallet.scrypt, password, account);
-                    // console.log("getpkformacc:" + result);
-                    arr.push(result.info);
-                } catch (error)
-                {
-                    throw error;
-                }
+            } else
+            {
+                throw console.error("The account cannot be empty");
+
             }
-            return arr;
         }
         catch (e)
         {
-            console.error(e);
-            throw e;
+            throw e.result;
 
         }
         // });
