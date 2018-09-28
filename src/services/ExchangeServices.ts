@@ -42,7 +42,11 @@ export class ExchangeService
                     if (res.err)
                         res.info = { code: "-100", msg: "" };
                     else
+                    {
+                        let old = tranmsg.info[ "oldarr" ];
+                        OldUTXO.setOldutxos(old);
                         res.info = result[ "txid" ];
+                    }
 
                     return res;
                 }

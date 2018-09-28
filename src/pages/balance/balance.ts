@@ -34,8 +34,8 @@ export default class balance extends Vue
     super();
     this.neoasset = new NeoAsset();
     this.balances = new Array();
-    this.neoasset.gas = 0;
-    this.neoasset.neo = 0;
+    this.neoasset.gas = "0";
+    this.neoasset.neo = "0";
     this.neoasset.claim = '';
     this.chooseAddressarr = new Array();
     this.getGas = 0;
@@ -168,8 +168,8 @@ export default class balance extends Vue
     var clamis2 = await tools.wwwtool.api_getclaimgas(this.currentAddress, 1);
     var nep5balances = await tools.wwwtool.api_getnep5Balance(this.currentAddress) as Nep5Balance[];
     let height = await tools.wwwtool.api_getHeight();
-    this.neoasset.neo = 0;
-    this.neoasset.gas = 0;
+    this.neoasset.neo = "0";
+    this.neoasset.gas = "0";
     if (balances) //余额不唯空
     {
       let sum1 = Neo.Fixed8.parse(clamis[ "gas" ].toFixed(8));
@@ -181,11 +181,11 @@ export default class balance extends Vue
         {
           if (balance.asset == tools.coinTool.id_NEO)
           {
-            this.neoasset.neo = balance.balance;
+            this.neoasset.neo = Neo.Fixed8.parse(balance.balance.toString()).toString();
           }
           if (balance.asset == tools.coinTool.id_GAS)
           {
-            this.neoasset.gas = balance.balance;
+            this.neoasset.gas = Neo.Fixed8.parse(balance.balance.toString()).toString();
           }
         });
     }
@@ -198,7 +198,7 @@ export default class balance extends Vue
     let height = Store.blockheight.select("height");
     if (Neo.Fixed8.parse(this.neoasset.claim).compareTo(Neo.Fixed8.Zero) > 0)
     {
-      if (this.neoasset.neo > 0)
+      if (Neo.Fixed8.parse(this.neoasset.neo).compareTo(Neo.Fixed8.Zero) > 0)
       {
         let res = await tools.coinTool.rawTransaction(this.currentAddress, tools.coinTool.id_NEO, this.neoasset.neo.toString());
         if (res.info)

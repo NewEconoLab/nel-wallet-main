@@ -344,8 +344,8 @@ export enum AssetEnum
 
 export class NeoAsset
 {
-    neo: number;
-    gas: number;
+    neo: string;
+    gas: string;
     claim: string;
 }
 
