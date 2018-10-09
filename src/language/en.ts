@@ -291,7 +291,7 @@ export default {
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bouns History",
+        title: "Bonus History",
         mydividend: "My dividends: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
