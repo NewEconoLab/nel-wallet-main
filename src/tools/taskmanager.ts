@@ -430,7 +430,7 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            if (task.confirm > 9)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
             {
                 task.state = TaskState.fail;
                 if (TaskFunction.exchange)

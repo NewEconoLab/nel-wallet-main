@@ -12,8 +12,8 @@ export class NNSTool
 
     constructor()
     {
-
         Neo.Cryptography.RandomNumberGenerator.startCollectors();
+
     }
 
     /**

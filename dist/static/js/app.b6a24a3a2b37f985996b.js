@@ -4948,7 +4948,7 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) {
+                            if (task.confirm > 9) {
                                 task.state = entity_1.TaskState.fail;
                                 if (entity_1.TaskFunction.exchange)
                                     entity_1.TaskFunction.exchange();
@@ -6304,7 +6304,7 @@ exports.default = {
         entername: "type a name",
         checkavailable: "This name is available.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
-        checkformat: "Domain names must be English characters or numbers, and can only be 6 to 32 characters in length",
+        checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
         checkbuyer: "This name is unavailable.",
         sendingmsg: "We are currently opening the auction. Please wait.",
         searchmsg: "Search by domain",
@@ -7895,7 +7895,7 @@ exports.default = {
         entername: "请输入您想要的域名",
         checkavailable: "此域名可以进行竞拍。",
         checkbeing: "此域名正在进行竞拍。",
-        checkformat: "域名长度需要在6～32个字节之间，只能是字母和数字。",
+        checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
         checkbuyer: "此域名已经被其他人竞拍了。",
         sendingmsg: "正在发送交易，请耐心等待...",
         searchmsg: "按域名搜索",
