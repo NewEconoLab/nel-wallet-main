@@ -537,10 +537,10 @@ export class WWW
         if (json[ "result" ])
         {
             var r = json[ "result" ][ 0 ];
-            return r[ "balance" ];
+            return Neo.Fixed8.parse(r[ "balance" ]).toString();
         } else
         {
-            return 0;
+            return "0";
         }
 
     }

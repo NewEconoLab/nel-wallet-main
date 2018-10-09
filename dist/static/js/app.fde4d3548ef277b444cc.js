@@ -1129,10 +1129,10 @@ var WWW = /** @class */ (function () {
                         json = _a.sent();
                         if (json["result"]) {
                             r = json["result"][0];
-                            return [2 /*return*/, r["balance"]];
+                            return [2 /*return*/, Neo.Fixed8.parse(r["balance"]).toString()];
                         }
                         else {
-                            return [2 /*return*/, 0];
+                            return [2 /*return*/, "0"];
                         }
                         return [2 /*return*/];
                 }
