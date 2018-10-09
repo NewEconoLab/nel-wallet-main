@@ -523,4 +523,25 @@ export class WWW
 
         }
     }
+
+    /**
+     * 查询注册器下余额
+     * @param address 
+     * @param hash 
+     */
+    static async getregisteraddressbalance(address, hash)
+    {
+        var postdata = WWW.makeRpcPostBody("getregisteraddressbalance", address, hash);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json[ "result" ])
+        {
+            var r = json[ "result" ][ 0 ];
+            return r[ "balance" ];
+        } else
+        {
+            return 0;
+        }
+
+    }
 }

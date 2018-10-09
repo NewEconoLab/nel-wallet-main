@@ -95,7 +95,7 @@ export default class NeoAuction extends Vue
     async mounted()
     {
         this.rootInfo = await tools.nnstool.getRootInfo("neo");
-        this.regBalance = await tools.nnssell.getBalanceOf(this.address, this.rootInfo.register);
+        this.regBalance = await tools.wwwtool.getregisteraddressbalance(this.address, "0xfe041f87b1a4cc0efb827664d6f20a0e990d0969");
         this.openToast = this.$refs.toast[ "isShow" ];
         this.getBidList(this.address, 1);
         let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
@@ -117,7 +117,7 @@ export default class NeoAuction extends Vue
 
     async refreshPage()
     {
-        this.regBalance = await tools.nnssell.getBalanceOf(this.address, this.rootInfo.register);
+        this.regBalance = await tools.wwwtool.getregisteraddressbalance(this.address, "0xfe041f87b1a4cc0efb827664d6f20a0e990d0969");
         let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
         this.sgasAvailable = nep5[ "nep5balance" ];
         await services.auction_neo.updateAuctionList(this.address);

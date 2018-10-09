@@ -1109,6 +1109,36 @@ var WWW = /** @class */ (function () {
             });
         });
     };
+    /**
+     * 查询注册器下余额
+     * @param address
+     * @param hash
+     */
+    WWW.getregisteraddressbalance = function (address, hash) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getregisteraddressbalance", address, hash);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r["balance"]];
+                        }
+                        else {
+                            return [2 /*return*/, 0];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     WWW.api = "https://api.nel.group/api/mainnet";
     WWW.apiaggr = "https://apiwallet.nel.group/api/mainnet";
     return WWW;
@@ -3154,8 +3184,14 @@ var Contract = /** @class */ (function () {
         var sb = new ThinNeo.ScriptBuilder();
         sb.EmitParamJson(param); //第二个参数是个数组
         sb.EmitPushString(method);
-        sb.EmitAppCall(appCall);
-        return sb.ToArray();
+        try {
+            sb.EmitAppCall(appCall);
+            return sb.ToArray();
+        }
+        catch (error) {
+            console.log("----------------------------------error-----------------" + error);
+            console.log(method);
+        }
     };
     /**
      * @method buildScript 构建script

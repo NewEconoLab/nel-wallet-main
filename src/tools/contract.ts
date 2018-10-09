@@ -17,8 +17,18 @@ export default class Contract
 
         sb.EmitParamJson(param);//第二个参数是个数组
         sb.EmitPushString(method);
-        sb.EmitAppCall(appCall);
-        return sb.ToArray();
+        try
+        {
+
+            sb.EmitAppCall(appCall);
+            return sb.ToArray();
+        } catch (error)
+        {
+            console.log("----------------------------------error-----------------" + error);
+
+            console.log(method);
+
+        }
     }
 
     /**
