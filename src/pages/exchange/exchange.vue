@@ -85,11 +85,11 @@
                 </div>
                 
             </div>  
-            <div class="spent-tip ff6" v-if="transcount > exMaxcount">
+            <div class="spent-tip ff6" v-if="comperExchange">
               {{$t('exchange.warnmsg')}} 
             </div>          
             <div class="btn-right">
-                <button v-if="!isCheckingTran" class="btn btn-nel btn-big" @click="exChange()" :class="{'btn-disable':(transcount > exMaxcount || !exchangebtn)}" :disabled="transcount > exMaxcount || !exchangebtn">{{$t('btn.exchange')}}</button>
+                <button v-if="!isCheckingTran" class="btn btn-nel btn-big" @click="exChange()" :class="{'btn-disable':(comperExchange || !exchangebtn)}" :disabled="comperExchange || !exchangebtn">{{$t('btn.exchange')}}</button>
                 <!-- <spinner-wrap v-if="isCheckingTran" style="margin-left:20px"></spinner-wrap> -->
                 <button v-if="isCheckingTran" class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.exchanging')}}</button>
             </div>

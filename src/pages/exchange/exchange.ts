@@ -23,6 +23,7 @@ export default class Exchange extends Vue
     exchangeList: any;             //一条交易数据的缓存
     isCheckingTran: boolean;        //是否交易中
     transmaxlength: number;          //input输入框的限制
+    comperExchange: boolean;         //
 
     constructor()
     {
@@ -35,6 +36,7 @@ export default class Exchange extends Vue
         this.exchangebtn = false;
         this.exchangeList = null;
         this.isCheckingTran = false;
+        this.comperExchange = false;
         tools.coinTool.initAllAsset();
     }
 
@@ -101,6 +103,7 @@ export default class Exchange extends Vue
                     this.transcount = this.transcount.toString().substr(0, (this.transcount.toString().indexOf(".")) + 9);
                 }
                 this.exchangeList ? this.exchangebtn = false : this.exchangebtn = true;
+                this.comperExchange = Neo.Fixed8.parse(this.transcount).compareTo(Neo.Fixed8.parse(this.exMaxcount)) > 0 ? true : false;
             }
             else
             {
