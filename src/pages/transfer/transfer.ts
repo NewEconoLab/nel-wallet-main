@@ -195,7 +195,7 @@ export default class transfer extends Vue
             this.isNumber = false;
             return false;
         }
-        let balancenum = Neo.Fixed8.parse(this.balance.balance + '');
+        let balancenum = Neo.Fixed8.fromNumber(this.balance.balance);
         let inputamount = Neo.Fixed8.parse(this.amount);
         let compare = balancenum.compareTo(inputamount);
         compare >= 1 ? this.amount = this.amount : this.amount = balancenum.toString();
@@ -214,11 +214,11 @@ export default class transfer extends Vue
                     let res = await tools.coinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, parseFloat(this.amount));
                     if (!res[ "err" ])
                     {
-                        mui.toast("" + this.$t("transfer.msg2"));
+                        this.openToast("error", "" + this.$t("transfer.msg2"), 3000);
                         let his: History = new History();
                         his.address = this.toaddress;
                         his.asset = this.asset;
-                        his.value = this.amount;
+                        his.value = Neo.Fixed8.parse(this.amount);
                         his.txtype = "in";
                         his[ "waiting" ] = true;
                         his.time = tools.timetool.getTime(new Date().getTime())
@@ -239,7 +239,8 @@ export default class transfer extends Vue
                     }
                     else
                     {
-                        mui.alert("" + this.$t("transfer.msg3"));
+                        // mui.alert("" + this.$t("transfer.msg3"));
+                        this.openToast("error", "" + this.$t("transfer.msg3"), 3000);
                     }
                 } else
                 {
@@ -255,7 +256,7 @@ export default class transfer extends Vue
                     let his: History = new History();
                     his.address = this.toaddress;
                     his.asset = this.asset;
-                    his.value = this.amount;
+                    his.value = Neo.Fixed8.parse(this.amount);
                     his.txtype = "in";
                     his[ "waiting" ] = true;
                     his.time = tools.timetool.getTime(new Date().getTime())
@@ -281,7 +282,8 @@ export default class transfer extends Vue
             {
             } else
             {
-                mui.alert("" + this.$t("transfer.msg4"));
+                // mui.alert("" + this.$t("transfer.msg4"));
+                this.openToast("error", "" + this.$t("transfer.msg4"), 3000);
             }
         }
     }
@@ -311,9 +313,7 @@ export default class transfer extends Vue
                 let type = tx[ "type" ];
                 let vouts = tx[ "vout" ];
                 let value = tx[ "value" ];
-                let txtype = tx[ "txType" ];
                 let assetType = tx[ "assetType" ]
-                let blockindex = tx[ "blockindex" ];
                 let time: number = tx[ "blocktime" ].includes("$date") ? JSON.parse(tx[ "blocktime" ])[ "$date" ] : parseInt(tx[ "blocktime" ] + "000");
                 let date: string = tools.timetool.getTime(time);
 
@@ -324,7 +324,7 @@ export default class transfer extends Vue
                         let assetname = "";
                         const vin = vins[ 0 ];
                         let asset = vin[ "asset" ];
-                        let amount = value[ asset ];
+                        let amount = this.fixed(value[ asset ]);
                         let address = vin[ "address" ];
                         if (assetType == "utxo")
                         {
@@ -340,7 +340,30 @@ export default class transfer extends Vue
                         history.txid = txid;
                         history.assetname = assetname;
                         history.address = address;
-                        history.value = Neo.Fixed8.parse(amount).toString();
+                        history.value = amount;
+                        history.txtype = type;
+                        this.txs.push(history);
+                    } else
+                    {
+                        let assetname = "";
+                        let vout = vouts[ 0 ];
+                        let asset = vout[ "asset" ];
+                        let amount = this.fixed(vout[ "value" ]);
+                        if (assetType == "utxo")
+                        {
+                            assetname = tools.coinTool.assetID2name[ asset ];
+                        }
+                        else
+                        {
+                            let nep5 = await tools.wwwtool.getNep5Asset(asset);
+                            assetname = nep5[ "symbol" ];
+                        }
+                        var history = new History();
+                        history.time = date;
+                        history.txid = txid;
+                        history.assetname = assetname;
+                        history.address = "";
+                        history.value = amount;
                         history.txtype = type;
                         this.txs.push(history);
                     }
@@ -354,7 +377,7 @@ export default class transfer extends Vue
                         let i = parseInt(index);
                         const out = vouts[ i ];
                         let address = out[ "address" ];
-                        let amount = out[ "value" ];
+                        let amount = this.fixed(out[ "value" ]);
                         let asset = out[ "asset" ];
                         let assetname = "";
 
@@ -370,11 +393,11 @@ export default class transfer extends Vue
                             let n = out[ "n" ];
                             if (arr[ address ] && arr[ address ][ assetname ])
                             {
-                                arr[ address ][ assetname ] += amount;
+                                (arr[ address ][ assetname ] as Neo.Fixed8).add(amount);
                             } else
                             {
                                 var assets = {}
-                                assets[ assetname ] = Neo.Fixed8.parse(amount).toString();;
+                                assets[ assetname ] = amount;
                                 arr[ address ] = assets;
                             }
                         } else { currcount++ }
@@ -383,44 +406,45 @@ export default class transfer extends Vue
                     {
                         for (const asset in value)
                         {
-                            if (value.hasOwnProperty(asset))
+                            let amount = this.fixed(value[ asset ]);
+                            let assetname = "";
+                            if (assetType == "utxo")
+                                assetname = tools.coinTool.assetID2name[ asset ];
+                            else
                             {
-                                const amount = value[ asset ];
+                                let nep5 = await tools.wwwtool.getNep5Asset(asset);
+                                assetname = nep5[ "symbol" ];
+                            }
 
-                                let assetname = "";
-                                if (assetType == "utxo")
-                                    assetname = tools.coinTool.assetID2name[ asset ];
-                                else
-                                {
-                                    let nep5 = await tools.wwwtool.getNep5Asset(asset);
-                                    assetname = nep5[ "symbol" ];
-                                }
-
-                                var assets = {}
-                                assets[ assetname ] = Neo.Fixed8.parse(amount).toString();
+                            var assets = {}
+                            try
+                            {
+                                assets[ assetname ] = amount;
                                 arr[ currentAddress ] = assets;
+                            } catch (error)
+                            {
+                                console.log("科学计数法报错");
+                                console.log(error);
+
                             }
                         }
                     }
                     for (const address in arr)
                     {
-                        if (arr.hasOwnProperty(address))
+                        const data = arr[ address ];
+                        for (const asset in data)
                         {
-                            const data = arr[ address ];
-                            for (const asset in data)
+                            if (data.hasOwnProperty(asset))
                             {
-                                if (data.hasOwnProperty(asset))
-                                {
-                                    const amount = data[ asset ];
-                                    var history = new History();
-                                    history.time = date;
-                                    history.txid = txid;
-                                    history.assetname = asset;
-                                    history.address = address;
-                                    history.value = Neo.Fixed8.parse(amount).toString();
-                                    history.txtype = type;
-                                    this.txs.push(history);
-                                }
+                                const amount = data[ asset ];
+                                var history = new History();
+                                history.time = date;
+                                history.txid = txid;
+                                history.assetname = asset;
+                                history.address = address;
+                                history.value = amount
+                                history.txtype = type;
+                                this.txs.push(history);
                             }
                         }
                     }
@@ -431,6 +455,17 @@ export default class transfer extends Vue
         res.length < 5 ? this.nextpage = false : this.nextpage = true;    //判断是否是最后一页
         this.txpage > 1 && res == 0 ? this.txpage-- : this.txpage;   //判断是否到最后一页
 
+    }
+
+    fixed(number: any): Neo.Fixed8
+    {
+        if (number.includes("E"))
+        {
+            return Neo.Fixed8.fromNumber(number);
+        } else
+        {
+            return Neo.Fixed8.parse(number);
+        }
     }
 
     async awaitHeight()

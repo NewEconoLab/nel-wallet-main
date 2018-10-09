@@ -530,7 +530,7 @@ export class History
 {
     n: number;
     asset: string;
-    value: string;
+    value: Neo.Fixed8;
     address: string;
     assetname: string;
     txtype: string;

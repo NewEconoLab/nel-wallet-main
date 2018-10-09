@@ -32,11 +32,11 @@
     color: #2dde4f;
   }
   .form-box {
-    background: #454f60;
+    background: #ffffff;
     border-radius: 5px;
     padding: 20px 50px;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #333;
     div {
       margin-bottom: 10px;
       font-size: 14px;
@@ -51,7 +51,7 @@
   .page {
     .page-previous,
     .page-next {
-      background: #55637b;
+      background: #198cee;
     }
   }
 }

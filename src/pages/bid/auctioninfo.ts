@@ -157,14 +157,20 @@ export default class AuctionInfo extends Vue
         {
             let data1 = await tools.nnssell.bidSettlement(this.auctionInfo.id.toString(), this.rootInfo.register);
             let data2 = await tools.nnssell.collectDomain(this.auctionInfo.id.toString(), this.rootInfo.register);
-            let res = await tools.wwwtool.rechargeandtransfer(data1, data2);
-            let txid = res[ "txid" ];
-            this.isGetDomainWait = true;
-            Store.auctionInfo.put(this.auctionInfo.domain, true, "isGetDomainWait");
-            TaskManager.addTask(
-                new Task(ConfirmType.recharge, txid, { domain: this.auctionInfo.domain }),
-                TaskType.getDomain
-            )
+            try
+            {
+                let res = await tools.wwwtool.rechargeandtransfer(data1, data2);
+                let txid = res[ "txid" ];
+                this.isGetDomainWait = true;
+                Store.auctionInfo.put(this.auctionInfo.domain, true, "isGetDomainWait");
+                TaskManager.addTask(
+                    new Task(ConfirmType.recharge, txid, { domain: this.auctionInfo.domain }),
+                    TaskType.getDomain
+                )
+            } catch (error)
+            {
+                this.openToast("error", "" + this.$t("errormsg.interface"), 3000);
+            }
         }
     }
 

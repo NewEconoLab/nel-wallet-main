@@ -325,5 +325,9 @@ export default {
     notify: {
         utxo: "您的UTXO过于分散，将可能造成CGAS兑换失败（GAS也会损失），请先对自己的地址执行一次不小于兑换金额的转账，待转账操作生效后再行兑换",
         fee: "注意：当您的钱包有足够的Gas时，我们会自动添加一笔 0.00000001 Gas 的手续费，确保交易快速确认"
+    },
+    errormsg: {
+        interface: "接口返回失败",
+        noMoney: "cgas合约账户没有足够的utxo供您兑换gas,请稍后重试"
     }
 }

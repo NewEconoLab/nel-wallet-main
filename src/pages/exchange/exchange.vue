@@ -102,6 +102,7 @@
           </div>
         </div>
         <v-notify ref="notify"></v-notify>
+        <v-toast ref="toast" ></v-toast>
     </div>
 </template>
 <script lang="ts" src="./exchange.ts">

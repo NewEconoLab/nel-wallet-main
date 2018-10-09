@@ -404,8 +404,14 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("rechargeandtransfer", data1.toHexString(), data2.toHexString());
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json[ "result" ][ 0 ];
-        return r;
+        if (json && json[ "result" ] && json[ "result" ][ 0 ])
+        {
+            var r = json[ "result" ][ 0 ];
+            return r;
+        } else
+        {
+            throw "Interface call exception";
+        }
     }
 
     /**

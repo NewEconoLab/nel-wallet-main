@@ -58,6 +58,10 @@ export class CoinTool
         //获得高度
         var height = await tools.wwwtool.api_getHeight();
         var utxos = await tools.wwwtool.api_getUTXO(tools.storagetool.getStorage("current-address"));   //获得utxo
+        if (utxos == undefined)
+        {
+            return {};
+        }
         var olds = OldUTXO.getOldutxos();       //获得以标记的utxo(交易过的utxo 存储在本地的标记)
         var olds2 = new Array<OldUTXO>();       //
         for (let n = 0; n < olds.length; n++)

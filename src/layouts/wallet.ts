@@ -146,7 +146,7 @@ export default class FeatureComponent extends Vue
 
     makeHref()
     {
-        let str = "testwallet.nel.group";
+        let str = "wallet.nel.group";
         // let currentHost = window.location.hostname;
         let href = "";
         if (str.includes("testwallet"))

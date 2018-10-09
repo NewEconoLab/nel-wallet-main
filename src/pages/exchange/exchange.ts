@@ -16,9 +16,9 @@ export default class Exchange extends Vue
     currentAddress: string = "";   //获取当前地址
     changeSGas: boolean;           //控制SGas与Gas的转换
     transcount: string;            //交易金额
-    myGas: number;                 //拥有的Gas
-    mySGas: number;                //拥有的SGas
-    exMaxcount: number;            //当前能转换的最高金额
+    myGas: string;                 //拥有的Gas
+    mySGas: string;                //拥有的SGas
+    exMaxcount: string;            //当前能转换的最高金额
     exchangebtn: boolean;          //转换按钮的控制 默认false不可点击
     exchangeList: any;             //一条交易数据的缓存
     isCheckingTran: boolean;        //是否交易中
@@ -29,9 +29,9 @@ export default class Exchange extends Vue
         super();
         this.changeSGas = false;
         this.transcount = "";
-        this.myGas = 0;
-        this.mySGas = 0;
-        this.exMaxcount = 0;
+        this.myGas = "0";
+        this.mySGas = "0";
+        this.exMaxcount = "0";
         this.exchangebtn = false;
         this.exchangeList = null;
         this.isCheckingTran = false;
@@ -62,7 +62,7 @@ export default class Exchange extends Vue
     {
         //获得balance列表
         var balances = await tools.wwwtool.api_getBalance(this.currentAddress) as BalanceInfo[];
-        this.myGas = 0;
+        this.myGas = "0";
         if (balances) //余额不唯空
         {
             balances.forEach //取GAS
@@ -70,7 +70,7 @@ export default class Exchange extends Vue
                 {
                     if (balance.asset == tools.coinTool.id_GAS)
                     {
-                        this.myGas = balance.balance;
+                        this.myGas = balance.balance.toString();
                         this.exMaxcount = this.myGas;
                     }
                 });
@@ -84,7 +84,7 @@ export default class Exchange extends Vue
         let res = await tools.wwwtool.getnep5balanceofaddress('0x' + tools.coinTool.id_SGAS.toString(), this.currentAddress);
         if (res && res.nep5balance)
         {
-            this.mySGas = parseFloat(res.nep5balance);
+            this.mySGas = Neo.Fixed8.parse(res.nep5balance).toString();
         }
     }
     /**
@@ -122,7 +122,7 @@ export default class Exchange extends Vue
         if (this.changeSGas)
         {
             try
-            {   //sgas->gas
+            {   //cgas->gas
                 let trancount = Neo.Fixed8.parse(this.transcount);
                 this.isCheckingTran = true;
                 let result = await tools.sgastool.makeRefundTransaction(parseFloat(this.transcount));
@@ -138,7 +138,11 @@ export default class Exchange extends Vue
 
                 //把这个txid里的utxo[0]的value转给自己
                 let data = await tools.sgastool.makeRefundTransaction_tranGas(utxo, trancount);
+
                 let res = await tools.wwwtool.rechargeandtransfer(result.data, data);
+                let errcode = res[ "errCode" ];
+                if (errcode == "3001")
+                    throw "交易发送失败";
                 let txid = res[ "txid" ];
                 TaskManager.addTask(
                     new Task(ConfirmType.recharge, txid, { count: this.transcount }),
@@ -152,6 +156,20 @@ export default class Exchange extends Vue
             } catch (error)
             {
                 console.log(error);
+                this.isCheckingTran = false;
+                let openToast: Function = this.$refs[ "toast" ][ "isShow" ];
+
+                if (error == "Interface call exception")
+                {
+                    openToast("error", "" + this.$t("errormsg.interface"), 3000);
+                } else if (error == "not enough change")
+                {
+                    openToast("error", "" + this.$t("errormsg.noMoney"), 3000);
+                } else
+                {
+                    openToast("error", "" + this.$t("errormsg.interface"), 3000);
+                }
+
             }
         } else
         {
@@ -166,8 +184,6 @@ export default class Exchange extends Vue
                     let code = res.info[ "code" ]
                     if (code == "1006")
                         notify(this.$t("notify.utxo"));
-                    // if (code == "-100")
-                    //     notify("testtt");
                     this.isCheckingTran = false;
                 } else
                 {
@@ -183,6 +199,8 @@ export default class Exchange extends Vue
             } catch (error)
             {
                 this.isCheckingTran = false;
+                let openToast: Function = this.$refs[ "toast" ][ "isShow" ];
+                openToast("error", "" + this.$t("errormsg.interface"), 3000);
                 console.error(error);
             }
         }

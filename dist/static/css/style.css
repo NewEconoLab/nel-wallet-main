@@ -22,7 +22,7 @@
 
 .icon-balance-select:before {
   content: "\e900";
-  color: #198CEE;
+  color: #fff;
 }
 
 .icon-balance-unselect:before {
@@ -32,7 +32,7 @@
 
 .icon-nns-select:before {
   content: "\e902";
-  color: #198CEE;
+  color: #fff;
 }
 
 .icon-nns-unselect:before {
@@ -42,7 +42,7 @@
 
 .icon-setting-select:before {
   content: "\e904";
-  color: #198CEE;
+  color: #fff;
 }
 
 .icon-setting-unselect:before {
@@ -52,7 +52,7 @@
 
 .icon-transfer-select:before {
   content: "\e906";
-  color: #198CEE;
+  color: #fff;
 }
 
 .icon-transfer-unselect:before {
