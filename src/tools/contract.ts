@@ -25,6 +25,7 @@ export default class Contract
         } catch (error)
         {
             console.log("----------------------------------error-----------------" + error);
+            console.log(appCall);
 
             console.log(method);
 

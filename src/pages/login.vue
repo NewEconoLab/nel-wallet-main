@@ -124,7 +124,8 @@
             </div>
             <p class="guide">{{$t("generate.downloadmsg")}}</p>
             <div class="login-btn">
-              <a class="btn btn-nel btn-import" :download="download_name" :href="download_href">{{$t("generate.download")}}</a>
+              <a v-if="canDownload" class="btn btn-nel btn-import" :download="download_name" :href="download_href">{{$t("generate.download")}}</a>
+              <button v-else disabled class="btn btn-nel btn-import">{{$t("generate.download")}}</button>
             </div>
             <div class="remind">
               <p class="title-remind">{{$t("generate.msg")}}</p>

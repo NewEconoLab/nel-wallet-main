@@ -3190,6 +3190,7 @@ var Contract = /** @class */ (function () {
         }
         catch (error) {
             console.log("----------------------------------error-----------------" + error);
+            console.log(appCall);
             console.log(method);
         }
     };

@@ -41,6 +41,7 @@ export default class login extends Vue
   moudle_download: boolean = false;
   download_name: string = "";
   download_href: string = "";
+  canDownload: boolean = false;
 
   constructor()
   {
@@ -321,6 +322,7 @@ export default class login extends Vue
           var blob = new Blob([ ThinNeo.Helper.String2Bytes(jsonstr) ]);
           this.download_href = URL.createObjectURL(blob);
           this.download_name = this.walletname + ".json";
+          this.canDownload = true;
         }
       });
     }

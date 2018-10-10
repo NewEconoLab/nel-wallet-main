@@ -214,7 +214,7 @@ export default class transfer extends Vue
                     let res = await tools.coinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, parseFloat(this.amount));
                     if (!res[ "err" ])
                     {
-                        this.openToast("error", "" + this.$t("transfer.msg2"), 3000);
+                        this.openToast("success", "" + this.$t("transfer.msg2"), 3000);
                         let his: History = new History();
                         his.address = this.toaddress;
                         his.asset = this.asset;
