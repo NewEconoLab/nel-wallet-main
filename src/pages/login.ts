@@ -234,6 +234,7 @@ export default class login extends Vue
       this.moudle_wif = false;
       this.moudle_nep2 = false;
       this.moudle_nep6 = false;
+      this.canDownload = false
       this.moudle_generate = false;
       this.moudle_download = true;
     }
@@ -290,6 +291,7 @@ export default class login extends Vue
 
   generate()
   {
+    this.canDownload = false
     var confirm = this.verifyConfirm()
     var pwd = this.verifypwd();
     var name = this.verifyName();
