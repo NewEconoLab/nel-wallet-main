@@ -6427,7 +6427,10 @@ exports.default = {
         toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
         withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
         getall: "Max",
-        nodata: "No related data was found."
+        all: "All",
+        nodata: "No related data was found.",
+        groupByBuyer: "Grouped by max buyer",
+        groupByState: "Grouped by Auction State",
     },
     exchange: {
         title: "CGAS Exchange",
@@ -8018,7 +8021,10 @@ exports.default = {
         toptips: "注意: 当系统提示您充值成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
         withdrawtips: "注意: 当系统提示您提取成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
         getall: "全部",
-        nodata: "没有查询到相关数据"
+        all: "全部",
+        nodata: "没有查询到相关数据",
+        groupByBuyer: "根据最高出价者分组",
+        groupByState: "根据最域名分组",
     },
     exchange: {
         title: "CGAS兑换",

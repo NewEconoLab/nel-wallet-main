@@ -46,6 +46,8 @@ export default class NeoAuction extends Vue
     currentpage: number = 1;
     rootInfo: RootDomainInfo;
     checkBid: boolean = false;//检测账户是否有余额
+    groupBuyer: string = "";
+    groupState: string = "";
 
     constructor()
     {
@@ -76,14 +78,6 @@ export default class NeoAuction extends Vue
         {
             this.auctionPage = false;
         }
-        // if (this.auctionPageSession.select("show"))
-        // {
-        //     this.auctionPage = true;
-        // }
-        // else
-        // {
-        //     this.auctionPage = false;
-        // }
         this.canAdded = false;
         this.myBalanceOfSelling = "";
         this.isSearchTime = false;
@@ -122,6 +116,8 @@ export default class NeoAuction extends Vue
         this.sgasAvailable = nep5[ "nep5balance" ];
         await services.auction_neo.updateAuctionList(this.address);
         this.getBidList(this.address, 1);
+        this.selectBuyerDomain();
+        this.groupByAuctionState();
     }
 
     /**
@@ -522,17 +518,51 @@ export default class NeoAuction extends Vue
     /**
      * 查询域名
      */
-    async doSearchDomain()
+    doSearchDomain()
     {
         if (this.searchDomain.length)
         {
             this.isSearchTime = true;
             this.searchAuctionList = services.auction_neo.fuzzyQueryDomain(this.searchDomain);
-            // this.searchAuctionList = await NeoaucionData.searchBidList(this.address, this.searchDomain);
         }
         else
         {
             this.isSearchTime = false;
         }
     }
+
+    selectBuyerDomain()
+    {
+        if (this.groupBuyer === "")
+        {
+            this.isSearchTime = false;
+        }
+        else if (this.groupBuyer == "me")
+        {
+            this.searchAuctionList = services.auction_neo.selectBuyerDomain(true, this.address);
+            this.isSearchTime = true;
+            this.groupState = "";
+        }
+        else
+        {
+            this.searchAuctionList = services.auction_neo.selectBuyerDomain(false, this.address);
+            this.isSearchTime = true;
+            this.groupState = "";
+        }
+    }
+
+    groupByAuctionState()
+    {
+        if (this.groupState === "")
+        {
+            this.isSearchTime = false;
+        } else
+        {
+            this.searchAuctionList = services.auction_neo.selectStateDomain(this.groupState);
+            this.isSearchTime = true;
+            this.groupBuyer = "";
+        }
+    }
+
+
 }

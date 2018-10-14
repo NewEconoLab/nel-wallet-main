@@ -264,7 +264,10 @@ export default {
         toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
         withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
         getall: "Max",
-        nodata: "No related data was found."
+        all: "All",
+        nodata: "No related data was found.",
+        groupByBuyer: "Grouped by max buyer",
+        groupByState: "Grouped by Auction State",
     },
     exchange: {
         title: "CGAS Exchange",

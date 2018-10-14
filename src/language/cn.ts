@@ -264,7 +264,10 @@ export default {
         toptips: "注意: 当系统提示您充值成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
         withdrawtips: "注意: 当系统提示您提取成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
         getall: "全部",
-        nodata: "没有查询到相关数据"
+        all: "全部",
+        nodata: "没有查询到相关数据",
+        groupByBuyer: "根据最高出价者分组",
+        groupByState: "根据最域名分组",
     },
     exchange: {
         title: "CGAS兑换",

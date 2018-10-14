@@ -58,6 +58,23 @@
                     <input type="search" name="" id="" :placeholder="$t('auction.searchmsg')" autocomplete="off" v-model="searchDomain" @input="searchDomainInput" @keyup.enter="doSearchDomain" >
                     <img src="../../../static/img/seach.png" alt="" @click="doSearchDomain">
                 </div>
+                <div class="rank-class">
+                    <label>{{$t('auction.groupByBuyer')}}</label>
+                    <select id="sortlist-type" class="form-control" @change="selectBuyerDomain()" v-model="groupBuyer">
+                      <option value="">{{($t('auction.all'))}}</option>
+                      <option value="me">{{$t('auction.me')}}</option>
+                      <option value="other">{{$t('auction.other')}}</option>
+                    </select>
+                </div>
+                <div class="rank-class">
+                    <label>{{$t('auction.groupByState')}}</label>
+                    <select id="sortlist-type" class="form-control" @change="groupByAuctionState()" v-model="groupState">
+                      <option value="">{{($t('auction.all'))}}</option>
+                      <option value="0201">{{($t('auction.fixedperiod'))}}</option>
+                      <option value="0301">{{$t('auction.randomperiod')}}</option>
+                      <option value="0401">{{$t('auction.ended')}}</option>
+                    </select>
+                </div>
             </div>
             <!-- 加载列表 -->
             <div class="form-box mbottom" v-if="auctionlist&&!isSearchTime" v-for="(item,index) in auctionlist" :key="index">
@@ -345,6 +362,10 @@
           top: 6px;
           right: 6px;
         }
+      }
+      .rank-class {
+        margin-left: 20px;
+        display: inline-block;
       }
     }
     .form-box {

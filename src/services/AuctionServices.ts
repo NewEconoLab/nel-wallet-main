@@ -1,6 +1,6 @@
 import { Auction, AuctionState, AuctionView } from "../entity/AuctionEntitys";
 import { tools } from "../tools/importpack";
-import { LoginInfo, Task, ConfirmType, TaskType, SellDomainInfo, Result, TaskFunction, RootDomainInfo } from "../tools/entity";
+import { LoginInfo, Task, ConfirmType, TaskType, SellDomainInfo, Result, TaskFunction, RootDomainInfo, DomainState } from "../tools/entity";
 import { AuctionStore } from "../store/AuctionStore";
 
 /**
@@ -179,6 +179,48 @@ export class AuctionService
             {
                 let view = new AuctionView(auction);
                 viewList.push(view);
+            }
+        }
+        return viewList;
+    }
+
+    /**
+     * 根据最大出价者筛选
+     * @param me 是否是我
+     * @param address 地址
+     */
+    selectBuyerDomain(me: boolean, address: string)
+    {
+        let list = this.store.getSotre();
+        let viewList = [];
+        for (const auction of list)
+        {
+            if (!me)
+            {
+                if (address != auction.maxBuyer)
+                {
+                    const view = new AuctionView(auction);
+                    viewList.push(view);
+                }
+            }
+            else if (address == auction.maxBuyer)
+            {
+                const view = new AuctionView(auction);
+                viewList.push(view);
+            }
+        }
+        return viewList;
+    }
+
+    selectStateDomain(state: string)
+    {
+        let list = this.store.getSotre();
+        let viewList = [];
+        for (const auction of list)
+        {
+            if (auction.auctionState === state)
+            {
+                viewList.push(new AuctionView(auction));
             }
         }
         return viewList;
