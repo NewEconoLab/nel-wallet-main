@@ -59,7 +59,7 @@
                     <img src="../../../static/img/seach.png" alt="" @click="doSearchDomain">
                 </div>
                 <div class="rank-class">
-                    <label>{{$t('auction.groupByBuyer')}}</label>
+                    <label>{{$t('auction.Bidder')}}</label>
                     <select id="sortlist-type" class="form-control" @change="selectBuyerDomain()" v-model="groupBuyer">
                       <option value="">{{($t('auction.all'))}}</option>
                       <option value="me">{{$t('auction.me')}}</option>
@@ -67,7 +67,7 @@
                     </select>
                 </div>
                 <div class="rank-class">
-                    <label>{{$t('auction.groupByState')}}</label>
+                    <label>{{$t('auction.Status')}}</label>
                     <select id="sortlist-type" class="form-control" @change="groupByAuctionState()" v-model="groupState">
                       <option value="">{{($t('auction.all'))}}</option>
                       <option value="0201">{{($t('auction.fixedperiod'))}}</option>

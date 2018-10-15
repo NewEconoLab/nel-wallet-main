@@ -6429,8 +6429,8 @@ exports.default = {
         getall: "Max",
         all: "All",
         nodata: "No related data was found.",
-        groupByBuyer: "Grouped by max buyer",
-        groupByState: "Grouped by Auction State",
+        Bidder: "Bidder",
+        Status: "Status",
     },
     exchange: {
         title: "CGAS Exchange",
@@ -8023,8 +8023,8 @@ exports.default = {
         getall: "全部",
         all: "全部",
         nodata: "没有查询到相关数据",
-        groupByBuyer: "根据最高出价者分组",
-        groupByState: "根据最域名分组",
+        Bidder: "出价者",
+        Status: "状态",
     },
     exchange: {
         title: "CGAS兑换",

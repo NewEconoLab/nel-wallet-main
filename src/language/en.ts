@@ -266,8 +266,8 @@ export default {
         getall: "Max",
         all: "All",
         nodata: "No related data was found.",
-        groupByBuyer: "Grouped by max buyer",
-        groupByState: "Grouped by Auction State",
+        Bidder: "Bidder",
+        Status: "Status",
     },
     exchange: {
         title: "CGAS Exchange",
