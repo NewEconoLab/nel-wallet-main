@@ -95,7 +95,7 @@ export default class AuctionInfo extends Vue
     myBidInput()
     {
         let mybidprice = !!this.auctionInfo.addwho.totalValue ? this.auctionInfo.addwho.totalValue : 0;
-        if (!!this.bidPrice)
+        if (!!this.bidPrice && (parseFloat(this.bidPrice) > 0))
         {
             if (/\./.test(this.bidPrice))
             {

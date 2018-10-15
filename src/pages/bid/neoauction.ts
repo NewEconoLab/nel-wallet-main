@@ -350,7 +350,7 @@ export default class NeoAuction extends Vue
     verifBidAmount()
     {
         this.checkBid = false;
-        if (!!this.alert_myBid)
+        if (!!this.alert_myBid && (parseFloat(this.alert_myBid) > 0))
         {
             if (/\./.test(this.alert_myBid))
             {
