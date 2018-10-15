@@ -366,6 +366,13 @@
       .rank-class {
         margin-left: 20px;
         display: inline-block;
+        label {
+          margin-right: 10px;
+        }
+        select {
+          width: 80px;
+          display: inline-block;
+        }
       }
     }
     .form-box {
