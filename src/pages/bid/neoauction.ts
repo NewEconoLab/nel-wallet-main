@@ -116,8 +116,14 @@ export default class NeoAuction extends Vue
         this.sgasAvailable = nep5[ "nep5balance" ];
         await services.auction_neo.updateAuctionList(this.address);
         this.getBidList(this.address, 1);
-        this.selectBuyerDomain();
-        this.groupByAuctionState();
+        if (this.groupBuyer)
+        {
+            this.selectBuyerDomain();
+        }
+        if (this.groupState)
+        {
+            this.groupByAuctionState();
+        }
     }
 
     /**
@@ -524,6 +530,8 @@ export default class NeoAuction extends Vue
         {
             this.isSearchTime = true;
             this.searchAuctionList = services.auction_neo.fuzzyQueryDomain(this.searchDomain);
+            this.groupBuyer = "";
+            this.groupState = "";
         }
         else
         {
@@ -539,12 +547,14 @@ export default class NeoAuction extends Vue
         }
         else if (this.groupBuyer == "me")
         {
+            this.searchDomain = "";
             this.searchAuctionList = services.auction_neo.selectBuyerDomain(true, this.address);
             this.isSearchTime = true;
             this.groupState = "";
         }
         else
         {
+            this.searchDomain = "";
             this.searchAuctionList = services.auction_neo.selectBuyerDomain(false, this.address);
             this.isSearchTime = true;
             this.groupState = "";
@@ -558,6 +568,7 @@ export default class NeoAuction extends Vue
             this.isSearchTime = false;
         } else
         {
+            this.searchDomain = "";
             this.searchAuctionList = services.auction_neo.selectStateDomain(this.groupState);
             this.isSearchTime = true;
             this.groupBuyer = "";
