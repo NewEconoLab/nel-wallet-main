@@ -177,8 +177,16 @@ export class AuctionService
             let res = auction.fulldomain.includes(str);
             if (res)
             {
-                let view = new AuctionView(auction);
-                viewList.push(view);
+                if (auction.auctionState == AuctionState.end)
+                {
+                    if (auction.addWho)
+                    {
+                        viewList.push(new AuctionView(auction));
+                    }
+                } else
+                {
+                    viewList.push(new AuctionView(auction));
+                }
             }
         }
         return viewList;
@@ -199,14 +207,30 @@ export class AuctionService
             {
                 if (address != auction.maxBuyer)
                 {
-                    const view = new AuctionView(auction);
-                    viewList.push(view);
+                    if (auction.auctionState == AuctionState.end)
+                    {
+                        if (auction.addWho)
+                        {
+                            viewList.push(new AuctionView(auction));
+                        }
+                    } else
+                    {
+                        viewList.push(new AuctionView(auction));
+                    }
                 }
             }
             else if (address == auction.maxBuyer)
             {
-                const view = new AuctionView(auction);
-                viewList.push(view);
+                if (auction.auctionState == AuctionState.end)
+                {
+                    if (auction.addWho)
+                    {
+                        viewList.push(new AuctionView(auction));
+                    }
+                } else
+                {
+                    viewList.push(new AuctionView(auction));
+                }
             }
         }
         return viewList;
@@ -220,7 +244,16 @@ export class AuctionService
         {
             if (auction.auctionState === state)
             {
-                viewList.push(new AuctionView(auction));
+                if (auction.auctionState == AuctionState.end)
+                {
+                    if (auction.addWho)
+                    {
+                        viewList.push(new AuctionView(auction));
+                    }
+                } else
+                {
+                    viewList.push(new AuctionView(auction));
+                }
             }
         }
         return viewList;
