@@ -176,6 +176,7 @@ export default {
         title6: "Claim domain",
         title7: "Reclaim CGAS",
         entername: "type a name",
+        nottopup: "Contract upgrade, recharge function suspended。",
         checkavailable: "The auction starting function is temporarily closed. Please click the link for the detailed info.", //This name is available.
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
         checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",

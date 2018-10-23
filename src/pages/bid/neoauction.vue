@@ -19,8 +19,11 @@
               </div>
               <div class="btn-right">
                     <button class="btn btn-nel btn-big" @click="openWithdraw">{{$t('btn.withdraw')}}</button>
-                    <button class="btn btn-nel btn-big" @click="openTopUp">{{$t('btn.topup')}}</button>
+                    <button class="btn btn-nel btn-big btn-disable" disabled="disabled">{{$t('btn.topup')}}</button>
                 </div> 
+              <div>
+                <span>{{$t('auction.nottopup')}}</span>
+              </div>
             </div>
             <div class="title">
                 <span>{{$t('auction.title1')}}</span>

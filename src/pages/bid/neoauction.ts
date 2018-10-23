@@ -252,16 +252,16 @@ export default class NeoAuction extends Vue
     /**
      * 充值到注册器
      */
-    async openTopUp()
-    {
-        let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
-        this.sgasAvailable = nep5[ "nep5balance" ];
-        this.alert_available = this.sgasAvailable + " CGAS";
-        this.alert_TopUp.watting = this.sessionWatting.select("topup") ? true : false;
-        this.alert_TopUp.isShow = true;
-        this.alert_TopUp.input = "";
-        this.alert_TopUp.error = false;
-    }
+    // async openTopUp()
+    // {
+    // let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
+    // this.sgasAvailable = nep5[ "nep5balance" ];
+    // this.alert_available = this.sgasAvailable + " CGAS";
+    // this.alert_TopUp.watting = this.sessionWatting.select("topup") ? true : false;
+    // this.alert_TopUp.isShow = true;
+    // this.alert_TopUp.input = "";
+    // this.alert_TopUp.error = false;
+    // }
     //获取所有可充值金额
     getAllTopup()
     {
@@ -326,7 +326,6 @@ export default class NeoAuction extends Vue
 
     /**
      * gas->sgas->充值注册器
-     */
     async toRecharge()
     {
         let amount = this.alert_TopUp.input;
@@ -349,6 +348,7 @@ export default class NeoAuction extends Vue
             this.openToast("error", "" + this.$t("auction.fail"), 4000);
         }
     }
+     */
 
     /**
      * 显示加价弹框

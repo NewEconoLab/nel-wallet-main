@@ -6390,6 +6390,7 @@ exports.default = {
         title6: "Claim domain",
         title7: "Reclaim CGAS",
         entername: "type a name",
+        nottopup: "Contract upgrade, recharge function suspended。",
         checkavailable: "The auction starting function is temporarily closed. Please click the link for the detailed info.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
         checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
@@ -7350,96 +7351,44 @@ var NNSSell = /** @class */ (function () {
             });
         });
     };
-    NNSSell.gasToRecharge = function (transcount, register) {
-        return __awaiter(this, void 0, void 0, function () {
-            var script, sgasaddr, data1, data2, res, height, txid, olds, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        script = importpack_1.tools.contract.buildScript(importpack_1.tools.coinTool.id_SGAS, "mintTokens", []);
-                        sgasaddr = ThinNeo.Helper.GetAddressFromScriptHash(importpack_1.tools.coinTool.id_SGAS);
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 8, , 9]);
-                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData(script, sgasaddr, importpack_1.tools.coinTool.id_GAS, Neo.Fixed8.fromNumber(transcount))];
-                    case 2:
-                        data1 = _a.sent();
-                        return [4 /*yield*/, importpack_1.tools.nnssell.rechargeReg(transcount.toFixed(8), register)];
-                    case 3:
-                        data2 = _a.sent();
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.rechargeandtransfer(data1.data, data2)];
-                    case 4:
-                        res = _a.sent();
-                        if (!(res['errCode'] == '0000')) return [3 /*break*/, 6];
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
-                    case 5:
-                        height = _a.sent();
-                        txid = res['txid'];
-                        olds = data1.tranmsg.info['oldarr'];
-                        olds.map(function (old) { return old.height = height; });
-                        entity_1.OldUTXO.oldutxosPush(olds);
-                        return [2 /*return*/, txid];
-                    case 6: return [2 /*return*/, undefined];
-                    case 7: return [3 /*break*/, 9];
-                    case 8:
-                        error_1 = _a.sent();
-                        throw error_1;
-                    case 9: return [2 /*return*/];
-                }
-            });
-        });
-    };
     /**
-     * 注册器充值
-     * @param amount 充值金额
+     * gasToRecharge
+     * @param transcount
+     * @param register
+    static async gasToRecharge(transcount: number, register: Neo.Uint160)
+    {
+        let script = tools.contract.buildScript(tools.coinTool.id_SGAS, "mintTokens", []);
+        //获得sgas的合约地址
+        var sgasaddr = ThinNeo.Helper.GetAddressFromScriptHash(tools.coinTool.id_SGAS);
+        try
+        {
+            let data1 = await tools.contract.buildInvokeTransData(script, sgasaddr, tools.coinTool.id_GAS, Neo.Fixed8.fromNumber(transcount));
+            let data2 = await tools.nnssell.rechargeReg(transcount.toFixed(8), register);
+            let res = await tools.wwwtool.rechargeandtransfer(data1.data, data2);
+            if (res[ 'errCode' ] == '0000')
+            {
+                var height = await tools.wwwtool.api_getHeight();
+                let txid = res[ 'txid' ];
+                let olds = data1.tranmsg.info[ 'oldarr' ] as OldUTXO[];
+                olds.map(old => old.height = height);
+                OldUTXO.oldutxosPush(olds);
+                return txid;
+            } else
+            {
+                return undefined;
+            }
+        } catch (error)
+        {
+            throw error;
+        }
+    }
      */
-    NNSSell.rechargeReg = function (amount, register) {
-        return __awaiter(this, void 0, void 0, function () {
-            var addressto, address, sb, random_uint8, random_int, script, res;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        addressto = ThinNeo.Helper.GetAddressFromScriptHash(register);
-                        address = entity_1.LoginInfo.getCurrentAddress();
-                        sb = new ThinNeo.ScriptBuilder();
-                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
-                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
-                        //塞入随机数
-                        sb.EmitPushNumber(random_int);
-                        sb.Emit(ThinNeo.OpCode.DROP);
-                        sb.EmitParamJson([
-                            "(addr)" + address,
-                            "(addr)" + addressto,
-                            "(int)" + amount.replace(".", "") //value
-                        ]); //参数倒序入
-                        sb.EmitPushString("transfer"); //参数倒序入
-                        sb.EmitAppCall(importpack_1.tools.coinTool.id_SGAS); //nep5脚本
-                        ////这个方法是为了在同一笔交易中转账并充值
-                        ////当然你也可以分为两笔交易
-                        ////插入下述两条语句，能得到txid
-                        sb.EmitSysCall("System.ExecutionEngine.GetScriptContainer");
-                        sb.EmitSysCall("Neo.Transaction.GetHash");
-                        //把TXID包进Array里
-                        sb.EmitPushNumber(Neo.BigInteger.fromString("1"));
-                        sb.Emit(ThinNeo.OpCode.PACK);
-                        sb.EmitPushString("setmoneyin");
-                        sb.EmitAppCall(register);
-                        script = sb.ToArray();
-                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(script)];
-                    case 1:
-                        res = _a.sent();
-                        // console.log(res);
-                        return [2 /*return*/, res];
-                }
-            });
-        });
-    };
     /**
      * 域名开标
      */
     NNSSell.startAuciton = function (subname, root) {
         return __awaiter(this, void 0, void 0, function () {
-            var addr, who, param, data, res, error_2;
+            var addr, who, param, data, res, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7457,8 +7406,8 @@ var NNSSell = /** @class */ (function () {
                         res = _a.sent();
                         return [2 /*return*/, res];
                     case 2:
-                        error_2 = _a.sent();
-                        throw error_2;
+                        error_1 = _a.sent();
+                        throw error_1;
                     case 3: return [2 /*return*/];
                 }
             });
@@ -7639,7 +7588,7 @@ var NNSSell = /** @class */ (function () {
     };
     NNSSell.renewDomain = function (domain, register) {
         return __awaiter(this, void 0, void 0, function () {
-            var addr, who, domainarr, str, roothash, data, res, error_3;
+            var addr, who, domainarr, str, roothash, data, res, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7661,7 +7610,7 @@ var NNSSell = /** @class */ (function () {
                         res = _a.sent();
                         return [2 /*return*/, res];
                     case 3:
-                        error_3 = _a.sent();
+                        error_2 = _a.sent();
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
@@ -8009,6 +7958,7 @@ exports.default = {
         title6: "领取域名",
         title7: "领回竞拍金",
         entername: "请输入您想要的域名",
+        nottopup: "合约升级中，充值功能暂停。",
         checkavailable: "开标功能已暂停，详情请见：",
         checkbeing: "此域名正在进行竞拍。",
         checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
