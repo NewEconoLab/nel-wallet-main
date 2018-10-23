@@ -48,6 +48,7 @@ export default class NeoAuction extends Vue
     checkBid: boolean = false;//检测账户是否有余额
     groupBuyer: string = "";
     groupState: string = "";
+    linkhref: string = "";
 
     constructor()
     {
@@ -84,6 +85,14 @@ export default class NeoAuction extends Vue
         this.searchDomain = "";
         this.searchAuctionList = [];
         this.auctionlist = [];
+        let language = localStorage.getItem("language");
+        if (!language || language == 'en')
+        {
+            this.linkhref = "https://medium.com/neweconolab/nns-contract-upgrade-announcement-e27c0153e40d";
+        } else
+        {
+            this.linkhref = "https://mp.weixin.qq.com/s/L6IUe0yLih04_NCjPsVPpQ";
+        }
     }
 
     async mounted()
@@ -426,6 +435,8 @@ export default class NeoAuction extends Vue
      */
     async openAuction()
     {
+        /**
+         * 
         if (!this.domain || !this.domain.length)
         {
             this.btn_start = 4;
@@ -438,6 +449,7 @@ export default class NeoAuction extends Vue
         this.btn_start = 1;
         this.domain = "";
         this.checkState = 0;
+         */
     }
 
 
@@ -480,11 +492,11 @@ export default class NeoAuction extends Vue
             {
                 case AuctionState.pass:
 
-                    this.checkState = this.btn_start = 1;
+                    this.checkState = this.btn_start = 4;
                     break;
                 case AuctionState.expire:
 
-                    this.checkState = this.btn_start = 1;
+                    this.checkState = this.btn_start = 4;
                     break;
                 case AuctionState.end:
 

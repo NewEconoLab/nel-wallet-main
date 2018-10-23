@@ -176,7 +176,7 @@ export default {
         title6: "领取域名",
         title7: "领回竞拍金",
         entername: "请输入您想要的域名",
-        checkavailable: "此域名可以进行竞拍。",
+        checkavailable: "开标功能已暂停，详情请见：", //此域名可以进行竞拍。
         checkbeing: "此域名正在进行竞拍。",
         checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
         checkbuyer: "此域名已经被其他人竞拍了。",
