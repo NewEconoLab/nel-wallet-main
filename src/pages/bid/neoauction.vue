@@ -33,9 +33,10 @@
                 <button v-if="btn_start==0" class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.openingauction')}}</button>
                 <!-- <spinner-wrap v-if="btn_start==0" style="margin-left:20px"></spinner-wrap> -->
                 <!-- <button v-if="btn_start==1 && !!domain.length" class="btn btn-nel btn-big" @click="openAuction">{{$t('btn.openauction')}}</button> -->
+                <button v-if="btn_start==1" class="btn btn-nel btn-big btn-disable" disabled="disabled">{{$t('btn.openauction')}}</button>
                 <button v-if="btn_start==2" class="btn btn-nel btn-big" @click="addBid">{{$t('btn.newbid')}}</button>
                 <button v-if="btn_start==3" class="btn btn-nel btn-big btn-disable" disabled="disabled">{{$t('btn.newbid')}}</button>
-                <button v-if="!domain.length||btn_start==4||btn_start==1" class="btn btn-nel btn-big btn-disable" disabled="disabled">{{$t('btn.openauction')}}</button>
+                <button v-if="!domain.length||btn_start==4" class="btn btn-nel btn-big btn-disable" disabled="disabled">{{$t('btn.openauction')}}</button>
                 <!-- <span class="waiting-msg">{{$t('auction.sendingmsg')}}</span> -->
                 <div v-if="checkState==1 && !!domain.length" class="msg-box status-being">
                     <img src="../../../static/img/correct.svg" alt="">

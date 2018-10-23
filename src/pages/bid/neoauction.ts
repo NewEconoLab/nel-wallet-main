@@ -492,11 +492,11 @@ export default class NeoAuction extends Vue
             {
                 case AuctionState.pass:
 
-                    this.checkState = this.btn_start = 4;
+                    this.checkState = this.btn_start = 1;
                     break;
                 case AuctionState.expire:
 
-                    this.checkState = this.btn_start = 4;
+                    this.checkState = this.btn_start = 1;
                     break;
                 case AuctionState.end:
 
@@ -510,7 +510,7 @@ export default class NeoAuction extends Vue
 
                     this.checkState = this.btn_start = 2;
                     break;
-                // case AuctionState.open:  this.checkState = this.btn_start = 2;   break;
+                case AuctionState.open: this.checkState = this.btn_start = 1; break;
 
                 default:
                     break;
