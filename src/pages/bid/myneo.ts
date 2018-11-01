@@ -222,7 +222,6 @@ export default class MyNeo extends Vue
                 TaskType.domainRenewal);
             this.domainEdit.put(this.domainInfo.domain, "watting", "renewal");
         }
-
     }
 
     /**

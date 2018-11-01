@@ -35,7 +35,6 @@ export default class AuctionInfo extends Vue
     constructor()
     {
         super();
-        let auctionMsg = new tools.sessionstoretool("auctionPage");
         if (services.auctionInfo_neo.auctionId)
         {
             this.auctionId = services.auctionInfo_neo.auctionId;
