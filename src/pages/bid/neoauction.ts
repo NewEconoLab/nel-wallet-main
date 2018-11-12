@@ -394,8 +394,6 @@ export default class NeoAuction extends Vue
      */
     async openAuction()
     {
-        /**
-         * 
         if (!this.domain || !this.domain.length)
         {
             this.btn_start = 4;
@@ -408,7 +406,6 @@ export default class NeoAuction extends Vue
         this.btn_start = 1;
         this.domain = "";
         this.checkState = 0;
-         */
     }
 
 

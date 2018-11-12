@@ -824,6 +824,30 @@ var WWW = /** @class */ (function () {
         });
     };
     /**
+     * 根据id和address更新列表数据
+     * @param address 地址
+     * @param ids id 列表
+     */
+    WWW.getdomainauctioninfo = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getdomainauctioninfo", domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
      * 根据地址查询参与竞拍的域名列表
      * @param address 要查询的地址
      */
@@ -6418,9 +6442,7 @@ exports.default = {
         msg5: "available",
         waiting: "Waiting for transaction confirmation",
         errdomain: "This domain hasn't been mapped to any address",
-        timeMsg: "Expiry date: ",
-        netfee: "Network fee",
-        sysfee: "System fee"
+        timeMsg: "Expiry date: "
     },
     nns: {
         nns: "NNS",
@@ -6434,6 +6456,7 @@ exports.default = {
         err1: "The domain name has been registered.",
         text1: "Address resolver",
         text2: "Address mapping",
+        owner: "Address Owner",
         text3: "Expiration Time",
         text4: "Expiration",
         waiting: "Try to refresh the page after the NEO block height is updated.",
@@ -6474,6 +6497,7 @@ exports.default = {
         title6: "Claim domain",
         title7: "Reclaim CGAS",
         entername: "type a name",
+        nottopup: "Contract upgrade, recharge function suspended。",
         checkavailable: "This name is available.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
         checkformat: "Domain names must be English characters or numbers, and can only be 6 to 32 characters in length",
@@ -6506,7 +6530,6 @@ exports.default = {
         errmsg1: "Only",
         errmsg2: "CGAS is available.",
         errmsg4: "Please enter the right format.",
-        errmsg6: "Your bid raise must not be less than 10% of the current highest bid price",
         nobalance: "You have insufficient CGAS left in your auction account. Please top it up.",
         goback: "Go back",
         waitmsg1: "Waiting for confirmation",
@@ -6563,7 +6586,10 @@ exports.default = {
         toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
         withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
         getall: "Max",
-        nodata: "No related data was found."
+        all: "All",
+        nodata: "No related data was found.",
+        Bidder: "Bidder",
+        Status: "Status",
     },
     exchange: {
         title: "CGAS Exchange",
@@ -6591,7 +6617,7 @@ exports.default = {
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bouns History",
+        title: "Bonus History",
         mydividend: "My dividends: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
@@ -6615,6 +6641,7 @@ exports.default = {
         addrmapping: "Address mapping:",
         addrresolver: "Address resolver:",
         renew: "Renewal expiration time",
+        domainTransfer: "Transferring domain:",
         getdomain: "Claim domain",
         recover: "Reclaim CGAS",
         gasclaim: "Gas claim",
@@ -6626,6 +6653,10 @@ exports.default = {
     notify: {
         utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
         fee: "Note: When there is enough GAS in your wallet, we will automatically add a fee to ensure your operation will be confirmed fast. "
+    },
+    errormsg: {
+        interface: "Interface call exception",
+        noMoney: "There's not enough money."
     }
 };
 
@@ -8039,9 +8070,9 @@ exports.default = {
         title7: "领回竞拍金",
         entername: "请输入您想要的域名",
         nottopup: "合约升级中，充值功能暂停。",
-        checkavailable: "开标功能已暂停，详情请见：",
+        checkavailable: "此域名可以进行竞拍。",
         checkbeing: "此域名正在进行竞拍。",
-        checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
+        checkformat: "域名长度需要在6～32个字节之间，只能是字母和数字。",
         checkbuyer: "此域名已经被其他人竞拍了。",
         sendingmsg: "正在发送交易，请耐心等待...",
         searchmsg: "按域名搜索",
@@ -8071,7 +8102,6 @@ exports.default = {
         errmsg1: "您当前的竞拍账户仅拥有",
         errmsg2: "CGAS.",
         errmsg4: "请输入正确的格式。",
-        errmsg6: "您的出价低于最高出价的百分之十",
         nobalance: "余额不足，请充值",
         goback: "返回",
         waitmsg1: "未确认",
@@ -8149,8 +8179,8 @@ exports.default = {
         title: "我的域名管理",
         resolver: "地址解析器",
         mapping: "地址映射",
-        owner: "所有者地址",
         time: "域名到期时间",
+        owner: "所有者地址",
         expiring: "即将过期",
         edittitle: "编辑信息",
         neoname: "域名",
