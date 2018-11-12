@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { tools } from "../../tools/importpack";
-import { LoginInfo, Domainmsg, DomainInfo, DomainStatus, Consts, TaskFunction, Task, TaskType, ConfirmType } from "../../tools/entity";
+import { LoginInfo, TaskFunction, Task, TaskType, ConfirmType } from "../../tools/entity";
 import { sessionStoreTool } from "../../tools/storagetool";
 import { TaskManager } from "../../tools/taskmanager";
 @Component({
@@ -15,11 +15,14 @@ export default class MyNeo extends Vue
     domainInfo: any;
     set_contract: string;
     resolverAddress: string;
+    ownerAddress: string;
     mappingistrue: boolean;
     mappingState: number;
     resolverState: number;
+    ownerState: number;
     domainEdit: sessionStoreTool;
     renewalWatting: boolean;
+    ownerTransfer: boolean;
     currentdomain: string;
 
     constructor()
@@ -36,6 +39,8 @@ export default class MyNeo extends Vue
         this.resolverState = 0;
         this.mappingistrue = false;
         this.currentdomain = "";
+        this.ownerState = 3
+        this.ownerAddress = "";
     }
 
     mounted()
@@ -46,6 +51,17 @@ export default class MyNeo extends Vue
         TaskFunction.domainResovle = this.resolverTask;
         TaskFunction.domainMapping = this.mappingTask;
         TaskFunction.domainRenewal = this.renewalTask;
+        TaskFunction.domainTransfer = this.domainTransferTask;
+    }
+
+
+    domainTransferTask(domain)
+    {
+        if (domain == this.currentdomain)
+        {
+            this.ownerTransfer = false;
+        }
+        this.getAllNeoName(this.currentAddress);
     }
 
     verifyMapping()
@@ -57,6 +73,25 @@ export default class MyNeo extends Vue
         }
         let res = tools.neotool.verifyAddress(this.resolverAddress);
         this.mappingistrue = res;
+    }
+
+
+    verifySetOwner()
+    {
+        const domain = this.domainEdit.select(this.currentdomain);
+        if (domain && domain[ `domain_transfer` ] && domain[ `domain_transfer` ] === "watting")
+        {
+            this.ownerState = 2;
+        }
+        else if (this.domainInfo.expired || !this.ownerAddress)
+        {
+            this.ownerState = 3;
+        }
+        else
+        {
+            const res = tools.neotool.verifyAddress(this.ownerAddress);
+            this.ownerState = res ? 1 : 3;
+        }
     }
 
     async getAllNeoName(address)
@@ -132,23 +167,63 @@ export default class MyNeo extends Vue
         this.renewalWatting = false;
         this.isShowEdit = !this.isShowEdit;
         this.currentdomain = item.domain;
+        this.verifySetOwner();
 
         let domain = this.domainEdit.select(item.domain);
         if (domain)
         {
-            if (domain[ 'resolver' ] && domain[ 'resolver' ] == 'watting')
+            if (domain[ 'resolver' ] && domain[ 'resolver' ] === 'watting')
             {
                 this.resolverState = 2;
             }
-            if (domain[ 'mapping' ] && domain[ 'mapping' ][ 'state' ] && domain[ 'mapping' ][ 'state' ] == 'watting')
+            if (domain[ 'mapping' ] && domain[ 'mapping' ][ 'state' ] && domain[ 'mapping' ][ 'state' ] === 'watting')
             {
                 this.mappingState = 2;
                 this.resolverAddress = domain[ 'mapping' ][ 'address' ];
             }
-            if (domain[ 'renewal' ] && domain[ 'renewal' ] == 'watting')
+            if (domain[ 'renewal' ] && domain[ 'renewal' ] === 'watting')
             {
                 this.renewalWatting = true;
             }
+            if (domain[ 'owner' ] && domain[ 'owner' ] === 'watting')
+            {
+                this.renewalWatting = true;
+            }
+        }
+    }
+
+    /**
+     * 设置所有者 转让域名
+     */
+    async setowner()
+    {
+        const oldstate = this.ownerState;
+        try
+        {
+            if (this.resolverAddress != "" && this.mappingState != 0)
+            {
+                this.resetmappingData()
+                await this.mappingData();
+            }
+            LoginInfo.info = null;
+            this.ownerState = 2;
+            const res = await tools.nnstool.setOwner(this.domainInfo[ "domain" ], this.ownerAddress);
+            if (!res.err)
+            {
+                const txid = res.info;
+                TaskManager.addTask(
+                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], address: this.ownerAddress }),
+                    TaskType.domainTransfer);
+                this.domainEdit.put(this.domainInfo.domain, "watting", "domain_transfer");
+            } else
+            {
+                this.ownerState = oldstate;
+                throw new Error("Transaction send failed");
+            }
+        } catch (error)
+        {
+            console.log("ERROR!!");
+            this.ownerState = oldstate;
         }
     }
 
@@ -196,11 +271,13 @@ export default class MyNeo extends Vue
                 this.domainEdit.put(this.domainInfo.domain, { state: "watting", address: this.resolverAddress }, "mapping");
             } else
             {
-
+                this.mappingState = oldstate;
+                throw new Error("Transaction send failed");
             }
         } catch (error)
         {
             this.mappingState = oldstate;
+            throw error;
         }
     }
 

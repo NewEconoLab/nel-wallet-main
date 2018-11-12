@@ -35,6 +35,8 @@ export default {
         edit: "Edit",
         renewal: "Renew",
         renewaling: "Renewing",
+        setOwner: "Set owner",
+        settingOwner: "Setting owner",
         exchange: "Exchange",
         exchanging: "Exchanging",
         withdraw: "Withdraw",
@@ -122,7 +124,9 @@ export default {
         msg5: "available",
         waiting: "Waiting for transaction confirmation",
         errdomain: "This domain hasn't been mapped to any address",
-        timeMsg: "Expiry date: "
+        timeMsg: "Expiry date: ",
+        netfee: "Network fee",
+        sysfee: "System fee"
     },
     nns: {
         nns: "NNS",
@@ -176,10 +180,9 @@ export default {
         title6: "Claim domain",
         title7: "Reclaim CGAS",
         entername: "type a name",
-        nottopup: "Contract upgrade, recharge function suspended。",
-        checkavailable: "The auction starting function is temporarily closed. Please click the link for the detailed info.", //This name is available.
+        checkavailable: "This name is available.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
-        checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
+        checkformat: "Domain names must be English characters or numbers, and can only be 6 to 32 characters in length",
         checkbuyer: "This name is unavailable.",
         sendingmsg: "We are currently opening the auction. Please wait.",
         searchmsg: "Search by domain",
@@ -209,6 +212,7 @@ export default {
         errmsg1: "Only",
         errmsg2: "CGAS is available.",
         errmsg4: "Please enter the right format.",
+        errmsg6: "Your bid raise must not be less than 10% of the current highest bid price",
         nobalance: "You have insufficient CGAS left in your auction account. Please top it up.",
         goback: "Go back",
         waitmsg1: "Waiting for confirmation",
@@ -265,10 +269,7 @@ export default {
         toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
         withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
         getall: "Max",
-        all: "All",
-        nodata: "No related data was found.",
-        Bidder: "Bidder",
-        Status: "Status",
+        nodata: "No related data was found."
     },
     exchange: {
         title: "CGAS Exchange",
@@ -290,12 +291,13 @@ export default {
         expiring: "Expiring soon",
         edittitle: "Edit information",
         neoname: "Neo Name",
+        owner: "Owner Address",
         notconfigure: "not configured",
         expired: "Expired",
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bonus History",
+        title: "Bouns History",
         mydividend: "My dividends: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
@@ -332,9 +334,5 @@ export default {
     notify: {
         utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
         fee: "Note: When there is enough GAS in your wallet, we will automatically add a fee to ensure your operation will be confirmed fast. "
-    },
-    errormsg: {
-        interface: "Interface call exception",
-        noMoney: "There's not enough money."
     }
 }

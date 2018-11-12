@@ -72,17 +72,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM
 
 /***/ }),
 
-/***/ "21vH":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',{attrs:{"id":"wallet"}},[_c('nav',{staticClass:"navbar navbar-wallet"},[_c('div',{staticClass:"blockheight"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"notify-span"},[_vm._v(_vm._s(_vm.$t('notify.fee')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-img fright"},[_c('span',{staticClass:"blockheight-span"},[_vm._v(_vm._s(_vm.$t('navbar.blockheight'))+"："+_vm._s(_vm.blockheight))]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("Rsmh"),"alt":""},on:{"click":_vm.onshowHistory}}),_vm._v(" "),(_vm.taskNumber)?_c('div',{staticClass:"add-task"},[_vm._v(_vm._s(_vm.taskNumber>99?99:_vm.taskNumber)),(_vm.taskNumber>99)?_c('span',[_vm._v("+")]):_vm._e()]):_vm._e()])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"navbar-collapse collapse",attrs:{"id":"navbar"}},[_c('ul',{staticClass:"nav navbar-nav navbar-left"},[_c('li',[_c('router-link',{class:{active:_vm.isActive('balance')},attrs:{"to":{name:'balance'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('balance'))?_c('img',{attrs:{"src":__webpack_require__("5yhA"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("Yj+Z"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('balance.balance'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('transfer')},attrs:{"to":{name:'transfer'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('transfer'))?_c('img',{attrs:{"src":__webpack_require__("njKD"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("AT6x"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('transfer.transfer'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('exchange')},attrs:{"to":{name:'exchange'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('exchange'))?_c('img',{attrs:{"src":__webpack_require__("rVEi"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("w5Tq"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('exchange.title'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('nnsneo')},attrs:{"to":{name:'auction'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('nnsneo'))?_c('img',{attrs:{"src":__webpack_require__("Blow"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("rjrR"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('nns.nns'))+"(.neo)\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('setting')},attrs:{"to":{name:'setting'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('setting'))?_c('img',{attrs:{"src":__webpack_require__("Fxcc"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("1Iz4"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('setting.settings'))+"\n            ")])],1)]),_vm._v(" "),_c('div',{staticClass:"tranhistory-box"},[(_vm.showHistory)?_c('div',{staticClass:"tranhistory-wrap"},[_c('div',{staticClass:"tranhistory-listbox"},[_c('div',{staticClass:"tranhistory-title"},[_c('div',{staticClass:"tranhistory-close",on:{"click":function($event){_vm.showHistory=!_vm.showHistory}}},[_c('img',{attrs:{"src":__webpack_require__("fgqV"),"alt":""}})]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.title')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-tips"},[_vm._v(_vm._s(_vm.$t('operation.tips')))])]),_vm._v(" "),(_vm.taskList.length != 0)?_c('div',{staticClass:"tranhistory-list"},_vm._l((_vm.taskList),function(item){return _c('div',{key:item.tasktype,staticClass:"th-onelist"},[(item.tasktype == 0)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.transfer')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.toaddress))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" "+_vm._s(item.message.assetname))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 1)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.openauction')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 2)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.raisebid')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 3)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 4)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 5)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.topup')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 6)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.withdraw')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+"Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 7)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.requestgas')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waitinggas'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"green-text"},[_vm._v(_vm._s(_vm.$t('operation.sentok')))]):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 8)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.addrmapping'))+" "),_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.address))])])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 9)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.addrresolver'))+" "+_vm._s(item.resolver))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 10)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.renew')))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 11)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.getdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 12)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.recover')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 13)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.gasclaim')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e()])})):_vm._e(),_vm._v(" "),(_vm.taskList.length == 0)?_c('div',{staticClass:"notask"},[_vm._v(_vm._s(_vm.$t('operation.nodata')))]):_vm._e()])]):_vm._e()])])])]),_vm._v(" "),_c('div',{staticClass:"wallet-content"},[_c('router-view')],1)])}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "2XK3":
 /***/ (function(module, exports) {
 
@@ -2596,6 +2585,7 @@ var TaskType;
     TaskType[TaskType["getDomain"] = 11] = "getDomain";
     TaskType[TaskType["recoverSgas"] = 12] = "recoverSgas";
     TaskType[TaskType["ClaimGas"] = 13] = "ClaimGas";
+    TaskType[TaskType["domainTransfer"] = 14] = "domainTransfer";
 })(TaskType = exports.TaskType || (exports.TaskType = {}));
 /**
  * 确认的操作类型
@@ -3547,14 +3537,14 @@ var vue_1 = __webpack_require__("/5sW");
 var vue_router_1 = __webpack_require__("/ocq");
 var wallet_vue_1 = __webpack_require__("PPZq");
 vue_1.default.use(vue_router_1.default);
-var Balance = function (resolve) { return __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Balance = function (resolve) { return __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Login = function (resolve) { return __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Luci")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Transfer = function (resolve) { return __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Oz3I")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Exchange = function (resolve) { return Promise.all/* require */([__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("eL9F")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var NNSNeo = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(7)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("C0Cu")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Settings = function (resolve) { return __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("hZlE")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Auction = function (resolve) { return Promise.all/* require */([__webpack_require__.e(2), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("jrmo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
-var MyNeoName = function (resolve) { return __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("ogHy")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var MyNeoName = function (resolve) { return __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("ogHy")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Bonus = function (resolve) { return __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("6M52")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Tutorial = function (resolve) { return __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("8G7y")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 exports.default = new vue_router_1.default({
@@ -3586,6 +3576,13 @@ exports.default = new vue_router_1.default({
     ]
 });
 
+
+/***/ }),
+
+/***/ "MuRZ":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -3963,9 +3960,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__ = __webpack_require__("YRcM");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_8782d95e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__ = __webpack_require__("21vH");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_250ec3c5_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__ = __webpack_require__("hbSm");
 function injectStyle (ssrContext) {
-  __webpack_require__("ZJXl")
+  __webpack_require__("MuRZ")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -3982,7 +3979,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_8782d95e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_250ec3c5_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -4534,9 +4531,9 @@ var TaskManager = /** @class */ (function () {
                         _i = 0;
                         _d.label = 1;
                     case 1:
-                        if (!(_i < _a.length)) return [3 /*break*/, 32];
+                        if (!(_i < _a.length)) return [3 /*break*/, 34];
                         type = _a[_i];
-                        if (!taskList.hasOwnProperty(type)) return [3 /*break*/, 31];
+                        if (!taskList.hasOwnProperty(type)) return [3 /*break*/, 33];
                         tasks = taskList[type];
                         _c = parseInt(type);
                         switch (_c) {
@@ -4554,69 +4551,74 @@ var TaskManager = /** @class */ (function () {
                             case entity_1.TaskType.domainResovle: return [3 /*break*/, 24];
                             case entity_1.TaskType.domainMapping: return [3 /*break*/, 26];
                             case entity_1.TaskType.domainRenewal: return [3 /*break*/, 28];
+                            case entity_1.TaskType.domainTransfer: return [3 /*break*/, 30];
                         }
-                        return [3 /*break*/, 30];
+                        return [3 /*break*/, 32];
                     case 2: return [4 /*yield*/, this.confirm_tranfer(tasks)];
                     case 3:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 4: return [4 /*yield*/, this.confirm_claimGas(tasks)];
                     case 5:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 6: return [4 /*yield*/, this.confirm_open(tasks)];
                     case 7:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 8: return [4 /*yield*/, this.confirm_bid(tasks)];
                     case 9:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 10: return [4 /*yield*/, this.confirm_getDomain(tasks)];
                     case 11:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 12: return [4 /*yield*/, this.confirm_recoverSgas(tasks)];
                     case 13:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 14: return [4 /*yield*/, this.confirm_gasToSgas(tasks)];
                     case 15:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 16: return [4 /*yield*/, this.confirm_sgasToGas(tasks)];
                     case 17:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 18: return [4 /*yield*/, this.confirm_topup(tasks)];
                     case 19:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 20: return [4 /*yield*/, this.confirm_withdraw(tasks)];
                     case 21:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 22: return [4 /*yield*/, this.confirm_getGas(tasks)];
                     case 23:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 24: return [4 /*yield*/, this.confirm_resovler(tasks)];
                     case 25:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 26: return [4 /*yield*/, this.confirm_mapping(tasks)];
                     case 27:
                         _d.sent();
-                        return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
                     case 28: return [4 /*yield*/, this.confirm_renewal(tasks)];
                     case 29:
                         _d.sent();
-                        return [3 /*break*/, 31];
-                    case 30: return [3 /*break*/, 31];
+                        return [3 /*break*/, 33];
+                    case 30: return [4 /*yield*/, this.confirm_domain_transfer(tasks)];
                     case 31:
+                        _d.sent();
+                        return [3 /*break*/, 33];
+                    case 32: return [3 /*break*/, 33];
+                    case 33:
                         _i++;
                         return [3 /*break*/, 1];
-                    case 32:
+                    case 34:
                         /**
                          * 放在任务状态更新后面执行刷新操作，以防数据未变化就刷新操作
                          */
@@ -4939,11 +4941,11 @@ var TaskManager = /** @class */ (function () {
                                 if (result.vmstate == "FAULT, BREAK") {
                                     task.state = entity_1.TaskState.fail;
                                 }
-                                else if (result && result.displayNameList && result.displayNameList.includes("assetManagement")) //检测是否有对应的通知 addprice
+                                else if (result && result.displayNameList && result.displayNameList.includes("raise")) //检测是否有对应的通知 addprice
                                  {
                                     task.state = entity_1.TaskState.success;
                                 }
-                                else if (result && result.displayNameList && result.displayNameList.includes("raiseEndsAuction")) {
+                                else if (result && result.displayNameList && result.displayNameList.includes("bidSettlement")) {
                                     task.state = entity_1.TaskState.fail;
                                 }
                                 else {
@@ -5124,6 +5126,46 @@ var TaskManager = /** @class */ (function () {
                             return task;
                         });
                         this.taskStore.put(entity_1.TaskType.domainMapping.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    TaskManager.confirm_domain_transfer = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid];
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainTransfer)
+                                        entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo")) {
+                                    task.state = entity_1.TaskState.success;
+                                    if (entity_1.TaskFunction.domainTransfer)
+                                        entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainTransfer)
+                                        entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.domainTransfer.toString(), taskarr);
                         return [2 /*return*/];
                 }
             });
@@ -5479,6 +5521,9 @@ var FeatureComponent = /** @class */ (function (_super) {
                     case entity_1.TaskType.ClaimGas:
                         this.makeTaskList(tasks, entity_1.TaskType.ClaimGas);
                         break;
+                    case entity_1.TaskType.domainTransfer:
+                        this.makeTaskList(tasks, entity_1.TaskType.domainTransfer);
+                        break;
                     default:
                         break;
                 }
@@ -5569,13 +5614,6 @@ exports.default = FeatureComponent;
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAARpJREFUWAntltENwiAQhotxjDqQL4zhUI7RFxfqHniX9EfSIOEqRzG5JgYs6H1+vx5Ok11mwAz8twEH/GVZ7s65Zwhhxr0zRmJYieHhvX9x/QsgRoBjFhbELOC6YgJzRB6tYq3nSEkSyifFaLAnhKSWAUps5faawZwVyb3hDcY2I/lUNXtbNX41g60av5pBNFtp4+dGnSakBpgW4Tki5znBx7OWn5euboBp5NtZeyuBYU3tO4gCv47dADlWMrfyg+e14N0i3v7fVcWawqsBbqbm/a8yLV4zV4sYkdZAlPaoGTwa6d64msGSFcmaAUps5faawZwVyb3hDcY206qxSux828ssWIsGWzVWvPHRUXpWH61jrzMDZqCXgTfzHmZQoUeFngAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ "ZJXl":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -5862,6 +5900,37 @@ var NNSTool = /** @class */ (function () {
         });
     };
     /**
+     * 域名转让
+     * @param domain
+     * @param newOwner
+     */
+    NNSTool.setOwner = function (domain, newOwner) {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, ownerHash, ownerHashStr, arr, nnshash, scriptaddress, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        ownerHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(newOwner);
+                        ownerHashStr = ownerHash.reverse().toHexString();
+                        arr = domain.split(".");
+                        nnshash = importpack_1.tools.nnstool.nameHashArray(arr);
+                        scriptaddress = entity_1.Consts.baseContract;
+                        data = importpack_1.tools.contract.buildScript_random(scriptaddress, "owner_SetOwner", [
+                            "(hex160)" + hashstr,
+                            "(hex256)" + nnshash.toString(),
+                            "(hex160)" + ownerHashStr
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
      * 生成解析器
      * @param protocol
      * @param nnshash
@@ -6080,6 +6149,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM
 
 /***/ }),
 
+/***/ "hbSm":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',{attrs:{"id":"wallet"}},[_c('nav',{staticClass:"navbar navbar-wallet"},[_c('div',{staticClass:"blockheight"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"notify-span"},[_vm._v(_vm._s(_vm.$t('notify.fee')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-img fright"},[_c('span',{staticClass:"blockheight-span"},[_vm._v(_vm._s(_vm.$t('navbar.blockheight'))+"："+_vm._s(_vm.blockheight))]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("Rsmh"),"alt":""},on:{"click":_vm.onshowHistory}}),_vm._v(" "),(_vm.taskNumber)?_c('div',{staticClass:"add-task"},[_vm._v(_vm._s(_vm.taskNumber>99?99:_vm.taskNumber)),(_vm.taskNumber>99)?_c('span',[_vm._v("+")]):_vm._e()]):_vm._e()])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"navbar-collapse collapse",attrs:{"id":"navbar"}},[_c('ul',{staticClass:"nav navbar-nav navbar-left"},[_c('li',[_c('router-link',{class:{active:_vm.isActive('balance')},attrs:{"to":{name:'balance'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('balance'))?_c('img',{attrs:{"src":__webpack_require__("5yhA"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("Yj+Z"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('balance.balance'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('transfer')},attrs:{"to":{name:'transfer'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('transfer'))?_c('img',{attrs:{"src":__webpack_require__("njKD"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("AT6x"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('transfer.transfer'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('exchange')},attrs:{"to":{name:'exchange'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('exchange'))?_c('img',{attrs:{"src":__webpack_require__("rVEi"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("w5Tq"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('exchange.title'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('nnsneo')},attrs:{"to":{name:'auction'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('nnsneo'))?_c('img',{attrs:{"src":__webpack_require__("Blow"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("rjrR"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('nns.nns'))+"(.neo)\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('setting')},attrs:{"to":{name:'setting'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('setting'))?_c('img',{attrs:{"src":__webpack_require__("Fxcc"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("1Iz4"),"alt":""}})]),_vm._v(" \n              "+_vm._s(_vm.$t('setting.settings'))+"\n            ")])],1)]),_vm._v(" "),_c('div',{staticClass:"tranhistory-box"},[(_vm.showHistory)?_c('div',{staticClass:"tranhistory-wrap"},[_c('div',{staticClass:"tranhistory-listbox"},[_c('div',{staticClass:"tranhistory-title"},[_c('div',{staticClass:"tranhistory-close",on:{"click":function($event){_vm.showHistory=!_vm.showHistory}}},[_c('img',{attrs:{"src":__webpack_require__("fgqV"),"alt":""}})]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.title')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-tips"},[_vm._v(_vm._s(_vm.$t('operation.tips')))])]),_vm._v(" "),(_vm.taskList.length != 0)?_c('div',{staticClass:"tranhistory-list"},_vm._l((_vm.taskList),function(item){return _c('div',{key:item.tasktype,staticClass:"th-onelist"},[(item.tasktype == 0)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.transfer')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.toaddress))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" "+_vm._s(item.message.assetname))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 1)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.openauction')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 2)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.raisebid')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 3)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 4)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 5)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.topup')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 6)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.withdraw')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+"Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 7)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.requestgas')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waitinggas'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"green-text"},[_vm._v(_vm._s(_vm.$t('operation.sentok')))]):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 8)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.addrmapping'))+" "),_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.address))])])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 9)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.addrresolver'))+" "+_vm._s(item.resolver))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 10)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.renew')))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 11)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.getdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 12)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.recover')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 13)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.gasclaim')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 14)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.domainTransfer'))+" "),_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.address))])])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v(" \n                      "+_vm._s(_vm.$t('operation.txid'))),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText)+" ")]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e()])})):_vm._e(),_vm._v(" "),(_vm.taskList.length == 0)?_c('div',{staticClass:"notask"},[_vm._v(_vm._s(_vm.$t('operation.nodata')))]):_vm._e()])]):_vm._e()])])])]),_vm._v(" "),_c('div',{staticClass:"wallet-content"},[_c('router-view')],1)])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "l7Tq":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6249,6 +6329,8 @@ exports.default = {
         edit: "Edit",
         renewal: "Renew",
         renewaling: "Renewing",
+        setOwner: "Set owner",
+        settingOwner: "Setting owner",
         exchange: "Exchange",
         exchanging: "Exchanging",
         withdraw: "Withdraw",
@@ -6336,7 +6418,9 @@ exports.default = {
         msg5: "available",
         waiting: "Waiting for transaction confirmation",
         errdomain: "This domain hasn't been mapped to any address",
-        timeMsg: "Expiry date: "
+        timeMsg: "Expiry date: ",
+        netfee: "Network fee",
+        sysfee: "System fee"
     },
     nns: {
         nns: "NNS",
@@ -6390,10 +6474,9 @@ exports.default = {
         title6: "Claim domain",
         title7: "Reclaim CGAS",
         entername: "type a name",
-        nottopup: "Contract upgrade, recharge function suspended。",
-        checkavailable: "The auction starting function is temporarily closed. Please click the link for the detailed info.",
+        checkavailable: "This name is available.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
-        checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
+        checkformat: "Domain names must be English characters or numbers, and can only be 6 to 32 characters in length",
         checkbuyer: "This name is unavailable.",
         sendingmsg: "We are currently opening the auction. Please wait.",
         searchmsg: "Search by domain",
@@ -6423,6 +6506,7 @@ exports.default = {
         errmsg1: "Only",
         errmsg2: "CGAS is available.",
         errmsg4: "Please enter the right format.",
+        errmsg6: "Your bid raise must not be less than 10% of the current highest bid price",
         nobalance: "You have insufficient CGAS left in your auction account. Please top it up.",
         goback: "Go back",
         waitmsg1: "Waiting for confirmation",
@@ -6479,10 +6563,7 @@ exports.default = {
         toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
         withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
         getall: "Max",
-        all: "All",
-        nodata: "No related data was found.",
-        Bidder: "Bidder",
-        Status: "Status",
+        nodata: "No related data was found."
     },
     exchange: {
         title: "CGAS Exchange",
@@ -6504,12 +6585,13 @@ exports.default = {
         expiring: "Expiring soon",
         edittitle: "Edit information",
         neoname: "Neo Name",
+        owner: "Owner Address",
         notconfigure: "not configured",
         expired: "Expired",
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bonus History",
+        title: "Bouns History",
         mydividend: "My dividends: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
@@ -6544,10 +6626,6 @@ exports.default = {
     notify: {
         utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
         fee: "Note: When there is enough GAS in your wallet, we will automatically add a fee to ensure your operation will be confirmed fast. "
-    },
-    errormsg: {
-        interface: "Interface call exception",
-        noMoney: "There's not enough money."
     }
 };
 
@@ -7817,6 +7895,8 @@ exports.default = {
         edit: "编辑",
         renewal: "续约",
         renewaling: "续约中",
+        setOwner: "设置所有者",
+        settingOwner: "设置所有者...",
         exchange: "兑换",
         exchanging: "兑换中",
         withdraw: "提取",
@@ -7991,6 +8071,7 @@ exports.default = {
         errmsg1: "您当前的竞拍账户仅拥有",
         errmsg2: "CGAS.",
         errmsg4: "请输入正确的格式。",
+        errmsg6: "您的出价低于最高出价的百分之十",
         nobalance: "余额不足，请充值",
         goback: "返回",
         waitmsg1: "未确认",
@@ -8068,6 +8149,7 @@ exports.default = {
         title: "我的域名管理",
         resolver: "地址解析器",
         mapping: "地址映射",
+        owner: "所有者地址",
         time: "域名到期时间",
         expiring: "即将过期",
         edittitle: "编辑信息",
@@ -8100,6 +8182,7 @@ exports.default = {
         addrmapping: "地址映射:",
         addrresolver: "确认地址解析器: ",
         renew: "续约",
+        domainTransfer: "域名转让:",
         getdomain: "领取域名",
         recover: "领回CGAS",
         gasclaim: "Gas提取",

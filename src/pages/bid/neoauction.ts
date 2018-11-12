@@ -168,8 +168,6 @@ export default class NeoAuction extends Vue
      */
     onGoBidInfo(item: AuctionView)
     {
-        // this.auctionPageSession.put("id", item.id)
-        // this.auctionPageSession.put('show', true);
         services.auctionInfo_neo.auctionId = item.id;
         this.auctionPage = !this.auctionPage
     }
@@ -249,19 +247,6 @@ export default class NeoAuction extends Vue
         }
     }
 
-    /**
-     * 充值到注册器
-     */
-    // async openTopUp()
-    // {
-    // let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
-    // this.sgasAvailable = nep5[ "nep5balance" ];
-    // this.alert_available = this.sgasAvailable + " CGAS";
-    // this.alert_TopUp.watting = this.sessionWatting.select("topup") ? true : false;
-    // this.alert_TopUp.isShow = true;
-    // this.alert_TopUp.input = "";
-    // this.alert_TopUp.error = false;
-    // }
     //获取所有可充值金额
     getAllTopup()
     {
@@ -323,32 +308,6 @@ export default class NeoAuction extends Vue
 
         }
     }
-
-    /**
-     * gas->sgas->充值注册器
-    async toRecharge()
-    {
-        let amount = this.alert_TopUp.input;
-        try
-        {
-            let data = await tools.nnssell.rechargeReg(parseFloat(this.alert_TopUp.input).toFixed(8), this.rootInfo.register);
-            let res = await tools.wwwtool.api_postRawTransaction(data);
-            this.alert_TopUp.watting = true;
-            let txid = res[ "txid" ];
-            this.sessionWatting.put("topup", true);
-            //任务管理器
-            let task = new Task(ConfirmType.tranfer, txid, { amount })
-            tools.taskManager.addTask(task, TaskType.topup);
-
-            this.openToast("success", "" + this.$t("auction.successtopup") + amount + "" + this.$t("auction.successtopup3"), 4000);
-            this.alert_TopUp.isShow = false;
-        }
-        catch (error)
-        {
-            this.openToast("error", "" + this.$t("auction.fail"), 4000);
-        }
-    }
-     */
 
     /**
      * 显示加价弹框

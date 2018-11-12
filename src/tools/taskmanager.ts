@@ -77,6 +77,9 @@ export class TaskManager
                     case TaskType.domainRenewal:
                         await this.confirm_renewal(tasks);
                         break;
+                    case TaskType.domainTransfer:
+                        await this.confirm_domain_transfer(tasks);
+                        break;
                     default:
                         break;
                 }
@@ -365,10 +368,10 @@ export class TaskManager
                 if (result.vmstate == "FAULT, BREAK")
                 {
                     task.state = TaskState.fail;
-                } else if (result && result.displayNameList && result.displayNameList.includes("assetManagement")) //检测是否有对应的通知 addprice
+                } else if (result && result.displayNameList && result.displayNameList.includes("raise")) //检测是否有对应的通知 addprice
                 {
                     task.state = TaskState.success;
-                } else if (result && result.displayNameList && result.displayNameList.includes("raiseEndsAuction"))
+                } else if (result && result.displayNameList && result.displayNameList.includes("bidSettlement"))
                 {
                     task.state = TaskState.fail;
                 } else
@@ -533,6 +536,41 @@ export class TaskManager
         this.taskStore.put(TaskType.domainMapping.toString(), taskarr); //保存修改的状态
     }
 
+    static async confirm_domain_transfer(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks);
+        let domainEdit = new sessionStoreTool("domain-edit");
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ];
+            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+            {
+                if (result.vmstate == "FAULT, BREAK")
+                {
+                    task.state = TaskState.fail;
+                    if (TaskFunction.domainTransfer)
+                        TaskFunction.domainTransfer(task.message[ 'domain' ])
+                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                }
+                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo"))
+                {
+                    task.state = TaskState.success;
+                    if (TaskFunction.domainTransfer)
+                        TaskFunction.domainTransfer(task.message[ 'domain' ])
+                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                } else
+                {
+                    task.state = TaskState.fail;
+                    if (TaskFunction.domainTransfer)
+                        TaskFunction.domainTransfer(task.message[ 'domain' ])
+                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                }
+            }
+            task.confirm++;
+            return task;
+        });
+        this.taskStore.put(TaskType.domainTransfer.toString(), taskarr);
+    }
     /**
      * 续约确认方法
      * @param tasks 任务数组
