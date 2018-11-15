@@ -333,7 +333,7 @@
                     </div>
                     <div v-if="item.tasktype == 14">
                       <div class="th-type">
-                        <div class="th-typename">{{$t('operation.editdomain')}}</div>
+                        <div class="th-typename">{{$t('myneoname.domaintransfer')}}</div>
                         <div class="th-other">
                           <div class="th-number">
                             <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
