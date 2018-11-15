@@ -181,7 +181,7 @@ export default {
         nottopup: "合约升级中，充值功能暂停。",
         checkavailable: "此域名可以进行竞拍。",
         checkbeing: "此域名正在进行竞拍。",
-        checkformat: "域名长度需要在6～32个字节之间，只能是字母和数字。",
+        checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
         checkbuyer: "此域名已经被其他人竞拍了。",
         sendingmsg: "正在发送交易，请耐心等待...",
         searchmsg: "按域名搜索",
@@ -295,6 +295,14 @@ export default {
         neoname: "域名",
         notconfigure: "未配置",
         expired: "已过期",
+        transfer: "转让",
+        transferto: "转让到",
+        transferring: "转让中",
+        domaintransfer: "转让域名",
+        msg: "请输入你想转让到的地址",
+        transferDomainMsg1: "您确定要将",
+        transferDomainMsg2: "转让给",
+        transferDomainMsg3: "吗?",
         tips: "注意 : 您需要在成功确认地址解析器之后，才能进行地址映射。"
     },
     bonus: {

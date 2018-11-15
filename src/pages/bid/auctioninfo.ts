@@ -108,14 +108,13 @@ export default class AuctionInfo extends Vue
             this.inputErrorCode = 2;
             return;
         }
-        let bidPrice = Neo.Fixed8.parse(mybidprice + "");
+        let bidPrice = Neo.Fixed8.parse(mybidprice.toString());
         const maxBidPrice = Neo.Fixed8.fromNumber(this.auctionInfo.maxPrice);
         let balance = Neo.Fixed8.parse(!!this.balanceOf && this.balanceOf != '' ? this.balanceOf : '0');
-        let sum = bidPrice.add(Neo.Fixed8.parse(this.bidPrice + ""));
+        let sum = bidPrice.add(Neo.Fixed8.parse(this.bidPrice.toString()));
         this.updatePrice = sum.toString();
         if (this.auctionInfo.state === AuctionState.random)
         {
-
             const num = toNumFixed(this.auctionInfo.maxPrice * 0.1, 1);
             if (Neo.Fixed8.parse(this.bidPrice).compareTo(Neo.Fixed8.fromNumber(num)) < 0)
             {

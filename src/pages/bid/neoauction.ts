@@ -393,7 +393,9 @@ export default class NeoAuction extends Vue
             this.canAdded = true;
         }
         else
-        { this.canAdded = false; }
+        {
+            this.canAdded = false;
+        }
     }
 
     /**

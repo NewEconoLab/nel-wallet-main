@@ -119,13 +119,6 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ "3LVi":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "48oz":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1737,22 +1730,41 @@ var LoginType;
 var alert = /** @class */ (function () {
     function alert() {
     }
+    alert.alertShow = function (title, inputType, btnText) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        _this.show(title, inputType, btnText, function (result) {
+                            reject(result);
+                        });
+                    })];
+            });
+        });
+    };
     alert.show = function (title, inputType, btnText, call) {
         var _this = this;
-        // let res = new Result()
         this.btn_confirm.classList.add("btn", "btn-nel", "btn-big");
         this.btn_confirm.textContent = btnText;
-        this.input.type = inputType;
         this.title.innerText = title;
         this.alertError.textContent = "";
         this.alert.hidden = false;
-        this.input.onkeydown = function (ev) {
-            if (ev.keyCode == 13) {
-                call(_this.input.value);
-            }
-        };
+        if (inputType !== "none") {
+            this.input.type = inputType;
+            this.input.onkeydown = function (ev) {
+                if (ev.keyCode == 13) {
+                    call(_this.input.value);
+                }
+            };
+        }
+        else {
+            this.input.hidden = true;
+        }
         this.btn_confirm.onclick = function () {
-            call(_this.input.value);
+            if (inputType === "none")
+                call(true);
+            else
+                call(_this.input.value);
         };
         this.btn_close.onclick = function () {
             _this.close();
@@ -2971,6 +2983,24 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM
 
 /***/ }),
 
+/***/ "BpVL":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.show)?_c('div',{staticClass:"alert-box"},[_c('div',{staticClass:"alert-warp"},[_c('div',{staticClass:"alert-title"},[_vm._v(_vm._s(_vm.$t('nns.alerttitle')))]),_vm._v(" "),_c('div',{staticClass:"alert-content"},[_vm._t("default")],2),_vm._v(" "),_c('div',{staticClass:"alert-close",on:{"click":function($event){_vm.closemudloe()}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])])])]):_vm._e()}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "CH3E":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "D078":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3144,9 +3174,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__ = __webpack_require__("shbj");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7be436ed_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__ = __webpack_require__("reA3");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_49fe27d2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__ = __webpack_require__("BpVL");
 function injectStyle (ssrContext) {
-  __webpack_require__("3LVi")
+  __webpack_require__("CH3E")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -3159,12 +3189,12 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-7be436ed"
+var __vue_scopeId__ = "data-v-49fe27d2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7be436ed_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_49fe27d2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -3561,14 +3591,14 @@ var vue_1 = __webpack_require__("/5sW");
 var vue_router_1 = __webpack_require__("/ocq");
 var wallet_vue_1 = __webpack_require__("PPZq");
 vue_1.default.use(vue_router_1.default);
-var Balance = function (resolve) { return __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Balance = function (resolve) { return __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Login = function (resolve) { return __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Luci")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Transfer = function (resolve) { return __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Oz3I")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Exchange = function (resolve) { return Promise.all/* require */([__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("eL9F")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var NNSNeo = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(7)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("C0Cu")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Settings = function (resolve) { return __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("hZlE")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Auction = function (resolve) { return Promise.all/* require */([__webpack_require__.e(2), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("jrmo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
-var MyNeoName = function (resolve) { return __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("ogHy")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var MyNeoName = function (resolve) { return __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("ogHy")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Bonus = function (resolve) { return __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("6M52")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Tutorial = function (resolve) { return __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("8G7y")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 exports.default = new vue_router_1.default({
@@ -5456,6 +5486,7 @@ var FeatureComponent = /** @class */ (function (_super) {
     __extends(FeatureComponent, _super);
     function FeatureComponent() {
         var _this = _super.call(this) || this;
+        _this.tasktypeswitch = entity_1.TaskType;
         _this.blockheight = 0;
         _this.showHistory = false;
         _this.taskList = [];
@@ -6500,7 +6531,7 @@ exports.default = {
         nottopup: "Contract upgrade, recharge function suspended。",
         checkavailable: "This name is available.",
         checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
-        checkformat: "Domain names must be English characters or numbers, and can only be 6 to 32 characters in length",
+        checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
         checkbuyer: "This name is unavailable.",
         sendingmsg: "We are currently opening the auction. Please wait.",
         searchmsg: "Search by domain",
@@ -6607,6 +6638,10 @@ exports.default = {
         title: "My Neo Name",
         resolver: "Address Resolver",
         mapping: "Address Mapping",
+        transfer: "Transfer",
+        transferto: "Transfer to",
+        transferring: "Transferring",
+        domaintransfer: "Transfer domain",
         time: "Expiration Time",
         expiring: "Expiring soon",
         edittitle: "Edit information",
@@ -6614,6 +6649,10 @@ exports.default = {
         owner: "Owner Address",
         notconfigure: "not configured",
         expired: "Expired",
+        msg: "Please enter the address you want to transfer to",
+        transferDomainMsg1: "Are you sure to transfer",
+        transferDomainMsg2: "to",
+        transferDomainMsg3: "?",
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
@@ -7278,17 +7317,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM
 
 /***/ }),
 
-/***/ "reA3":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.show)?_c('div',{staticClass:"alert-box"},[_c('div',{staticClass:"alert-warp"},[_c('div',{staticClass:"alert-title"},[_vm._v(_vm._s(_vm.$t('nns.alerttitle')))]),_vm._v(" "),_c('div',{staticClass:"alert-content"},[_vm._t("default")],2),_vm._v(" "),_c('div',{staticClass:"alert-close",on:{"click":function($event){_vm.closemudloe()}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])])])]):_vm._e()}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "rjrR":
 /***/ (function(module, exports) {
 
@@ -7825,6 +7853,9 @@ var Valert = /** @class */ (function (_super) {
         _this.show = false;
         return _this;
     }
+    Valert.prototype.showmudloe = function () {
+        this.show = true;
+    };
     Valert.prototype.closemudloe = function () {
         this.show = false;
     };
@@ -8129,7 +8160,7 @@ exports.default = {
         nottopup: "合约升级中，充值功能暂停。",
         checkavailable: "此域名可以进行竞拍。",
         checkbeing: "此域名正在进行竞拍。",
-        checkformat: "域名长度需要在6～32个字节之间，只能是字母和数字。",
+        checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
         checkbuyer: "此域名已经被其他人竞拍了。",
         sendingmsg: "正在发送交易，请耐心等待...",
         searchmsg: "按域名搜索",
@@ -8243,6 +8274,14 @@ exports.default = {
         neoname: "域名",
         notconfigure: "未配置",
         expired: "已过期",
+        transfer: "转让",
+        transferto: "转让到",
+        transferring: "转让中",
+        domaintransfer: "转让域名",
+        msg: "请输入你想转让到的地址",
+        transferDomainMsg1: "您确定要将",
+        transferDomainMsg2: "转让给",
+        transferDomainMsg3: "吗?",
         tips: "注意 : 您需要在成功确认地址解析器之后，才能进行地址映射。"
     },
     bonus: {

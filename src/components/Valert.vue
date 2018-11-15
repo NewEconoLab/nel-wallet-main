@@ -29,7 +29,9 @@ export default class Valert extends Vue {
   constructor() {
     super();
   }
-
+  showmudloe() {
+    this.show = true;
+  }
   closemudloe() {
     this.show = false;
   }

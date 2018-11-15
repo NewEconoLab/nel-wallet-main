@@ -1,5 +1,40 @@
 <template>
     <div class="myneo-box">
+        <v-toast ref="toast" ></v-toast>
+        <!-- alert-start -->            
+          <div class="alert-wrap" id="alertview-domaintranfer"  v-if="alertShow">
+            <div class="alert-box">
+              <div class="alert-title" id="alert-title">
+                {{$t('myneoname.domaintransfer')}}
+              </div>
+              <div class="line-wrap">
+                <div class="line-msg">
+                  {{$t('auction.domain')+" : "+domainInfo.domain}}
+                </div>
+                <div class="line-msg">
+                {{$t('myneoname.transferto')+" :"}}
+                </div>
+                <div class="line-box" id="alert-box">
+                  <input id="alert-input" type="text" v-model="ownerAddress" @input="verifySetOwner" class="" autocomplete="off">
+                  <button  v-if="ownerState==1" @click="setowner" id="alert-confirm" class="btn btn-nel btn-big">
+                    {{$t('myneoname.transfer')}}
+                  </button>
+                  <button v-else-if="ownerState==3" id="alert-confirm" disabled="true" class="btn btn-nel btn-big">
+                    {{$t('myneoname.transfer')}}
+                  </button>
+                </div>
+                <div class="err-msg" id="alert-error">
+                </div>
+              </div>
+              <div class="alert-tips">
+                
+              </div>
+              <div class="alert-close" id="alert-close" @click="alertShow=false">
+                <span aria-hidden="true">&times;</span>
+              </div>
+            </div>
+          </div> 
+          <!-- alert-end -->
         <div class="title">
             <span>{{$t('myneoname.title')}}</span>
         </div>
@@ -11,8 +46,10 @@
             <div class="addr-mapping">( {{$t('myneoname.mapping')}}: {{item.resolverAddress ? item.resolverAddress : $t('myneoname.notconfigure')}} )</div>
             <div class="time-msg" v-if="!item.expired">( {{$t('myneoname.time')}}: {{item.ttl}} <span class="ff6" v-if="!item.expiring">{{$t('myneoname.expiring')}}</span> )</div>
             <div class="time-msg" v-if="item.expired">( {{$t('myneoname.time')}}:  <span class="ff6">{{$t('myneoname.expired')}}</span> )</div>
-            <div class="btn-right">
+            <div class="btn-right" v-if="!item.expired">
                 <button class="btn btn-nel btn-bid" @click="onShowEdit(item)">{{$t('btn.edit')}}</button>
+                <button v-if="verifySetOwner(item.domain)===2" class="btn btn-nel btn-bid" disabled="true">{{$t('myneoname.transferring')}}</button>
+                <button v-else class="btn btn-nel btn-bid" @click="showTranferDomain(item)">{{$t('myneoname.transfer')}}</button>
             </div>
         </div>
         <div class="edit-wrap" v-if="isShowEdit">
@@ -29,9 +66,7 @@
                     <div class="input-box">
                         <input type="text" class="readonly-input" readonly="readonly" v-model="set_contract"  autocomplete="off">
                         <button v-if="resolverState==0" class="btn btn-nel btn-big" @click="setresolve">{{$t('btn.confirm')}}</button>
-                        <!-- <button v-if="resolverState==1" class="btn btn-nel btn-big " @click="setresolve">{{$t('btn.reset')}}</button> -->
                         <button v-if="resolverState==2" class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.confirming')}}</button>
-                        <!-- <spinner-wrap v-if="resolverState==2"  style="margin-left:20px"></spinner-wrap> -->
                         <div class="ok-img" v-if="resolverState==1">
                             <img src="../../../static/img/correct.svg" alt="">
                         </div>
@@ -60,7 +95,7 @@
                     </div>
                     <div class="input-box">
                         <input type="text" v-model="ownerAddress" @input="verifySetOwner" class="" autocomplete="off">
-                        <button v-if="ownerState==1" class="btn btn-nel btn-big" @click="setowner">{{$t('btn.setOwner')}}</button>
+                        <button v-if="ownerState==1" class="btn btn-nel btn-big" @click="showTranferDomain">{{$t('btn.setOwner')}}</button>
                         <button v-else-if="ownerState==2"  class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.settingOwner')}}</button>
                         <button v-else-if="ownerState==3"  class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.setOwner')}}</button>
                         <!--button  v-if="renewalWatting" class="btn btn-nel btn-big btn-disable" disabled>{{$t('btn.setOwner')}}</button-->
@@ -115,8 +150,13 @@
       position: absolute;
       top: 50%;
       right: 30px;
-      margin-top: -19px;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
       .btn-bid {
+        display: block;
         padding: 0;
         font-size: 18px;
         width: 110px;

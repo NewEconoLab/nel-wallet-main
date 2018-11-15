@@ -17,6 +17,7 @@ export default class FeatureComponent extends Vue
     showHistory: boolean;
     taskList: any;
     taskNumber: number;
+    tasktypeswitch = TaskType;
     constructor()
     {
         super();

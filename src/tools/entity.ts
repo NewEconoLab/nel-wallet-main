@@ -29,25 +29,46 @@ export class alert
     {
 
     }
+
+    static async alertShow(title: string, inputType: string, btnText: string)
+    {
+        return new Promise((resolve, reject) =>
+        {
+            this.show(title, inputType, btnText, result =>
+            {
+                reject(result);
+            })
+        })
+    }
+
     static show(title: string, inputType: string, btnText: string, call)
     {
-        // let res = new Result()
         this.btn_confirm.classList.add("btn", "btn-nel", "btn-big");
         this.btn_confirm.textContent = btnText;
-        this.input.type = inputType;
         this.title.innerText = title;
         this.alertError.textContent = "";
         this.alert.hidden = false;
-        this.input.onkeydown = (ev: any) =>
+        if (inputType !== "none")
         {
-            if (ev.keyCode == 13)
+            this.input.type = inputType;
+            this.input.onkeydown = (ev: any) =>
             {
-                call(this.input.value);
+                if (ev.keyCode == 13)
+                {
+                    call(this.input.value);
+                }
             }
+        }
+        else
+        {
+            this.input.hidden = true;
         }
         this.btn_confirm.onclick = () =>
         {
-            call(this.input.value);
+            if (inputType === "none")
+                call(true);
+            else
+                call(this.input.value);
         }
         this.btn_close.onclick = () =>
         {
