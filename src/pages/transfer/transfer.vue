@@ -84,7 +84,7 @@
                             {{tx.txtype == 'out'?'+ ':'- '}}{{tx.value.toString()}}&nbsp;{{tx.assetname}}</div>
                         <div class="address">{{tx.txtype == 'out'?$t('transfer.from'):$t('transfer.to')}} : {{tx.address}}</div>
                         <div class="time">
-                            <a :href="'https://scan.nel.group/#mainnet/transaction/'+tx.txid" target="_blank">
+                            <a :href="'https://scan.nel.group/transaction/'+tx.txid" target="_blank">
                                 {{tx.txid.substring(0, 4) + '...' + tx.txid.substring(tx.txid.length - 4)}}
                             </a> &nbsp;{{tx.time}}
                             <div v-if="tx.waiting">({{$t('transfer.waiting')}})</div>

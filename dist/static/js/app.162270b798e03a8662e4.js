@@ -5613,10 +5613,10 @@ var FeatureComponent = /** @class */ (function (_super) {
         // let currentHost = window.location.hostname;
         var href = "";
         if (str.includes("testwallet")) {
-            href = "https://scan.nel.group/#testnet/";
+            href = "https://scan.nel.group/test/";
         }
         else {
-            href = "https://scan.nel.group/#mainnet/";
+            href = "https://scan.nel.group/";
         }
         return href;
     };
