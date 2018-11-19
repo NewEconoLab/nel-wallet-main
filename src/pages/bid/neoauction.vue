@@ -82,7 +82,7 @@
             <div class="form-box mbottom" v-if="auctionlist&&!isSearchTime" v-for="(item,index) in auctionlist" :key="index">
                 <div class="msg-list">
                     <div class="msg-neoname">
-                        <a :href="item.domain?'https://scan.nel.group/nns/'+item.domain:''" target="_blank">{{item.domain}}</a>
+                        <a :href="item.domain?'https://scan.nel.group/nnsinfo/'+item.domain:''" target="_blank">{{item.domain}}</a>
                     </div>
                     <div class="msg-status">
                         {{$t('auction.status')}}: 
@@ -129,7 +129,7 @@
             <div class="form-box mbottom" v-if="searchAuctionList&&isSearchTime" v-for="(item,index) in searchAuctionList" :key="index">
                 <div class="msg-list">
                     <div class="msg-neoname">
-                        <a :href="item.domain?'https://scan.nel.group/nns/'+item.domain:''" target="_blank">{{item.domain}}</a>
+                        <a :href="item.domain?'https://scan.nel.group/nnsinfo/'+item.domain:''" target="_blank">{{item.domain}}</a>
                     </div>
                     <div class="msg-status">
                         {{$t('auction.status')}}: 
