@@ -259,7 +259,8 @@ export class LoginInfo
     }
     static getCurrentAddress(): string
     {
-        return tools.storagetool.getStorage("current-address");
+        // return tools.storagetool.getStorage("current-address");
+        return "AevyEc17PXUBdEnomftZ1yRT9Q47VEecev";
     }
     static setCurrentAddress(str: string)
     {

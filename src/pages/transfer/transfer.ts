@@ -343,7 +343,8 @@ export default class transfer extends Vue
                         history.value = amount;
                         history.txtype = type;
                         this.txs.push(history);
-                    } else
+                    }
+                    else if (vouts.length > 0)
                     {
                         let assetname = "";
                         let vout = vouts[ 0 ];

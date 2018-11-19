@@ -1931,7 +1931,8 @@ var LoginInfo = /** @class */ (function () {
         return arr[n];
     };
     LoginInfo.getCurrentAddress = function () {
-        return importpack_1.tools.storagetool.getStorage("current-address");
+        // return tools.storagetool.getStorage("current-address");
+        return "AevyEc17PXUBdEnomftZ1yRT9Q47VEecev";
     };
     LoginInfo.setCurrentAddress = function (str) {
         importpack_1.tools.storagetool.setStorage("current-address", str);
