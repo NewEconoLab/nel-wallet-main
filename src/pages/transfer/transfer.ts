@@ -368,7 +368,7 @@ export default class transfer extends Vue
                         this.txs.push(history);
                     }
                 }
-                else
+                else if (vouts.length > 0)
                 {
                     var arr = {}
                     let currcount = 0;
