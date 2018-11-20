@@ -4420,6 +4420,7 @@ var AuctionState;
     AuctionState["end"] = "0401";
     AuctionState["pass"] = "0501";
     AuctionState["expire"] = "0601";
+    AuctionState["old"] = "0801"; //区分老合约
 })(AuctionState = exports.AuctionState || (exports.AuctionState = {}));
 /**
  * 竞拍列表显示类
