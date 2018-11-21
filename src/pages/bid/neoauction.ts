@@ -510,6 +510,9 @@ export default class NeoAuction extends Vue
 
                     this.checkState = this.btn_start = 2;
                     break;
+                case AuctionState.old:
+                    this.checkState = this.btn_start = 1;
+                    break;
                 case AuctionState.open: this.checkState = this.btn_start = 1; break;
 
                 default:

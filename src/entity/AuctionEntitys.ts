@@ -108,6 +108,7 @@ export enum AuctionState
     end = '0401',     //结束期
     pass = '0501',    //流标期
     expire = '0601',  //过期期
+    old = '0801'      //区分老合约
 }
 
 /**
