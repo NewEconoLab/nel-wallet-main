@@ -57,7 +57,7 @@ export class CoinTool
     {
         //获得高度
         var height = await tools.wwwtool.api_getHeight();
-        var utxos = await tools.wwwtool.api_getUTXO(tools.storagetool.getStorage("current-address"));   //获得utxo
+        var utxos = await tools.wwwtool.api_getUTXO(LoginInfo.getCurrentAddress());   //获得utxo
         if (utxos == undefined)
         {
             return {};

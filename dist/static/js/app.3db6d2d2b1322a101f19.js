@@ -275,6 +275,25 @@ var WWW = /** @class */ (function () {
             });
         });
     };
+    WWW.gettransbyaddressnew = function (address, pagesize, pageindex) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("gettransbyaddressNew", address, pagesize, pageindex);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r ? r : []];
+                }
+            });
+        });
+    };
     WWW.api_getHeight = function () {
         return __awaiter(this, void 0, void 0, function () {
             var str, result, json, r, height;
@@ -1931,8 +1950,7 @@ var LoginInfo = /** @class */ (function () {
         return arr[n];
     };
     LoginInfo.getCurrentAddress = function () {
-        // return tools.storagetool.getStorage("current-address");
-        return "AevyEc17PXUBdEnomftZ1yRT9Q47VEecev";
+        return importpack_1.tools.storagetool.getStorage("current-address");
     };
     LoginInfo.setCurrentAddress = function (str) {
         importpack_1.tools.storagetool.setStorage("current-address", str);
@@ -3605,7 +3623,7 @@ var wallet_vue_1 = __webpack_require__("PPZq");
 vue_1.default.use(vue_router_1.default);
 var Balance = function (resolve) { return __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Login = function (resolve) { return __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Luci")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
-var Transfer = function (resolve) { return __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Oz3I")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Transfer = function (resolve) { return Promise.all/* require */([__webpack_require__.e(4), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Oz3I")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Exchange = function (resolve) { return Promise.all/* require */([__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("eL9F")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var NNSNeo = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(7)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("C0Cu")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
 var Settings = function (resolve) { return __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("hZlE")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
@@ -6801,7 +6819,7 @@ var CoinTool = /** @class */ (function () {
                     case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
                     case 1:
                         height = _a.sent();
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getUTXO(importpack_1.tools.storagetool.getStorage("current-address"))];
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getUTXO(entity_1.LoginInfo.getCurrentAddress())];
                     case 2:
                         utxos = _a.sent();
                         if (utxos == undefined) {
