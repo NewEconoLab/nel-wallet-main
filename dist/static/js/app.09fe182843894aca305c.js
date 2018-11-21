@@ -6493,7 +6493,9 @@ exports.default = {
         msg5: "available",
         waiting: "Waiting for transaction confirmation",
         errdomain: "This domain hasn't been mapped to any address",
-        timeMsg: "Expiry date: "
+        timeMsg: "Expiry date: ",
+        netfee: "Network fee",
+        sysfee: "System fee"
     },
     nns: {
         nns: "NNS",
@@ -8123,7 +8125,9 @@ exports.default = {
         msg5: "可用",
         waiting: "等待交易确认",
         errdomain: "该域名尚未映射地址",
-        timeMsg: "有效期至: "
+        timeMsg: "有效期至: ",
+        netfee: "网络费",
+        sysfee: "系统费"
     },
     nns: {
         nns: "NNS",
