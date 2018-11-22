@@ -81,6 +81,9 @@ export class Auction
                     return addWho.address == address;
                 });
                 this.addWho = this.addWho ? this.addWho : new AuctionAddress(address, 0)
+            } else
+            {
+                this.addWho = new AuctionAddress(address, 0);
             }
         }
     }

@@ -358,7 +358,8 @@ export default class NeoAuction extends Vue
     {
         let auction: Auction = await services.auction_neo.queryAuctionByDomain(this.domain);
         this.raiseAuction = auction;
-        this.myBalanceOfSelling = (this.raiseAuction.addWho && this.raiseAuction.addWho.totalValue) ? this.raiseAuction.addWho.totalValue.toString() : "0";
+        this.raiseAuction.addWho.totalValue = (this.raiseAuction.addWho && this.raiseAuction.addWho.totalValue) ? this.raiseAuction.addWho.totalValue : 0;
+        this.myBalanceOfSelling = this.raiseAuction.addWho.totalValue.toString();
         this.auctionShow = !this.auctionShow;
         this.alert_myBid = "";
     }
