@@ -120,7 +120,7 @@ export default class NeoAuction extends Vue
 
     async refreshPage()
     {
-        this.regBalance = await tools.wwwtool.getregisteraddressbalance(this.address, "0xfe041f87b1a4cc0efb827664d6f20a0e990d0969");
+        this.regBalance = await tools.wwwtool.getregisteraddressbalance(this.address, this.rootInfo.register.toString());
         let nep5 = await tools.wwwtool.getnep5balanceofaddress(tools.coinTool.id_SGAS.toString(), LoginInfo.getCurrentAddress());
         this.sgasAvailable = nep5[ "nep5balance" ];
         await services.auction_neo.updateAuctionList(this.address);
