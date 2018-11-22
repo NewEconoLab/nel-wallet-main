@@ -155,11 +155,11 @@ export default class FeatureComponent extends Vue
         let href = "";
         if (str.includes("testwallet"))
         {
-            href = "https://scan.nel.group/#testnet/"
+            href = "https://scan.nel.group/test/"
 
         } else
         {
-            href = "https://scan.nel.group/#mainnet/"
+            href = "https://scan.nel.group/"
         }
         return href;
     }
