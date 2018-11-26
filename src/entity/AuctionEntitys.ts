@@ -130,6 +130,8 @@ export class AuctionView
     startTime: BlockTime;
     lastTime: BlockTime;
     endTime: BlockTime;
+    startAddress: string;
+
     //传入Auction初始化域名显示对象
     constructor(auction: Auction)
     {
@@ -158,6 +160,7 @@ export class AuctionView
         this.lastTime = auction.lastTime;
         this.startTimeStr = tools.timetool.getTime(auction.startTime.blocktime);
         this.state = auction.auctionState;
+        this.startAddress = auction.startAddress;
         // if (this.state == AuctionState.open){  this.state = AuctionState.fixed;      }
         if (this.state == AuctionState.end || this.state == AuctionState.expire)
         {

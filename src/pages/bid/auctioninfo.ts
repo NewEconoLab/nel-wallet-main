@@ -48,7 +48,6 @@ export default class AuctionInfo extends Vue
         this.remaining = 0;
         this.balanceOf = '';
         this.bidState = 2;
-        this.fee = 0;
         this.remaining = 0;
         this.bidPrice = "";
         this.isReceived = false;
@@ -80,7 +79,7 @@ export default class AuctionInfo extends Vue
             this.auctionInfo = services.auctionInfo_neo.getAuctionInfo();
         }
         this.balanceOf = await tools.wwwtool.getregisteraddressbalance(this.address, this.rootInfo.register.toString());
-        this.fee = accMul(this.auctionInfo.addwho.totalValue, 0.10);
+        this.fee = this.auctionInfo.startAddress === this.address ? 0 : accMul(this.auctionInfo.addwho.totalValue, 0.10);
         this.remaining = accSub(this.auctionInfo.addwho.totalValue, this.fee);
         let waitstate = Store.auctionInfo.select(this.auctionInfo.domain);
         this.isGetDomainWait = !!waitstate && !!waitstate[ "isGetDomainWait" ];
