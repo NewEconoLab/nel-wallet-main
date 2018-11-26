@@ -6895,18 +6895,20 @@ var CoinTool = /** @class */ (function () {
         tran.extdata = null;
         tran.attributes = [];
         utxos[assetid].sort(function (a, b) {
-            return a.count.compareTo(b.count);
+            return b.count.compareTo(a.count);
         });
         var old = [];
         tran.outputs = [];
         tran.inputs = [];
         var fee = Neo.Fixed8.parse('0.00000001');
         var sumcount = Neo.Fixed8.Zero; //初始化
-        for (var i = 0; i < gasutxos.length; i++) //循环塞入utxo用于判断总数是否足够
-         {
-            sumcount.add(gasutxos[i].count);
+        if (gasutxos) {
+            for (var i = 0; i < gasutxos.length; i++) //循环塞入utxo用于判断总数是否足够
+             {
+                sumcount.add(gasutxos[i].count);
+            }
         }
-        if (importpack_1.tools.coinTool.id_GAS == assetid) //如果转账的金额是gas
+        if (gasutxos && importpack_1.tools.coinTool.id_GAS == assetid) //如果转账的金额是gas
          {
             // let addcount = sendcount.add(fee);
             var tranRes = this.creatInuptAndOutup(gasutxos, sendcount, targetaddr);
@@ -6917,10 +6919,12 @@ var CoinTool = /** @class */ (function () {
             }
         }
         else {
-            // 创建 fee的输入输出
-            var feeRes = this.creatInuptAndOutup(gasutxos, fee);
-            tran.inputs = tran.inputs.concat(feeRes.inputs);
-            tran.outputs = tran.outputs.concat(feeRes.outputs);
+            if (gasutxos) {
+                // 创建 fee的输入输出
+                var feeRes = this.creatInuptAndOutup(gasutxos, fee);
+                tran.inputs = tran.inputs.concat(feeRes.inputs);
+                tran.outputs = tran.outputs.concat(feeRes.outputs);
+            }
             //构造原本想要交易的输入输出
             var tranRes = this.creatInuptAndOutup(us, sendcount, targetaddr);
             tran.inputs = tran.inputs.concat(tranRes.inputs);
