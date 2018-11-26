@@ -1961,7 +1961,8 @@ var LoginInfo = /** @class */ (function () {
         return arr[n];
     };
     LoginInfo.getCurrentAddress = function () {
-        return importpack_1.tools.storagetool.getStorage("current-address");
+        // return tools.storagetool.getStorage("current-address");
+        return "ASrRrBGFjYiCHstyfKd1fPUscNFZ1uxyij";
     };
     LoginInfo.setCurrentAddress = function (str) {
         importpack_1.tools.storagetool.setStorage("current-address", str);
@@ -4472,6 +4473,7 @@ var AuctionView = /** @class */ (function () {
         this.lastTime = auction.lastTime;
         this.startTimeStr = importpack_1.tools.timetool.getTime(auction.startTime.blocktime);
         this.state = auction.auctionState;
+        this.startAddress = auction.startAddress;
         // if (this.state == AuctionState.open){  this.state = AuctionState.fixed;      }
         if (this.state == AuctionState.end || this.state == AuctionState.expire) {
             this.state = AuctionState.end;
