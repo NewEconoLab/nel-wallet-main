@@ -1961,8 +1961,7 @@ var LoginInfo = /** @class */ (function () {
         return arr[n];
     };
     LoginInfo.getCurrentAddress = function () {
-        // return tools.storagetool.getStorage("current-address");
-        return "ASrRrBGFjYiCHstyfKd1fPUscNFZ1uxyij";
+        return importpack_1.tools.storagetool.getStorage("current-address");
     };
     LoginInfo.setCurrentAddress = function (str) {
         importpack_1.tools.storagetool.setStorage("current-address", str);
