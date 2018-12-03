@@ -573,4 +573,63 @@ export class WWW
         }
 
     }
+    /**
+     * 获取我的分红详情
+     * @param addr 当前地址
+     */
+    static async getcurrentbonus(addr: string)
+    {
+        var postdata = WWW.makeRpcPostBody("getcurrentbonus", addr);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json[ "result" ])
+        {
+            var r = json[ "result" ][ 0 ];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
+    }
+    /**
+     * 申请领取分红
+     * @param addr 当前地址
+     */
+    static async applybonus(addr: string)
+    {
+        var postdata = WWW.makeRpcPostBody("applybonus", addr);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json[ "result" ])
+        {
+            var r = json[ "result" ][ 0 ];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
+    }
+    /**
+     * 获取分红记录列表
+     * @param address 
+     * @param page 
+     * @param pagesize 
+     */
+    static async getbonusbyaddress(address: string, page: number, pagesize: number)
+    {
+        var postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json[ "result" ])
+        {
+            var r = json[ "result" ][ 0 ];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
+    }
 }
