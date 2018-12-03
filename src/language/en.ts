@@ -122,6 +122,7 @@ export default {
         msg3: "Transaction failure",
         msg4: "-_-!!!You don't have enough change, you have to wait for the block height to change before you can make the next transaction.",
         msg5: "available",
+        msg6: "Server exception. Please go to the browser to confirm the transaction result.",
         waiting: "Waiting for transaction confirmation",
         errdomain: "This domain hasn't been mapped to any address",
         timeMsg: "Expiry date: ",

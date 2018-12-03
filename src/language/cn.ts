@@ -122,6 +122,7 @@ export default {
         msg3: "交易失败",
         msg4: "您没有足够的utxo进行交易，请等待高度变化后再尝试下笔交易",
         msg5: "可用",
+        msg6: "服务器异常，请前往浏览器确认交易结果",
         waiting: "等待交易确认",
         errdomain: "该域名尚未映射地址",
         timeMsg: "有效期至: ",

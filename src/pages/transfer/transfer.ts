@@ -217,7 +217,7 @@ export default class transfer extends Vue
                     let res = await tools.coinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, parseFloat(this.amount));
                     if (!res[ "err" ])
                     {
-                        mui.toast("" + this.$t("transfer.msg2"));
+                        mui.toast(this.$t("transfer.msg2").toString());
                         let num = parseFloat(this.balance.balance + "");
                         let bear = num - parseFloat(this.amount);
                         this.balance.balance = bear;
@@ -226,13 +226,12 @@ export default class transfer extends Vue
                             TaskType.tranfer
                         );
                         BalanceInfo.setBalanceSotre(this.balance, height);
-                        // History.setHistoryStore(his, height);
                         this.amount = "";
                         tools.storagetool.setStorage("current-height", height + "");
                     }
                     else
                     {
-                        mui.alert("" + this.$t("transfer.msg3"));
+                        mui.alert(this.$t("transfer.msg3").toString());
                     }
                 } else
                 {
@@ -245,7 +244,6 @@ export default class transfer extends Vue
                         this.openToast("success", "" + this.$t("transfer.msg2"), 3000);
                     }
                     this.isNumber = false;
-                    let his: History = new History();
                     let num = parseFloat(this.balance.balance + "");
                     let bear = num - parseFloat(this.amount);
                     this.balance.balance = bear;
@@ -265,9 +263,14 @@ export default class transfer extends Vue
             this.sendWait = false;
             if (error == "Signature interrupt")
             {
-            } else
+            }
+            else if (error == "no enough money.")
             {
-                mui.alert("" + this.$t("transfer.msg4"));
+                mui.alert(this.$t("transfer.msg4").toString());
+            }
+            else
+            {
+                mui.alert(this.$t("transfer.msg6").toString());
             }
         }
     }
