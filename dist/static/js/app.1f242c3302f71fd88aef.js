@@ -1199,6 +1199,95 @@ var WWW = /** @class */ (function () {
             });
         });
     };
+    /**
+     * 获取我的分红详情
+     * @param addr 当前地址
+     */
+    WWW.getcurrentbonus = function (addr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getcurrentbonus", addr);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 申请领取分红
+     * @param addr 当前地址
+     */
+    WWW.applybonus = function (addr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("applybonus", addr);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获取分红记录列表
+     * @param address
+     * @param page
+     * @param pagesize
+     */
+    WWW.getbonusbyaddress = function (address, page, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     WWW.api = "https://api.nel.group/api/mainnet";
     WWW.apiaggr = "https://apiwallet.nel.group/api/mainnet";
     return WWW;
@@ -6415,7 +6504,10 @@ exports.default = {
         withdraw: "Withdraw",
         topup: "Top up",
         getGas: "Request Gas",
-        gettingGas: "Requesting Gas"
+        gettingGas: "Requesting Gas",
+        apply: "Apply",
+        applying: "Applying",
+        applyed: "Distributed"
     },
     toast: {
         msg1: "Loading ...",
@@ -6682,11 +6774,13 @@ exports.default = {
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bonus History",
-        mydividend: "My dividends: ",
+        title: "Bonus",
+        title2: "Bonus History",
+        mydividend: "Dividends claimable: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
-        snapshot: "Snapshot time:"
+        snapshot: "Snapshot time:",
+        tips: 'Tips: In order to prevent network congestion caused by the previous airdrop of CGAS dividends, we changed it to a claim-based NNS dividends distribution. You need to click the "Apply" button  and the CGAS dividends will be distributed within one week following your claim.'
     },
     tutorial: {},
     operation: {
@@ -6722,6 +6816,11 @@ exports.default = {
     errormsg: {
         interface: "Interface call exception",
         noMoney: "There's not enough money."
+    },
+    page: {
+        page: "Page",
+        total1: ",",
+        total2: " pages in total"
     }
 };
 
@@ -8051,7 +8150,10 @@ exports.default = {
         withdraw: "提取",
         topup: "充值",
         getGas: "索取Gas",
-        gettingGas: "Gas领取中"
+        gettingGas: "Gas领取中",
+        apply: "申请",
+        applying: "申请中",
+        applyed: "已发放"
     },
     toast: {
         msg1: "登陆中...",
@@ -8317,11 +8419,13 @@ exports.default = {
         tips: "注意 : 您需要在成功确认地址解析器之后，才能进行地址映射。"
     },
     bonus: {
-        title: "分红记录",
-        mydividend: "我的分红 ：",
+        title: "分红",
+        title2: "分红历史",
+        mydividend: "可领取分红 ：",
         distribution: "奖金池快照 ：",
         mytotal: "我持有的NNC总量 ：",
-        snapshot: "快照时间 ："
+        snapshot: "快照时间 ：",
+        tips: "注意: 为了防止自动分红所造成的网络拥堵，我们在NNS分红上增加了手动申请的步骤，您需要点击申请来获得您的分红，分红会在您申请的一周内发放。"
     },
     operation: {
         welcome: "欢迎!",
@@ -8356,6 +8460,11 @@ exports.default = {
     errormsg: {
         interface: "接口返回失败",
         noMoney: "cgas合约账户没有足够的utxo供您兑换gas,请稍后重试"
+    },
+    page: {
+        page: "第",
+        total1: "页，共 ",
+        total2: " 页"
     }
 };
 
