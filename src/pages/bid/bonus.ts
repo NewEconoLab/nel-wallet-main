@@ -17,6 +17,7 @@ export default class Bonus extends Vue
     totalSend: string = '0';//快照总量
     blocktime: string = '';//快照时间
     mybalance: string = '0';//我的持有金额
+    openToast: Function;
     constructor()
     {
         super();
@@ -27,6 +28,7 @@ export default class Bonus extends Vue
         this.isBonusPage = false;
         this.myBonus = '0';
         this.isApplyBonus = 0;
+        this.openToast = null;
         this.initMyBonus(this.currentAddress);
         this.initBonusHistory(this.currentAddress, true);
     }
@@ -59,7 +61,6 @@ export default class Bonus extends Vue
                 {
                     this.isApplyBonus = 1;
                 }
-
             }
         }
     }
@@ -70,6 +71,8 @@ export default class Bonus extends Vue
         if (res.result)
         {
             this.isApplyBonus = 2;
+            this.openToast = this.$refs.toast[ "isShow" ];
+            this.openToast("success", "" + this.$t("bonus.waiting"), 5000);
         } else
         {
             this.isApplyBonus = 1;

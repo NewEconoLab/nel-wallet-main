@@ -6781,7 +6781,8 @@ exports.default = {
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
         snapshot: "Snapshot time:",
-        tips: 'Tips: In order to prevent network congestion caused by the previous airdrop of CGAS dividends, we changed it to a claim-based NNS dividends distribution. You need to click the "Apply" button  and the CGAS dividends will be distributed within one week following your claim.'
+        tips: 'Tips: In order to prevent network congestion caused by the previous airdrop of CGAS dividends, we changed it to a claim-based NNS dividends distribution. You need to click the "Apply" button  and the CGAS dividends will be distributed within one week following your claim.',
+        waiting: "Successful operation！It will be distributed within one week following your claim."
     },
     tutorial: {},
     operation: {
@@ -8427,7 +8428,8 @@ exports.default = {
         distribution: "奖金池快照 ：",
         mytotal: "我持有的NNC总量 ：",
         snapshot: "快照时间 ：",
-        tips: "注意: 为了防止自动分红所造成的网络拥堵，我们在NNS分红上增加了手动申请的步骤，您需要点击申请来获得您的分红，分红会在您申请的一周内发放。"
+        tips: "注意: 为了防止自动分红所造成的网络拥堵，我们在NNS分红上增加了手动申请的步骤，您需要点击申请来获得您的分红，分红会在您申请的一周内发放。",
+        waiting: "操作成功，分红会在您申请的一周内发放。"
     },
     operation: {
         welcome: "欢迎!",
