@@ -203,7 +203,7 @@ export class WWW
         var json = await result.json();
         var r = json[ "result" ];
         if (r == undefined)
-            return 0;
+            return { gas: 0 };
         return r[ 0 ];
     }
 
