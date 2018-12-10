@@ -42,7 +42,10 @@ export default {
         withdraw: "提取",
         topup: "充值",
         getGas: "索取Gas",
-        gettingGas: "Gas领取中"
+        gettingGas: "Gas领取中",
+        apply: "申请",
+        applying: "申请中",
+        applyed: "已发放"
     },
     toast: {
         msg1: "登陆中...",
@@ -309,11 +312,14 @@ export default {
         tips: "注意 : 您需要在成功确认地址解析器之后，才能进行地址映射。"
     },
     bonus: {
-        title: "分红记录",
-        mydividend: "我的分红 ：",
+        title: "分红",
+        title2: "分红历史",
+        mydividend: "可领取分红 ：",
         distribution: "奖金池快照 ：",
         mytotal: "我持有的NNC总量 ：",
-        snapshot: "快照时间 ："
+        snapshot: "快照时间 ：",
+        tips: "注意: 为了防止自动分红所造成的网络拥堵，我们在NNS分红上增加了手动申请的步骤，您需要点击申请来获得您的分红，分红会在您申请的一周内发放。",
+        waiting: "操作成功，分红会在您申请的一周内发放。"
     },
     operation: {
         welcome: "欢迎!",
@@ -348,5 +354,10 @@ export default {
     errormsg: {
         interface: "接口返回失败",
         noMoney: "cgas合约账户没有足够的utxo供您兑换gas,请稍后重试"
+    },
+    page: {
+        page: "第",
+        total1: "页，共 ",
+        total2: " 页"
     }
 }

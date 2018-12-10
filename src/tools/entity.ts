@@ -1240,3 +1240,16 @@ export enum DomainState
     expire,
     pass,
 }
+export interface MyBonus
+{
+    addr: string,
+    assetid: string,
+    balance: string,
+    send: string,
+    txid: string,
+    sendAssetid: string,
+    height: number,
+    applied: boolean,
+    totalSend: string,
+    blocktime: string
+}

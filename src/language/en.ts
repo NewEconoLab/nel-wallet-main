@@ -42,7 +42,10 @@ export default {
         withdraw: "Withdraw",
         topup: "Top up",
         getGas: "Request Gas",
-        gettingGas: "Requesting Gas"
+        gettingGas: "Requesting Gas",
+        apply: "Apply",
+        applying: "Applying",
+        applyed: "Distributed"
     },
     toast: {
         msg1: "Loading ...",
@@ -310,11 +313,14 @@ export default {
         tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. "
     },
     bonus: {
-        title: "Bonus History",
-        mydividend: "My dividends: ",
+        title: "Bonus",
+        title2: "Bonus History",
+        mydividend: "Dividends claimable: ",
         distribution: "Distribution pool snapshot: ",
         mytotal: "My total NNC holdings: ",
-        snapshot: "Snapshot time:"
+        snapshot: "Snapshot time:",
+        tips: 'Tips: In order to prevent network congestion caused by the previous airdrop of CGAS dividends, we changed it to a claim-based NNS dividends distribution. You need to click the "Apply" button  and the CGAS dividends will be distributed within one week following your claim.',
+        waiting: "Successful operation！It will be distributed within one week following your claim."
     },
     tutorial: {
 
@@ -352,5 +358,10 @@ export default {
     errormsg: {
         interface: "Interface call exception",
         noMoney: "There's not enough money."
+    },
+    page: {
+        page: "Page",
+        total1: ",",
+        total2: " pages in total"
     }
 }
