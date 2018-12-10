@@ -565,7 +565,7 @@ var WWW = /** @class */ (function () {
                         json = _a.sent();
                         r = json["result"];
                         if (r == undefined)
-                            return [2 /*return*/, 0];
+                            return [2 /*return*/, { gas: 0 }];
                         return [2 /*return*/, r[0]];
                 }
             });
