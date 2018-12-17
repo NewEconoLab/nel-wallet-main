@@ -151,8 +151,16 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getnep5asset", asset);
         var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json[ "result" ][ 0 ];
-        return r;
+        var r = json[ "result" ][ 0 ];        
+        if (json["result"])
+        {
+            var r = json["result"][0];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
     }
 
     /**
@@ -338,18 +346,6 @@ export class WWW
     }
 
     /**
-     * 获得分页总条数
-     * @param address 地址
-     */
-    static async getauctioninfocount(address: string, root: string)
-    {
-        var postdata = WWW.makeRpcPostBody("getauctioninfocount", address, root);
-        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
-        var json = await result.json();
-        return (json && json[ "result" ]) ? json[ "result" ][ 0 ][ "count" ] : 0;
-    }
-
-    /**
      * 根据id和address更新列表数据
      * @param address 地址
      * @param ids id 列表
@@ -361,6 +357,26 @@ export class WWW
         var json = await result.json();
         var r = json[ "result" ];
         return r;
+    }
+
+    static async searchDomainStatus(domain: string)
+    {
+        var postdata = WWW.makeRpcPostBody("getdomainstate", domain);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        var r = json["result"];
+        return r;
+    }
+    /**
+     * 获得分页总条数
+     * @param address 地址
+     */
+    static async getauctioninfocount(address: string, root: string)
+    {
+        var postdata = WWW.makeRpcPostBody("getauctioninfocount", address, root);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        return (json && json[ "result" ]) ? json[ "result" ][ 0 ][ "count" ] : 0;
     }
 
     /**
@@ -554,6 +570,28 @@ export class WWW
     }
 
     /**
+     * 获取分红记录列表
+     * @param address 
+     * @param page 
+     * @param pagesize 
+     */
+    static async getbonusbyaddress(address: string, page: number, pagesize: number)
+    {
+        var postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json["result"])
+        {
+            var r = json["result"][0];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
+    }
+
+    /**
      * 查询注册器下余额
      * @param address 
      * @param hash 
@@ -572,6 +610,67 @@ export class WWW
             return "0";
         }
 
+    }
+    /**
+     * 出售域名获取NNC的收益
+     * @param address 当前地址
+     */
+    static async getNNCFromSellingHash(address: string)
+    {
+        var postdata = WWW.makeRpcPostBody("getNNCfromSellingHash", address);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json["result"])
+        {
+            var r = json["result"][0];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
+    }
+    /**
+     * 根据地址查询已出售已成交列表
+     * @param address 当前地址
+     * @param type 域名类型“neo or test”
+     * @param showtype 显示类型“sale or buy”
+     * @param page 当前页码
+     * @param pagesize 每页条数
+     */
+    static async getSaleOrBuyList(address: string, type: string, showtype: string, page: number, pagesize: number)
+    {
+        var postdata = WWW.makeRpcPostBody("getDomainSellingListByAddress", address, type, showtype, page, pagesize);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json["result"])
+        {
+            var r = json["result"];
+            return r;
+        } else
+        {
+            return null;
+
+        }
+    }
+    /**
+     * 获取域名的上架信息
+     * @param domain 域名
+     */
+    static async getSaleDomainInfo(domain: string)
+    {
+        var postdata = WWW.makeRpcPostBody("getNNSfixedSellingInfo", domain);
+        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
+        var json = await result.json();
+        if (json["result"])
+        {
+            var r = json["result"][0];
+            return r;
+        } else
+        {
+            throw "not data";
+
+        }
     }
     /**
      * 获取我的分红详情
@@ -599,27 +698,6 @@ export class WWW
     static async applybonus(addr: string)
     {
         var postdata = WWW.makeRpcPostBody("applybonus", addr);
-        var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
-        var json = await result.json();
-        if (json[ "result" ])
-        {
-            var r = json[ "result" ][ 0 ];
-            return r;
-        } else
-        {
-            throw "not data";
-
-        }
-    }
-    /**
-     * 获取分红记录列表
-     * @param address 
-     * @param page 
-     * @param pagesize 
-     */
-    static async getbonusbyaddress(address: string, page: number, pagesize: number)
-    {
-        var postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
         if (json[ "result" ])

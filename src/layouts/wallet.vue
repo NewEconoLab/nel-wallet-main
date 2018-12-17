@@ -350,6 +350,122 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <div v-if="item.tasktype == 15">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.list')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                            <span>{{item.message.amount}} NNC</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 16">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.delist')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 17">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.buy')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                            <span>{{item.message.amount}} NNC</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 18">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.claimnnc')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">{{item.message.amount}} NNC</div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="notask" v-if="taskList.length == 0">{{$t('operation.nodata')}}</div>
