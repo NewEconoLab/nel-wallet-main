@@ -805,7 +805,7 @@ export default class MyNeo extends Vue
     selectSellOrBuy()
     {
         this.salePage.currentPage = 1;
-        if (this.showListType == 'sale')
+        if (this.showListType == 'sell')
         {
             this.getSaleDomainList(this.currentAddress, true, this.salePage);
         } else if (this.showListType == 'buy')
