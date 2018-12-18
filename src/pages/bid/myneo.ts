@@ -15,7 +15,7 @@ export default class MyNeo extends Vue
     showMydomainList: any;
     domainInfo: any;
     set_contract: string;
-    resolverAddress: string;
+    resolverAddr: string;
     ownerAddress: string;
     mappingistrue: boolean;
     mappingState: number;
@@ -60,7 +60,7 @@ export default class MyNeo extends Vue
         this.set_contract = "0x6e2aea28af9c5febea0774759b1b76398e3167f1";
         this.domainEdit = new sessionStoreTool("domain-edit");
         this.renewalWatting = false;
-        this.resolverAddress = "";
+        this.resolverAddr = "";
         this.mappingState = 0;
         this.resolverState = 0;
         this.mappingistrue = false;
@@ -116,11 +116,17 @@ export default class MyNeo extends Vue
         if (res)
         {
             this.myNNCBalance = parseFloat(res[ "balance" ]) === 0 ? '0' : res[ "balance" ];
-            this.isCanGetNNC = 1;
-            if (parseFloat(this.myNNCBalance) == 0)
-            {
-                this.isCanGetNNC = 0;
-            }
+        }
+        const isDoing = this.nncGet.select('getnnc');
+        if (isDoing)
+        {
+            this.isCanGetNNC = 2;
+            return
+        }
+        this.isCanGetNNC = 1;
+        if (parseFloat(this.myNNCBalance) == 0)
+        {
+            this.isCanGetNNC = 0;
         }
     }
     domainUnSaleTask(domain)
@@ -152,12 +158,12 @@ export default class MyNeo extends Vue
 
     verifyMapping()
     {
-        if (!this.resolverAddress)
+        if (!this.resolverAddr)
         {
             this.mappingistrue = false;
             return;
         }
-        let res = tools.neotool.verifyAddress(this.resolverAddress);
+        let res = tools.neotool.verifyAddress(this.resolverAddr);
         this.mappingistrue = res;
     }
 
@@ -227,27 +233,62 @@ export default class MyNeo extends Vue
     async getAllNeoName()
     {
         let res = await tools.wwwtool.getnnsinfo(this.currentAddress, '.neo');
+        await this.initListData(res);
+
+    }
+    async initListData(res: any)
+    {
         //从缓存取状态数据
-        let list = res;
+        let list: string[] = res;
         if (list && list.length)
         {
             for (let i in list)
             {
+                if (isNaN(list[ i ][ "ttl" ]))
+                {
+                    list[ i ][ "ttl" ] = new Date(list[ i ][ "ttl" ]).getTime() / 1000;
+                }
                 let isshow = await this.checkExpiration(list[ i ]);
                 if (!isshow)//未到期
                 {
                     let expired = await this.checkExpirationSoon(list[ i ]);
                     list[ i ][ "expired" ] = isshow;
                     list[ i ][ "expiring" ] = expired;
+                    list[ i ][ "isEdit" ] = false; // （域名可编辑时为false,反之为true）
+                    list[ i ][ 'selling' ] = false; // 初始状态（域名正在出售待确认时为true）
+                    list[ i ][ 'transfering' ] = false;// 初始状态（域名正在转让待确认时为true）
+                    list[ i ][ 'delist' ] = false;// 初始状态（域名正在下架待确认时为true）
+                    let domain = this.domainEdit.select(list[ i ][ 'domain' ]);
+                    if (domain)
+                    {
+                        // 域名在转让确认中
+                        if (domain[ 'domain_transfer' ] && domain[ 'domain_transfer' ] === 'watting')
+                        {
+                            list[ i ][ "isEdit" ] = true; // 域名不可编辑
+                            list[ i ][ 'selling' ] = true; // （域名不可出售为true）
+                            list[ i ][ 'transfering' ] = true;// （域名不可转让为true）
+                        }
+                        // 域名出售确认中
+                        else if (domain[ 'sale' ] && domain[ 'sale' ] === 'watting')
+                        {
+                            list[ i ][ "isEdit" ] = true; // 域名不可编辑
+                            list[ i ][ 'selling' ] = true; // （域名不可出售为true）
+                            list[ i ][ 'transfering' ] = true;// （域名不可转让为true）
+                        }
+                        // 域名下架确认中
+                        else if (domain[ 'unsale' ] && domain[ 'unsale' ] === 'watting')
+                        {
+                            list[ i ][ 'delist' ] = true;// （域名不可下架为true）
+                        }
+                    }
                 } else
                 {
                     list[ i ][ "expiring" ] = false;
                     list[ i ][ "expired" ] = true;
-                }
-                if (list[ i ][ "resolver" ])
-                {
-                    let mapping = await tools.nnstool.resolveData(list[ i ][ 'domain' ]);
-                    list[ i ][ "resolverAddress" ] = mapping;
+                    list[ i ][ "isEdit" ] = false;
+                    list[ i ][ 'selling' ] = false;
+                    list[ i ][ 'transfering' ] = false;
+                    list[ i ][ 'delist' ] = false;
                 }
                 list[ i ][ "ttl" ] = tools.timetool.getTime(res[ i ][ "ttl" ])
             }
@@ -266,7 +307,9 @@ export default class MyNeo extends Vue
                     this.selectSellDomain();
                 }
             }
+
         }
+
     }
 
     checkExpiration(domain: string)
@@ -286,14 +329,14 @@ export default class MyNeo extends Vue
     resetresolve()
     {
         this.resolverState = 0;
-        this.resolverAddress = "";
+        this.resolverAddr = "";
         this.mappingState = 0;
         this.mappingistrue = false;
     }
 
     resetmappingData()
     {
-        this.resolverAddress = "";
+        this.resolverAddr = "";
         this.mappingState = 0;
     }
 
@@ -304,9 +347,9 @@ export default class MyNeo extends Vue
     onShowEdit(item)
     {
         this.domainInfo = item;
-        this.resolverAddress = item.resolverAddress;
-        this.mappingistrue = tools.neotool.verifyAddress(this.resolverAddress);
-        this.mappingState = this.domainInfo.resolverAddress ? 1 : 0;
+        this.resolverAddr = item.resolverAddr;
+        this.mappingistrue = tools.neotool.verifyAddress(this.resolverAddr);
+        this.mappingState = this.domainInfo.resolverAddr ? 1 : 0;
         this.resolverState = this.domainInfo.resolver ? 1 : 0;
         this.renewalWatting = false;
         this.isShowEdit = !this.isShowEdit;
@@ -323,7 +366,7 @@ export default class MyNeo extends Vue
             if (domain[ 'mapping' ] && domain[ 'mapping' ][ 'state' ] && domain[ 'mapping' ][ 'state' ] === 'watting')
             {
                 this.mappingState = 2;
-                this.resolverAddress = domain[ 'mapping' ][ 'address' ];
+                this.resolverAddr = domain[ 'mapping' ][ 'address' ];
             }
             if (domain[ 'renewal' ] && domain[ 'renewal' ] === 'watting')
             {
@@ -367,7 +410,7 @@ export default class MyNeo extends Vue
         const oldstate = this.ownerState;
         try
         {
-            if (this.resolverAddress != "" && this.mappingState != 0)
+            if (this.resolverAddr != "" && this.mappingState != 0)
             {
                 this.resetmappingData()
                 await this.mappingData();
@@ -390,6 +433,7 @@ export default class MyNeo extends Vue
                 this.domainEdit.put(this.domainInfo.domain, "watting", "domain_transfer");
                 this.closeTranferDomain();
                 this.openToast("success", "" + this.$t("myneoname.waitmsg2"), 5000);
+                await this.initListData(this.neonameList);
             } else
             {
                 this.ownerState = oldstate;
@@ -438,14 +482,14 @@ export default class MyNeo extends Vue
         try
         {
             this.mappingState = 2;
-            let res = await tools.nnstool.setResolveData(this.domainInfo.domain, this.resolverAddress, this.domainInfo.resolver);
+            let res = await tools.nnstool.setResolveData(this.domainInfo.domain, this.resolverAddr, this.domainInfo.resolver);
             if (!res.err)
             {
                 let txid = res.info;
                 TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo.domain, address: this.resolverAddress }),
+                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo.domain, address: this.resolverAddr }),
                     TaskType.domainMapping);
-                this.domainEdit.put(this.domainInfo.domain, { state: "watting", address: this.resolverAddress }, "mapping");
+                this.domainEdit.put(this.domainInfo.domain, { state: "watting", address: this.resolverAddr }, "mapping");
             } else
             {
                 this.mappingState = oldstate;
@@ -503,7 +547,7 @@ export default class MyNeo extends Vue
             this.mappingState = 1;
             if (address)
             {
-                this.resolverAddress = address;
+                this.resolverAddr = address;
             }
         }
     }
@@ -743,6 +787,7 @@ export default class MyNeo extends Vue
                 this.domainEdit.put(this.domainInfo.domain, "watting", "sale");
                 this.closeSaleDialog();
                 this.openToast("success", "" + this.$t("myneoname.waitmsg3"), 5000);
+                await this.initListData(this.neonameList);
             }
         } catch (error)
         {
@@ -766,6 +811,7 @@ export default class MyNeo extends Vue
                 this.domainEdit.put(this.domainInfo.domain, "watting", "unsale");
                 this.closeUnSaleDialog();
                 this.openToast("success", "" + this.$t("myneoname.waitmsg4"), 5000);
+                await this.initListData(this.neonameList);
             }
         } catch (error)
         {

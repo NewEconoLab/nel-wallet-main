@@ -60,7 +60,7 @@
       <div
         class="addr-mapping"
         v-if="!item.expired && item.state!='0901'"
-      >( {{$t('myneoname.mapping')}}: {{item.resolverAddress ? item.resolverAddress : $t('myneoname.notconfigure')}} )</div>
+      >( {{$t('myneoname.mapping')}}: {{item.resolverAddr ? item.resolverAddr : $t('myneoname.notconfigure')}} )</div>
       <div
         class="addr-mapping"
         v-if="!item.expired && item.state == '0901'"
@@ -77,7 +77,12 @@
         <span class="ff6">{{$t('myneoname.expired')}}</span> )
       </div>
       <div class="btn-right" v-if="!item.expired && item.state!='0901'">
-        <button class="btn btn-nel btn-bid" @click="onShowEdit(item)">{{$t('btn.edit')}}</button>
+        <button
+          class="btn btn-nel btn-bid"
+          @click="onShowEdit(item)"
+          :class="{'btn-disable':item.isEdit}"
+          :disabled="!!item.isEdit"
+        >{{$t('btn.edit')}}</button>
         <!-- <button
           v-if="ownerState===2"
           class="btn btn-nel btn-bid"
@@ -85,6 +90,8 @@
         >{{$t('myneoname.transferring')}}</button>-->
         <button
           class="btn btn-nel btn-bid"
+          :class="{'btn-disable':item.transfering}"
+          :disabled="!!item.transfering"
           @click="showTranferDomain(item)"
         >{{$t('myneoname.transfer')}}</button>
         <button
@@ -92,14 +99,19 @@
           data-toggle="tooltip"
           data-placement="bottom"
           :title="$t('myneoname.btntip')"
-          :class="{'btn-disable':item.resolverAddress}"
-          :disabled="!!item.resolverAddress"
+          :class="{'btn-disable':item.resolverAddr||item.selling}"
+          :disabled="!!item.resolverAddr || !!item.selling"
           @click="onShowSaleDialog(item)"
         >{{$t('btn.sell')}}</button>
       </div>
       <div class="btn-right" v-if="!item.expired && item.state == '0901'">
         <div class="status-text">{{$t('btn.selling')}}</div>
-        <button class="btn btn-nel btn-bid" @click="onShowUnSaleDialog(item)">{{$t('btn.delist')}}</button>
+        <button
+          class="btn btn-nel btn-bid"
+          :class="{'btn-disable':item.delist}"
+          :disabled="!!item.delist"
+          @click="onShowUnSaleDialog(item)"
+        >{{$t('btn.delist')}}</button>
       </div>
     </div>
     <div class="mydomain-page">
@@ -249,7 +261,7 @@
             <div class="input-box">
               <input
                 type="text"
-                v-model="resolverAddress"
+                v-model="resolverAddr"
                 @input="verifyMapping"
                 class
                 autocomplete="off"

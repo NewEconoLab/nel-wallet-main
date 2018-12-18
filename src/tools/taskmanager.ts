@@ -519,22 +519,31 @@ export class TaskManager
                 if (result.vmstate == "FAULT, BREAK")
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
                 }
                 else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo"))
                 {
                     task.state = TaskState.success;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
                 } else
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
                 }
             }
             task.confirm++;
@@ -785,22 +794,31 @@ export class TaskManager
                 if (result.vmstate == "FAULT, BREAK")
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainSale)
-                        TaskFunction.domainSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
                 }
                 else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingLaunched"))
                 {
                     task.state = TaskState.success;
-                    if (TaskFunction.domainSale)
-                        TaskFunction.domainSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
                 } else
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainSale)
-                        TaskFunction.domainSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
                 }
             }
             task.confirm++;
@@ -826,22 +844,31 @@ export class TaskManager
                 if (result.vmstate == "FAULT, BREAK")
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainUnSale)
-                        TaskFunction.domainUnSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
                 }
                 else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingDiscontinued"))
                 {
                     task.state = TaskState.success;
-                    if (TaskFunction.domainUnSale)
-                        TaskFunction.domainUnSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
                 } else
                 {
                     task.state = TaskState.fail;
-                    if (TaskFunction.domainUnSale)
-                        TaskFunction.domainUnSale(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
                 }
 
             }
