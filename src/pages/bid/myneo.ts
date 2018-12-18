@@ -47,7 +47,7 @@ export default class MyNeo extends Vue
     InputDomainName: string = '';// 搜索域名
     domainAddress: string = '';// 转让的域名映射地址
     domainExpire: string = '';// 域名的过期日期
-    showListType: string = 'sale';// 我的交易记录显示类型
+    showListType: string = 'sell';// 我的交易记录显示类型
     isFirstFlag: boolean = true;//初始调用交易记录
 
     constructor()
