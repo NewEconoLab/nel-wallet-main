@@ -197,7 +197,7 @@ export default class transfer extends Vue
             this.isNumber = false;
             return false;
         }
-        let balancenum = Neo.Fixed8.parse(this.balance.balance + '');
+        let balancenum = Neo.Fixed8.fromNumber(this.balance.balance);
         let inputamount = Neo.Fixed8.parse(this.amount);
         let compare = balancenum.compareTo(inputamount);
         compare >= 1 ? this.amount = this.amount : this.amount = balancenum.toString();

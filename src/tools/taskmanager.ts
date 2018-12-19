@@ -180,42 +180,42 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            // } else
+            // {
+            // }
+
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
             {
-                task.state = TaskState.fail;
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                task.state = TaskState.success;
+                if (task.message.type && task.message.type == "Claim")//判断此交易是否是claim
                 {
-                    task.state = TaskState.success;
-                    if (task.message.type && task.message.type == "Claim")//判断此交易是否是claim
-                    {
-                        // TaskFunction.claimGas();
-                        tools.coinTool.claimGas()
-                            .then(res =>
+                    // TaskFunction.claimGas();
+                    tools.coinTool.claimGas()
+                        .then(res =>
+                        {
+                            if (res[ "sendrawtransactionresult" ])
                             {
-                                if (res[ "sendrawtransactionresult" ])
-                                {
-                                    if (TaskFunction.claimState)
-                                        TaskFunction.claimState(2);
-                                    let txid = res[ "txid" ];
-                                    let amount = JSON.parse(res[ 'amount' ]);
-                                    let height = Store.blockheight.select("height");
-                                    TaskManager.addTask(
-                                        new Task(ConfirmType.tranfer, txid, { amount }),
-                                        TaskType.ClaimGas
-                                    );
-                                    sessionStorage.setItem("claimState", "2");
-                                }
+                                if (TaskFunction.claimState)
+                                    TaskFunction.claimState(2);
+                                let txid = res[ "txid" ];
+                                let amount = JSON.parse(res[ 'amount' ]);
+                                TaskManager.addTask(
+                                    new Task(ConfirmType.tranfer, txid, { amount }),
+                                    TaskType.ClaimGas
+                                );
+                                sessionStorage.setItem("claimState", "2");
+                            }
 
-                            })
-                            .catch(err =>
-                            {
-                                console.error(err);
+                        })
+                        .catch(err =>
+                        {
+                            console.error(err);
 
-                            })
-                    }
+                        })
                 }
             }
             task.confirm++;
@@ -235,18 +235,18 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            //     TaskFunction.claimState(0);
+            // } else
+            // {
+            // }
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
             {
-                task.state = TaskState.fail;
-                TaskFunction.claimState(0);
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                {
-                    task.state = TaskState.success;
-                    TaskFunction.claimState(1);
-                }
+                task.state = TaskState.success;
+                TaskFunction.claimState(1);
             }
             task.confirm++;
             return task;
@@ -264,20 +264,20 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            //     if (TaskFunction.withdraw)
+            //         TaskFunction.withdraw();
+            // } else
+            // {
+            // }
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
             {
-                task.state = TaskState.fail;
+                task.state = TaskState.success;
                 if (TaskFunction.withdraw)
                     TaskFunction.withdraw();
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                {
-                    task.state = TaskState.success;
-                    if (TaskFunction.withdraw)
-                        TaskFunction.withdraw();
-                }
             }
             task.confirm++;
             return task;
@@ -295,20 +295,20 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            //     if (TaskFunction.topup)
+            //         TaskFunction.topup();
+            // } else
+            // {
+            // }
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
             {
-                task.state = TaskState.fail;
+                task.state = TaskState.success;
                 if (TaskFunction.topup)
                     TaskFunction.topup();
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                {
-                    task.state = TaskState.success;
-                    if (TaskFunction.topup)
-                        TaskFunction.topup();
-                }
             }
             task.confirm++;
             return task;
@@ -433,20 +433,20 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 9)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 9)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            //     if (TaskFunction.exchange)
+            //         TaskFunction.exchange();
+            // } else
+            // {
+            // }
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
             {
-                task.state = TaskState.fail;
+                task.state = TaskState.success;
                 if (TaskFunction.exchange)
                     TaskFunction.exchange();
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                {
-                    task.state = TaskState.success;
-                    if (TaskFunction.exchange)
-                        TaskFunction.exchange();
-                }
             }
             task.confirm++;
             return task;
@@ -694,22 +694,22 @@ export class TaskManager
         //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
         let taskarr = this.forConfirm(tasks, (task: Task) =>
         {
-            if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+            // {
+            //     task.state = TaskState.fail;
+            //     Store.auctionInfo.put(task.message[ "domain" ], false, 'isRecoverWait');
+            //     if (TaskFunction.auctionStateUpdate)
+            //         TaskFunction.auctionStateUpdate();
+            // } else
+            // {
+            // }
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result && result.issucces)
             {
-                task.state = TaskState.fail;
+                task.state = TaskState.success;
                 Store.auctionInfo.put(task.message[ "domain" ], false, 'isRecoverWait');
                 if (TaskFunction.auctionStateUpdate)
                     TaskFunction.auctionStateUpdate();
-            } else
-            {
-                let result = ress[ task.txid ]; //获取通知数组
-                if (result && result.issucces)
-                {
-                    task.state = TaskState.success;
-                    Store.auctionInfo.put(task.message[ "domain" ], false, 'isRecoverWait');
-                    if (TaskFunction.auctionStateUpdate)
-                        TaskFunction.auctionStateUpdate();
-                }
             }
             task.confirm++;
             return task;

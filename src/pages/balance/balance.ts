@@ -181,11 +181,11 @@ export default class balance extends Vue
         {
           if (balance.asset == tools.coinTool.id_NEO)
           {
-            this.neoasset.neo = Neo.Fixed8.parse(balance.balance.toString()).toString();
+            this.neoasset.neo = Neo.Fixed8.fromNumber(balance.balance).toString();
           }
           if (balance.asset == tools.coinTool.id_GAS)
           {
-            this.neoasset.gas = Neo.Fixed8.parse(balance.balance.toString()).toString();
+            this.neoasset.gas = Neo.Fixed8.fromNumber(balance.balance).toString();
           }
         });
     }

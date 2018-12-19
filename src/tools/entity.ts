@@ -276,27 +276,6 @@ export class BalanceInfo
     names: string;
     type: string;
 
-    static jsonToArray(json: {}[])
-    {
-        let arr = new Array<BalanceInfo>();
-        for (const i in json)
-        {
-            if (json.hasOwnProperty(i))
-            {
-                const element = json[ i ];
-                let balance = new BalanceInfo();
-                balance.asset = element[ "asset" ];
-                balance.balance = element[ "balance" ];
-                balance.name = element[ "balance" ];
-                balance.names = element[ "names" ];
-                balance.type = element[ "type" ];
-                arr.push(balance);
-            }
-        }
-        return arr;
-
-    }
-
     static getBalancesByArr(balances, nep5balances, height: number)
     {
         let balancearr: BalanceInfo[] = [];
