@@ -364,7 +364,13 @@ a:hover, a:focus {
     color: #4DADFF;
     text-decoration: underline;
 }
-
+.page-msg{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #7B7B7B;
+}
 .page-previous {
     text-align: center;
     height: 38px;
@@ -478,7 +484,7 @@ body {
 }
 
 .page {
-    width: 101px;
+    /* width: 101px; */
     height: 38px;
     margin: 0 auto;
     /* Firefox */

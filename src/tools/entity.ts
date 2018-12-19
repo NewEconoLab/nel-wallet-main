@@ -459,6 +459,7 @@ export class Consts
     static readonly baseContract = Neo.Uint160.parse("348387116c4a75e420663277d9c02049907128c7");
     static readonly registerContract = Neo.Uint160.parse("d6a5e965f67b0c3e5bec1f04f028edb9cb9e3f7c");
     // static domainContract = '954f285a93eed7b4aed9396a7806a5812f1a5950';
+    static readonly saleContract = Neo.Uint160.parse("c4d09243258364e0e028852640218e08534f0466");
 }
 
 export class DomainInfo
@@ -656,7 +657,14 @@ export class DomainStatus
         return obj;
     }
 }
-
+export interface DomainSaleInfo
+{
+    domain: string,
+    owner: string,
+    ttl: string,
+    price: string,
+    state: string
+}
 export class WalletOtcgo
 {
     address: string;
@@ -1010,6 +1018,11 @@ export class TaskFunction
     static domainTransfer: Function;
     static auctionStateUpdate: Function;
     static newTaskNumber: Function;//更新阅读数
+    static domainSale: Function;//域名出售
+    static domainUnSale: Function;//域名下架
+    static domainBuy: Function;//域名购买
+    static getNNC: Function;//提取NNC
+    static getNNCTest: Function;//测试网领取NNC
 }
 
 export class Task
@@ -1191,6 +1204,11 @@ export enum TaskType
     recoverSgas,//退回sgas
     ClaimGas,//领取Gas
     domainTransfer,
+    saleDomain,//出售域名
+    unSaleDomain,//下架域名
+    buyDomain,//购买域名
+    getMyNNC,//获取收入的NNC
+    requestNNC,//索取NNC
 }
 
 /**
@@ -1218,6 +1236,13 @@ export enum DomainState
     end2,
     expire,
     pass,
+}
+export interface SaleDomainList
+{
+    blockindex: number,
+    fullDomain: string,
+    price: string,
+    blocktime: string
 }
 export interface MyBonus
 {

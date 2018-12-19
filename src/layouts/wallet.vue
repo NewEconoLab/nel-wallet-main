@@ -6,56 +6,59 @@
           <div class="notify-span">{{$t('notify.fee')}}</div>
           <div class="tranhistory-img fright">
             <span class="blockheight-span">{{$t('navbar.blockheight')}}：{{blockheight}}</span>
-            <img src="../../static/img/history.png" alt="" @click="onshowHistory">
-            <div class="add-task" v-if="taskNumber">{{taskNumber>99?99:taskNumber}}<span v-if="taskNumber>99">+</span></div>
+            <img src="../../static/img/history.png" alt @click="onshowHistory">
+            <div class="add-task" v-if="taskNumber">
+              {{taskNumber>99?99:taskNumber}}
+              <span v-if="taskNumber>99">+</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="container">        
+      <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li>
               <router-link :to="{name:'balance'}" :class="{active:isActive('balance')}">
                 <span class="icon-png">
-                  <img src="../../static/img/balance-s.png" alt="" v-if="isActive('balance')">
-                  <img src="../../static/img/balance-u.png" alt="" v-else>
-                </span> 
+                  <img src="../../static/img/balance-s.png" alt v-if="isActive('balance')">
+                  <img src="../../static/img/balance-u.png" alt v-else>
+                </span>
                 {{$t('balance.balance')}}
               </router-link>
             </li>
             <li>
               <router-link :to="{name:'transfer'}" :class="{active:isActive('transfer')}">
                 <span class="icon-png">
-                  <img src="../../static/img/transfer-s.png" alt="" v-if="isActive('transfer')">
-                  <img src="../../static/img/transfer-u.png" alt="" v-else>
-                </span> 
+                  <img src="../../static/img/transfer-s.png" alt v-if="isActive('transfer')">
+                  <img src="../../static/img/transfer-u.png" alt v-else>
+                </span>
                 {{$t('transfer.transfer')}}
               </router-link>
             </li>
             <li>
               <router-link :to="{name:'exchange'}" :class="{active:isActive('exchange')}">
                 <span class="icon-png">
-                  <img src="../../static/img/exchange-s.png" alt="" v-if="isActive('exchange')">
-                  <img src="../../static/img/exchange-u.png" alt="" v-else>
-                </span> 
+                  <img src="../../static/img/exchange-s.png" alt v-if="isActive('exchange')">
+                  <img src="../../static/img/exchange-u.png" alt v-else>
+                </span>
                 {{$t('exchange.title')}}
               </router-link>
             </li>
             <li>
-              <router-link :to="{name:'auction'}" :class="{active:isActive('nnsneo')}" >
+              <router-link :to="{name:'auction'}" :class="{active:isActive('nnsneo')}">
                 <span class="icon-png">
-                  <img src="../../static/img/nns-s.png" alt="" v-if="isActive('nnsneo')">
-                  <img src="../../static/img/nns-u.png" alt="" v-else>
-                </span> 
+                  <img src="../../static/img/nns-s.png" alt v-if="isActive('nnsneo')">
+                  <img src="../../static/img/nns-u.png" alt v-else>
+                </span>
                 {{$t('nns.nns')}}(.neo)
               </router-link>
             </li>
             <li>
               <router-link :to="{name:'setting'}" :class="{active:isActive('setting')}">
                 <span class="icon-png">
-                  <img src="../../static/img/settings-s.png" alt="" v-if="isActive('setting')">
-                  <img src="../../static/img/settings-u.png" alt="" v-else>
-                </span> 
+                  <img src="../../static/img/settings-s.png" alt v-if="isActive('setting')">
+                  <img src="../../static/img/settings-u.png" alt v-else>
+                </span>
                 {{$t('setting.settings')}}
               </router-link>
             </li>
@@ -65,7 +68,7 @@
               <div class="tranhistory-listbox">
                 <div class="tranhistory-title">
                   <div class="tranhistory-close" @click="showHistory=!showHistory">
-                    <img src="../../static/img/close.png" alt="">
+                    <img src="../../static/img/close.png" alt>
                   </div>
                   <span>{{$t('operation.title')}}</span>
                   <div class="tranhistory-tips">{{$t('operation.tips')}}</div>
@@ -77,34 +80,58 @@
                         <div class="th-typename">{{$t('operation.transfer')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.addrhref" target="_blank">{{item.message.toaddress}}</a>
+                            <a
+                              class="green-text"
+                              :href="item.addrhref"
+                              target="_blank"
+                            >{{item.message.toaddress}}</a>
                             <span>{{item.message.amount}} {{item.message.assetname}}</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                          <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}}</span>
-                          <span class="th-txid" v-if="item.state==1"></span>
-                          <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
-                        </div>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
+                    </div>
                     <div v-if="item.tasktype == 1">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.openauction')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" target="_blank" :href="item.domainhref">{{item.message.domain}}</a>
-                          </div> 
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                          </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -114,16 +141,28 @@
                         <div class="th-typename">{{$t('operation.raisebid')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" target="_blank" :href="item.domainhref">{{item.message.domain}}</a>
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
                             <span>{{item.message.amount}} CGAS</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -134,16 +173,24 @@
                         <div class="th-other">
                           <div class="th-number">
                             <span>{{item.message.count}} Gas</span>
-                            <img src="../../static/img/arrow.png" alt="">
+                            <img src="../../static/img/arrow.png" alt>
                             <span>{{item.message.count}} CGAS</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -154,16 +201,24 @@
                         <div class="th-other">
                           <div class="th-number">
                             <span>{{item.message.count}} CGAS</span>
-                            <img src="../../static/img/arrow.png" alt="">
+                            <img src="../../static/img/arrow.png" alt>
                             <span>{{item.message.count}} Gas</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -178,10 +233,18 @@
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -196,10 +259,18 @@
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -214,7 +285,10 @@
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waitinggas')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waitinggas')}} {{item.pendingText}}</span>
                         <span class="green-text" v-if="item.state==1">{{$t('operation.sentok')}}</span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -224,16 +298,35 @@
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
-                            <span>{{$t('operation.addrmapping')}} <a class="green-text" :href="item.addrhref" target="_blank">{{item.message.address}}</a></span>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
+                            <span>
+                              {{$t('operation.addrmapping')}}
+                              <a
+                                class="green-text"
+                                :href="item.addrhref"
+                                target="_blank"
+                              >{{item.message.address}}</a>
+                            </span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -243,16 +336,28 @@
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
                             <span>{{$t('operation.addrresolver')}} {{item.resolver}}</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -262,16 +367,28 @@
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
                             <span>{{$t('operation.renew')}}</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -281,15 +398,27 @@
                         <div class="th-typename">{{$t('operation.getdomain')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -299,22 +428,34 @@
                         <div class="th-typename">{{$t('operation.recover')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
                             <span>{{item.message.amount}} CGAS</span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
                     <div v-if="item.tasktype == 13">
-                        <div class="th-type">
+                      <div class="th-type">
                         <div class="th-typename">{{$t('operation.gasclaim')}}</div>
                         <div class="th-other">
                           <div class="th-number">
@@ -323,29 +464,172 @@
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
                     <div v-if="item.tasktype == 14">
                       <div class="th-type">
-                        <div class="th-typename">{{$t('myneoname.domaintransfer')}}</div>
+                        <div class="th-typename">{{$t('operation.domaintransfer')}}</div>
                         <div class="th-other">
                           <div class="th-number">
-                            <a class="green-text" :href="item.domainhref" target="_blank">{{item.message.domain}}</a>
-                            <span>{{$t('operation.domainTransfer')}} <a class="green-text" :href="item.addrhref" target="_blank">{{item.message.address}}</a></span>
+                            <a
+                              class="green-text"
+                              :href="item.domainhref"
+                              target="_blank"
+                            >{{item.message.domain}}</a>
+                            <span>
+                              {{$t('operation.domaintransfer')}}
+                              <a
+                                class="green-text"
+                                :href="item.addrhref"
+                                target="_blank"
+                              >{{item.message.address}}</a>
+                            </span>
                           </div>
                         </div>
                       </div>
                       <div class="th-block-txid">
-                        <span class="th-txid" style="padding-right:10px"> 
-                        {{$t('operation.txid')}}<a class="green-text" :href="item.txidhref" target="_blank">{{item.txid}}</a>
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
                         </span>
-                        <span class="red-text" v-if="item.state==0">{{$t('operation.waiting')}} {{item.pendingText}} </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 15">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.list')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                            <span>{{item.message.amount}} NNC</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 16">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.delist')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 17">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.buy')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                            <span>{{item.message.amount}} NNC</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <div v-if="item.tasktype == 18">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.claimnnc')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">{{item.message.amount}} NNC</div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
                         <span class="th-txid" v-if="item.state==1"></span>
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
@@ -354,7 +638,7 @@
                 </div>
                 <div class="notask" v-if="taskList.length == 0">{{$t('operation.nodata')}}</div>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
         <!--/.nav-collapse -->
@@ -363,7 +647,7 @@
     </nav>
     <div class="wallet-content">
       <router-view></router-view>
-    </div>    
+    </div>
   </main-layout>
 </template>
 

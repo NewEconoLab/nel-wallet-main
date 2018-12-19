@@ -80,6 +80,18 @@ export class TaskManager
                     case TaskType.domainTransfer:
                         await this.confirm_domain_transfer(tasks);
                         break;
+                    case TaskType.saleDomain:
+                        await this.confirm_sale(tasks);
+                        break;
+                    case TaskType.unSaleDomain:
+                        await this.confirm_unsale(tasks);
+                        break;
+                    case TaskType.buyDomain:
+                        await this.confirm_buyDomain(tasks);
+                        break;
+                    case TaskType.getMyNNC:
+                        await this.confirm_getNNC(tasks);
+                        break;
                     default:
                         break;
                 }
@@ -495,6 +507,51 @@ export class TaskManager
         this.taskStore.put(TaskType.domainResovle.toString(), taskarr); //保存修改的状态
     }
 
+    static async confirm_domain_transfer(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks);
+        let domainEdit = new sessionStoreTool("domain-edit");
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ];
+            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+            {
+                if (result.vmstate == "FAULT, BREAK")
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
+                }
+                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo"))
+                {
+                    task.state = TaskState.success;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
+                } else
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainTransfer)
+                            TaskFunction.domainTransfer(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
+                    }, 15000);
+                }
+            }
+            task.confirm++;
+            return task;
+        });
+        this.taskStore.put(TaskType.domainTransfer.toString(), taskarr);
+    }
+
     /**
      * 确认域名映射的结果
      * @param tasks 所有映射的任务
@@ -536,41 +593,6 @@ export class TaskManager
         this.taskStore.put(TaskType.domainMapping.toString(), taskarr); //保存修改的状态
     }
 
-    static async confirm_domain_transfer(tasks: Task[])
-    {
-        let ress = await this.getResult(tasks);
-        let domainEdit = new sessionStoreTool("domain-edit");
-        let taskarr = this.forConfirm(tasks, (task: Task) =>
-        {
-            let result = ress[ task.txid ];
-            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
-            {
-                if (result.vmstate == "FAULT, BREAK")
-                {
-                    task.state = TaskState.fail;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
-                }
-                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo"))
-                {
-                    task.state = TaskState.success;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
-                } else
-                {
-                    task.state = TaskState.fail;
-                    if (TaskFunction.domainTransfer)
-                        TaskFunction.domainTransfer(task.message[ 'domain' ])
-                    domainEdit.delete(task.message[ 'domain' ], 'domain_transfer');
-                }
-            }
-            task.confirm++;
-            return task;
-        });
-        this.taskStore.put(TaskType.domainTransfer.toString(), taskarr);
-    }
     /**
      * 续约确认方法
      * @param tasks 任务数组
@@ -755,5 +777,188 @@ export class TaskManager
         }
         this.taskStore.put(TaskType.getGasTest.toString(), taskarr);
     }
+    /**
+     * 域名出售操作跟踪
+     * @param tasks 
+     */
+    static async confirm_sale(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let domainEdit = new sessionStoreTool("domain-edit");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+            {
+                if (result.vmstate == "FAULT, BREAK")
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
+                }
+                else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingLaunched"))
+                {
+                    task.state = TaskState.success;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
+                } else
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainSale)
+                            TaskFunction.domainSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'sale');
+                    }, 15000);
+                }
+            }
+            task.confirm++;
+            return task;
+        });
+        this.taskStore.put(TaskType.saleDomain.toString(), taskarr); //保存修改的状态
+    }
+    /**
+     * 域名下架操作跟踪
+     * @param tasks 
+     */
+    static async confirm_unsale(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let domainEdit = new sessionStoreTool("domain-edit");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+            {
 
+                if (result.vmstate == "FAULT, BREAK")
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
+                }
+                else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingDiscontinued"))
+                {
+                    task.state = TaskState.success;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
+                } else
+                {
+                    task.state = TaskState.fail;
+                    setTimeout(() =>
+                    {
+                        if (TaskFunction.domainUnSale)
+                            TaskFunction.domainUnSale(task.message[ 'domain' ])
+                        domainEdit.delete(task.message[ 'domain' ], 'unsale');
+                    }, 15000);
+                }
+
+            }
+            task.confirm++;
+            return task;
+        });
+        this.taskStore.put(TaskType.unSaleDomain.toString(), taskarr); //保存修改的状态
+    }
+    /**
+     * 域名购买操作跟踪
+     * @param tasks 
+     */
+    static async confirm_buyDomain(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let buyDomain = new sessionStoreTool("buyDomain");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (task.type == ConfirmType.recharge)
+            {
+                if (result && result[ 'errCode' ]) //检测是否有对应的通知 changeOwnerInfo
+                {
+                    switch (result[ 'errCode' ])
+                    {
+                        case '0000'://成功
+                            task.state = TaskState.success;
+                            // if (TaskFunction.domainUnSale)
+                            //     TaskFunction.domainUnSale(task.message[ 'domain' ])
+                            buyDomain.delete(task.message[ 'domain' ], 'buy');
+                            break;
+                        case '3001'://失败
+                            task.state = TaskState.fail;
+                            buyDomain.delete(task.message[ 'domain' ], 'buy');
+                            break;
+                        case '3002'://失败
+                            task.state = TaskState.fail;
+                            buyDomain.delete(task.message[ 'domain' ], 'buy');
+                            break;
+                    }
+                }
+            }
+
+            task.confirm++;
+            return task;
+        });
+
+        this.taskStore.put(TaskType.buyDomain.toString(), taskarr); //保存修改的状态
+    }
+    /**
+     * 提取NNC
+     * @param tasks 
+     */
+    static async confirm_getNNC(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let getNNC = new sessionStoreTool("getnnc");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+            {
+
+                if (result.vmstate == "FAULT, BREAK")
+                {
+                    task.state = TaskState.fail;
+                    if (TaskFunction.getNNC)
+                        TaskFunction.getNNC();
+                    getNNC.delete('getnnc');
+                }
+                else if (result && result.displayNameList && result.displayNameList.includes("getMoneyBack"))
+                {
+                    task.state = TaskState.success;
+                    if (TaskFunction.getNNC)
+                        TaskFunction.getNNC();
+                    getNNC.delete('getnnc');
+                } else
+                {
+                    task.state = TaskState.fail;
+                    if (TaskFunction.getNNC)
+                        TaskFunction.getNNC();
+                    getNNC.delete('getnnc');
+                }
+
+            }
+            task.confirm++;
+            return task;
+        });
+        this.taskStore.put(TaskType.getMyNNC.toString(), taskarr); //保存修改的状态
+    }
 }
