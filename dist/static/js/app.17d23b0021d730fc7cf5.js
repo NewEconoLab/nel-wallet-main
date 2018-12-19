@@ -2178,22 +2178,6 @@ exports.LoginInfo = LoginInfo;
 var BalanceInfo = /** @class */ (function () {
     function BalanceInfo() {
     }
-    BalanceInfo.jsonToArray = function (json) {
-        var arr = new Array();
-        for (var i in json) {
-            if (json.hasOwnProperty(i)) {
-                var element = json[i];
-                var balance = new BalanceInfo();
-                balance.asset = element["asset"];
-                balance.balance = element["balance"];
-                balance.name = element["balance"];
-                balance.names = element["names"];
-                balance.type = element["type"];
-                arr.push(balance);
-            }
-        }
-        return arr;
-    };
     BalanceInfo.getBalancesByArr = function (balances, nep5balances, height) {
         var balancearr = [];
         if (balances) //余额不唯空
@@ -5065,34 +5049,33 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
                              {
-                                task.state = entity_1.TaskState.fail;
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                                task.state = entity_1.TaskState.success;
+                                if (task.message.type && task.message.type == "Claim") //判断此交易是否是claim
                                  {
-                                    task.state = entity_1.TaskState.success;
-                                    if (task.message.type && task.message.type == "Claim") //判断此交易是否是claim
-                                     {
-                                        // TaskFunction.claimGas();
-                                        importpack_1.tools.coinTool.claimGas()
-                                            .then(function (res) {
-                                            if (res["sendrawtransactionresult"]) {
-                                                if (entity_1.TaskFunction.claimState)
-                                                    entity_1.TaskFunction.claimState(2);
-                                                var txid = res["txid"];
-                                                var amount = JSON.parse(res['amount']);
-                                                var height = StorageMap_1.default.blockheight.select("height");
-                                                TaskManager.addTask(new entity_1.Task(entity_1.ConfirmType.tranfer, txid, { amount: amount }), entity_1.TaskType.ClaimGas);
-                                                sessionStorage.setItem("claimState", "2");
-                                            }
-                                        })
-                                            .catch(function (err) {
-                                            console.error(err);
-                                        });
-                                    }
+                                    // TaskFunction.claimGas();
+                                    importpack_1.tools.coinTool.claimGas()
+                                        .then(function (res) {
+                                        if (res["sendrawtransactionresult"]) {
+                                            if (entity_1.TaskFunction.claimState)
+                                                entity_1.TaskFunction.claimState(2);
+                                            var txid = res["txid"];
+                                            var amount = JSON.parse(res['amount']);
+                                            TaskManager.addTask(new entity_1.Task(entity_1.ConfirmType.tranfer, txid, { amount: amount }), entity_1.TaskType.ClaimGas);
+                                            sessionStorage.setItem("claimState", "2");
+                                        }
+                                    })
+                                        .catch(function (err) {
+                                        console.error(err);
+                                    });
                                 }
                             }
                             task.confirm++;
@@ -5117,18 +5100,18 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     TaskFunction.claimState(0);
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
                              {
-                                task.state = entity_1.TaskState.fail;
-                                entity_1.TaskFunction.claimState(0);
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                                 {
-                                    task.state = entity_1.TaskState.success;
-                                    entity_1.TaskFunction.claimState(1);
-                                }
+                                task.state = entity_1.TaskState.success;
+                                entity_1.TaskFunction.claimState(1);
                             }
                             task.confirm++;
                             return task;
@@ -5152,20 +5135,20 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.withdraw)
+                            //         TaskFunction.withdraw();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
                              {
-                                task.state = entity_1.TaskState.fail;
+                                task.state = entity_1.TaskState.success;
                                 if (entity_1.TaskFunction.withdraw)
                                     entity_1.TaskFunction.withdraw();
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                                 {
-                                    task.state = entity_1.TaskState.success;
-                                    if (entity_1.TaskFunction.withdraw)
-                                        entity_1.TaskFunction.withdraw();
-                                }
                             }
                             task.confirm++;
                             return task;
@@ -5189,20 +5172,20 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.topup)
+                            //         TaskFunction.topup();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
                              {
-                                task.state = entity_1.TaskState.fail;
+                                task.state = entity_1.TaskState.success;
                                 if (entity_1.TaskFunction.topup)
                                     entity_1.TaskFunction.topup();
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                                 {
-                                    task.state = entity_1.TaskState.success;
-                                    if (entity_1.TaskFunction.topup)
-                                        entity_1.TaskFunction.topup();
-                                }
                             }
                             task.confirm++;
                             return task;
@@ -5344,20 +5327,20 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 9) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // if (task.confirm > 9)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.exchange)
+                            //         TaskFunction.exchange();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
                              {
-                                task.state = entity_1.TaskState.fail;
+                                task.state = entity_1.TaskState.success;
                                 if (entity_1.TaskFunction.exchange)
                                     entity_1.TaskFunction.exchange();
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
-                                 {
-                                    task.state = entity_1.TaskState.success;
-                                    if (entity_1.TaskFunction.exchange)
-                                        entity_1.TaskFunction.exchange();
-                                }
                             }
                             task.confirm++;
                             return task;
@@ -5631,21 +5614,21 @@ var TaskManager = /** @class */ (function () {
                     case 1:
                         ress = _a.sent();
                         taskarr = this.forConfirm(tasks, function (task) {
-                            if (task.confirm > 3) //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
-                             {
-                                task.state = entity_1.TaskState.fail;
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     Store.auctionInfo.put(task.message[ "domain" ], false, 'isRecoverWait');
+                            //     if (TaskFunction.auctionStateUpdate)
+                            //         TaskFunction.auctionStateUpdate();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result.issucces) {
+                                task.state = entity_1.TaskState.success;
                                 StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isRecoverWait');
                                 if (entity_1.TaskFunction.auctionStateUpdate)
                                     entity_1.TaskFunction.auctionStateUpdate();
-                            }
-                            else {
-                                var result = ress[task.txid]; //获取通知数组
-                                if (result && result.issucces) {
-                                    task.state = entity_1.TaskState.success;
-                                    StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isRecoverWait');
-                                    if (entity_1.TaskFunction.auctionStateUpdate)
-                                        entity_1.TaskFunction.auctionStateUpdate();
-                                }
                             }
                             task.confirm++;
                             return task;
