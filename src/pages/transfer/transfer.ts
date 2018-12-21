@@ -118,7 +118,7 @@ export default class transfer extends Vue
             this.target = this.target.toLowerCase();
             let res = await tools.wwwtool.getresolvedaddress(this.target);
             // let addr = await tools.nnstool.resolveData(this.target);
-            if (res)
+            if (res && res.data)
             {
                 this.toaddress = res.data
                 this.expiryTime = tools.timetool.getTime(res.TTL);
