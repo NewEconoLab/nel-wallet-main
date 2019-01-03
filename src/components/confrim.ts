@@ -22,6 +22,9 @@ export default class TranConfrim extends Vue
     closemudloe()
     {
         this.show = false;
+        this.password = "";
+        this.passwordError = false;
+        this.payFee = false;
     }
 
     @Watch("open")
@@ -55,7 +58,7 @@ export default class TranConfrim extends Vue
                 }
                 else if (current.type == LoginType.wif)
                 {
-                    var res = tools.neotool.wifDecode(current.msg['wif']);
+                    var res = tools.neotool.wifDecode(current.msg[ 'wif' ]);
                     if (res.err)
                     {
                         reject("WIF is error");
@@ -91,7 +94,7 @@ export default class TranConfrim extends Vue
                 }
                 else
                 {
-                    let nep2 = current.msg[LoginInfo.getCurrentAddress()];
+                    let nep2 = current.msg[ LoginInfo.getCurrentAddress() ];
                     tools.neotool.nep2ToWif(nep2, this.password)
                         .then(result =>
                         {

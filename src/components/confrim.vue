@@ -1,6 +1,6 @@
 <template>
-  <div class="alert-wrap" v-show="show">
-    <div class="alert-box">
+  <div class="confrim-alert-wrap" v-show="show">
+    <div class="confrim-box">
       <div class="alert-title">{{title}}</div>
       <div class="line-wrap" v-for="msg in messageList" :key="msg.title">
         <div class="line-box">
@@ -11,7 +11,7 @@
       <div class="line-wrap" v-if="deblocking">
         <div class="line-box">
           <div class="line-title">{{$t("confirm.pwd")}}</div>
-          <div class="line-content">
+          <div class="pwd-content">
             <input type="password" v-model="password" @input="passwordError=false">
             <div class="err-msg">{{passwordError?$t("confirm.pwderror"):""}}</div>
           </div>
@@ -38,7 +38,7 @@
   </div>
 </template>
 <style lang="less" scoped>
-.alert-wrap {
+.confrim-alert-wrap {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,7 +46,7 @@
   background: rgba(0, 0, 0, 0.5);
   height: 100%;
   z-index: 1030;
-  .alert-box {
+  .confrim-box {
     background: #fff;
     padding: 30px 50px 50px 50px;
     width: 50%;
@@ -66,16 +66,33 @@
       margin-bottom: 50px;
     }
     .line-wrap {
+      padding-top: 0px;
       margin-bottom: 0px;
       margin-top: 0px;
       .line-box {
         display: flex;
         .line-title {
+          padding-top: 0px;
           width: 160px;
           line-height: 56px;
           font-family: PingFangSC-Medium;
           font-size: 16px;
           color: #333;
+        }
+        .pwd-content {
+          height: 86px;
+          width: 400px;
+          input {
+            width: 100%;
+            height: 56px;
+            background: none;
+            border: 1px solid #b2b2b2;
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-bottom: 0;
+            margin-right: 10px;
+            color: #333;
+          }
         }
         .line-content {
           line-height: 56px;
@@ -144,7 +161,7 @@
       text-align: center;
       font-family: PingFangSC-Medium;
       font-size: 14px;
-      color: #b2b2b2;
+      color: #333;
       line-height: 14px;
 
       label {
@@ -165,7 +182,7 @@
           height: 22px;
           margin-right: 6px;
           vertical-align: middle;
-          border: 1px solid #fff;
+          border: 1px solid #b2b2b2;
           border-radius: 50%;
           img {
             display: none;
