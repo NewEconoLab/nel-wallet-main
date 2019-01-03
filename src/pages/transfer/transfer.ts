@@ -36,6 +36,7 @@ export default class transfer extends Vue
     isAddress: boolean;//判断输入的交易地址是否正确
     isNumber: boolean;//判断输入的交易金额是否正确
     sendWait: boolean;
+    tranConfirm: Function;
     constructor() 
     {
         super();
@@ -66,6 +67,7 @@ export default class transfer extends Vue
     mounted() 
     {
         this.openToast = this.$refs.toast[ "isShow" ];
+        this.tranConfirm = this.$refs.tranConfirm[ "open" ];
         var str = tools.storagetool.getStorage("balances_asset");
         if (str == null)
             this.balances = new Array<BalanceInfo>();
@@ -206,18 +208,52 @@ export default class transfer extends Vue
     }
     async send()
     {
-        try
+        let msgs = [
+            { title: this.$t("confirm.transferTo"), value: this.toaddress },
+            { title: this.$t("confirm.transferAmount"), value: this.amount + " " + this.balance.names }
+        ]
+        let confrimres = await this.tranConfirm(this.$t("confirm.transferConfirm"), msgs);
+
+        if (confrimres)
         {
-            if (this.verify_addr() && this.verify_Amount())
+            try
             {
-                this.sendWait = true;
-                let height = Store.blockheight.select("height");
-                if (!!this.balance[ "type" ] && this.balance.type == "nep5")
+                if (this.verify_addr() && this.verify_Amount())
                 {
-                    let res = await tools.coinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, parseFloat(this.amount));
-                    if (!res[ "err" ])
+                    this.sendWait = true;
+                    let height = Store.blockheight.select("height");
+                    if (!!this.balance[ "type" ] && this.balance.type == "nep5")
                     {
-                        mui.toast(this.$t("transfer.msg2").toString());
+                        let res = await tools.coinTool.nep5Transaction(LoginInfo.getCurrentAddress(), this.toaddress, this.asset, parseFloat(this.amount));
+                        if (!res[ "err" ])
+                        {
+                            mui.toast(this.$t("transfer.msg2").toString());
+                            let num = parseFloat(this.balance.balance + "");
+                            let bear = num - parseFloat(this.amount);
+                            this.balance.balance = bear;
+                            TaskManager.addTask(
+                                new Task(ConfirmType.tranfer, res.info, { amount: this.amount, assetname: this.balance.names, toaddress: this.toaddress }),
+                                TaskType.tranfer
+                            );
+                            BalanceInfo.setBalanceSotre(this.balance, height);
+                            this.amount = "";
+                            tools.storagetool.setStorage("current-height", height + "");
+                        }
+                        else
+                        {
+                            mui.alert(this.$t("transfer.msg3").toString());
+                        }
+                    } else
+                    {
+                        let res: Result = await tools.coinTool.rawTransaction(this.toaddress, this.asset, this.amount);
+                        if (res.err)
+                        {
+                            this.openToast("error", "" + this.$t("transfer.msg3") + res.info, 3000);
+                        } else
+                        {
+                            this.openToast("success", "" + this.$t("transfer.msg2"), 3000);
+                        }
+                        this.isNumber = false;
                         let num = parseFloat(this.balance.balance + "");
                         let bear = num - parseFloat(this.amount);
                         this.balance.balance = bear;
@@ -226,51 +262,26 @@ export default class transfer extends Vue
                             TaskType.tranfer
                         );
                         BalanceInfo.setBalanceSotre(this.balance, height);
+                        // History.setHistoryStore(his, height);
                         this.amount = "";
                         tools.storagetool.setStorage("current-height", height + "");
                     }
-                    else
-                    {
-                        mui.alert(this.$t("transfer.msg3").toString());
-                    }
-                } else
-                {
-                    let res: Result = await tools.coinTool.rawTransaction(this.toaddress, this.asset, this.amount);
-                    if (res.err)
-                    {
-                        this.openToast("error", "" + this.$t("transfer.msg3") + res.info, 3000);
-                    } else
-                    {
-                        this.openToast("success", "" + this.$t("transfer.msg2"), 3000);
-                    }
-                    this.isNumber = false;
-                    let num = parseFloat(this.balance.balance + "");
-                    let bear = num - parseFloat(this.amount);
-                    this.balance.balance = bear;
-                    TaskManager.addTask(
-                        new Task(ConfirmType.tranfer, res.info, { amount: this.amount, assetname: this.balance.names, toaddress: this.toaddress }),
-                        TaskType.tranfer
-                    );
-                    BalanceInfo.setBalanceSotre(this.balance, height);
-                    // History.setHistoryStore(his, height);
-                    this.amount = "";
-                    tools.storagetool.setStorage("current-height", height + "");
+                    this.sendWait = false;
                 }
+            } catch (error)
+            {
                 this.sendWait = false;
-            }
-        } catch (error)
-        {
-            this.sendWait = false;
-            if (error == "Signature interrupt")
-            {
-            }
-            else if (error == "no enough money.")
-            {
-                mui.alert(this.$t("transfer.msg4").toString());
-            }
-            else
-            {
-                mui.alert(this.$t("transfer.msg6").toString());
+                if (error == "Signature interrupt")
+                {
+                }
+                else if (error == "no enough money.")
+                {
+                    mui.alert(this.$t("transfer.msg4").toString());
+                }
+                else
+                {
+                    mui.alert(this.$t("transfer.msg6").toString());
+                }
             }
         }
     }

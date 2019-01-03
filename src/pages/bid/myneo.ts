@@ -49,6 +49,7 @@ export default class MyNeo extends Vue
     domainExpire: string = '';// 域名的过期日期
     showListType: string = 'sell';// 我的交易记录显示类型
     isFirstFlag: boolean = true;//初始调用交易记录
+    tranConfirm: Function;
 
     constructor()
     {
@@ -84,6 +85,7 @@ export default class MyNeo extends Vue
 
     mounted()
     {
+        this.tranConfirm = this.$refs.tranConfirm[ "open" ];
         tools.nnstool.initRootDomain("neo");
         this.initPage();
         //初始化 任务管理器的执行机制
@@ -408,43 +410,51 @@ export default class MyNeo extends Vue
     {
         this.openToast = this.$refs.toast[ "isShow" ];
         const oldstate = this.ownerState;
-        try
+        let msgs = [
+            { title: this.$t("confirm.domain"), value: this.domainInfo.domain },
+            { title: this.$t("confirm.domainTransferTo"), value: this.ownerAddress }
+        ]
+        let confirmres = await this.tranConfirm(this.$t("confirm.domainTransferConfirm"), msgs);
+        if (confirmres)
         {
-            if (this.resolverAddr != "" && this.mappingState != 0)
+            try
             {
-                this.resetmappingData()
-                await this.mappingData();
-            }
-            LoginInfo.info = null;
-            this.ownerState = 2;
-            let transferAddress = this.ownerAddress;
-            if (this.domainAddress != '')
-            {
-                transferAddress = this.domainAddress;
-            }
+                if (this.resolverAddr != "" && this.mappingState != 0)
+                {
+                    this.resetmappingData()
+                    await this.mappingData();
+                }
+                LoginInfo.info = null;
+                this.ownerState = 2;
+                let transferAddress = this.ownerAddress;
+                if (this.domainAddress != '')
+                {
+                    transferAddress = this.domainAddress;
+                }
 
-            const res = await tools.nnstool.setOwner(this.domainInfo[ "domain" ], transferAddress);
-            if (!res.err)
+                const res = await tools.nnstool.setOwner(this.domainInfo[ "domain" ], transferAddress);
+                if (!res.err)
+                {
+                    const txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], address: transferAddress }),
+                        TaskType.domainTransfer);
+                    this.domainEdit.put(this.domainInfo.domain, "watting", "domain_transfer");
+                    this.closeTranferDomain();
+                    this.openToast("success", "" + this.$t("myneoname.waitmsg2"), 5000);
+                    await this.initListData(this.neonameList);
+                } else
+                {
+                    this.ownerState = oldstate;
+                    this.openToast("error", "" + this.$t("errormsg.msg3"), 3000);
+                    throw new Error("Transaction send failed");
+                }
+            } catch (error)
             {
-                const txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], address: transferAddress }),
-                    TaskType.domainTransfer);
-                this.domainEdit.put(this.domainInfo.domain, "watting", "domain_transfer");
-                this.closeTranferDomain();
-                this.openToast("success", "" + this.$t("myneoname.waitmsg2"), 5000);
-                await this.initListData(this.neonameList);
-            } else
-            {
+                console.log("ERROR!!");
                 this.ownerState = oldstate;
-                this.openToast("error", "" + this.$t("errormsg.msg3"), 3000);
-                throw new Error("Transaction send failed");
+                this.closeTranferDomain()
             }
-        } catch (error)
-        {
-            console.log("ERROR!!");
-            this.ownerState = oldstate;
-            this.closeTranferDomain()
         }
     }
 
@@ -456,16 +466,28 @@ export default class MyNeo extends Vue
         let oldstate = this.resolverState;
         try
         {
-            this.resolverState = 2;
-            let contract = this.set_contract.hexToBytes().reverse();
-            let res = await tools.nnstool.setResolve(this.domainInfo[ "domain" ], contract);
-            if (!res.err)
+            let msgs = [
+                { title: this.$t("confirm.domain"), value: this.domainInfo.domain },
+                { title: this.$t("confirm.addrresolver"), value: this.set_contract }
+            ]
+            let confirmres = await this.tranConfirm(this.$t("confirm.addrResolverConfirm"), msgs);
+            if (confirmres)
             {
-                let txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], contract: this.set_contract }),
-                    TaskType.domainResovle);
-                this.domainEdit.put(this.domainInfo.domain, "watting", "resolver");
+                this.resolverState = 2;
+                let contract = this.set_contract.hexToBytes().reverse();
+                let res = await tools.nnstool.setResolve(this.domainInfo[ "domain" ], contract);
+                if (!res.err)
+                {
+                    let txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], contract: this.set_contract }),
+                        TaskType.domainResovle);
+                    this.domainEdit.put(this.domainInfo.domain, "watting", "resolver");
+                }
+                else
+                {
+                    this.resolverState = oldstate;
+                }
             }
         } catch (error)
         {
@@ -481,19 +503,27 @@ export default class MyNeo extends Vue
         let oldstate = this.mappingState;
         try
         {
-            this.mappingState = 2;
-            let res = await tools.nnstool.setResolveData(this.domainInfo.domain, this.resolverAddr, this.domainInfo.resolver);
-            if (!res.err)
+            let msgs = [
+                { title: this.$t("confirm.domain"), value: this.domainInfo.domain },
+                { title: this.$t("confirm.addrmapping"), value: this.resolverAddr }
+            ]
+            let confirmres = await this.tranConfirm(this.$t("confirm.addrMappingConfirm"), msgs);
+            if (confirmres)
             {
-                let txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo.domain, address: this.resolverAddr }),
-                    TaskType.domainMapping);
-                this.domainEdit.put(this.domainInfo.domain, { state: "watting", address: this.resolverAddr }, "mapping");
-            } else
-            {
-                this.mappingState = oldstate;
-                throw new Error("Transaction send failed");
+                this.mappingState = 2;
+                let res = await tools.nnstool.setResolveData(this.domainInfo.domain, this.resolverAddr, this.domainInfo.resolver);
+                if (!res.err)
+                {
+                    let txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { domain: this.domainInfo.domain, address: this.resolverAddr }),
+                        TaskType.domainMapping);
+                    this.domainEdit.put(this.domainInfo.domain, { state: "watting", address: this.resolverAddr }, "mapping");
+                } else
+                {
+                    this.mappingState = oldstate;
+                    throw new Error("Transaction send failed");
+                }
             }
         } catch (error)
         {
@@ -509,16 +539,25 @@ export default class MyNeo extends Vue
     {
         let root = await tools.nnstool.getRootInfo("neo");
         let domain = this.domainInfo.domain;
-        let res = await
-            tools.nnssell.renewDomain(domain, root.register);
-        if (!res.err)
+        let time = tools.timetool.getTime(this.domainInfo.ttl * 5 * 60 * 1000 * 365);
+        let msgs = [
+            { title: this.$t("confirm.domain"), value: this.domainInfo.domain },
+            { title: this.$t("confirm.renewalto"), value: time }
+        ]
+        let confirmres = await this.tranConfirm(this.$t("confirm.renewalConfirm"), msgs);
+        if (confirmres)
         {
-            this.renewalWatting = true;
-            let txid = res.info;
-            TaskManager.addTask(
-                new Task(ConfirmType.contract, txid, { domain }),
-                TaskType.domainRenewal);
-            this.domainEdit.put(this.domainInfo.domain, "watting", "renewal");
+            let res = await
+                tools.nnssell.renewDomain(domain, root.register);
+            if (!res.err)
+            {
+                this.renewalWatting = true;
+                let txid = res.info;
+                TaskManager.addTask(
+                    new Task(ConfirmType.contract, txid, { domain }),
+                    TaskType.domainRenewal);
+                this.domainEdit.put(this.domainInfo.domain, "watting", "renewal");
+            }
         }
     }
 
@@ -776,19 +815,28 @@ export default class MyNeo extends Vue
         // this.domainEdit.put(this.domainInfo.domain, { state: "watting", price: this.salePrice }, "sale");
         try
         {
-            // this.resolverState = 2;
-            let res = await tools.nnstool.saleDomain(this.domainInfo[ "domain" ], this.domainSalePrice);
-            if (!res.err)
+            let msgs = [
+                { title: this.$t("confirm.domain"), value: this.domainInfo.domain },
+                { title: this.$t("confirm.price"), value: this.domainSalePrice + " NNC" },
+                { title: this.$t("confirm.expirationTime"), value: this.domainInfo.ttltime }
+            ]
+            let confirmres = await this.tranConfirm(this.$t("confirm.listingConfirm"), msgs);
+            if (confirmres)
             {
-                let txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], amount: this.domainSalePrice }),
-                    TaskType.saleDomain);
-                this.domainEdit.put(this.domainInfo.domain, "watting", "sale");
-                this.closeSaleDialog();
-                this.openToast("success", "" + this.$t("myneoname.waitmsg3"), 5000);
-                await this.initListData(this.neonameList);
+                let res = await tools.nnstool.saleDomain(this.domainInfo[ "domain" ], this.domainSalePrice);
+                if (!res.err)
+                {
+                    let txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ], amount: this.domainSalePrice }),
+                        TaskType.saleDomain);
+                    this.domainEdit.put(this.domainInfo.domain, "watting", "sale");
+                    this.closeSaleDialog();
+                    this.openToast("success", "" + this.$t("myneoname.waitmsg3"), 5000);
+                    await this.initListData(this.neonameList);
+                }
             }
+            // this.resolverState = 2;
         } catch (error)
         {
             // this.resolverState = oldstate;
@@ -801,17 +849,24 @@ export default class MyNeo extends Vue
     {
         try
         {
-            let res = await tools.nnstool.unSaleDomain(this.domainInfo[ "domain" ]);
-            if (!res.err)
+            let msgs = [
+                { title: this.$t("confirm.domain"), value: this.currentdomain }
+            ]
+            let confirmres = await this.tranConfirm(this.$t("confirm.delistingConfirm"), msgs);
+            if (confirmres)
             {
-                let txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ] }),
-                    TaskType.unSaleDomain);
-                this.domainEdit.put(this.domainInfo.domain, "watting", "unsale");
-                this.closeUnSaleDialog();
-                this.openToast("success", "" + this.$t("myneoname.waitmsg4"), 5000);
-                await this.initListData(this.neonameList);
+                let res = await tools.nnstool.unSaleDomain(this.domainInfo[ "domain" ]);
+                if (!res.err)
+                {
+                    let txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { domain: this.domainInfo[ 'domain' ] }),
+                        TaskType.unSaleDomain);
+                    this.domainEdit.put(this.domainInfo.domain, "watting", "unsale");
+                    this.closeUnSaleDialog();
+                    this.openToast("success", "" + this.$t("myneoname.waitmsg4"), 5000);
+                    await this.initListData(this.neonameList);
+                }
             }
         } catch (error)
         {
@@ -992,15 +1047,27 @@ export default class MyNeo extends Vue
         this.isCanGetNNC = 2;
         try
         {
-            let res = await tools.nnstool.getAllMyNNC();
-            if (!res.err)
+            let msgs = [
+                { title: this.$t("confirm.claimto").toString(), value: this.$t("confirm.yourbalance").toString() },
+                { title: this.$t("confirm.claimAmount").toString(), value: this.myNNCBalance + " NNC" }
+            ]
+            let confirmres = await this.tranConfirm(this.$t("confirm.nncClaimConfirm").toString(), msgs);
+            if (confirmres)
             {
-                let txid = res.info;
-                TaskManager.addTask(
-                    new Task(ConfirmType.contract, txid, { amount: this.myNNCBalance }),
-                    TaskType.getMyNNC);
-                this.nncGet.put("getnnc", true);
-                this.openToast("success", "" + this.$t("balance.successmsg"), 5000);
+                let res = await tools.nnstool.getAllMyNNC();
+                if (!res.err)
+                {
+                    let txid = res.info;
+                    TaskManager.addTask(
+                        new Task(ConfirmType.contract, txid, { amount: this.myNNCBalance }),
+                        TaskType.getMyNNC);
+                    this.nncGet.put("getnnc", true);
+                    this.openToast("success", "" + this.$t("balance.successmsg"), 5000);
+                }
+            }
+            else
+            {
+                this.getMyNNC();
             }
         } catch (error)
         {

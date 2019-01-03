@@ -93,6 +93,8 @@ export class LoginInfo
     pubkey: Uint8Array;
     prikey: Uint8Array;
     address: string;
+    nep2: string;
+    payfee: boolean;
     static info: LoginInfo;
 
     static async deblocking()
@@ -176,10 +178,12 @@ export class LoginInfo
                             const result = otcgo.doValidatePwd();
                             if (result)
                             {
+
                                 var info: LoginInfo = new LoginInfo();
                                 info.address = otcgo.address;
                                 info.prikey = otcgo.prikey;
                                 info.pubkey = otcgo.pubkey;
+                                info[ "password" ] = password;
                                 LoginInfo.info = info;
                                 alert.close();
                                 resolve(info);
