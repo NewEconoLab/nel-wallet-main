@@ -397,7 +397,7 @@ export default {
     },
     notify: {
         utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
-        fee: "Note: When there is enough GAS in your wallet, we will automatically add a fee to ensure your operation will be confirmed fast. "
+        fee: "Note: When your balance is less than 0.001GAS, your transactions cannot be prioritized. "
     },
     errormsg: {
         interface: "Interface call exception",

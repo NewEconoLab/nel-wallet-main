@@ -424,7 +424,6 @@ export default class MyNeo extends Vue
                     this.resetmappingData()
                     await this.mappingData();
                 }
-                LoginInfo.info = null;
                 this.ownerState = 2;
                 let transferAddress = this.ownerAddress;
                 if (this.domainAddress != '')
