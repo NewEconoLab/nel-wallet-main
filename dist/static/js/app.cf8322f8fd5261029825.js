@@ -536,6 +536,7 @@ var WWW = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         postdata = WWW.makeRpcPostBody("sendrawtransaction", data.toHexString());
+                        console.log(data.toHexString());
                         return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
                     case 1:
                         result = _a.sent();
@@ -7800,7 +7801,7 @@ var CoinTool = /** @class */ (function () {
                                     console.log(utxo);
                                     console.log(height - old.height);
                                 }
-                                if (utxo.txid == old.txid && old.n == utxo.n && height - old.height < 3) {
+                                if (utxo.txid.includes(old.txid) && old.n == utxo.n) {
                                     findutxo = true;
                                     utxos.splice(i_1, 1);
                                 }
@@ -7891,7 +7892,7 @@ var CoinTool = /** @class */ (function () {
             tran.witnesses = [];
         for (var i in tran.inputs) {
             var input = tran.inputs[i];
-            old.push(new entity_1.OldUTXO(input.hash.reverse().toHexString(), input.index));
+            old.push(new entity_1.OldUTXO(input.hash.toHexString(), input.index));
         }
         res.err = false;
         res.info = { "tran": tran, "oldarr": old };
@@ -7950,7 +7951,7 @@ var CoinTool = /** @class */ (function () {
             return res;
         }
         else {
-            throw "You don't have enough utxo;";
+            throw new Error("no enough money.");
         }
     };
     /**
@@ -7993,20 +7994,17 @@ var CoinTool = /** @class */ (function () {
      */
     CoinTool.rawTransaction = function (targetaddr, asset, count) {
         return __awaiter(this, void 0, void 0, function () {
-            var arr, add, n, _count, utxos, tranres, tran, txid, data, res, height, result, olds, error_2, error_3;
+            var _count, utxos, tranres, tran, txid, data, res, height, result, olds, error_2, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        arr = importpack_1.tools.storagetool.getLoginArr();
-                        add = importpack_1.tools.storagetool.getStorage("current-address");
-                        n = arr.findIndex(function (login) { return login.address == add; });
                         _count = Neo.Fixed8.parse(count + "");
-                        return [4 /*yield*/, CoinTool.getassets()];
+                        _a.label = 1;
                     case 1:
-                        utxos = _a.sent();
-                        _a.label = 2;
+                        _a.trys.push([1, 9, , 10]);
+                        return [4 /*yield*/, CoinTool.getassets()];
                     case 2:
-                        _a.trys.push([2, 9, , 10]);
+                        utxos = _a.sent();
                         tranres = CoinTool.makeTran(utxos, targetaddr, asset, _count);
                         tran = tranres.info['tran'];
                         if (tran.witnesses == null)
@@ -8023,16 +8021,21 @@ var CoinTool = /** @class */ (function () {
                         return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
                     case 5:
                         height = _a.sent();
+                        console.log(data.toHexString());
                         return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
                     case 6:
                         result = _a.sent();
                         if (result["sendrawtransactionresult"]) {
                             res.err = !result;
                             res.info = result['txid'];
-                            olds = tranres.info['oldarr'];
-                            olds.map(function (old) { return old.height = height; });
-                            entity_1.OldUTXO.oldutxosPush(olds);
                         }
+                        else {
+                            res.err = true;
+                            res.info = "交易发送失败";
+                        }
+                        olds = tranres.info['oldarr'];
+                        olds.map(function (old) { return old.height = height; });
+                        entity_1.OldUTXO.oldutxosPush(olds);
                         return [2 /*return*/, res];
                     case 7:
                         error_2 = _a.sent();
@@ -8042,6 +8045,7 @@ var CoinTool = /** @class */ (function () {
                     case 9:
                         error_3 = _a.sent();
                         console.log("error  input");
+                        console.log(error_3);
                         throw error_3;
                     case 10: return [2 /*return*/];
                 }
