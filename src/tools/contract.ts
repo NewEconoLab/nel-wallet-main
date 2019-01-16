@@ -17,19 +17,8 @@ export default class Contract
 
         sb.EmitParamJson(param);//第二个参数是个数组
         sb.EmitPushString(method);
-        try
-        {
-
-            sb.EmitAppCall(appCall);
-            return sb.ToArray();
-        } catch (error)
-        {
-            console.log("----------------------------------error-----------------" + error);
-            console.log(appCall);
-
-            console.log(method);
-
-        }
+        sb.EmitAppCall(appCall);
+        return sb.ToArray();
     }
 
     /**
@@ -52,6 +41,32 @@ export default class Contract
         sb.EmitAppCall(appCall);
         return sb.ToArray();
     }
+
+
+    /**
+     * @method buildScript 构建script
+     * @param appCall 合约地址
+     * @param method 方法名
+     * @param param 参数
+     */
+    static buildScript_random_array(sbarr: ScriptEntity[]): Uint8Array
+    {
+        var sb = new ThinNeo.ScriptBuilder();
+        //生成随机数
+        let random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues<Uint8Array>(new Uint8Array(32));
+        let random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+        //塞入随机数
+        sb.EmitPushNumber(random_int);
+        sb.Emit(ThinNeo.OpCode.DROP);
+        for (const script of sbarr)
+        {
+            sb.EmitParamJson(script.param);//第二个参数是个数组
+            sb.EmitPushString(script.method);
+            sb.EmitAppCall(script.appCall);
+        }
+        return sb.ToArray();
+    }
+
 
     static async buildInvokeTransData_attributes(script: Uint8Array)
     {
@@ -170,17 +185,22 @@ export default class Contract
         if (tran.witnesses == null)
             tran.witnesses = [];
         let data = await CoinTool.signData(tran);
-
+        let txid = tran.GetTxid();
         var res: Result = new Result();
-        var result = await tools.wwwtool.api_postRawTransaction(data);
-        res.err = !result[ "sendrawtransactionresult" ];
-        res.info = result[ "txid" ];
-        if (!res.err)
+        try
         {
-            if (feeres && feeres.oldutxo)
-            {
-                OldUTXO.oldutxosPush(feeres.oldutxo);
-            }
+            var result = await tools.wwwtool.api_postRawTransaction(data);
+            res.err = !result[ "sendrawtransactionresult" ];
+            res.info = txid;
+        } catch (error)
+        {
+            res.err = true;
+            res.info = txid
+        }
+
+        if (feeres && feeres.oldutxo)
+        {
+            OldUTXO.oldutxosPush(feeres.oldutxo);
         }
         return res;
     }
@@ -251,4 +271,17 @@ export default class Contract
         return methodnames;
     }
 
+}
+
+export class ScriptEntity
+{
+    constructor(appCall: Neo.Uint160, method: string, param: any[])
+    {
+        this.appCall = appCall;
+        this.param = param;
+        this.method = method;
+    }
+    appCall: Neo.Uint160
+    method: string
+    param: any[]
 }

@@ -3493,15 +3493,8 @@ var Contract = /** @class */ (function () {
         var sb = new ThinNeo.ScriptBuilder();
         sb.EmitParamJson(param); //第二个参数是个数组
         sb.EmitPushString(method);
-        try {
-            sb.EmitAppCall(appCall);
-            return sb.ToArray();
-        }
-        catch (error) {
-            console.log("----------------------------------error-----------------" + error);
-            console.log(appCall);
-            console.log(method);
-        }
+        sb.EmitAppCall(appCall);
+        return sb.ToArray();
     };
     /**
      * @method buildScript 构建script
@@ -3520,6 +3513,28 @@ var Contract = /** @class */ (function () {
         sb.EmitParamJson(param); //第二个参数是个数组
         sb.EmitPushString(method);
         sb.EmitAppCall(appCall);
+        return sb.ToArray();
+    };
+    /**
+     * @method buildScript 构建script
+     * @param appCall 合约地址
+     * @param method 方法名
+     * @param param 参数
+     */
+    Contract.buildScript_random_array = function (sbarr) {
+        var sb = new ThinNeo.ScriptBuilder();
+        //生成随机数
+        var random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+        var random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+        //塞入随机数
+        sb.EmitPushNumber(random_int);
+        sb.Emit(ThinNeo.OpCode.DROP);
+        for (var _i = 0, sbarr_1 = sbarr; _i < sbarr_1.length; _i++) {
+            var script = sbarr_1[_i];
+            sb.EmitParamJson(script.param); //第二个参数是个数组
+            sb.EmitPushString(script.method);
+            sb.EmitAppCall(script.appCall);
+        }
         return sb.ToArray();
     };
     Contract.buildInvokeTransData_attributes = function (script) {
@@ -3627,7 +3642,7 @@ var Contract = /** @class */ (function () {
      */
     Contract.contractInvokeTrans_attributes = function (script) {
         return __awaiter(this, void 0, void 0, function () {
-            var utxos, gass, addr, tran, feeres, data, res, result;
+            var utxos, gass, addr, tran, feeres, data, txid, res, result, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, cointool_1.CoinTool.getassets()];
@@ -3660,16 +3675,25 @@ var Contract = /** @class */ (function () {
                         return [4 /*yield*/, cointool_1.CoinTool.signData(tran)];
                     case 2:
                         data = _a.sent();
+                        txid = tran.GetTxid();
                         res = new entity_1.Result();
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                        _a.label = 3;
                     case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 4:
                         result = _a.sent();
                         res.err = !result["sendrawtransactionresult"];
-                        res.info = result["txid"];
-                        if (!res.err) {
-                            if (feeres && feeres.oldutxo) {
-                                entity_1.OldUTXO.oldutxosPush(feeres.oldutxo);
-                            }
+                        res.info = txid;
+                        return [3 /*break*/, 6];
+                    case 5:
+                        error_1 = _a.sent();
+                        res.err = true;
+                        res.info = txid;
+                        return [3 /*break*/, 6];
+                    case 6:
+                        if (feeres && feeres.oldutxo) {
+                            entity_1.OldUTXO.oldutxosPush(feeres.oldutxo);
                         }
                         return [2 /*return*/, res];
                 }
@@ -3689,7 +3713,7 @@ var Contract = /** @class */ (function () {
             param[_i] = arguments[_i];
         }
         return __awaiter(this, void 0, void 0, function () {
-            var address, script, have, addr, assetid, count, utxos, tranmsg, tran, data, height, result, olds, error_1;
+            var address, script, have, addr, assetid, count, utxos, tranmsg, tran, data, height, result, olds, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3733,7 +3757,7 @@ var Contract = /** @class */ (function () {
                         }
                         return [3 /*break*/, 7];
                     case 6:
-                        error_1 = _a.sent();
+                        error_2 = _a.sent();
                         return [3 /*break*/, 7];
                     case 7: return [2 /*return*/];
                 }
@@ -3766,6 +3790,15 @@ var Contract = /** @class */ (function () {
     return Contract;
 }());
 exports.default = Contract;
+var ScriptEntity = /** @class */ (function () {
+    function ScriptEntity(appCall, method, param) {
+        this.appCall = appCall;
+        this.param = param;
+        this.method = method;
+    }
+    return ScriptEntity;
+}());
+exports.ScriptEntity = ScriptEntity;
 
 
 /***/ }),
@@ -7783,12 +7816,9 @@ var CoinTool = /** @class */ (function () {
                     case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
                     case 1:
                         height = _a.sent();
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getUTXO(entity_1.LoginInfo.getCurrentAddress())];
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getUTXO(importpack_1.tools.storagetool.getStorage("current-address"))];
                     case 2:
                         utxos = _a.sent();
-                        if (utxos == undefined) {
-                            return [2 /*return*/, {}];
-                        }
                         olds = entity_1.OldUTXO.getOldutxos();
                         olds2 = new Array();
                         for (n = 0; n < olds.length; n++) {
@@ -7801,7 +7831,7 @@ var CoinTool = /** @class */ (function () {
                                     console.log(utxo);
                                     console.log(height - old.height);
                                 }
-                                if (utxo.txid.includes(old.txid) && old.n == utxo.n) {
+                                if (utxo.txid + "".includes(old.txid) && old.n == utxo.n && height - old.height < 3) {
                                     findutxo = true;
                                     utxos.splice(i_1, 1);
                                 }
@@ -7858,7 +7888,7 @@ var CoinTool = /** @class */ (function () {
         tran.outputs = [];
         tran.inputs = [];
         var payfee = entity_1.LoginInfo.info.payfee;
-        var fee = Neo.Fixed8.fromNumber(0.001);
+        var fee = Neo.Fixed8.parse('0.001');
         var sumcount = Neo.Fixed8.Zero; //初始化
         if (gasutxos) {
             for (var i = 0; i < gasutxos.length; i++) //循环塞入utxo用于判断总数是否足够
@@ -7892,7 +7922,7 @@ var CoinTool = /** @class */ (function () {
             tran.witnesses = [];
         for (var i in tran.inputs) {
             var input = tran.inputs[i];
-            old.push(new entity_1.OldUTXO(input.hash.toHexString(), input.index));
+            old.push(new entity_1.OldUTXO(input.hash.reverse().toHexString(), input.index));
         }
         res.err = false;
         res.info = { "tran": tran, "oldarr": old };
@@ -7961,7 +7991,7 @@ var CoinTool = /** @class */ (function () {
      */
     CoinTool.signData = function (tran) {
         return __awaiter(this, void 0, void 0, function () {
-            var info, addr, current, msg, pubkey, prekey, signdata, data, error_1;
+            var info, addr, msg, pubkey, prekey, signdata, data, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7970,17 +8000,16 @@ var CoinTool = /** @class */ (function () {
                     case 1:
                         info = _a.sent();
                         addr = entity_1.LoginInfo.getCurrentAddress();
-                        current = entity_1.LoginInfo.info;
                         msg = tran.GetMessage().clone();
-                        pubkey = current.pubkey.clone();
-                        prekey = current.prikey.clone();
+                        pubkey = info.pubkey.clone();
+                        prekey = info.prikey.clone();
                         signdata = ThinNeo.Helper.Sign(msg, prekey);
                         tran.AddWitness(signdata, pubkey, addr);
                         data = tran.GetRawData();
                         return [2 /*return*/, data];
                     case 2:
                         error_1 = _a.sent();
-                        throw "Signature interrupt";
+                        throw new Error("Signature interrupt");
                     case 3: return [2 /*return*/];
                 }
             });
@@ -7994,58 +8023,52 @@ var CoinTool = /** @class */ (function () {
      */
     CoinTool.rawTransaction = function (targetaddr, asset, count) {
         return __awaiter(this, void 0, void 0, function () {
-            var _count, utxos, tranres, tran, txid, data, res, height, result, olds, error_2, error_3;
+            var _count, utxos, tranres, tran, txid, data, res, height, olds, result, error_2, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _count = Neo.Fixed8.parse(count + "");
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 9, , 10]);
                         return [4 /*yield*/, CoinTool.getassets()];
-                    case 2:
+                    case 1:
                         utxos = _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 9, , 10]);
                         tranres = CoinTool.makeTran(utxos, targetaddr, asset, _count);
                         tran = tranres.info['tran'];
                         if (tran.witnesses == null)
                             tran.witnesses = [];
-                        txid = tran.GetHash().clone().reverse().toHexString();
+                        txid = tran.GetTxid();
                         data = void 0;
+                        res = new entity_1.Result();
                         _a.label = 3;
                     case 3:
                         _a.trys.push([3, 7, , 8]);
                         return [4 /*yield*/, this.signData(tran)];
                     case 4:
                         data = _a.sent();
-                        res = new entity_1.Result();
                         return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
                     case 5:
                         height = _a.sent();
-                        console.log(data.toHexString());
+                        olds = tranres.info['oldarr'];
+                        olds.map(function (old) { return old.height = height; });
+                        entity_1.OldUTXO.oldutxosPush(olds);
                         return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
                     case 6:
                         result = _a.sent();
                         if (result["sendrawtransactionresult"]) {
                             res.err = !result;
-                            res.info = result['txid'];
+                            res.info = txid;
                         }
-                        else {
-                            res.err = true;
-                            res.info = "交易发送失败";
-                        }
-                        olds = tranres.info['oldarr'];
-                        olds.map(function (old) { return old.height = height; });
-                        entity_1.OldUTXO.oldutxosPush(olds);
                         return [2 /*return*/, res];
                     case 7:
                         error_2 = _a.sent();
-                        console.log(error_2);
-                        throw error_2;
+                        res.err = true;
+                        res.info = txid;
+                        return [2 /*return*/, res];
                     case 8: return [3 /*break*/, 10];
                     case 9:
                         error_3 = _a.sent();
-                        console.log("error  input");
-                        console.log(error_3);
                         throw error_3;
                     case 10: return [2 /*return*/];
                 }

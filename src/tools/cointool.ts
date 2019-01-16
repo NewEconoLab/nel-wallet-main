@@ -1,7 +1,6 @@
 import { tools } from "./importpack";
-import { RootDomainInfo, Consts, LoginInfo, DomainInfo, DomainStatus, Result, UTXO, OldUTXO, Claim, currentInfo, alert, LoginType, WalletOtcgo } from "./entity";
+import { LoginInfo, Result, UTXO, OldUTXO, Claim } from "./entity";
 
-declare const mui;
 export class CoinTool
 {
     static readonly id_GAS: string = "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7";
@@ -58,11 +57,7 @@ export class CoinTool
     {
         //获得高度
         var height = await tools.wwwtool.api_getHeight();
-        var utxos = await tools.wwwtool.api_getUTXO(LoginInfo.getCurrentAddress());   //获得utxo
-        if (utxos == undefined)
-        {
-            return {};
-        }
+        var utxos = await tools.wwwtool.api_getUTXO(tools.storagetool.getStorage("current-address"));   //获得utxo
         var olds = OldUTXO.getOldutxos();       //获得以标记的utxo(交易过的utxo 存储在本地的标记)
         var olds2 = new Array<OldUTXO>();       //
         for (let n = 0; n < olds.length; n++)
@@ -79,7 +74,7 @@ export class CoinTool
                     console.log(height - old.height);
 
                 }
-                if ((utxo.txid as string).includes(old.txid) && old.n == utxo.n)
+                if (utxo.txid + "".includes(old.txid) && old.n == utxo.n && height - old.height < 3)
                 {
                     findutxo = true;
                     utxos.splice(i, 1);
@@ -142,9 +137,8 @@ export class CoinTool
         var old: OldUTXO[] = []
         tran.outputs = [];
         tran.inputs = [];
-
         let payfee = LoginInfo.info.payfee;
-        let fee = Neo.Fixed8.fromNumber(0.001);
+        let fee = Neo.Fixed8.parse('0.001');
         let sumcount = Neo.Fixed8.Zero; //初始化
         if (gasutxos)
         {
@@ -184,7 +178,7 @@ export class CoinTool
         for (const i in tran.inputs)
         {
             const input = tran.inputs[ i ];
-            old.push(new OldUTXO(input.hash.toHexString(), input.index))
+            old.push(new OldUTXO(input.hash.reverse().toHexString(), input.index))
         }
         res.err = false;
         res.info = { "tran": tran, "oldarr": old };
@@ -253,7 +247,6 @@ export class CoinTool
         else
         {
             throw new Error("no enough money.");
-
         }
     }
 
@@ -268,17 +261,16 @@ export class CoinTool
         {
             let info = await LoginInfo.deblocking();
             let addr = LoginInfo.getCurrentAddress();
-            let current = LoginInfo.info
             var msg = tran.GetMessage().clone();
-            var pubkey = current.pubkey.clone();
-            var prekey = current.prikey.clone();
+            var pubkey = info.pubkey.clone();
+            var prekey = info.prikey.clone();
             var signdata = ThinNeo.Helper.Sign(msg, prekey);
             tran.AddWitness(signdata, pubkey, addr);
             var data: Uint8Array = tran.GetRawData();
             return data;
         } catch (error)
         {
-            throw "Signature interrupt";
+            throw new Error("Signature interrupt");
         }
 
     }
@@ -292,48 +284,38 @@ export class CoinTool
     static async rawTransaction(targetaddr: string, asset: string, count: string): Promise<Result>
     {
         var _count = Neo.Fixed8.parse(count + "");
+        var utxos = await CoinTool.getassets();
         try
         {
-            var utxos = await CoinTool.getassets();
             var tranres = CoinTool.makeTran(utxos, targetaddr, asset, _count);  //获得tran和改变后的utxo
             var tran: ThinNeo.Transaction = tranres.info[ 'tran' ];
             if (tran.witnesses == null)
                 tran.witnesses = [];
-            let txid = tran.GetHash().clone().reverse().toHexString();
-            let data: Uint8Array;
+            let txid = tran.GetTxid();
+            let data;
+            var res: Result = new Result();
             try
             {
                 data = await this.signData(tran);
-                var res: Result = new Result();
                 var height = await tools.wwwtool.api_getHeight();
-                console.log(data.toHexString());
-
+                let olds = tranres.info[ 'oldarr' ] as OldUTXO[];
+                olds.map(old => old.height = height);
+                OldUTXO.oldutxosPush(olds);
                 var result = await tools.wwwtool.api_postRawTransaction(data);
                 if (result[ "sendrawtransactionresult" ])
                 {
                     res.err = !result;
-                    res.info = result[ 'txid' ];
+                    res.info = txid;
                 }
-                else
-                {
-                    res.err = true;
-                    res.info = "交易发送失败"
-                }
-                let olds = tranres.info[ 'oldarr' ] as OldUTXO[];
-                olds.map(old => old.height = height);
-                OldUTXO.oldutxosPush(olds);
                 return res;
             } catch (error)
             {
-                console.log(error);
-                throw error;
-
+                res.err = true;
+                res.info = txid;
+                return res;
             }
         } catch (error) 
         {
-            console.log("error  input");
-            console.log(error);
-
             throw error;
         }
     }
@@ -344,7 +326,6 @@ export class CoinTool
     static async claimgas()
     {
         let claimtxhex: string = await tools.wwwtool.api_getclaimtxhex(LoginInfo.getCurrentAddress());
-
         //对象化交易体
         var tran = new ThinNeo.Transaction();
         var buf = claimtxhex.hexToBytes();

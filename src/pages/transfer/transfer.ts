@@ -248,7 +248,7 @@ export default class transfer extends Vue
                         let res: Result = await tools.coinTool.rawTransaction(this.toaddress, this.asset, this.amount);
                         if (res.err)
                         {
-                            this.openToast("error", "" + this.$t("transfer.msg3") + res.info, 3000);
+                            this.openToast("error", "" + this.$t("transfer.msg3"), 3000);
                             return;
                         } else
                         {
