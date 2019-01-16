@@ -143,7 +143,8 @@ export class CoinTool
         tran.outputs = [];
         tran.inputs = [];
 
-        let fee = Neo.Fixed8.parse('0.00000001');
+        let payfee = LoginInfo.info.payfee;
+        let fee = Neo.Fixed8.fromNumber(0.001);
         let sumcount = Neo.Fixed8.Zero; //初始化
         if (gasutxos)
         {
@@ -158,13 +159,13 @@ export class CoinTool
             let tranRes = this.creatInuptAndOutup(gasutxos, sendcount, targetaddr);
             tran.inputs = tranRes.inputs;
             tran.outputs = tranRes.outputs;
-            if (tran.outputs && tran.outputs.length > 1)
+            if (payfee && tran.outputs && tran.outputs.length > 1)
             {
                 tran.outputs[ 1 ].value = tran.outputs[ 1 ].value.subtract(fee);
             }
         } else
         {
-            if (gasutxos)
+            if (payfee && gasutxos)
             {
                 // 创建 fee的输入输出
                 let feeRes = this.creatInuptAndOutup(gasutxos, fee);
@@ -387,46 +388,6 @@ export class CoinTool
         var result = await tools.wwwtool.api_postRawTransaction(data);
         result[ 'amount' ] = sum;
         return result
-    }
-
-    /**
-     * invokeTrans 方式调用合约塞入attributes
-     * @param script 合约的script
-     */
-    static async contractInvokeTrans_attributes(script: Uint8Array)
-    {
-        var addr = LoginInfo.getCurrentAddress()
-        var utxos = await CoinTool.getassets();
-        var gass = utxos[ tools.coinTool.id_GAS ];
-        var tran: ThinNeo.Transaction = new ThinNeo.Transaction();
-        //合约类型
-        tran.inputs = [];
-        tran.outputs = [];
-        tran.type = ThinNeo.TransactionType.InvocationTransaction;
-        tran.extdata = new ThinNeo.InvokeTransData();
-        //塞入脚本
-        (tran.extdata as ThinNeo.InvokeTransData).script = script;
-        tran.attributes = new Array<ThinNeo.Attribute>(1);
-        tran.attributes[ 0 ] = new ThinNeo.Attribute();
-        tran.attributes[ 0 ].usage = ThinNeo.TransactionAttributeUsage.Script;
-        tran.attributes[ 0 ].data = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr);
-        let feeres = tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.parse("0.00000001"));
-        tran.inputs = feeres.inputs.map(input =>
-        {
-            input.hash = input.hash.reverse();
-            return input
-        });
-        tran.outputs = feeres.outputs;
-
-        if (tran.witnesses == null)
-            tran.witnesses = [];
-        let data = await this.signData(tran);
-        var res: Result = new Result();
-        var result = await tools.wwwtool.api_postRawTransaction(data);
-        res.err = !result[ "sendrawtransactionresult" ];
-        res.info = result[ "txid" ];
-
-        return res;
     }
 
     /**

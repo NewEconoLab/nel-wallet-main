@@ -67,8 +67,8 @@ export default class SgasTool
         {
             let cgasRes = tools.coinTool.creatInuptAndOutup(cgass, Neo.Fixed8.fromNumber(transcount), cgasAddress);
             let feeRes = undefined;
-            if (gass)
-                feeRes = tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.fromNumber(0.00000001));
+            if (gass && LoginInfo.info.payfee)
+                feeRes = tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.fromNumber(0.001));
             tran.inputs = cgasRes.inputs;
             tran.outputs = cgasRes.outputs;
             if (feeRes)
@@ -139,12 +139,13 @@ export default class SgasTool
 
         try
         {
-            let fee = Neo.Fixed8.fromNumber(0.00000001);                //网络费用
-            if (transcount.compareTo(fee) > 0)
+            let sendcount = transcount;
+            if (LoginInfo.info.payfee)
             {
-                transcount = transcount.subtract(fee);    //由于转账使用的utxo和需要转换的金额一样大所以输入只需要塞入减去交易费的金额，utxo也足够使用交易费
+                let fee = Neo.Fixed8.fromNumber(0.001);                //网络费用
+                sendcount = transcount.subtract(fee);    //由于转账使用的utxo和需要转换的金额一样大所以输入只需要塞入减去交易费的金额，utxo也足够使用交易费
             }
-            let tranRes = tools.coinTool.creatInuptAndOutup([ utxo ], transcount, LoginInfo.getCurrentAddress());   //创建交易
+            let tranRes = tools.coinTool.creatInuptAndOutup([ utxo ], sendcount, LoginInfo.getCurrentAddress());   //创建交易
             tran.inputs = tranRes.inputs;
             tran.outputs = tranRes.outputs;
             tran.outputs.length = 1;  //去掉找零的部分，只保留一个转账位
