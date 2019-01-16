@@ -1,0 +1,9437 @@
+webpackJsonp([11],{
+
+/***/ "+H70":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "+hRd":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"main-content"},[_c('nav',{staticClass:"navbar navbar-nel navbar-fixed-top"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"navbar-header"},[_c('button',{staticClass:"navbar-toggle collapsed",attrs:{"type":"button","data-toggle":"collapse","data-target":"#navbar","aria-expanded":"false","aria-controls":"navbar"}},[_c('span',{staticClass:"sr-only"},[_vm._v(_vm._s(_vm.$t('navbar.toggle')))]),_vm._v(" "),_c('span',{staticClass:"icon-bar"}),_vm._v(" "),_c('span',{staticClass:"icon-bar"}),_vm._v(" "),_c('span',{staticClass:"icon-bar"})])]),_vm._v(" "),_c('div',{staticClass:"navbar-collapse collapse",attrs:{"id":"navbar"}},[_c('div',{staticClass:"logo"}),_vm._v(" "),_c('ul',{staticClass:"nav navbar-nav navbar-left"},[_c('li',[_c('a',{attrs:{"href":"https://scan.nel.group/","target":"_blank"}},[_vm._v(_vm._s(_vm.$t('navbar.explorer')))])]),_vm._v(" "),_c('li',[_c('a',{staticClass:"active-nel"},[_vm._v(_vm._s(_vm.$t('navbar.wallet')))])])]),_vm._v(" "),_c('ul',{staticClass:"nav navbar-nav navbar-right"},[_c('li',{staticClass:"dropdown"},[_c('a',{staticClass:"dropdown-toggle",attrs:{"data-toggle":"dropdown","role":"button","aria-haspopup":"true","aria-expanded":"false"}},[_c('span',{staticClass:"text",attrs:{"id":"network"}},[_vm._v(_vm._s(_vm.$t('navbar.mainnet')))]),_vm._v(" "),_c('span',{staticClass:" caret"})]),_vm._v(" "),_c('ul',{staticClass:"dropdown-menu dropdown-nel"},[_c('li',{staticClass:"active",attrs:{"id":"mainnet-btn"}},[_c('a',{attrs:{"id":"maina"}},[_vm._v(_vm._s(_vm.$t('navbar.mainnet')))])]),_vm._v(" "),_c('li',{attrs:{"id":"testnet-btn"}},[_c('a',{attrs:{"id":"testa","target":"_blank","href":"https://testwallet.nel.group"}},[_vm._v(_vm._s(_vm.$t('navbar.testnet')))])])])]),_vm._v(" "),(_vm.loginshow)?_c('li',[_c('router-link',{attrs:{"to":"login"}},[_vm._v(_vm._s(_vm.$t('navbar.logout')))])],1):_vm._e()]),_vm._v(" "),_c('ul',{staticClass:"nav navbar-nav navbar-right"},[_c('li',{staticClass:"dropdown"},[_c('a',{staticClass:"dropdown-toggle",attrs:{"data-toggle":"dropdown","role":"button","aria-haspopup":"true","aria-expanded":"false"}},[_c('span',{staticClass:"text"},[_vm._v(_vm._s(_vm.currentLanguage))]),_vm._v(" "),_c('span',{staticClass:" caret"})]),_vm._v(" "),_c('ul',{staticClass:"dropdown-menu dropdown-nel"},[_c('li',{class:_vm.currentLanguage=='English'?'active':'',attrs:{"id":"testnet-btn"}},[_c('a',{on:{"click":function($event){_vm.cutLanguage(1)}}},[_vm._v("English")])]),_vm._v(" "),_c('li',{class:_vm.currentLanguage!='English'?'active':'',attrs:{"id":"mainnet-btn"}},[_c('a',{on:{"click":function($event){_vm.cutLanguage(2)}}},[_vm._v("中文")])])])])])])])]),_vm._v(" "),_vm._t("default")],2)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "+jyM":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue__ = __webpack_require__("8Qnm");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e14896b2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Spinner_vue__ = __webpack_require__("GHuV");
+function injectStyle (ssrContext) {
+  __webpack_require__("mthI")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-e14896b2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Spinner_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e14896b2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Spinner_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "/z55":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.show)?_c('div',{staticClass:"alert-box"},[_c('div',{staticClass:"alert-warp"},[_c('div',{staticClass:"alert-title"},[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('div',{staticClass:"alert-content"},[_vm._t("default")],2),_vm._v(" "),_c('div',{staticClass:"alert-close",on:{"click":function($event){_vm.close()}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])])])]):_vm._e()}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "0YXJ":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAd1JREFUSA291L1LQlEUAPBzrlpZQy0tQS0FBZYhtPYPtKSYUY1BRRS+tqSWtmxKpaX+gSKThsCtSRqioDCDIlpss0nIjNR7utcSHmIvfb7XXe7Xu+f3znkfADpb2JNa2V8km87jwPQe5MT33jN35xHfU7eeGLrhH2ycFz6uI957V6N4szAQUF+Jly5E6WcawZuGyxiBXZT+MORJbdMW1RWzrovqzYSIB8K3qbN933PnX2cMhSUmSj+RL+QuQ76HQS3ccPgbh0Eqfl6GvcmJ33BT4DJG0Mk5noU8yfVauHlwOXViRBAMee4Oj30vdvUN4K47+SYWOtSLZowR4AZtFrcSdaRlfJmx6aiECMDFi6WryNT9uJzLjMXa/zVEKCCwBXOfsUY+Vo09w7dEtq/MYvH6TxwJmXHOcKFGwPLLZbWMSVRui7m+1si7gYhHPdau+elob76imVtqRM6ANpXTkWAFrPTmwQhZxmhOiTnjFUzdmwKL5/cI1pZJJTr0qMbUY8NhBIzbbe1zS9H+rBqqHhsKi89lRxkd3sAt5NVQ9dyYHwhCniGbXTt1BupB5U00nbEobZox5vbHHDfVWWnNm4UTrWifWo4NZLSQWnu6YVHa1bZux8HSARZqBf5r7QvVEomMCsloFQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "1Iz4":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "2v9N":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue__ = __webpack_require__("TaBq");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1585bb70_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Selected_vue__ = __webpack_require__("FmI8");
+function injectStyle (ssrContext) {
+  __webpack_require__("Q+Sz")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-1585bb70"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Selected_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_1585bb70_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Selected_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "48oz":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var DateTool = /** @class */ (function () {
+    function DateTool() {
+    }
+    /**************************************时间格式化处理************************************/
+    DateTool.dateFtt = function (fmt, date) {
+        var o = {
+            "M+": date.getMonth() + 1,
+            "d+": date.getDate(),
+            "h+": date.getHours(),
+            "m+": date.getMinutes(),
+            "s+": date.getSeconds(),
+            "q+": Math.floor((date.getMonth() + 3) / 3),
+            "S": date.getMilliseconds() //毫秒   
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    };
+    DateTool.getTime = function (date) {
+        date = date.toString().length == 10 ? date * 1000 : date;
+        var time = new Date(date);
+        var language = localStorage.getItem("language");
+        if (!language || language == 'en') {
+            return new Date(time).toUTCString();
+        }
+        else {
+            return this.dateFtt("yyyy/MM/dd hh:mm:ss", new Date(time));
+        }
+    };
+    DateTool.currentTime = function (time) {
+        if (time) {
+            var num = this.getDate(time).getTime();
+            return accDiv(num, 1000);
+        }
+        return parseInt(accDiv(new Date().getTime(), 1000).toString());
+    };
+    DateTool.getDate = function (time) {
+        if (typeof time == "number") {
+            time = (time.toString().length < 14) ? time * 1000 : time;
+            return new Date(time);
+        }
+        else {
+            return new Date(time);
+        }
+    };
+    return DateTool;
+}());
+exports.default = DateTool;
+
+
+/***/ }),
+
+/***/ "50aY":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var WWW = /** @class */ (function () {
+    function WWW() {
+    }
+    WWW.makeRpcUrl = function (url, method) {
+        var _params = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            _params[_i - 2] = arguments[_i];
+        }
+        if (url[url.length - 1] != '/')
+            url = url + "/";
+        var urlout = url + "?jsonrpc=2.0&id=1&method=" + method + "&params=[";
+        for (var i = 0; i < _params.length; i++) {
+            urlout += JSON.stringify(_params[i]);
+            if (i != _params.length - 1)
+                urlout += ",";
+        }
+        urlout += "]";
+        return urlout;
+    };
+    WWW.makeRpcPostBody = function (method) {
+        var _params = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            _params[_i - 1] = arguments[_i];
+        }
+        var body = {};
+        body["jsonrpc"] = "2.0";
+        body["id"] = 1;
+        body["method"] = method;
+        var params = [];
+        for (var i = 0; i < _params.length; i++) {
+            params.push(_params[i]);
+        }
+        body["params"] = params;
+        return body;
+    };
+    WWW.gettransbyaddress = function (address, pagesize, pageindex) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("gettransbyaddress", address, pagesize, pageindex);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.gettransbyaddressnew = function (address, pagesize, pageindex) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("gettransbyaddressNew", address, pagesize, pageindex);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r ? r : []];
+                }
+            });
+        });
+    };
+    WWW.api_getHeight = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r, height;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getblockcount");
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        height = parseInt(r[0]["blockcount"]) - 1;
+                        return [2 /*return*/, height];
+                }
+            });
+        });
+    };
+    WWW.api_getBlockInfo = function (index) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r, time;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getblocktime", index);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        time = parseInt(r[0]["time"]);
+                        return [2 /*return*/, time];
+                }
+            });
+        });
+    };
+    WWW.api_getAllAssets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getallasset");
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.api_getUTXO = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getutxo", address);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**判断是否可以获取gas */
+    WWW.api_hasclaimgas = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("hasclaimgas", address);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获取gas
+     */
+    WWW.api_claimgas = function (address, num) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("claimgas", address, num);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.api_getnep5Balance = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getallnep5assetofaddress", address, 1);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.api_getBalance = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, value, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getbalance", address);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        value = _a.sent();
+                        return [4 /*yield*/, value.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * @method 获得nep5资产信息
+     * @param asset 资产id
+     */
+    WWW.getNep5Asset = function (asset) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getnep5asset", asset);
+                        return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 跟地址获取nep资产id对应的余额
+     * @param asset 资产id
+     * @param address 地址
+     */
+    WWW.getnep5balanceofaddress = function (asset, address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getnep5balanceofaddress", asset, address);
+                        return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.api_getAddressTxs = function (address, size, page) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getaddresstxs", address, size, page);
+                        return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.api_postRawTransaction = function (data) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("sendrawtransaction", data.toHexString());
+                        return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw json['error'];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    WWW.api_getclaimgas = function (address, type) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (type)
+                            str = WWW.makeRpcUrl(WWW.api, "getclaimgas", address, type);
+                        else
+                            str = WWW.makeRpcUrl(WWW.api, "getclaimgas", address);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        if (r == undefined)
+                            return [2 /*return*/, { gas: 0 }];
+                        return [2 /*return*/, r[0]];
+                }
+            });
+        });
+    };
+    WWW.api_getclaimtxhex = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getclaimtxhex", address);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        if (r == undefined)
+                            return [2 /*return*/, ""];
+                        return [2 /*return*/, r[0]["claimtxhex"]];
+                }
+            });
+        });
+    };
+    WWW.rpc_getHeight = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r, height;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getblockcount");
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        height = parseInt(r) - 1;
+                        return [2 /*return*/, height];
+                }
+            });
+        });
+    };
+    WWW.rpc_getStorage = function (scripthash, key) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getstorage", scripthash.toHexString(), key.toHexString());
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"] == null)
+                            return [2 /*return*/, null];
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.rpc_getInvokescript = function (scripthash) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "invokescript", scripthash.toHexString());
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"] == null)
+                            return [2 /*return*/, null];
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.getrawtransaction = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getrawtransaction", txid);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (!json["result"])
+                            return [2 /*return*/, null];
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    //获取nep5的交易详情
+    WWW.getnep5transferbytxid = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getnep5transferbytxid", txid);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (!json["result"])
+                            return [2 /*return*/, null];
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    //获取转账域名地址    
+    WWW.getresolvedaddress = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getresolvedaddress", domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"] == null)
+                            return [2 /*return*/, null];
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    //获取地址下所有的域名
+    WWW.getnnsinfo = function () {
+        var params = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            params[_i] = arguments[_i];
+        }
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody.apply(WWW, ["getdomainbyaddress"].concat(params));
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"] == null)
+                            return [2 /*return*/, null];
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 发送合约调用
+     * @param scriptaddr 合约参数脚本
+     */
+    WWW.api_getcontractstate = function (scriptaddr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var str, value, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        str = WWW.makeRpcUrl(WWW.api, "getcontractstate", scriptaddr);
+                        return [4 /*yield*/, fetch(str, { "method": "get" })];
+                    case 1:
+                        value = _a.sent();
+                        return [4 /*yield*/, value.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获得全量的地址列表的数据
+     * @param address 地址
+     * @param currentpage 当前页码
+     * @param pagesize 页面条数
+     */
+    WWW.getauctioninfobyaddress = function (address, currentpage, pagesize, root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 根据id和address更新列表数据
+     * @param address 地址
+     * @param ids id 列表
+     */
+    WWW.getauctioninfobyaucitonid = function (address, ids, root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getauctioninfobyaucitonid", address, ids, root);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 根据id和address更新列表数据
+     * @param address 地址
+     * @param ids id 列表
+     */
+    WWW.getdomainauctioninfo = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getdomainauctioninfo", domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    WWW.searchDomainStatus = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getdomainstate", domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获得分页总条数
+     * @param address 地址
+     */
+    WWW.getauctioninfocount = function (address, root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getauctioninfocount", address, root);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        return [2 /*return*/, (json && json["result"]) ? json["result"][0]["count"] : 0];
+                }
+            });
+        });
+    };
+    /**
+     * 根据地址查询参与竞拍的域名列表
+     * @param address 要查询的地址
+     */
+    WWW.api_getBidListByAddress = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbidlistbyaddress", address);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获得时间轴的域名详情
+     * @param domain 域名
+     * @param currentpage 当前页码
+     * @param pagesize 条数
+     */
+    WWW.api_getBidDetail = function (id, currentpage, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbiddetailbydomain", id, currentpage, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获得bonus 历史记录
+     * @param address 地址
+     * @param currentpage 当前页码
+     * @param pagesize 条数
+     */
+    WWW.api_getbonushistbyaddress = function (address, currentpage, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbonushistbyaddress", address, currentpage, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 获得bonus 历史记录
+     * @param address 地址
+     * @param currentpage 当前页码
+     * @param pagesize 条数
+     */
+    WWW.getavailableutxos = function (address, count) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getavailableutxos", address, count);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 两笔交易提交给服务器发送
+     * @param data1 第一笔交易数据
+     * @param data2 第二笔交易数据
+     */
+    WWW.rechargeandtransfer = function (data1, data2) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("rechargeandtransfer", data1.toHexString(), data2.toHexString());
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json && json["result"] && json["result"][0]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "Interface call exception";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 查询合约调用状态
+     * @param txid 交易id
+     */
+    WWW.getrechargeandtransfer = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getrechargeandtransfer", txid);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 我的域名的状态
+     * @param address 地址
+     * @param domain 域名
+     */
+    WWW.getDomainState = function (address, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getdomainstate", address, id);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获得交易对应的notify
+     * @param txid
+     */
+    WWW.getNotify = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getnotify", txid);
+                        return [4 /*yield*/, fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 查询交易的状态
+     * @param txid
+     */
+    WWW.hastx = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("hastx", txid);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 查询交易对应notify的方法名
+     * @param txid
+     */
+    WWW.hascontract = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("hascontract", txid);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        r = json["result"][0];
+                        return [2 /*return*/, r];
+                }
+            });
+        });
+    };
+    /**
+     * 查询我参与竞拍的域名
+     * @param address 地址
+     * @param domain 域名
+     */
+    WWW.searchdomainbyaddress = function (address, domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("searchdomainbyaddress", address, domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**查询分红 */
+    WWW.getbonushistbyaddress = function (address, page, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbonushistbyaddress", address, page, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获取分红记录列表
+     * @param address
+     * @param page
+     * @param pagesize
+     */
+    WWW.getbonusbyaddress = function (address, page, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 查询注册器下余额
+     * @param address
+     * @param hash
+     */
+    WWW.getregisteraddressbalance = function (address, hash) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getregisteraddressbalance", address, hash);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, Neo.Fixed8.parse(r["balance"]).toString()];
+                        }
+                        else {
+                            return [2 /*return*/, "0"];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 出售域名获取NNC的收益
+     * @param address 当前地址
+     */
+    WWW.getNNCFromSellingHash = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getNNCfromSellingHash", address);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 根据地址查询已出售已成交列表
+     * @param address 当前地址
+     * @param type 域名类型“neo or test”
+     * @param showtype 显示类型“sale or buy”
+     * @param page 当前页码
+     * @param pagesize 每页条数
+     */
+    WWW.getSaleOrBuyList = function (address, type, showtype, page, pagesize) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getDomainSellingListByAddress", address, type, showtype, page, pagesize);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            return [2 /*return*/, null];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获取域名的上架信息
+     * @param domain 域名
+     */
+    WWW.getSaleDomainInfo = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getNNSfixedSellingInfo", domain);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获取我的分红详情
+     * @param addr 当前地址
+     */
+    WWW.getcurrentbonus = function (addr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("getcurrentbonus", addr);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 申请领取分红
+     * @param addr 当前地址
+     */
+    WWW.applybonus = function (addr) {
+        return __awaiter(this, void 0, void 0, function () {
+            var postdata, result, json, r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        postdata = WWW.makeRpcPostBody("applybonus", addr);
+                        return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
+                    case 1:
+                        result = _a.sent();
+                        return [4 /*yield*/, result.json()];
+                    case 2:
+                        json = _a.sent();
+                        if (json["result"]) {
+                            r = json["result"][0];
+                            return [2 /*return*/, r];
+                        }
+                        else {
+                            throw "not data";
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    WWW.api = "https://api.nel.group/api/mainnet";
+    WWW.apiaggr = "https://apiwallet.nel.group/api/mainnet";
+    return WWW;
+}());
+exports.WWW = WWW;
+
+
+/***/ }),
+
+/***/ "5EbJ":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hint-box"},[_c('div',{staticClass:"hint-msg"},[_vm._t("default")],2)])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "5LD5":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+var StorageTool = /** @class */ (function () {
+    function StorageTool() {
+    }
+    StorageTool.getLoginArr = function () {
+        var message = sessionStorage.getItem("login-info-arr");
+        var arr = message ? entity_1.LoginInfo.StringToArray(message) : [];
+        return arr;
+    };
+    StorageTool.setLoginArr = function (value) {
+        sessionStorage.setItem('login-info-arr', entity_1.LoginInfo.ArrayToString(value));
+    };
+    StorageTool.setStorage = function (key, value) {
+        sessionStorage.setItem(key, value);
+    };
+    StorageTool.storageArrayPush = function (key, value) {
+        var arr = sessionStorage.getItem(key);
+        arr ? arr : arr = "[]";
+        var obj = JSON.parse(arr);
+        obj.push(value);
+        sessionStorage.setItem(key, JSON.stringify(obj));
+    };
+    StorageTool.getStorage = function (key) {
+        return sessionStorage.getItem(key);
+    };
+    StorageTool.delStorage = function (key) {
+        sessionStorage.removeItem(key);
+    };
+    StorageTool.heightRefresh = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var oldheight, height;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        oldheight = StorageTool.getStorage("block-height");
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
+                    case 1:
+                        height = _a.sent();
+                        if (oldheight == undefined || oldheight == null || oldheight == "") {
+                            StorageTool.setStorage("block-height", height.toString());
+                        }
+                        if (height - parseInt(oldheight) >= 2) {
+                            StorageTool.utxosRefresh();
+                            StorageTool.setStorage('block-height', height.toString());
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StorageTool.utxosRefresh = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var assets;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.coinTool.getassets()];
+                    case 1:
+                        assets = _a.sent();
+                        entity_1.UTXO.setAssets(assets);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return StorageTool;
+}());
+exports.StorageTool = StorageTool;
+/**
+ * @class localStorage工具类
+ */
+var LocalStoreTool = /** @class */ (function () {
+    //初始化对象
+    function LocalStoreTool(table) {
+        this.table = table;
+    }
+    /**
+     * 添加数据
+     * @param key
+     * @param value param[0]:value,param[1]:key
+     */
+    LocalStoreTool.prototype.put = function (key) {
+        var param = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            param[_i - 1] = arguments[_i];
+        }
+        var value = param[0]; //第零位是value
+        var item = this.getList();
+        var obj = item ? item : {};
+        if (param.length == 1) {
+            obj[key] = value;
+        }
+        else {
+            var index = param[1];
+            if (obj[key]) {
+                obj[key][index] = value;
+            }
+            else {
+                obj[key] = {};
+                obj[key][index] = value;
+            }
+        }
+        localStorage.setItem(this.table, JSON.stringify(obj));
+    };
+    /**
+     * 往key对应的对象里塞数据，如果有相同的值则，往数组中push
+     * @param key
+     * @param value
+     */
+    LocalStoreTool.prototype.push = function (key, value) {
+        var item = this.getList();
+        var list = item ? item : {};
+        var arr = (list[key] ? list[key] : []);
+        arr.push(value);
+        list[key] = arr;
+        localStorage.setItem(this.table, JSON.stringify(list));
+    };
+    /**
+     * 查找数据
+     * @param key
+     */
+    LocalStoreTool.prototype.select = function (key) {
+        var item = LocalStoreTool.getTable(this.table);
+        if (item) {
+            return item[key];
+        }
+        return undefined;
+    };
+    /**
+     * 根据下标删除对应缓存数组中的数据
+     * @param key 主键
+     * @param index 下标
+     */
+    LocalStoreTool.prototype.deleteByIndex = function (key, index) {
+        var item = this.getList();
+        if (item && item[key]) {
+            var arr = [];
+            arr = item[key];
+            arr.splice(index, 1);
+            console.log(arr);
+            item[key] = arr;
+            localStorage.setItem(this.table, JSON.stringify(item));
+        }
+    };
+    /**
+     * 删除数据
+     * @param key key:param[0],要删除的列名
+     * @param index index:param[1] 要删除的字段名
+     */
+    LocalStoreTool.prototype.delete = function () {
+        var param = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            param[_i] = arguments[_i];
+        }
+        var item = this.getList();
+        var key = param[0];
+        if (param.length == 1) {
+            if (item && item[key]) {
+                delete item[key];
+                localStorage.setItem(this.table, JSON.stringify(item));
+            }
+        }
+        else {
+            var index = param[1];
+            if (item && item[key] && item[key][index]) {
+                delete item[key][index];
+                localStorage.setItem(this.table, JSON.stringify(item));
+            }
+        }
+    };
+    /**
+     * 更新数据(其实put就可以了直接覆盖掉已有的数据)
+     * @param key
+     * @param value
+     */
+    LocalStoreTool.prototype.update = function (key, value) {
+        var item = LocalStoreTool.getTable(this.table);
+        if (item && item[key]) {
+            item[key] = value;
+        }
+    };
+    LocalStoreTool.prototype.getList = function () {
+        return LocalStoreTool.getTable(this.table);
+    };
+    /**
+     * 获得整张表的数据
+     * @param table
+     */
+    LocalStoreTool.getTable = function (table) {
+        var item = localStorage.getItem(table);
+        if (item) {
+            var obj = JSON.parse(item);
+            return obj;
+        }
+        return undefined;
+    };
+    return LocalStoreTool;
+}());
+exports.LocalStoreTool = LocalStoreTool;
+/**
+ * @class sessionStorage工具类
+ */
+var sessionStoreTool = /** @class */ (function () {
+    //初始化对象
+    function sessionStoreTool(table) {
+        this.table = table;
+    }
+    /**
+     * 添加数据
+     * @param key
+     * @param value param[0]:value,param[1]:key
+     */
+    sessionStoreTool.prototype.put = function (key) {
+        var param = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            param[_i - 1] = arguments[_i];
+        }
+        var value = param[0]; //第零位是value
+        var item = this.getList();
+        var obj = item ? item : {};
+        if (param.length == 1) {
+            obj[key] = value;
+        }
+        else {
+            var index = param[1];
+            if (obj[key]) {
+                obj[key][index] = value;
+            }
+            else {
+                obj[key] = {};
+                obj[key][index] = value;
+            }
+        }
+        sessionStorage.setItem(this.table, JSON.stringify(obj));
+    };
+    /**
+     * 往key对应的对象里塞数据，如果有相同的值则，往数组中push
+     * @param key
+     * @param value
+     */
+    sessionStoreTool.prototype.push = function (key, value) {
+        var item = this.getList();
+        var list = item ? item : {};
+        var arr = (list[key] ? list[key] : []);
+        arr.push(value);
+        list[key] = arr;
+        sessionStorage.setItem(this.table, JSON.stringify(list));
+    };
+    /**
+     * 查找数据
+     * @param key
+     */
+    sessionStoreTool.prototype.select = function (key) {
+        var item = this.getList();
+        if (item) {
+            return item[key];
+        }
+        return undefined;
+    };
+    /**
+     * 删除数据
+     * @param key key:param[0],要删除的列名
+     * @param index index:param[1] 要删除的字段名
+     */
+    sessionStoreTool.prototype.delete = function () {
+        var param = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            param[_i] = arguments[_i];
+        }
+        var item = this.getList();
+        var key = param[0];
+        if (param.length == 1) {
+            if (item && item[key]) {
+                delete item[key];
+                sessionStorage.setItem(this.table, JSON.stringify(item));
+            }
+        }
+        else {
+            var index = param[1];
+            if (item && item[key] && item[key][index]) {
+                delete item[key][index];
+                sessionStorage.setItem(this.table, JSON.stringify(item));
+            }
+        }
+    };
+    /**
+     * 更新数据(其实put就可以了直接覆盖掉已有的数据)
+     * @param key
+     * @param value
+     */
+    sessionStoreTool.prototype.update = function (key, value) {
+        var item = sessionStoreTool.getTable(this.table);
+        if (item && item[key]) {
+            item[key] = value;
+        }
+    };
+    /**
+     * 获得整张表的数据
+     * @param table
+     */
+    sessionStoreTool.getTable = function (table) {
+        var item = sessionStorage.getItem(table);
+        if (item) {
+            var obj = JSON.parse(item);
+            return obj;
+        }
+        return undefined;
+    };
+    sessionStoreTool.prototype.getList = function () {
+        return sessionStoreTool.getTable(this.table);
+    };
+    sessionStoreTool.prototype.setList = function (list) {
+        sessionStorage.setItem(this.table, JSON.stringify(list));
+    };
+    return sessionStoreTool;
+}());
+exports.sessionStoreTool = sessionStoreTool;
+var StaticStore = /** @class */ (function () {
+    function StaticStore() {
+    }
+    StaticStore.setAsset = function (asset) {
+        StaticStore.choiceAsset = asset;
+    };
+    StaticStore.choiceAsset = "";
+    return StaticStore;
+}());
+exports.StaticStore = StaticStore;
+
+
+/***/ }),
+
+/***/ "5VpT":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/pages/app.vue
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var app = ({});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-61c0d4de","hasScoped":true,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/pages/app.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('router-view')}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var pages_app = (esExports);
+// CONCATENATED MODULE: ./src/pages/app.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("Y4zF")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-61c0d4de"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  app,
+  pages_app,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var src_pages_app = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "5yhA":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAASpJREFUWAntltENwiAQhtvGFfRJn4zDuIgDGMcwDuAiDmN880l3EHu1P8EGCVc5xOT6AgL1vn7XHlSVXmpADfy3gRr4y/1tXTf1sR2YY+wXramqq3mYzWU3O1H8BhAlwBELCSIWcE3QgbnzdmqtYi5nuzrcDVgorjWYE4ITSwE5tnxr1aDPCmeseIO2zHCeKmZtqsIvZjBV4RcziGLLLfxUqN0MiQG6QaiPlFPf3Wvpd+jKBviW8tdeuwiBYU7sHUSAb9tsgJTW7ijVH6diwbOluD/fRaXVhRcDJFv0JQ+/Sjd4TF8sxUhpDERojZjBsSkdGhczGLLCmVNAji3fWjXos8IZK96gLTOpCivHzqe1xII5azBVYcUfj227/brdt8fer/epATVQmoEntLJNbRZClxYAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "6By6":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "6Trz":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue__ = __webpack_require__("lXdV");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_39ca30cf_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_hint_vue__ = __webpack_require__("5EbJ");
+function injectStyle (ssrContext) {
+  __webpack_require__("ojCp")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-39ca30cf"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_hint_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_39ca30cf_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_hint_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "6nHw":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var AuctionEntitys_1 = __webpack_require__("Wj+m");
+var LoginType;
+(function (LoginType) {
+    LoginType[LoginType["wif"] = 0] = "wif";
+    LoginType[LoginType["nep2"] = 1] = "nep2";
+    LoginType[LoginType["nep6"] = 2] = "nep6";
+    LoginType[LoginType["otcgo"] = 3] = "otcgo";
+})(LoginType = exports.LoginType || (exports.LoginType = {}));
+var alert = /** @class */ (function () {
+    function alert() {
+    }
+    alert.alertShow = function (title, inputType, btnText) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        _this.show(title, inputType, btnText, function (result) {
+                            reject(result);
+                        });
+                    })];
+            });
+        });
+    };
+    alert.show = function (title, inputType, btnText, call) {
+        var _this = this;
+        this.btn_confirm.classList.add("btn", "btn-nel", "btn-big");
+        this.btn_confirm.textContent = btnText;
+        this.title.innerText = title;
+        this.alertError.textContent = "";
+        this.alert.hidden = false;
+        if (inputType !== "none") {
+            this.input.type = inputType;
+            this.input.onkeydown = function (ev) {
+                if (ev.keyCode == 13) {
+                    call(_this.input.value);
+                }
+            };
+        }
+        else {
+            this.input.hidden = true;
+        }
+        this.btn_confirm.onclick = function () {
+            if (inputType === "none")
+                call(true);
+            else
+                call(_this.input.value);
+        };
+        this.btn_close.onclick = function () {
+            _this.close();
+            call(false);
+        };
+    };
+    alert.close = function () {
+        this.alert.hidden = true;
+        this.input.textContent = "";
+        this.input.value = "";
+    };
+    alert.error = function (msg) {
+        this.alertError.textContent = msg;
+    };
+    alert.alert = document.getElementById("alertview");
+    alert.title = document.getElementById("alert-title");
+    alert.alertBox = document.getElementById("alert-box");
+    alert.alertError = document.getElementById("alert-error");
+    alert.btn_close = document.getElementById("alert-close");
+    alert.input = document.getElementById("alert-input");
+    alert.btn_confirm = document.getElementById("alert-confirm");
+    return alert;
+}());
+exports.alert = alert;
+var LoginInfo = /** @class */ (function () {
+    function LoginInfo() {
+    }
+    LoginInfo.deblocking = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var msg_title, msg_btn, msg_error, language, promise;
+            return __generator(this, function (_a) {
+                msg_title = "";
+                msg_btn = "";
+                msg_error = "";
+                language = localStorage.getItem("language");
+                if (!language || language == 'en') {
+                    msg_title = "Please enter your password ";
+                    msg_btn = "Confirm";
+                    msg_error = "Password error ";
+                }
+                else {
+                    msg_title = "请输入您的密码 ";
+                    msg_btn = "确认";
+                    msg_error = "密码错误 ";
+                }
+                promise = new Promise(function (resolve, reject) {
+                    if (!!LoginInfo.info) {
+                        var current = LoginInfo.info;
+                        resolve(current);
+                    }
+                    else {
+                        var current_1 = JSON.parse(sessionStorage.getItem("login-info-arr"));
+                        if (current_1.type == LoginType.wif) {
+                            var res = importpack_1.tools.neotool.wifDecode(current_1.msg['wif']);
+                            if (res.err) {
+                                reject("WIF is error");
+                            }
+                            else {
+                                LoginInfo.info = res.info;
+                                resolve(LoginInfo.info);
+                                return;
+                            }
+                        }
+                        if (current_1.type == LoginType.nep2 || LoginType.nep6) {
+                            alert.show(msg_title, "password", msg_btn, function (passsword) {
+                                if (!passsword) {
+                                    reject("签名中断");
+                                }
+                                else {
+                                    var nep2 = current_1.msg[LoginInfo.getCurrentAddress()];
+                                    importpack_1.tools.neotool.nep2ToWif(nep2, passsword)
+                                        .then(function (res) {
+                                        LoginInfo.info = res.info;
+                                        alert.close();
+                                        resolve(LoginInfo.info);
+                                    })
+                                        .catch(function (err) {
+                                        alert.error(msg_error);
+                                    });
+                                }
+                            });
+                        }
+                        if (current_1.type == LoginType.otcgo) {
+                            alert.show(msg_title, "password", msg_btn, function (password) {
+                                if (!password) {
+                                    reject("签名中断");
+                                }
+                                else {
+                                    var json = current_1.msg;
+                                    var otcgo = new WalletOtcgo();
+                                    otcgo.fromJsonStr(JSON.stringify(json));
+                                    otcgo.otcgoDecrypt(password);
+                                    var result = otcgo.doValidatePwd();
+                                    if (result) {
+                                        var info = new LoginInfo();
+                                        info.address = otcgo.address;
+                                        info.prikey = otcgo.prikey;
+                                        info.pubkey = otcgo.pubkey;
+                                        info["password"] = password;
+                                        LoginInfo.info = info;
+                                        alert.close();
+                                        resolve(info);
+                                    }
+                                    else {
+                                        alert.error(msg_error);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+                return [2 /*return*/, promise];
+            });
+        });
+    };
+    LoginInfo.alert = function (call) {
+        // btn btn-nel btn-big
+        var alert = document.getElementById("alertview");
+        var title = document.getElementById("alert-title");
+        var alertBox = document.getElementById("alert-box");
+        var close = document.getElementById("alert-close");
+        var input = document.getElementById("alert-input");
+        var btn = document.getElementById("alert-confirm");
+        btn.classList.add("btn", "btn-nel", "btn-big");
+        btn.textContent = "确认";
+        input.type = "password";
+        title.innerText = "请输入密码";
+        alert.hidden = false;
+        btn.onclick = function () {
+            call(input.value);
+        };
+        close.onclick = function () {
+            alert.hidden = true;
+            input.value = "";
+            return;
+        };
+    };
+    LoginInfo.ArrayToString = function (array) {
+        var obj = [];
+        for (var i = 0; i < array.length; i++) {
+            obj.push({});
+            obj[i].pubkey = array[i].pubkey.toHexString();
+            obj[i].prikey = array[i].prikey.toHexString();
+            obj[i].address = array[i].address;
+        }
+        return JSON.stringify(obj);
+    };
+    LoginInfo.StringToArray = function (str) {
+        var obj = JSON.parse(str);
+        var arr = [];
+        for (var i = 0; i < obj.length; i++) {
+            arr.push(new LoginInfo());
+            var str = obj[i].prikey;
+            var str2 = obj[i].pubkey;
+            arr[i].prikey = str.hexToBytes();
+            arr[i].pubkey = str2.hexToBytes();
+            arr[i].address = obj[i].address;
+        }
+        return arr;
+    };
+    LoginInfo.getCurrentLogin = function () {
+        var address = LoginInfo.getCurrentAddress();
+        var arr = importpack_1.tools.storagetool.getLoginArr();
+        var n = arr.findIndex(function (info) { return info.address == address; });
+        return arr[n];
+    };
+    LoginInfo.getCurrentAddress = function () {
+        return importpack_1.tools.storagetool.getStorage("current-address");
+    };
+    LoginInfo.setCurrentAddress = function (str) {
+        importpack_1.tools.storagetool.setStorage("current-address", str);
+    };
+    return LoginInfo;
+}());
+exports.LoginInfo = LoginInfo;
+var BalanceInfo = /** @class */ (function () {
+    function BalanceInfo() {
+    }
+    BalanceInfo.getBalancesByArr = function (balances, nep5balances, height) {
+        var balancearr = [];
+        if (balances) //余额不唯空
+         {
+            balances.map(function (item) {
+                item.names = importpack_1.tools.coinTool.assetID2name[item.asset];
+                var a = importpack_1.tools.storagetool.getStorage(item.asset);
+                if (a) {
+                    var obj = JSON.parse(a);
+                    var h = obj["height"];
+                    height - h > 1 ? importpack_1.tools.storagetool.delStorage(item.asset) : item.balance = obj["balance"]["balance"];
+                }
+            }); //将列表的余额资产名称赋值
+            balancearr = balances; //塞入页面modual
+        }
+        if (nep5balances) {
+            for (var index = 0; index < nep5balances.length; index++) {
+                var nep5 = nep5balances[index];
+                var nep5b = new BalanceInfo();
+                // let id = nep5.assetid.replace("0x", "");
+                // id = id.substring(0, 4) + '...' + id.substring(id.length - 4);
+                nep5b.asset = nep5.assetid;
+                nep5b.balance = nep5.balance;
+                // nep5b.names = nep5.symbol + "(" + id + ")";
+                nep5b.names = nep5.symbol;
+                nep5b.type = "nep5";
+                balancearr.push(nep5b);
+            }
+        }
+        return balancearr;
+    };
+    BalanceInfo.setBalanceSotre = function (balance, height) {
+        importpack_1.tools.storagetool.setStorage(balance.asset, JSON.stringify({ height: height, balance: balance }));
+    };
+    return BalanceInfo;
+}());
+exports.BalanceInfo = BalanceInfo;
+var Nep5Balance = /** @class */ (function () {
+    function Nep5Balance() {
+    }
+    return Nep5Balance;
+}());
+exports.Nep5Balance = Nep5Balance;
+var Result = /** @class */ (function () {
+    function Result() {
+    }
+    return Result;
+}());
+exports.Result = Result;
+var AssetEnum;
+(function (AssetEnum) {
+    AssetEnum["NEO"] = "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b";
+    AssetEnum["GAS"] = "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7";
+})(AssetEnum = exports.AssetEnum || (exports.AssetEnum = {}));
+var NeoAsset = /** @class */ (function () {
+    function NeoAsset() {
+    }
+    return NeoAsset;
+}());
+exports.NeoAsset = NeoAsset;
+var OldUTXO = /** @class */ (function () {
+    function OldUTXO(txid, n) {
+        this.n = n;
+        this.txid = txid;
+        var oldBlock = new importpack_1.tools.sessionstoretool("block");
+        this.height = oldBlock.select('height');
+    }
+    OldUTXO.oldutxosPush = function (olds) {
+        var arr = this.getOldutxos();
+        importpack_1.tools.storagetool.setStorage("old-utxos", JSON.stringify(arr.concat(olds)));
+    };
+    OldUTXO.setOldutxos = function (olds) {
+        // let arr: OldUTXO[] = this.getOldutxos();
+        importpack_1.tools.storagetool.setStorage("old-utxos", JSON.stringify(olds));
+    };
+    OldUTXO.getOldutxos = function () {
+        var arr = new Array();
+        var str = importpack_1.tools.storagetool.getStorage("old-utxos");
+        if (str)
+            arr = JSON.parse(str);
+        return arr;
+    };
+    OldUTXO.prototype.compareUtxo = function (utxo) {
+        return this.txid == utxo.txid && this.n == utxo.n;
+    };
+    return OldUTXO;
+}());
+exports.OldUTXO = OldUTXO;
+var UTXO = /** @class */ (function () {
+    function UTXO() {
+    }
+    UTXO.ArrayToString = function (utxos) {
+        var str = "";
+        var obj = [];
+        for (var i = 0; i < utxos.length; i++) {
+            obj.push({});
+            obj[i].n = utxos[i].n;
+            obj[i].addr = utxos[i].addr;
+            obj[i].txid = utxos[i].txid;
+            obj[i].asset = utxos[i].asset;
+            obj[i].count = utxos[i].count.toString();
+        }
+        return obj;
+    };
+    UTXO.StringToArray = function (obj) {
+        var utxos = new Array();
+        for (var i = 0; i < obj.length; i++) {
+            utxos.push(new UTXO);
+            var str = obj[i].count;
+            utxos[i].n = obj[i].n;
+            utxos[i].addr = obj[i].addr;
+            utxos[i].txid = obj[i].txid;
+            utxos[i].asset = obj[i].asset;
+            utxos[i].count = Neo.Fixed8.parse(str);
+        }
+        return utxos;
+    };
+    UTXO.setAssets = function (assets) {
+        var obj = {};
+        for (var asset in assets) {
+            var arr = UTXO.ArrayToString(assets[asset]);
+            obj[asset] = arr;
+        }
+        sessionStorage.setItem("current-assets-utxos", JSON.stringify(obj));
+    };
+    UTXO.getAssets = function () {
+        var assets = null;
+        var str = sessionStorage.getItem("current-assets-utxos");
+        if (str !== null && str != undefined && str != '') {
+            assets = JSON.parse(str);
+            for (var asset in assets) {
+                assets[asset] = UTXO.StringToArray(assets[asset]);
+            }
+        }
+        return assets;
+    };
+    return UTXO;
+}());
+exports.UTXO = UTXO;
+var Consts = /** @class */ (function () {
+    function Consts() {
+    }
+    // static baseContract = "0x2172f8d5b17c2d45fa3ff58dee8e8a4c3f51ef72";0x954f285a93eed7b4aed9396a7806a5812f1a5950;0x537758fbe85505801faa7d7d7b75b37686ad7e2d;
+    Consts.baseContract = Neo.Uint160.parse("348387116c4a75e420663277d9c02049907128c7");
+    Consts.registerContract = Neo.Uint160.parse("d6a5e965f67b0c3e5bec1f04f028edb9cb9e3f7c");
+    // static domainContract = '954f285a93eed7b4aed9396a7806a5812f1a5950';
+    Consts.saleContract = Neo.Uint160.parse("c4d09243258364e0e028852640218e08534f0466");
+    return Consts;
+}());
+exports.Consts = Consts;
+var DomainInfo = /** @class */ (function () {
+    function DomainInfo() {
+    }
+    return DomainInfo;
+}());
+exports.DomainInfo = DomainInfo;
+/**
+ * 竞拍合约域名
+ * @param startBlockSelling 开始竞标高度
+ * @param endBlock 拍卖结束
+ * @param lastBlock 最后出价高度
+ * @param maxPrice 最大出价
+ * @param maxBuyer 最大出价者(地址)
+ */
+var SellDomainInfo = /** @class */ (function (_super) {
+    __extends(SellDomainInfo, _super);
+    function SellDomainInfo() {
+        return _super.call(this) || this;
+    }
+    SellDomainInfo.prototype.copyDomainInfoToThis = function (info) {
+        this.owner = info.owner;
+        this.ttl = info.ttl;
+        this.register = info.register;
+        this.resolver = info.resolver;
+    };
+    return SellDomainInfo;
+}(DomainInfo));
+exports.SellDomainInfo = SellDomainInfo;
+var RootDomainInfo = /** @class */ (function (_super) {
+    __extends(RootDomainInfo, _super);
+    function RootDomainInfo() {
+        return _super.call(this) || this;
+    }
+    return RootDomainInfo;
+}(DomainInfo));
+exports.RootDomainInfo = RootDomainInfo;
+var Transactionforaddr = /** @class */ (function () {
+    function Transactionforaddr() {
+    }
+    return Transactionforaddr;
+}());
+exports.Transactionforaddr = Transactionforaddr;
+var History = /** @class */ (function () {
+    function History() {
+    }
+    History.setHistoryStore = function (history, height) {
+        var arr = this.getHistoryStore();
+        arr.push({ height: height, history: history });
+        importpack_1.tools.storagetool.setStorage("history-txs", JSON.stringify(arr));
+    };
+    History.getHistoryStore = function () {
+        var str = importpack_1.tools.storagetool.getStorage("history-txs");
+        var arr = !!str ? JSON.parse(str) : [];
+        return arr;
+    };
+    History.delHistoryStoreByHeight = function (height) {
+        var arr = this.getHistoryStore();
+        if (arr.length > 0) {
+            var newarr_1 = [];
+            arr.map(function (his) {
+                var h = parseInt(his.height);
+                if (height - h < 2) {
+                    newarr_1.push(his);
+                }
+            });
+            importpack_1.tools.storagetool.setStorage("history-txs", JSON.stringify(newarr_1));
+        }
+    };
+    return History;
+}());
+exports.History = History;
+var Claim = /** @class */ (function () {
+    function Claim(json) {
+        this.addr = json['addr'];
+        this.asset = json['asset'];
+        this.claimed = json['claimed'];
+        this.createHeight = json['createHeight'];
+        this.n = json['n'];
+        this.txid = json['txid'];
+        this.useHeight = json['useHeight'];
+        this.used = json['used'];
+        this.value = json['value'];
+    }
+    Claim.strToClaimArray = function (arr) {
+        var claimarr = new Array();
+        for (var i in arr) {
+            if (arr.hasOwnProperty(i)) {
+                claimarr.push(new Claim(arr[i]));
+            }
+        }
+        return claimarr;
+    };
+    return Claim;
+}());
+exports.Claim = Claim;
+var Domainmsg = /** @class */ (function () {
+    function Domainmsg() {
+    }
+    return Domainmsg;
+}());
+exports.Domainmsg = Domainmsg;
+var DomainStatus = /** @class */ (function () {
+    function DomainStatus() {
+    }
+    DomainStatus.setStatus = function (domain) {
+        var str = sessionStorage.getItem("domain-status");
+        var arr = {};
+        if (str) {
+            arr = JSON.parse(str);
+            var msg = arr[domain.domainname];
+            msg ? msg : msg = new DomainStatus();
+            domain.await_mapping ? msg["await_mapping"] = domain.await_mapping : "";
+            domain.await_register ? msg["await_register"] = domain.await_register : "";
+            domain.await_resolver ? msg["await_resolver"] = domain.await_resolver : "";
+            domain.mapping ? msg["mapping"] = domain.mapping : "";
+            domain.resolver ? msg["resolver"] = domain.resolver.replace("0x", "") : "";
+            arr[domain.domainname] = msg;
+        }
+        else {
+            arr[domain.domainname] = domain;
+        }
+        sessionStorage.setItem("domain-status", JSON.stringify(arr));
+    };
+    DomainStatus.getStatus = function () {
+        var str = sessionStorage.getItem("domain-status");
+        var obj = {};
+        str ? obj = JSON.parse(sessionStorage.getItem("domain-status")) : {};
+        return obj;
+    };
+    return DomainStatus;
+}());
+exports.DomainStatus = DomainStatus;
+var WalletOtcgo = /** @class */ (function () {
+    function WalletOtcgo() {
+    }
+    WalletOtcgo.prototype.fromJsonStr = function (str) {
+        var json = JSON.parse(str);
+        var otcgo = new WalletOtcgo();
+        this.address = json["address"];
+        this.publicKey = json["publicKey"];
+        this.publicKeyCompressed = json["publicKeyCompressed"];
+        this.privateKeyEncrypted = json["privateKeyEncrypted"];
+    };
+    WalletOtcgo.prototype.toJson = function () {
+        var json = {};
+        json['address'] = this.address;
+        json['publicKey'] = this.publicKey;
+        json['publicKeyCompressed'] = this.publicKeyCompressed;
+        json["privateKeyEncrypted"] = this.privateKeyEncrypted;
+        return json;
+    };
+    WalletOtcgo.prototype.otcgoDecrypt = function (pwd) {
+        try {
+            this.privatekey = CryptoJS.AES.decrypt(this.privateKeyEncrypted, pwd).toString(CryptoJS.enc.Utf8);
+            this.prikey = this.privatekey.hexToBytes();
+            this.pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(this.prikey);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    };
+    // 签名
+    WalletOtcgo.prototype.doSign = function (prvkey, msg) {
+        var sig = new KJUR.crypto.Signature({ 'alg': 'SHA256withECDSA' });
+        sig.initSign({
+            'ecprvhex': prvkey,
+            'eccurvename': 'secp256r1'
+        });
+        sig.updateString(msg);
+        return sig.sign();
+    };
+    WalletOtcgo.prototype.doVerify = function (pubkey, msg, sigval) {
+        var sig = new KJUR.crypto.Signature({
+            'alg': 'SHA256withECDSA',
+            'prov': 'cryptojs/jsrsa'
+        });
+        sig.initVerifyByPublicKey({
+            'ecpubhex': pubkey,
+            'eccurvename': 'secp256r1'
+        });
+        sig.updateString(msg);
+        return sig.verify(sigval);
+    };
+    WalletOtcgo.prototype.doValidatePwd = function () {
+        if (this.prikey.length === 0)
+            return false;
+        var msg = 'aaa';
+        var sigval = this.doSign(this.privatekey, msg);
+        return this.doVerify(this.publicKey, msg, sigval);
+    };
+    return WalletOtcgo;
+}());
+exports.WalletOtcgo = WalletOtcgo;
+var MyAuction = /** @class */ (function () {
+    function MyAuction() {
+        this.id = "";
+        this.auctionSpentTime = "";
+        this.auctionState = "";
+        this.expire = false;
+        this.blockindex = "";
+        this.maxBuyer = "";
+        this.maxPrice = "";
+        this.owner = "";
+        this.endedState = 0;
+        this.endTime = 0;
+        this.startAuctionTime = 0;
+        this.startTimeStr = "";
+    }
+    MyAuction.prototype.initAuciton = function (auction) {
+        this.domain = auction.domain;
+        this.startTimeStr = importpack_1.tools.timetool.getTime(auction.startTime.blocktime);
+        this.maxBuyer = auction.maxBuyer;
+        this.maxPrice = auction.maxPrice + "";
+        // this.owner = auction.addwholist
+        switch (auction.auctionState) {
+            // case AuctionState.open: this.domainstate = DomainState.fixed   break;
+            case AuctionEntitys_1.AuctionState.fixed:
+                this.domainstate = DomainState.fixed;
+                break;
+            case AuctionEntitys_1.AuctionState.random:
+                this.domainstate = DomainState.random;
+                break;
+            case AuctionEntitys_1.AuctionState.end:
+                this.domainstate = DomainState.open; //end
+                break;
+            case AuctionEntitys_1.AuctionState.expire:
+                this.domainstate = DomainState.open;
+                break;
+            case AuctionEntitys_1.AuctionState.pass:
+                this.domainstate = DomainState.open; //end
+                break;
+            case AuctionEntitys_1.AuctionState.watting:
+                this.domainstate = DomainState.end1; //watting
+                break;
+            default:
+                break;
+        }
+    };
+    MyAuction.prototype.initSelling = function (info) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.id = info.id.toString();
+                this.domain = info.domain;
+                this.endBlock = parseInt(info.endBlock.toString());
+                this.maxBuyer = ThinNeo.Helper.GetAddressFromScriptHash(info.maxBuyer);
+                this.maxPrice = info.maxPrice.toString();
+                this.owner = info.owner ? ThinNeo.Helper.GetAddressFromScriptHash(info.owner) : "";
+                return [2 /*return*/];
+            });
+        });
+    };
+    return MyAuction;
+}());
+exports.MyAuction = MyAuction;
+var DataType = /** @class */ (function () {
+    function DataType() {
+    }
+    DataType.Array = 'Array';
+    DataType.ByteArray = 'ByteArray';
+    DataType.Integer = 'Integer';
+    DataType.Boolean = 'Boolean';
+    DataType.String = 'String';
+    return DataType;
+}());
+exports.DataType = DataType;
+var ResultItem = /** @class */ (function () {
+    function ResultItem() {
+    }
+    ResultItem.FromJson = function (type, value) {
+        var item = new ResultItem();
+        if (type === DataType.Array) {
+            item.subItem = []; //new ResultItem[(value as Array<any>).length];
+            for (var i = 0; i < value.length; i++) {
+                var subjson = value[i];
+                var subtype = subjson["type"];
+                item.subItem.push(ResultItem.FromJson(subtype, subjson["value"]));
+            }
+        }
+        else if (type === DataType.ByteArray) {
+            item.data = value.hexToBytes();
+        }
+        else if (type === DataType.Integer) {
+            item.data = Neo.BigInteger.parse(value).toUint8Array();
+        }
+        else if (type === DataType.Boolean) {
+            if (value != 0)
+                item.data = new Uint8Array(0x01);
+            else
+                item.data = new Uint8Array(0x00);
+        }
+        else if (type === DataType.String) {
+            item.data = ThinNeo.Helper.String2Bytes(value);
+        }
+        else {
+            console.log("not support type:" + type);
+        }
+        return item;
+    };
+    ResultItem.prototype.AsHexString = function () {
+        return (this.data).toHexString();
+    };
+    ResultItem.prototype.AsHashString = function () {
+        return "0x" + this.data.reverse().toHexString();
+    };
+    ResultItem.prototype.AsString = function () {
+        return ThinNeo.Helper.Bytes2String(this.data);
+    };
+    ResultItem.prototype.AsHash160 = function () {
+        if (this.data.length === 0)
+            return null;
+        return new Neo.Uint160(this.data.buffer);
+    };
+    ResultItem.prototype.AsHash256 = function () {
+        if (this.data.length === 0)
+            return null;
+        return new Neo.Uint256(this.data.buffer);
+    };
+    ResultItem.prototype.AsBoolean = function () {
+        if (this.data.length === 0 || this.data[0] === 0)
+            return false;
+        return true;
+    };
+    ResultItem.prototype.AsInteger = function () {
+        return new Neo.BigInteger(this.data);
+    };
+    return ResultItem;
+}());
+exports.ResultItem = ResultItem;
+var NNSResult = /** @class */ (function () {
+    function NNSResult() {
+    }
+    return NNSResult;
+}());
+exports.NNSResult = NNSResult;
+var PageUtil = /** @class */ (function () {
+    /**
+     *
+     * @param total 总记录数
+     * @param pageSize 每页条数
+     */
+    function PageUtil(total, pageSize) {
+        this._currentPage = 1;
+        this._totalCount = total;
+        this._pageSize = pageSize;
+        this._totalPage = total % pageSize == 0 ? total / pageSize : Math.ceil((total / pageSize));
+    }
+    ;
+    Object.defineProperty(PageUtil.prototype, "currentPage", {
+        /**
+         * currentPage 返回当前页码
+         */
+        get: function () {
+            this._totalPage = this.totalCount % this.pageSize == 0 ? this.totalCount / this.pageSize : Math.ceil((this.totalCount / this.pageSize));
+            return this._currentPage;
+        },
+        /**
+         *
+         */
+        set: function (currentPage) {
+            this._currentPage = currentPage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(PageUtil.prototype, "pageSize", {
+        /**
+         * pageSize 每页条数
+         */
+        get: function () {
+            return this._pageSize;
+        },
+        /**
+         * set count
+         */
+        set: function (pageSize) {
+            this._pageSize = pageSize;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(PageUtil.prototype, "totalCount", {
+        /**
+         * pageSize 每页条数
+         */
+        get: function () {
+            return this._totalCount;
+        },
+        /**
+         * set count
+         */
+        set: function (totalCount) {
+            this._totalCount = totalCount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(PageUtil.prototype, "totalPage", {
+        /**
+     * pageSize 总页数
+     */
+        get: function () {
+            this._totalPage = this._totalCount % this._pageSize == 0 ? this._totalCount / this._pageSize : Math.ceil(this._totalCount / this._pageSize);
+            return this._totalPage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return PageUtil;
+}());
+exports.PageUtil = PageUtil;
+var TaskFunction = /** @class */ (function () {
+    function TaskFunction() {
+    }
+    return TaskFunction;
+}());
+exports.TaskFunction = TaskFunction;
+var Task = /** @class */ (function () {
+    function Task(type, txid, messgae) {
+        var oldBlock = new importpack_1.tools.sessionstoretool("block");
+        this.height = oldBlock.select('height');
+        this.type = type;
+        this.confirm = 0;
+        this.txid = txid;
+        this.state = TaskState.watting;
+        this.message = messgae;
+        this.startTime = new Date().getTime();
+    }
+    Task.prototype.toString = function () {
+        return JSON.stringify(this);
+    };
+    return Task;
+}());
+exports.Task = Task;
+var Process = /** @class */ (function () {
+    function Process(start) {
+        this.timearr = [];
+        this.startTime = typeof start == "string" ? new Date(start).getTime() : start;
+        this.date = importpack_1.tools.timetool.dateFtt("yyyy/MM/dd", new Date(this.startTime));
+        this.time = importpack_1.tools.timetool.dateFtt("hh:mm:ss", new Date(this.startTime));
+        this.width = 0;
+        this.state = "";
+        for (var i = 1; i <= 5; i++) {
+            var element = { msg: "", date: "", time: "" };
+            switch (i) {
+                case 1:
+                    element.msg = "1";
+                    break;
+                case 3:
+                    element.msg = "2";
+                    break;
+                case 5:
+                    element.msg = "3";
+                    break;
+                default:
+                    break;
+            }
+            var time = this.startTime + 300000 * i;
+            var date = importpack_1.tools.timetool.dateFtt("yyyy/MM/dd", new Date(time));
+            var times = importpack_1.tools.timetool.dateFtt("hh:mm:ss", new Date(time));
+            element.date = date;
+            element.time = times;
+            this.timearr.push(element);
+        }
+    }
+    return Process;
+}());
+exports.Process = Process;
+var NeoAuction_TopUp = /** @class */ (function () {
+    function NeoAuction_TopUp() {
+        this.input = "";
+        this.watting = false;
+        this.isShow = false;
+        this.error = false;
+    }
+    return NeoAuction_TopUp;
+}());
+exports.NeoAuction_TopUp = NeoAuction_TopUp;
+var NeoAuction_Withdraw = /** @class */ (function () {
+    function NeoAuction_Withdraw() {
+        this.input = "";
+        this.watting = false;
+        this.isShow = false;
+        this.error = false;
+    }
+    return NeoAuction_Withdraw;
+}());
+exports.NeoAuction_Withdraw = NeoAuction_Withdraw;
+/**
+ * 任务状态
+ */
+var TaskState;
+(function (TaskState) {
+    TaskState[TaskState["watting"] = 0] = "watting";
+    TaskState[TaskState["success"] = 1] = "success";
+    TaskState[TaskState["fail"] = 2] = "fail";
+})(TaskState = exports.TaskState || (exports.TaskState = {}));
+/**
+ * 任务类型
+ */
+var TaskType;
+(function (TaskType) {
+    TaskType[TaskType["tranfer"] = 0] = "tranfer";
+    TaskType[TaskType["openAuction"] = 1] = "openAuction";
+    TaskType[TaskType["addPrice"] = 2] = "addPrice";
+    TaskType[TaskType["gasToSgas"] = 3] = "gasToSgas";
+    TaskType[TaskType["sgasToGas"] = 4] = "sgasToGas";
+    TaskType[TaskType["topup"] = 5] = "topup";
+    TaskType[TaskType["withdraw"] = 6] = "withdraw";
+    TaskType[TaskType["getGasTest"] = 7] = "getGasTest";
+    TaskType[TaskType["domainMapping"] = 8] = "domainMapping";
+    TaskType[TaskType["domainResovle"] = 9] = "domainResovle";
+    TaskType[TaskType["domainRenewal"] = 10] = "domainRenewal";
+    TaskType[TaskType["getDomain"] = 11] = "getDomain";
+    TaskType[TaskType["recoverSgas"] = 12] = "recoverSgas";
+    TaskType[TaskType["ClaimGas"] = 13] = "ClaimGas";
+    TaskType[TaskType["domainTransfer"] = 14] = "domainTransfer";
+    TaskType[TaskType["saleDomain"] = 15] = "saleDomain";
+    TaskType[TaskType["unSaleDomain"] = 16] = "unSaleDomain";
+    TaskType[TaskType["buyDomain"] = 17] = "buyDomain";
+    TaskType[TaskType["getMyNNC"] = 18] = "getMyNNC";
+    TaskType[TaskType["requestNNC"] = 19] = "requestNNC";
+})(TaskType = exports.TaskType || (exports.TaskType = {}));
+/**
+ * 确认的操作类型
+ */
+var ConfirmType;
+(function (ConfirmType) {
+    ConfirmType[ConfirmType["tranfer"] = 0] = "tranfer";
+    ConfirmType[ConfirmType["contract"] = 1] = "contract";
+    ConfirmType[ConfirmType["recharge"] = 2] = "recharge";
+})(ConfirmType = exports.ConfirmType || (exports.ConfirmType = {}));
+/**
+ * @param open 开标或者重新开标
+ * @param fixed 确定期
+ * @param random 随机期
+ * @param end 结束
+ */
+var DomainState;
+(function (DomainState) {
+    DomainState[DomainState["open"] = 0] = "open";
+    DomainState[DomainState["fixed"] = 1] = "fixed";
+    DomainState[DomainState["random"] = 2] = "random";
+    DomainState[DomainState["end1"] = 3] = "end1";
+    DomainState[DomainState["end2"] = 4] = "end2";
+    DomainState[DomainState["expire"] = 5] = "expire";
+    DomainState[DomainState["pass"] = 6] = "pass";
+})(DomainState = exports.DomainState || (exports.DomainState = {}));
+
+
+/***/ }),
+
+/***/ "85su":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "8Qnm":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_property_decorator_1 = __webpack_require__("443i");
+var Spinner = /** @class */ (function (_super) {
+    __extends(Spinner, _super);
+    function Spinner() {
+        return _super.call(this) || this;
+    }
+    Spinner.prototype.mounted = function () { };
+    __decorate([
+        vue_property_decorator_1.Prop({ default: true }),
+        __metadata("design:type", Boolean)
+    ], Spinner.prototype, "isbig", void 0);
+    Spinner = __decorate([
+        vue_property_decorator_1.Component({
+            components: {}
+        }),
+        __metadata("design:paramtypes", [])
+    ], Spinner);
+    return Spinner;
+}(vue_property_decorator_1.Vue));
+exports.default = Spinner;
+
+
+/***/ }),
+
+/***/ "9Jd1":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+/**
+ * @name Sgas兑换Gas工具类
+ */
+var SgasTool = /** @class */ (function () {
+    function SgasTool() {
+    }
+    /**
+     * gas -> sgas
+     * @param transcount 兑换的数量
+     */
+    SgasTool.makeMintTokenTransaction = function (transcount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var script, sgasaddr, txid, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        script = importpack_1.tools.contract.buildScript(importpack_1.tools.coinTool.id_SGAS, "mintTokens", []);
+                        sgasaddr = ThinNeo.Helper.GetAddressFromScriptHash(importpack_1.tools.coinTool.id_SGAS);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans(script, sgasaddr, importpack_1.tools.coinTool.id_GAS, Neo.Fixed8.fromNumber(transcount))];
+                    case 2:
+                        txid = _a.sent();
+                        return [2 /*return*/, txid];
+                    case 3:
+                        error_1 = _a.sent();
+                        throw error_1;
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * sgas -> gas
+     * @param transcount 兑换数量
+     */
+    SgasTool.makeRefundTransaction = function (transcount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var utxos_current, utxos_cgas, cgasAddress, gass, cgass, i, item, utxo, tran, cgasRes, feeRes, i_1, r, sgasScript, scriptHash, sb, txid, data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.coinTool.getassets()];
+                    case 1:
+                        utxos_current = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.getavailableutxos(entity_1.LoginInfo.getCurrentAddress(), transcount)];
+                    case 2:
+                        utxos_cgas = _a.sent();
+                        cgasAddress = ThinNeo.Helper.GetAddressFromScriptHash(importpack_1.tools.coinTool.id_SGAS);
+                        gass = utxos_current[importpack_1.tools.coinTool.id_GAS];
+                        cgass = [];
+                        if (!utxos_cgas) //判断是否有可用的 cgas
+                            throw "not enough change";
+                        for (i in utxos_cgas) //构造utxo数组
+                         {
+                            item = utxos_cgas[i];
+                            utxo = new entity_1.UTXO();
+                            utxo.addr = cgasAddress;
+                            utxo.asset = importpack_1.tools.coinTool.id_GAS;
+                            utxo.n = item.n;
+                            utxo.txid = item.txid;
+                            utxo.count = Neo.Fixed8.parse(item.value);
+                            cgass.push(utxo);
+                        }
+                        tran = new ThinNeo.Transaction();
+                        //合约类型
+                        tran.inputs = [];
+                        tran.outputs = [];
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //sgas 自己给自己转账   用来生成一个utxo  合约会把这个utxo标记给发起的地址使用
+                        try {
+                            cgasRes = importpack_1.tools.coinTool.creatInuptAndOutup(cgass, Neo.Fixed8.fromNumber(transcount), cgasAddress);
+                            feeRes = undefined;
+                            if (gass && entity_1.LoginInfo.info.payfee)
+                                feeRes = importpack_1.tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.fromNumber(0.001));
+                            tran.inputs = cgasRes.inputs;
+                            tran.outputs = cgasRes.outputs;
+                            if (feeRes) {
+                                tran.inputs = tran.inputs.concat(feeRes.inputs);
+                                tran.outputs = tran.outputs.concat(feeRes.outputs);
+                            }
+                            for (i_1 in tran.inputs) {
+                                tran.inputs[i_1].hash = tran.inputs[i_1].hash.reverse();
+                            }
+                        }
+                        catch (e) {
+                            throw "";
+                        }
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getcontractstate(importpack_1.tools.coinTool.id_SGAS.toString())];
+                    case 3:
+                        r = _a.sent();
+                        if (!(r && r['script'])) return [3 /*break*/, 5];
+                        sgasScript = r['script'].hexToBytes();
+                        scriptHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata.script
+                            = importpack_1.tools.contract.buildScript(importpack_1.tools.coinTool.id_SGAS, "refund", ["(bytes)" + scriptHash.toHexString()]);
+                        //附加鉴证
+                        tran.attributes = new Array(1);
+                        tran.attributes[0] = new ThinNeo.Attribute();
+                        tran.attributes[0].usage = ThinNeo.TransactionAttributeUsage.Script;
+                        tran.attributes[0].data = scriptHash;
+                        sb = new ThinNeo.ScriptBuilder();
+                        sb.EmitPushString("whatever");
+                        sb.EmitPushNumber(new Neo.BigInteger(250));
+                        tran.AddWitnessScript(sgasScript, sb.ToArray());
+                        txid = tran.GetHash().clone().reverse().toHexString();
+                        return [4 /*yield*/, importpack_1.tools.coinTool.signData(tran)];
+                    case 4:
+                        data = _a.sent();
+                        return [2 /*return*/, { txid: txid, data: data }];
+                    case 5: throw "Contract acquisition failure";
+                }
+            });
+        });
+    };
+    /**
+     *
+     * @param utxo 兑换gas的utxo
+     * @param transcount 兑换的数量
+     */
+    SgasTool.makeRefundTransaction_tranGas = function (utxo, transcount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tran, sendcount, fee, tranRes, n, r, sgasScript, sb, trandata;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        tran = new ThinNeo.Transaction();
+                        //合约类型
+                        tran.inputs = [];
+                        tran.outputs = [];
+                        tran.type = ThinNeo.TransactionType.ContractTransaction;
+                        tran.version = 0;
+                        tran.extdata = null;
+                        tran.attributes = [];
+                        try {
+                            sendcount = transcount;
+                            if (entity_1.LoginInfo.info.payfee) {
+                                fee = Neo.Fixed8.fromNumber(0.001);
+                                sendcount = transcount.subtract(fee); //由于转账使用的utxo和需要转换的金额一样大所以输入只需要塞入减去交易费的金额，utxo也足够使用交易费
+                            }
+                            tranRes = importpack_1.tools.coinTool.creatInuptAndOutup([utxo], sendcount, entity_1.LoginInfo.getCurrentAddress());
+                            tran.inputs = tranRes.inputs;
+                            tran.outputs = tranRes.outputs;
+                            tran.outputs.length = 1; //去掉找零的部分，只保留一个转账位
+                            for (n in tran.inputs) {
+                                tran.inputs[n].hash = tran.inputs[n].hash.reverse();
+                            }
+                        }
+                        catch (error) {
+                        }
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getcontractstate(importpack_1.tools.coinTool.id_SGAS.toString())];
+                    case 1:
+                        r = _a.sent();
+                        if (r && r['script']) {
+                            sgasScript = r['script'].hexToBytes();
+                            sb = new ThinNeo.ScriptBuilder();
+                            sb.EmitPushNumber(new Neo.BigInteger(0));
+                            sb.EmitPushNumber(new Neo.BigInteger(0));
+                            tran.AddWitnessScript(sgasScript, sb.ToArray());
+                            trandata = tran.GetRawData();
+                            return [2 /*return*/, trandata];
+                        }
+                        else {
+                            throw ("获取转换合约失败！");
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return SgasTool;
+}());
+exports.default = SgasTool;
+
+
+/***/ }),
+
+/***/ "AT6x":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAY9JREFUWAnt1j1Pg0AYB/ACLjC0g4uTiS9LHXQ0LkYrk4Td3S/jx2kgkChY4+iqg4OJJk4mxhVYAP9P9AjGphwxvbvEu6FwL7n78dxbBwOddATkRsAQNXwQBBeGYRxivDPf9195xzV5G/61HXBbdV0foJ+bMAzXefsTBrQs6xzIOyA3+yCFTTFFLI7jYVmWV0DuA/uMouOu6RYKJGSSJKOiKC4JiewLoEeLkMKBfZFSgH2Q0oC8SKlAHqR0YBdyhRpQwuEZYWedfuXE/uZ53h5wA44HFIyoUNhB3RZ0vePoybra6HodAR0BHYH/EoHmqsNN8oQTfFuFD8dBHeM/okeW5iYBbqgC7ttQM0tzFzuOs4M78RrQPXzBo2maE8/z3lhDWc9migmQpumqasgfQBWRv4CqIZtNQjCWXNf9sG37BPl7rMlxVVWzKIrWWL3I59wIMgCtySzLZsjvyto4C4EElY3sBMpGzl2DhGonWpM4JycoY2ty2q5f5jsXkAAMibV4i43zvkyU7ltHQKUIfAJioeZB8JpkMwAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "AU0D":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue__ = __webpack_require__("vcAA");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3006e8e0_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_toast_vue__ = __webpack_require__("SDXl");
+function injectStyle (ssrContext) {
+  __webpack_require__("TC2Y")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_toast_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3006e8e0_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_toast_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "Blow":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "BpVL":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.show)?_c('div',{staticClass:"alert-box"},[_c('div',{staticClass:"alert-warp"},[_c('div',{staticClass:"alert-title"},[_vm._v(_vm._s(_vm.$t('nns.alerttitle')))]),_vm._v(" "),_c('div',{staticClass:"alert-content"},[_vm._t("default")],2),_vm._v(" "),_c('div',{staticClass:"alert-close",on:{"click":function($event){_vm.closemudloe()}}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])])])]):_vm._e()}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "CH3E":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "D078":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_class_component_1 = __webpack_require__("c+8m");
+var Spinner_vue_1 = __webpack_require__("+jyM");
+var Notify = /** @class */ (function (_super) {
+    __extends(Notify, _super);
+    function Notify() {
+        var _this = _super.call(this) || this;
+        _this.show = false;
+        _this.msg = "";
+        return _this;
+    }
+    Notify.prototype.open = function (msg) {
+        this.msg = msg;
+        this.show = true;
+    };
+    Notify.prototype.close = function () {
+        this.msg = "";
+        this.show = false;
+    };
+    Notify.prototype.mounted = function () { };
+    Notify = __decorate([
+        vue_class_component_1.default({
+            components: {
+                "spinner-wrap": Spinner_vue_1.default
+            }
+        }),
+        __metadata("design:paramtypes", [])
+    ], Notify);
+    return Notify;
+}(vue_1.default));
+exports.default = Notify;
+
+
+/***/ }),
+
+/***/ "FmI8":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"asset-select-box"},[_c('div',{staticClass:"btn dropdown-toggle select-nel",attrs:{"type":"button","id":"assets","data-toggle":"dropdown"}},[_c('div',{staticClass:"select-title"},[_vm._v(_vm._s(_vm.title))]),_vm._v(" "),_vm._m(0)]),_vm._v(" "),_c('ul',{staticClass:"dropdown-menu dropdown-nel",attrs:{"role":"menu","aria-labelledby":"assets"}},_vm._l((_vm.list),function(val,key){return _c('li',{key:key,class:_vm.selection==key?'active':'',attrs:{"role":"presentation"},on:{"click":function($event){_vm.switchVal(key)}}},[_c('a',{attrs:{"role":"menuitem","tabindex":"-1"}},[_vm._v(_vm._s(val))])])}))])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"select-caret"},[_c('span',{staticClass:"caret"})])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "Fxcc":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "GHuV":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner-wrap",class:_vm.isbig?'spinner-big':''},[_vm._m(0)])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_c('div',{staticClass:"spinner-container container1"},[_c('div',{staticClass:"circle1"}),_vm._v(" "),_c('div',{staticClass:"circle2"}),_vm._v(" "),_c('div',{staticClass:"circle3"}),_vm._v(" "),_c('div',{staticClass:"circle4"})]),_vm._v(" "),_c('div',{staticClass:"spinner-container container2"},[_c('div',{staticClass:"circle1"}),_vm._v(" "),_c('div',{staticClass:"circle2"}),_vm._v(" "),_c('div',{staticClass:"circle3"}),_vm._v(" "),_c('div',{staticClass:"circle4"})]),_vm._v(" "),_c('div',{staticClass:"spinner-container container3"},[_c('div',{staticClass:"circle1"}),_vm._v(" "),_c('div',{staticClass:"circle2"}),_vm._v(" "),_c('div',{staticClass:"circle3"}),_vm._v(" "),_c('div',{staticClass:"circle4"})])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "Gc41":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var VLink_vue_1 = __webpack_require__("N5E8");
+var vue_class_component_1 = __webpack_require__("c+8m");
+var vue_1 = __webpack_require__("/5sW");
+var Main = /** @class */ (function (_super) {
+    __extends(Main, _super);
+    function Main() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.loginshow = false;
+        _this.currentLanguage = localStorage.getItem("language") == "cn" ? "中文" : "English";
+        return _this;
+    }
+    Main.prototype.mounted = function () {
+        if (this.$root["currentRoute"] == "") {
+            this.$root["currentRoute"] = "#login";
+        }
+        if (this.$root["currentRoute"] == "#login") {
+            document.body.classList.add("login-body");
+            this.loginshow = false;
+        }
+        else {
+            document.body.classList.remove("login-body");
+            this.loginshow = true;
+        }
+    };
+    Main.prototype.cutLanguage = function (lang) {
+        switch (lang) {
+            case 1:
+                this.currentLanguage = "English";
+                localStorage.setItem("language", "en");
+                this.$i18n.locale = "en";
+                break;
+            case 2:
+                this.currentLanguage = "中文";
+                localStorage.setItem("language", "cn");
+                this.$i18n.locale = "cn";
+                break;
+            default:
+                break;
+        }
+    };
+    Main = __decorate([
+        vue_class_component_1.default({
+            components: {
+                VLink: VLink_vue_1.default
+            }
+        })
+    ], Main);
+    return Main;
+}(vue_1.default));
+exports.default = Main;
+
+
+/***/ }),
+
+/***/ "Gieu":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__ = __webpack_require__("shbj");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_49fe27d2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__ = __webpack_require__("BpVL");
+function injectStyle (ssrContext) {
+  __webpack_require__("CH3E")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-49fe27d2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Valert_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_49fe27d2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Valert_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "HWxh":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+var cointool_1 = __webpack_require__("pLPz");
+var Contract = /** @class */ (function () {
+    function Contract() {
+    }
+    /**
+     * @method buildScript 构建script
+     * @param appCall 合约地址
+     * @param method 方法名
+     * @param param 参数
+     */
+    Contract.buildScript = function (appCall, method, param) {
+        var sb = new ThinNeo.ScriptBuilder();
+        sb.EmitParamJson(param); //第二个参数是个数组
+        sb.EmitPushString(method);
+        try {
+            sb.EmitAppCall(appCall);
+            return sb.ToArray();
+        }
+        catch (error) {
+            console.log("----------------------------------error-----------------" + error);
+            console.log(appCall);
+            console.log(method);
+        }
+    };
+    /**
+     * @method buildScript 构建script
+     * @param appCall 合约地址
+     * @param method 方法名
+     * @param param 参数
+     */
+    Contract.buildScript_random = function (appCall, method, param) {
+        var sb = new ThinNeo.ScriptBuilder();
+        //生成随机数
+        var random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+        var random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+        //塞入随机数
+        sb.EmitPushNumber(random_int);
+        sb.Emit(ThinNeo.OpCode.DROP);
+        sb.EmitParamJson(param); //第二个参数是个数组
+        sb.EmitPushString(method);
+        sb.EmitAppCall(appCall);
+        return sb.ToArray();
+    };
+    Contract.buildInvokeTransData_attributes = function (script) {
+        return __awaiter(this, void 0, void 0, function () {
+            var utxos, gass, addr, tran, feeres, data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, cointool_1.CoinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        gass = utxos[importpack_1.tools.coinTool.id_GAS];
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        tran = new ThinNeo.Transaction();
+                        //合约类型
+                        tran.inputs = [];
+                        tran.outputs = [];
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //塞入脚本
+                        tran.extdata.script = script;
+                        tran.attributes = new Array(1);
+                        tran.attributes[0] = new ThinNeo.Attribute();
+                        tran.attributes[0].usage = ThinNeo.TransactionAttributeUsage.Script;
+                        tran.attributes[0].data = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr);
+                        if (gass && entity_1.LoginInfo.info.payfee) {
+                            feeres = importpack_1.tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.fromNumber(0.001));
+                            tran.inputs = feeres.inputs.map(function (input) {
+                                input.hash = input.hash.reverse();
+                                return input;
+                            });
+                            tran.outputs = feeres.outputs;
+                        }
+                        if (tran.witnesses == null)
+                            tran.witnesses = [];
+                        return [4 /*yield*/, cointool_1.CoinTool.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    /**
+     * invokeTrans 调用合约，允许转账
+     * @param param[0]:script
+     * @param param[1]:address
+     * @param param[2]:assetid
+     * @param param[3]:count
+     */
+    Contract.buildInvokeTransData = function () {
+        var param = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            param[_i] = arguments[_i];
+        }
+        return __awaiter(this, void 0, void 0, function () {
+            var address, script, have, addr, assetid, count, utxos, tranmsg, tran, data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        script = param[0];
+                        have = param.length > 1;
+                        addr = have ? param[1] : address;
+                        assetid = have ? param[2] : importpack_1.tools.coinTool.id_GAS;
+                        count = have ? param[3] : Neo.Fixed8.Zero;
+                        return [4 /*yield*/, importpack_1.tools.coinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        tranmsg = importpack_1.tools.coinTool.makeTran(utxos, addr, assetid, count);
+                        tran = tranmsg.info['tran'];
+                        //Parameter inversion 
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //塞入脚本
+                        tran.extdata.script = script;
+                        tran.extdata.gas = Neo.Fixed8.fromNumber(1.0);
+                        return [4 /*yield*/, cointool_1.CoinTool.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        return [2 /*return*/, { data: data, tranmsg: tranmsg }];
+                }
+            });
+        });
+    };
+    Contract.contractInvokeScript = function (appCall, method) {
+        var param = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            param[_i - 2] = arguments[_i];
+        }
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        data = this.buildScript(appCall, method, param);
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * invokeTrans 方式调用合约塞入attributes
+     * @param script 合约的script
+     */
+    Contract.contractInvokeTrans_attributes = function (script) {
+        return __awaiter(this, void 0, void 0, function () {
+            var utxos, gass, addr, tran, feeres, data, res, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, cointool_1.CoinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        gass = utxos[importpack_1.tools.coinTool.id_GAS];
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        tran = new ThinNeo.Transaction();
+                        //合约类型
+                        tran.inputs = [];
+                        tran.outputs = [];
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //塞入脚本
+                        tran.extdata.script = script;
+                        tran.attributes = new Array(1);
+                        tran.attributes[0] = new ThinNeo.Attribute();
+                        tran.attributes[0].usage = ThinNeo.TransactionAttributeUsage.Script;
+                        tran.attributes[0].data = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr);
+                        if (gass && entity_1.LoginInfo.info.payfee) {
+                            feeres = importpack_1.tools.coinTool.creatInuptAndOutup(gass, Neo.Fixed8.fromNumber(0.001));
+                            tran.inputs = feeres.inputs.map(function (input) {
+                                input.hash = input.hash.reverse();
+                                return input;
+                            });
+                            tran.outputs = feeres.outputs;
+                        }
+                        if (tran.witnesses == null)
+                            tran.witnesses = [];
+                        return [4 /*yield*/, cointool_1.CoinTool.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        res = new entity_1.Result();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 3:
+                        result = _a.sent();
+                        res.err = !result["sendrawtransactionresult"];
+                        res.info = result["txid"];
+                        if (!res.err) {
+                            if (feeres && feeres.oldutxo) {
+                                entity_1.OldUTXO.oldutxosPush(feeres.oldutxo);
+                            }
+                        }
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * invokeTrans 调用合约，允许转账
+     * @param param[0]:script
+     * @param param[1]:address
+     * @param param[2]:assetid
+     * @param param[3]:count
+     */
+    Contract.contractInvokeTrans = function () {
+        var param = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            param[_i] = arguments[_i];
+        }
+        return __awaiter(this, void 0, void 0, function () {
+            var address, script, have, addr, assetid, count, utxos, tranmsg, tran, data, height, result, olds, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        script = param[0];
+                        have = param.length > 1;
+                        addr = have ? param[1] : address;
+                        assetid = have ? param[2] : importpack_1.tools.coinTool.id_GAS;
+                        count = have ? param[3] : Neo.Fixed8.Zero;
+                        return [4 /*yield*/, importpack_1.tools.coinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        tranmsg = importpack_1.tools.coinTool.makeTran(utxos, addr, assetid, count);
+                        tran = tranmsg.info['tran'];
+                        //Parameter inversion 
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //塞入脚本
+                        tran.extdata.script = script;
+                        tran.extdata.gas = Neo.Fixed8.fromNumber(0);
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 6, , 7]);
+                        return [4 /*yield*/, cointool_1.CoinTool.signData(tran)];
+                    case 3:
+                        data = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
+                    case 4:
+                        height = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 5:
+                        result = _a.sent();
+                        if (result["sendrawtransactionresult"]) {
+                            olds = tranmsg.info['oldarr'];
+                            olds.map(function (old) { return old.height = height; });
+                            entity_1.OldUTXO.oldutxosPush(olds);
+                            return [2 /*return*/, result["txid"]];
+                        }
+                        else {
+                            throw "Transaction send failure";
+                        }
+                        return [3 /*break*/, 7];
+                    case 6:
+                        error_1 = _a.sent();
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获得notify通知出去的名称
+     * @param txid 交易id
+     */
+    Contract.getNotifyNames = function (txid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res, notifications, methodnames, index, value;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.getNotify(txid)];
+                    case 1:
+                        res = _a.sent();
+                        notifications = res["notifications"];
+                        methodnames = [];
+                        for (index = 0; index < notifications.length; index++) {
+                            value = notifications[index].state.value[0].value;
+                            methodnames.push(ThinNeo.Helper.Bytes2String(value.hexToBytes()));
+                        }
+                        return [2 /*return*/, methodnames];
+                }
+            });
+        });
+    };
+    return Contract;
+}());
+exports.default = Contract;
+
+
+/***/ }),
+
+/***/ "I0Fu":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var cn_1 = __webpack_require__("wOXa");
+var en_1 = __webpack_require__("pKg8");
+var vue_i18n_1 = __webpack_require__("TXmL");
+vue_1.default.use(vue_i18n_1.default);
+var language = localStorage.getItem("language");
+if (!language) {
+    var lang = navigator.language; //常规浏览器语言和IE浏览器    
+    lang = lang.substr(0, 2); //截取lang前2位字符
+    console.log(lang);
+    language = (lang == 'zh' ? 'cn' : 'en');
+    localStorage.setItem('language', language);
+}
+/*---------使用语言包-----------*/
+exports.default = new vue_i18n_1.default({
+    locale: language,
+    messages: {
+        'cn': cn_1.default,
+        'en': en_1.default // 英文语言包
+    },
+});
+
+
+/***/ }),
+
+/***/ "JPeH":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "JqiV":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"bubble-box"},[_c('div',{staticClass:"bubble-png"},[(_vm.isdisable)?_c('img',{attrs:{"src":__webpack_require__("JPeH"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("PnfL"),"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"bubble-msg",class:_vm.isdisable?'disable':'',on:{"click":function($event){_vm.eventCut()}}},[_vm._v("\n    "+_vm._s(_vm.isdisable?_vm.$t('nns.msg3'):_vm.$t('nns.msg1')))]),_vm._v(" "),_c('div',{staticClass:"help-icon"},[_c('img',{attrs:{"src":__webpack_require__("NmuQ"),"alt":""}}),_vm._v(" "),_c('div',{staticClass:"help-msg"},[_vm._v("\n      "+_vm._s(_vm.$t('nns.msg2'))+"\n      "),_c('div',{staticClass:"triangle-box"})])])])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "L1xo":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "LJj6":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_router_1 = __webpack_require__("/ocq");
+var wallet_vue_1 = __webpack_require__("PPZq");
+vue_1.default.use(vue_router_1.default);
+var Balance = function (resolve) { return __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("v8qo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Login = function (resolve) { return __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Luci")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Transfer = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(4)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Oz3I")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Exchange = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(3)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("eL9F")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var NNSNeo = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(7)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("C0Cu")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Settings = function (resolve) { return __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("hZlE")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Auction = function (resolve) { return Promise.all/* require */([__webpack_require__.e(2), __webpack_require__.e(0)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("jrmo")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var MyNeoName = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(6)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("ogHy")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Bonus = function (resolve) { return Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(9)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("6M52")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+var Tutorial = function (resolve) { return __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("8G7y")]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe); };
+exports.default = new vue_router_1.default({
+    mode: 'hash',
+    routes: [
+        { path: '/', redirect: '/login' },
+        {
+            path: '/login', component: Login, name: "login"
+        },
+        {
+            path: '/', component: wallet_vue_1.default, name: "index",
+            children: [
+                { path: 'balance', component: Balance, name: 'balance' },
+                { path: 'transfer', component: Transfer, name: 'transfer' },
+                { path: 'exchange', component: Exchange, name: 'exchange' },
+                { path: 'setting', component: Settings, name: 'setting' },
+                {
+                    path: 'nnsneo', component: NNSNeo, name: 'nnsneo',
+                    children: [
+                        { path: 'auction', component: Auction, name: 'auction' },
+                        { path: 'myneoname', component: MyNeoName, name: 'myneoname' },
+                        { path: 'bonus', component: Bonus, name: 'bonus' },
+                        { path: 'tutorial', component: Tutorial, name: 'tutorial' }
+                    ]
+                },
+            ]
+        },
+        { path: '*', redirect: '/login' },
+    ]
+});
+
+
+/***/ }),
+
+/***/ "N5E8":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/VLink.vue
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var VLink = ({
+  props: {
+    href: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    isActive() {
+      return this.href === this.$root.currentRoute;
+    }
+  },
+  methods: {
+    go(event) {
+      event.preventDefault();
+      this.$root.currentRoute = this.href;
+      window.history.pushState(null, this.href, window.location.pathname + this.href);
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-ad35f30c","hasScoped":true,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/VLink.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('a',{class:{ active: _vm.isActive },attrs:{"href":_vm.href},on:{"click":_vm.go}},[_vm._t("default")],2)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ var components_VLink = (esExports);
+// CONCATENATED MODULE: ./src/components/VLink.vue
+function injectStyle (ssrContext) {
+  __webpack_require__("85su")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-ad35f30c"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  VLink,
+  components_VLink,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var src_components_VLink = __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "NmuQ":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAA11JREFUWAnNWT1II0EUfgkiiNqk8CRgIYmdVhFFsU+6iFjZBK3vQAwErJa7q0QrOewsRbgmHhaCVtZqEy0UPEQUzR0EiTlEUG7v+2ZN2MQz2b/EffBt3s7Me/Ptm53ZN5OAOBRd1yMwTQIxIGwCVLkx4Qj6j0Ag8JMVTRWQ6gG+AMeAXaENbXs8JwmnXYAGlAC3Qh8a0OUJUTiaAvKA10KfU45JwjgAaMBfoFlC3xoQsEUUBh3Ad6BVwr46LJFEQ0auleTKQWCfjSOJRlrZ4h1+tbpRBCFOiGa+c42emX1XTZxKSFHBaX8OfKj7FM2v/IUuoljY/7CrNlN/aeiOyD09PUk2m5WdnR25vLwUOJf+/n6Jx+MyPT2t7k39NFLJgVw+s6GKIKLH1Z2fItuL59XVlSwsLMjFxQX9vZLh4WFZW1uTYDD4qq5OAaMXwYP+Llt9QoFtcuxgaWlJkRsaGpLl5WXZ3d2Vra0tmZmZYbUcHh7KxsaG0m1cyOVjpT0i6OTbCjNdv7+/19fX13UMs7o3X+bn5/VYLKanUilzsVX9mASDaM2sZLDC1qbS3d0tc3Nz0tZmfp0NJ+Pj40p5a/gbdDVIbhxipkxNkYeHB+WXD+FQkiTIfK4psre3p/yOjY059R8jQSabnsvm5qacnp5KZ2enzM7OOvUfFozzmdW31mq7XC6nj46OqgmCtdGq2f/anXkewVKpJIuLi/L8/CyTk5OSSCScRo92YRLU3XiotV1dXZV8Pi+RSEQymUxttd17nQRv7Vq91b5QKMj29raqTqfT0t7e/lZTq+W3JMgdmCdycHCghra3t1dGRka88HnjKcFisahI9fX1eUGOPm64/HPfanw4WeRCJiYmhNELhUIuvFSZHjG956eOeaAfJRpESsM068QrdtfX1/L4+OiFuxNy4ztIyRo/7q5Mvbj2JZNJtdS482ZwKhP8BmcqxXbjlFk1hcvN/v6+G1fkQk6iCDJzhb7CAjcSjUYr5gMDAxXdgbLywslI+ekAk4VZrKtN093dndqXkKiLdbBq01T1cCDpu21nFUHegKQGvJfU37i/EPT30ccLSf8eHpEgBWPs3+M3g6JxBVF/HmDWkPTvEXANUR6ifwWcbPRpY/sQXZ3NmElY1dFZS/6G+AfBNJPrQJbG6AAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "OrGm":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var bubble_vue_1 = __webpack_require__("VbKi");
+var hint_vue_1 = __webpack_require__("6Trz");
+var Selected_vue_1 = __webpack_require__("2v9N");
+var Spinner_vue_1 = __webpack_require__("+jyM");
+var toast_vue_1 = __webpack_require__("AU0D");
+var Valert_vue_1 = __webpack_require__("Gieu");
+var VLink_vue_1 = __webpack_require__("N5E8");
+var Notify_vue_1 = __webpack_require__("QSGr");
+var confrim_vue_1 = __webpack_require__("Yvh6");
+exports.default = {
+    install: function (Vue) {
+        Vue.component('bubble-wrap', bubble_vue_1.default);
+        Vue.component('v-hint', hint_vue_1.default);
+        Vue.component('v-selected', Selected_vue_1.default);
+        Vue.component('spinner-wrap', Spinner_vue_1.default);
+        Vue.component('v-toast', toast_vue_1.default);
+        Vue.component('v-alert', Valert_vue_1.default);
+        Vue.component('v-link', VLink_vue_1.default);
+        Vue.component("v-notify", Notify_vue_1.default);
+        Vue.component('v-confirm', confrim_vue_1.default);
+    }
+};
+
+
+/***/ }),
+
+/***/ "PMwo":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var entity_1 = __webpack_require__("6nHw");
+var neotools = /** @class */ (function () {
+    function neotools() {
+    }
+    /**
+     * verifyAddress
+     * @param addr
+     */
+    neotools.verifyAddress = function (addr) {
+        var verify = /^[a-zA-Z0-9]{34,34}$/;
+        var res = verify.test(addr) ? neotools.verifyPublicKey(addr) : verify.test(addr);
+        return res;
+    };
+    /**
+     * verifyPublicKey 验证地址
+     * @param publicKey 公钥
+     */
+    neotools.verifyPublicKey = function (publicKey) {
+        var array = Neo.Cryptography.Base58.decode(publicKey);
+        var check = array.subarray(21, 21 + 4); //
+        var checkdata = array.subarray(0, 21); //
+        var hashd = Neo.Cryptography.Sha256.computeHash(checkdata); //
+        hashd = Neo.Cryptography.Sha256.computeHash(hashd); //
+        var hashd = hashd.slice(0, 4); //    
+        var checked = new Uint8Array(hashd); //
+        var error = false;
+        for (var i = 0; i < 4; i++) {
+            if (checked[i] != check[i]) {
+                error = true;
+                break;
+            }
+        }
+        return !error;
+    };
+    /**
+     * wifDecode wif解码
+     * @param wif wif私钥
+     */
+    neotools.wifDecode = function (wif) {
+        var result = new entity_1.Result();
+        var login = new entity_1.LoginInfo();
+        try {
+            login.prikey = ThinNeo.Helper.GetPrivateKeyFromWIF(wif);
+        }
+        catch (e) {
+            result.err = true;
+            result.info = e.message;
+            return result;
+        }
+        try {
+            login.pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(login.prikey);
+        }
+        catch (e) {
+            result.err = true;
+            result.info = e.message;
+            return result;
+        }
+        try {
+            login.address = ThinNeo.Helper.GetAddressFromPublicKey(login.pubkey);
+        }
+        catch (e) {
+            result.err = true;
+            result.info = e.message;
+            return result;
+        }
+        result.info = login;
+        return result;
+    };
+    /**
+     * nep2FromWif
+     */
+    neotools.nep2FromWif = function (wif, password) {
+        var prikey;
+        var pubkey;
+        var address;
+        var res = new entity_1.Result();
+        try {
+            prikey = ThinNeo.Helper.GetPrivateKeyFromWIF(wif);
+            var n = 16384;
+            var r = 8;
+            var p = 8;
+            ThinNeo.Helper.GetNep2FromPrivateKey(prikey, password, n, r, p, function (info, result) {
+                res.err = false;
+                res.info.nep2 = result;
+                pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(prikey);
+                var hexstr = pubkey.toHexString();
+                address = ThinNeo.Helper.GetAddressFromPublicKey(pubkey);
+                res.info.address = address;
+                return res;
+            });
+        }
+        catch (e) {
+            res.err = true;
+            res.info = e.message;
+            return res;
+        }
+    };
+    /**
+     * nep2TOWif
+     */
+    neotools.nep2ToWif = function (nep2, password) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res, login, promise;
+            return __generator(this, function (_a) {
+                res = new entity_1.Result();
+                login = new entity_1.LoginInfo();
+                promise = new Promise(function (resolve, reject) {
+                    var n = 16384;
+                    var r = 8;
+                    var p = 8;
+                    ThinNeo.Helper.GetPrivateKeyFromNep2(nep2, password, n, r, p, function (info, result) {
+                        if ("nep2 hash not match." == result)
+                            reject(result);
+                        login.prikey = result;
+                        res.info = {};
+                        if (login.prikey != null) {
+                            login.pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(login.prikey);
+                            login.address = ThinNeo.Helper.GetAddressFromPublicKey(login.pubkey);
+                            res.err = false;
+                            res.info = login;
+                            resolve(res);
+                        }
+                        else {
+                            res.err = true;
+                            reject(res);
+                        }
+                    });
+                });
+                return [2 /*return*/, promise];
+            });
+        });
+    };
+    /**
+     * nep6Load
+     */
+    neotools.nep6Load = function (wallet, password) {
+        return __awaiter(this, void 0, void 0, function () {
+            var istart, res, arr, keyindex, account, result, error_1, e_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 9, , 10]);
+                        istart = 0;
+                        res = new entity_1.Result();
+                        arr = {};
+                        if (!wallet.accounts) return [3 /*break*/, 7];
+                        keyindex = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(keyindex < wallet.accounts.length)) return [3 /*break*/, 6];
+                        account = wallet.accounts[keyindex];
+                        if (account.nep2key == null) {
+                            return [3 /*break*/, 5];
+                        }
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, neotools.getPriKeyfromAccount(wallet.scrypt, password, account)];
+                    case 3:
+                        result = _a.sent();
+                        // console.log("getpkformacc:" + result);
+                        arr[account.address] = (result.info);
+                        return [2 /*return*/, arr];
+                    case 4:
+                        error_1 = _a.sent();
+                        throw error_1;
+                    case 5:
+                        keyindex++;
+                        return [3 /*break*/, 1];
+                    case 6: return [3 /*break*/, 8];
+                    case 7: throw console.error("The account cannot be empty");
+                    case 8: return [3 /*break*/, 10];
+                    case 9:
+                        e_1 = _a.sent();
+                        throw e_1.result;
+                    case 10: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * getPriKeyform
+     */
+    neotools.getPriKeyfromAccount = function (scrypt, password, account) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res, promise;
+            return __generator(this, function (_a) {
+                res = new entity_1.Result();
+                promise = new Promise(function (resolve, reject) {
+                    account.getPrivateKey(scrypt, password, function (info, result) {
+                        if (info == "finish") {
+                            var pubkey = ThinNeo.Helper.GetPublicKeyFromPrivateKey(result);
+                            var address = ThinNeo.Helper.GetAddressFromPublicKey(pubkey);
+                            var wif = ThinNeo.Helper.GetWifFromPrivateKey(result);
+                            var hexkey = result.toHexString();
+                            // console.log(info + "|" + address + " wif=" + wif);
+                            res.err = false;
+                            res.info = { pubkey: pubkey, address: address, prikey: result };
+                            resolve(res);
+                        }
+                        else {
+                            // info2.textContent += info + "|" + result;
+                            reject({ err: true, result: result });
+                        }
+                    });
+                });
+                return [2 /*return*/, promise];
+            });
+        });
+    };
+    return neotools;
+}());
+exports.neotools = neotools;
+
+
+/***/ }),
+
+/***/ "PPZq":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__ = __webpack_require__("YRcM");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_35344ac5_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__ = __webpack_require__("TsRY");
+function injectStyle (ssrContext) {
+  __webpack_require__("asp0")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_wallet_ts___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_35344ac5_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "PnfL":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "Q+Sz":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "QSGr":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue__ = __webpack_require__("D078");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08a3575e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Notify_vue__ = __webpack_require__("/z55");
+function injectStyle (ssrContext) {
+  __webpack_require__("pNRP")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-08a3575e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Notify_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08a3575e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Notify_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "Rsmh":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAjBJREFUWAntWD1Lw0AYvkuKFURxaS0dxI+419nJwUXRRRQ3f0AnP8HNSaXaOvkD3KTgoKBrXQQXwb2tioP0YxFFsNDkvLc1GGLa3HtptUhCILn343mfPHe5O44S2zWWLF0QSqdt5t9pMnaZXQvPWIsp1safv1PC7Byo3dCoPZYq/0huFCtiz66GhGp3loIOX+YTdBAFZfIVRMnlEOwr6CAKyvR/FOSz9Cvq05sEY7DEFWTsqElNnAuBJbTcmNW1g/IKpSRBKAmYNtSTkSpjZDO3HjoUzUMRBNDRRHFCUZU0JxkVLVKLY+TZ0I3F/ObANSZPvIu/UKGAYejjXImMaCGIhRwsOcBHE4Sk/EaklLvJTDHC9viA57fzBT6IgVjIcY5qbkV3sR1OSxbmCFWPOVC/1cfJvRCmL+fWIudWO/bdM0EoOLhbHAkG6SkhNFYnwO4qFTb/tDVwjyVkj28JQQAd2n7oDvT21Kai6tt7/HF7+MNeTKYtNQZlCsnmtETBdnaxZwW1/cJsV1C5/R5/oBWNgQ18ssqZefIEF9KqlirtElU9s//BNYrwV3NfLYbHmgWxT6kuHt0vhKminvBlb1KkIEzUzNCXZOZCNMGOXupgs8DX4Sv0Olzv8yjkAoaI6maM8BjUkqUdqpCU9E6mTjIAGIBlEnB7ChPk5zVxNzBhPwJLmCAfrH3CBFwCMVjCBF1qts3tE/Qqra+gr6BXBbzmd/wY/LFZ8E/5m/W5wyn/Jw17p3iwq63zAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "SDXl":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.isshow)?_c('div',{staticClass:"comp-toast"},[_c('div',{staticClass:"img-box"},[(_vm.type == 'error')?_c('img',{attrs:{"src":__webpack_require__("lJF1"),"alt":""}}):_vm._e(),_vm._v(" "),(_vm.type == 'success')?_c('img',{attrs:{"src":__webpack_require__("wtuE"),"alt":""}}):_vm._e()]),_vm._v(" "),_c('span',{staticClass:"text"},[_vm._v(_vm._s(_vm.msg))])]):_vm._e()}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "Sxgl":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_property_decorator_1 = __webpack_require__("443i");
+var entity_1 = __webpack_require__("6nHw");
+var importpack_1 = __webpack_require__("VKSY");
+var TranConfrim = /** @class */ (function (_super) {
+    __extends(TranConfrim, _super);
+    function TranConfrim() {
+        var _this = _super.call(this) || this;
+        _this.show = false;
+        _this.title = "";
+        _this.deblocking = false;
+        _this.payFee = false;
+        _this.password = "";
+        _this.passwordError = false;
+        _this.messageList = [];
+        return _this;
+    }
+    TranConfrim.prototype.closemudloe = function () {
+        this.show = false;
+        this.password = "";
+        this.passwordError = false;
+        this.payFee = false;
+    };
+    TranConfrim.prototype.open = function (name, msg) {
+        return __awaiter(this, void 0, void 0, function () {
+            var confirmbtn, closebtn, current, promise;
+            var _this = this;
+            return __generator(this, function (_a) {
+                this.title = name;
+                this.messageList = msg;
+                this.show = true;
+                this.deblocking = (entity_1.LoginInfo.info) ? false : true;
+                confirmbtn = document.getElementById("transaction-confirm");
+                closebtn = document.getElementById("transaction-mudloe-close");
+                current = JSON.parse(sessionStorage.getItem("login-info-arr"));
+                if (current.type == entity_1.LoginType.wif) {
+                    this.deblocking = false;
+                }
+                promise = new Promise(function (resolve, reject) {
+                    closebtn.onclick = function () {
+                        _this.closemudloe();
+                        resolve(false);
+                    };
+                    confirmbtn.onclick = function () {
+                        if (entity_1.LoginInfo.info) {
+                            entity_1.LoginInfo.info.payfee = _this.payFee;
+                            resolve(true);
+                            _this.closemudloe();
+                        }
+                        else if (current.type == entity_1.LoginType.wif) {
+                            var res = importpack_1.tools.neotool.wifDecode(current.msg['wif']);
+                            if (res.err) {
+                                reject("WIF is error");
+                            }
+                            else {
+                                entity_1.LoginInfo.info = res.info;
+                                entity_1.LoginInfo.info.payfee = _this.payFee;
+                                resolve(true);
+                                _this.closemudloe();
+                            }
+                        }
+                        else if (current.type == entity_1.LoginType.otcgo) {
+                            var otcgo = new entity_1.WalletOtcgo();
+                            otcgo.fromJsonStr(JSON.stringify(current.msg));
+                            otcgo.otcgoDecrypt(_this.password);
+                            var result = otcgo.doValidatePwd();
+                            if (result) {
+                                var info = new entity_1.LoginInfo();
+                                info.address = otcgo.address;
+                                info.prikey = otcgo.prikey;
+                                info.pubkey = otcgo.pubkey;
+                                info.payfee = _this.payFee;
+                                entity_1.LoginInfo.info = info;
+                                resolve(true);
+                                _this.closemudloe();
+                            }
+                            else {
+                                _this.passwordError = true;
+                            }
+                        }
+                        else {
+                            var nep2 = current.msg[entity_1.LoginInfo.getCurrentAddress()];
+                            importpack_1.tools.neotool.nep2ToWif(nep2, _this.password)
+                                .then(function (result) {
+                                entity_1.LoginInfo.info = result.info;
+                                entity_1.LoginInfo.info.payfee = _this.payFee;
+                                resolve(true);
+                                _this.closemudloe();
+                            })
+                                .catch(function (err) {
+                                _this.passwordError = true;
+                            });
+                        }
+                    };
+                });
+                return [2 /*return*/, promise];
+            });
+        });
+    };
+    TranConfrim.prototype.mounted = function () {
+        sessionStorage.getItem("");
+    };
+    __decorate([
+        vue_property_decorator_1.Watch("open"),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [String, Array]),
+        __metadata("design:returntype", Promise)
+    ], TranConfrim.prototype, "open", null);
+    TranConfrim = __decorate([
+        vue_property_decorator_1.Component,
+        __metadata("design:paramtypes", [])
+    ], TranConfrim);
+    return TranConfrim;
+}(vue_1.default));
+exports.default = TranConfrim;
+
+
+/***/ }),
+
+/***/ "TC2Y":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "TaBq":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_property_decorator_1 = __webpack_require__("443i");
+var Selected = /** @class */ (function (_super) {
+    __extends(Selected, _super);
+    function Selected() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.title = "";
+        _this.selection = "";
+        return _this;
+    }
+    Selected.prototype.mounted = function () {
+        this.selection = Object.keys(this.list)[0];
+        this.switchVal(this.selection);
+    };
+    Selected.prototype.switchVal = function (key) {
+        this.selection = key;
+        this.title = this.list[key];
+        this.$emit("selected", this.selection);
+    };
+    __decorate([
+        vue_property_decorator_1.Prop(),
+        __metadata("design:type", Object)
+    ], Selected.prototype, "list", void 0);
+    Selected = __decorate([
+        vue_property_decorator_1.Component
+    ], Selected);
+    return Selected;
+}(vue_1.default));
+exports.default = Selected;
+
+
+/***/ }),
+
+/***/ "TsRY":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('main-layout',{attrs:{"id":"wallet"}},[_c('nav',{staticClass:"navbar navbar-wallet"},[_c('div',{staticClass:"blockheight"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"notify-span"},[_vm._v(_vm._s(_vm.$t('notify.fee')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-img fright"},[_c('span',{staticClass:"blockheight-span"},[_vm._v(_vm._s(_vm.$t('navbar.blockheight'))+"："+_vm._s(_vm.blockheight))]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("Rsmh"),"alt":""},on:{"click":_vm.onshowHistory}}),_vm._v(" "),(_vm.taskNumber)?_c('div',{staticClass:"add-task"},[_vm._v("\n            "+_vm._s(_vm.taskNumber>99?99:_vm.taskNumber)+"\n            "),(_vm.taskNumber>99)?_c('span',[_vm._v("+")]):_vm._e()]):_vm._e()])])]),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"navbar-collapse collapse",attrs:{"id":"navbar"}},[_c('ul',{staticClass:"nav navbar-nav navbar-left"},[_c('li',[_c('router-link',{class:{active:_vm.isActive('balance')},attrs:{"to":{name:'balance'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('balance'))?_c('img',{attrs:{"src":__webpack_require__("5yhA"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("Yj+Z"),"alt":""}})]),_vm._v("\n              "+_vm._s(_vm.$t('balance.balance'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('transfer')},attrs:{"to":{name:'transfer'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('transfer'))?_c('img',{attrs:{"src":__webpack_require__("njKD"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("AT6x"),"alt":""}})]),_vm._v("\n              "+_vm._s(_vm.$t('transfer.transfer'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('exchange')},attrs:{"to":{name:'exchange'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('exchange'))?_c('img',{attrs:{"src":__webpack_require__("rVEi"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("w5Tq"),"alt":""}})]),_vm._v("\n              "+_vm._s(_vm.$t('exchange.title'))+"\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('nnsneo')},attrs:{"to":{name:'auction'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('nnsneo'))?_c('img',{attrs:{"src":__webpack_require__("Blow"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("rjrR"),"alt":""}})]),_vm._v("\n              "+_vm._s(_vm.$t('nns.nns'))+"(.neo)\n            ")])],1),_vm._v(" "),_c('li',[_c('router-link',{class:{active:_vm.isActive('setting')},attrs:{"to":{name:'setting'}}},[_c('span',{staticClass:"icon-png"},[(_vm.isActive('setting'))?_c('img',{attrs:{"src":__webpack_require__("Fxcc"),"alt":""}}):_c('img',{attrs:{"src":__webpack_require__("1Iz4"),"alt":""}})]),_vm._v("\n              "+_vm._s(_vm.$t('setting.settings'))+"\n            ")])],1)]),_vm._v(" "),_c('div',{staticClass:"tranhistory-box"},[(_vm.showHistory)?_c('div',{staticClass:"tranhistory-wrap"},[_c('div',{staticClass:"tranhistory-listbox"},[_c('div',{staticClass:"tranhistory-title"},[_c('div',{staticClass:"tranhistory-close",on:{"click":function($event){_vm.showHistory=!_vm.showHistory}}},[_c('img',{attrs:{"src":__webpack_require__("fgqV"),"alt":""}})]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.title')))]),_vm._v(" "),_c('div',{staticClass:"tranhistory-tips"},[_vm._v(_vm._s(_vm.$t('operation.tips')))])]),_vm._v(" "),(_vm.taskList.length != 0)?_c('div',{staticClass:"tranhistory-list"},_vm._l((_vm.taskList),function(item){return _c('div',{key:item.tasktype,staticClass:"th-onelist"},[(item.tasktype == 0)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.transfer')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.toaddress))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" "+_vm._s(item.message.assetname))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 1)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.openauction')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 2)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.raisebid')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 3)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 4)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.exchange')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.count)+" CGAS")]),_vm._v(" "),_c('img',{attrs:{"src":__webpack_require__("0YXJ"),"alt":""}}),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.count)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 5)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.topup')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 6)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.withdraw')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+"Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 7)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.requestgas')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waitinggas'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"green-text"},[_vm._v(_vm._s(_vm.$t('operation.sentok')))]):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 8)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v("\n                            "+_vm._s(_vm.$t('operation.addrmapping'))+"\n                            "),_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.address))])])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 9)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.addrresolver'))+" "+_vm._s(item.resolver))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 10)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.editdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(_vm.$t('operation.renew')))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 11)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.getdomain')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 12)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.recover')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" CGAS")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 13)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.gasclaim')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('span',[_vm._v(_vm._s(item.message.amount)+" Gas")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 14)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.domaintransfer')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"href":item.domainhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v("\n                            "+_vm._s(_vm.$t('operation.domaintransfer'))+"\n                            "),_c('a',{staticClass:"green-text",attrs:{"href":item.addrhref,"target":"_blank"}},[_vm._v(_vm._s(item.message.address))])])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 15)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.list')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" NNC")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 16)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.delist')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 17)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.buy')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_c('a',{staticClass:"green-text",attrs:{"target":"_blank","href":item.domainhref}},[_vm._v(_vm._s(item.message.domain))]),_vm._v(" "),_c('span',[_vm._v(_vm._s(item.message.amount)+" NNC")])])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e(),_vm._v(" "),(item.tasktype == 18)?_c('div',[_c('div',{staticClass:"th-type"},[_c('div',{staticClass:"th-typename"},[_vm._v(_vm._s(_vm.$t('operation.claimnnc')))]),_vm._v(" "),_c('div',{staticClass:"th-other"},[_c('div',{staticClass:"th-number"},[_vm._v(_vm._s(item.message.amount)+" NNC")])])]),_vm._v(" "),_c('div',{staticClass:"th-block-txid"},[_c('span',{staticClass:"th-txid",staticStyle:{"padding-right":"10px"}},[_vm._v("\n                        "+_vm._s(_vm.$t('operation.txid'))+"\n                        "),_c('a',{staticClass:"green-text",attrs:{"href":item.txidhref,"target":"_blank"}},[_vm._v(_vm._s(item.txid))])]),_vm._v(" "),(item.state==0)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.waiting'))+" "+_vm._s(item.pendingText))]):_vm._e(),_vm._v(" "),(item.state==1)?_c('span',{staticClass:"th-txid"}):_vm._e(),_vm._v(" "),(item.state==2)?_c('span',{staticClass:"red-text"},[_vm._v(_vm._s(_vm.$t('operation.fail')))]):_vm._e()])]):_vm._e()])})):_vm._e(),_vm._v(" "),(_vm.taskList.length == 0)?_c('div',{staticClass:"notask"},[_vm._v(_vm._s(_vm.$t('operation.nodata')))]):_vm._e()])]):_vm._e()])])])]),_vm._v(" "),_c('div',{staticClass:"wallet-content"},[_c('router-view')],1)])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "VKSY":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var cointool_1 = __webpack_require__("pLPz");
+var neotools_1 = __webpack_require__("PMwo");
+var nnstool_1 = __webpack_require__("ar5l");
+var storagetool_1 = __webpack_require__("5LD5");
+var wwwtool_1 = __webpack_require__("50aY");
+var timetool_1 = __webpack_require__("48oz");
+var contract_1 = __webpack_require__("HWxh");
+var sgastool_1 = __webpack_require__("9Jd1");
+var nnssell_1 = __webpack_require__("s6Yv");
+var taskmanager_1 = __webpack_require__("XfB5");
+var tools;
+(function (tools) {
+    tools.coinTool = cointool_1.CoinTool; //构造交易，UTXO排序
+    tools.neotool = neotools_1.neotools; //NEO的算法工具类
+    tools.nnstool = nnstool_1.NNSTool; //nns域名处理工具类
+    tools.storagetool = storagetool_1.StorageTool; //sessionStory
+    tools.wwwtool = wwwtool_1.WWW; //api请求工具类
+    tools.timetool = timetool_1.default; //时间工具类
+    tools.contract = contract_1.default; //智能合约调用方法封装
+    tools.sgastool = sgastool_1.default; //Sgas兑换方法
+    tools.nnssell = nnssell_1.default;
+    tools.localstoretool = storagetool_1.LocalStoreTool;
+    tools.sessionstoretool = storagetool_1.sessionStoreTool;
+    tools.taskManager = taskmanager_1.TaskManager;
+})(tools = exports.tools || (exports.tools = {}));
+
+
+/***/ }),
+
+/***/ "VbKi":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue__ = __webpack_require__("VvEX");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3bd6530e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bubble_vue__ = __webpack_require__("JqiV");
+function injectStyle (ssrContext) {
+  __webpack_require__("+H70")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3bd6530e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bubble_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3bd6530e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bubble_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "VvEX":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_property_decorator_1 = __webpack_require__("443i");
+var entity_1 = __webpack_require__("6nHw");
+var Bubble = /** @class */ (function (_super) {
+    __extends(Bubble, _super);
+    function Bubble() {
+        return _super.call(this) || this;
+    }
+    Bubble.prototype.mounted = function () { };
+    Bubble.prototype.eventCut = function () {
+        console.log("aa");
+        if (!this.isdisable) {
+            window.open("../../static/event/index.html?walletAddress=" +
+                entity_1.LoginInfo.getCurrentAddress());
+        }
+    };
+    __decorate([
+        vue_property_decorator_1.Prop({ default: true }),
+        __metadata("design:type", Boolean)
+    ], Bubble.prototype, "isdisable", void 0);
+    Bubble = __decorate([
+        vue_property_decorator_1.Component({
+            components: {}
+        }),
+        __metadata("design:paramtypes", [])
+    ], Bubble);
+    return Bubble;
+}(vue_property_decorator_1.Vue));
+exports.default = Bubble;
+
+
+/***/ }),
+
+/***/ "Wj+m":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var entity_1 = __webpack_require__("6nHw");
+var importpack_1 = __webpack_require__("VKSY");
+/**
+ * 区块时间类
+ */
+var BlockTime = /** @class */ (function () {
+    function BlockTime() {
+    }
+    return BlockTime;
+}());
+exports.BlockTime = BlockTime;
+/**
+ * 加价地址类
+ */
+var AuctionAddress = /** @class */ (function () {
+    function AuctionAddress(addres, totalValue) {
+        this.address = addres;
+        this.totalValue = totalValue;
+    }
+    return AuctionAddress;
+}());
+exports.AuctionAddress = AuctionAddress;
+/**
+ * 竞拍类
+ */
+var Auction = /** @class */ (function () {
+    function Auction() {
+    }
+    Auction.prototype.parse = function (json, address) {
+        if (typeof json == 'string') { }
+        if (typeof json == 'object') {
+            this.auctionId = json["auctionId"];
+            this.fulldomain = json["fulldomain"];
+            this.domain = json["domain"];
+            this.parenthash = json["parenthash"];
+            this.domainTTL = json["domainTTL"];
+            this.auctionState = json["auctionState"];
+            this.startTime = json["startTime"];
+            this.startAddress = json["startAddress"];
+            this.maxBuyer = json["maxBuyer"];
+            this.maxPrice = json["maxPrice"];
+            this.endTime = json["endTime"];
+            this.endAddress = json["endAddress"];
+            this.lastTime = json["lastTime"];
+            this.addwholist = json["addwholist"];
+            if (this.addwholist) {
+                this.addWho = this.addwholist.find(function (addWho) {
+                    return addWho.address == address;
+                });
+                this.addWho = this.addWho ? this.addWho : new AuctionAddress(address, 0);
+            }
+            else {
+                this.addWho = new AuctionAddress(address, 0);
+            }
+        }
+    };
+    Auction.prototype.formAuctionInfo = function (auction) {
+        this.auctionId = auction.id.toString();
+        this.maxBuyer = ThinNeo.Helper.GetAddressFromScriptHash(auction.maxBuyer);
+        this.maxPrice = accDiv(auction.maxPrice.toString(), 10000000);
+        this.fulldomain = auction.domain;
+        this.addWho = new AuctionAddress(entity_1.LoginInfo.getCurrentAddress(), 0);
+    };
+    return Auction;
+}());
+exports.Auction = Auction;
+/**
+ * 竞拍状态枚举类
+ */
+var AuctionState;
+(function (AuctionState) {
+    AuctionState["watting"] = "0001";
+    AuctionState["open"] = "0101";
+    AuctionState["fixed"] = "0201";
+    AuctionState["random"] = "0301";
+    AuctionState["end"] = "0401";
+    AuctionState["pass"] = "0501";
+    AuctionState["expire"] = "0601";
+    AuctionState["old"] = "0801";
+    AuctionState["sale"] = "0901"; //出售状态
+})(AuctionState = exports.AuctionState || (exports.AuctionState = {}));
+/**
+ * 竞拍列表显示类
+ */
+var AuctionView = /** @class */ (function () {
+    //传入Auction初始化域名显示对象
+    function AuctionView(auction) {
+        var currentAddress = entity_1.LoginInfo.getCurrentAddress();
+        if (!auction.addwholist) {
+            this.addwho = new AuctionAddress(currentAddress, 0);
+        }
+        else {
+            for (var index = 0; index < auction.addwholist.length; index++) {
+                var addrwho = auction.addwholist[index];
+                if (addrwho.address == currentAddress) {
+                    this.addwho = addrwho;
+                }
+            }
+            this.addwho = this.addwho ? this.addwho : new AuctionAddress(currentAddress, 0);
+        }
+        this.id = auction.auctionId;
+        this.domain = auction.fulldomain;
+        this.maxBuyer = auction.maxBuyer;
+        this.maxPrice = auction.maxPrice ? auction.maxPrice : 0;
+        this.startTime = auction.startTime;
+        this.endTime = auction.endTime;
+        this.lastTime = auction.lastTime;
+        this.startTimeStr = importpack_1.tools.timetool.getTime(auction.startTime.blocktime);
+        this.state = auction.auctionState;
+        this.startAddress = auction.startAddress;
+        // if (this.state == AuctionState.open){  this.state = AuctionState.fixed;      }
+        if (this.state == AuctionState.end || this.state == AuctionState.expire) {
+            this.state = AuctionState.end;
+            if (auction.maxBuyer == this.addwho.address) {
+                this.btnState = this.addwho.getdomainTime ? auctionBtnState.receivedname : auctionBtnState.getdomain;
+            }
+            else {
+                this.btnState = this.addwho.accountTime ? auctionBtnState.receivedsgas : auctionBtnState.recoversgas;
+            }
+        }
+        else {
+            this.btnState = auctionBtnState.bid;
+        }
+    }
+    return AuctionView;
+}());
+exports.AuctionView = AuctionView;
+/**
+ * 加价详情显示类
+ */
+var AuctionInfoView = /** @class */ (function (_super) {
+    __extends(AuctionInfoView, _super);
+    function AuctionInfoView(auction) {
+        return _super.call(this, auction) || this;
+    }
+    return AuctionInfoView;
+}(AuctionView));
+exports.AuctionInfoView = AuctionInfoView;
+/**
+ * 按钮状态 状态 ENUM
+ */
+var auctionBtnState;
+(function (auctionBtnState) {
+    auctionBtnState[auctionBtnState["bid"] = 0] = "bid";
+    auctionBtnState[auctionBtnState["getdomain"] = 1] = "getdomain";
+    auctionBtnState[auctionBtnState["recoversgas"] = 2] = "recoversgas";
+    auctionBtnState[auctionBtnState["receivedsgas"] = 3] = "receivedsgas";
+    auctionBtnState[auctionBtnState["receivedname"] = 4] = "receivedname";
+})(auctionBtnState = exports.auctionBtnState || (exports.auctionBtnState = {}));
+/**
+ * 时间轴类
+ */
+var Process = /** @class */ (function () {
+    function Process(start, day) {
+        this.timearr = [];
+        this.startTime = typeof start == "string" ? importpack_1.tools.timetool.currentTime(start) : start;
+        var startdate = importpack_1.tools.timetool.getDate(this.startTime);
+        this.date = importpack_1.tools.timetool.dateFtt("yyyy/MM/dd", startdate);
+        this.time = importpack_1.tools.timetool.dateFtt("hh:mm:ss", startdate);
+        this.width = 0;
+        for (var i = 1; i <= 5; i++) {
+            var element = { msg: "", date: "", time: "" };
+            switch (i) {
+                case 1:
+                    element.msg = "1";
+                    break;
+                case 3:
+                    element.msg = "2";
+                    break;
+                case 5:
+                    element.msg = "3";
+                    break;
+                default:
+                    break;
+            }
+            var time = this.startTime + day * i;
+            var date = importpack_1.tools.timetool.dateFtt("yyyy/MM/dd", importpack_1.tools.timetool.getDate(time));
+            var times = importpack_1.tools.timetool.dateFtt("hh:mm:ss", importpack_1.tools.timetool.getDate(time));
+            element.date = date;
+            element.time = times;
+            this.timearr.push(element);
+        }
+    }
+    return Process;
+}());
+exports.Process = Process;
+
+
+/***/ }),
+
+/***/ "XfB5":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var storagetool_1 = __webpack_require__("5LD5");
+var entity_1 = __webpack_require__("6nHw");
+var importpack_1 = __webpack_require__("VKSY");
+var StorageMap_1 = __webpack_require__("slXE");
+/**
+ * 任务管理器
+ */
+var TaskManager = /** @class */ (function () {
+    function TaskManager() {
+    }
+    TaskManager.getBlockHeight = function () {
+        var height = this.oldBlock.select('height');
+        return height;
+    };
+    /**
+     * 更新方法
+     */
+    TaskManager.update = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var taskList, _a, _b, _i, type, tasks, _c, index, element;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        taskList = this.taskStore.getList();
+                        _a = [];
+                        for (_b in taskList)
+                            _a.push(_b);
+                        _i = 0;
+                        _d.label = 1;
+                    case 1:
+                        if (!(_i < _a.length)) return [3 /*break*/, 42];
+                        type = _a[_i];
+                        if (!taskList.hasOwnProperty(type)) return [3 /*break*/, 41];
+                        tasks = taskList[type];
+                        _c = parseInt(type);
+                        switch (_c) {
+                            case entity_1.TaskType.tranfer: return [3 /*break*/, 2];
+                            case entity_1.TaskType.ClaimGas: return [3 /*break*/, 4];
+                            case entity_1.TaskType.openAuction: return [3 /*break*/, 6];
+                            case entity_1.TaskType.addPrice: return [3 /*break*/, 8];
+                            case entity_1.TaskType.getDomain: return [3 /*break*/, 10];
+                            case entity_1.TaskType.recoverSgas: return [3 /*break*/, 12];
+                            case entity_1.TaskType.gasToSgas: return [3 /*break*/, 14];
+                            case entity_1.TaskType.sgasToGas: return [3 /*break*/, 16];
+                            case entity_1.TaskType.topup: return [3 /*break*/, 18];
+                            case entity_1.TaskType.withdraw: return [3 /*break*/, 20];
+                            case entity_1.TaskType.getGasTest: return [3 /*break*/, 22];
+                            case entity_1.TaskType.domainResovle: return [3 /*break*/, 24];
+                            case entity_1.TaskType.domainMapping: return [3 /*break*/, 26];
+                            case entity_1.TaskType.domainRenewal: return [3 /*break*/, 28];
+                            case entity_1.TaskType.domainTransfer: return [3 /*break*/, 30];
+                            case entity_1.TaskType.saleDomain: return [3 /*break*/, 32];
+                            case entity_1.TaskType.unSaleDomain: return [3 /*break*/, 34];
+                            case entity_1.TaskType.buyDomain: return [3 /*break*/, 36];
+                            case entity_1.TaskType.getMyNNC: return [3 /*break*/, 38];
+                        }
+                        return [3 /*break*/, 40];
+                    case 2: return [4 /*yield*/, this.confirm_tranfer(tasks)];
+                    case 3:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 4: return [4 /*yield*/, this.confirm_claimGas(tasks)];
+                    case 5:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 6: return [4 /*yield*/, this.confirm_open(tasks)];
+                    case 7:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 8: return [4 /*yield*/, this.confirm_bid(tasks)];
+                    case 9:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 10: return [4 /*yield*/, this.confirm_getDomain(tasks)];
+                    case 11:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 12: return [4 /*yield*/, this.confirm_recoverSgas(tasks)];
+                    case 13:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 14: return [4 /*yield*/, this.confirm_gasToSgas(tasks)];
+                    case 15:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 16: return [4 /*yield*/, this.confirm_sgasToGas(tasks)];
+                    case 17:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 18: return [4 /*yield*/, this.confirm_topup(tasks)];
+                    case 19:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 20: return [4 /*yield*/, this.confirm_withdraw(tasks)];
+                    case 21:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 22: return [4 /*yield*/, this.confirm_getGas(tasks)];
+                    case 23:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 24: return [4 /*yield*/, this.confirm_resovler(tasks)];
+                    case 25:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 26: return [4 /*yield*/, this.confirm_mapping(tasks)];
+                    case 27:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 28: return [4 /*yield*/, this.confirm_renewal(tasks)];
+                    case 29:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 30: return [4 /*yield*/, this.confirm_domain_transfer(tasks)];
+                    case 31:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 32: return [4 /*yield*/, this.confirm_sale(tasks)];
+                    case 33:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 34: return [4 /*yield*/, this.confirm_unsale(tasks)];
+                    case 35:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 36: return [4 /*yield*/, this.confirm_buyDomain(tasks)];
+                    case 37:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 38: return [4 /*yield*/, this.confirm_getNNC(tasks)];
+                    case 39:
+                        _d.sent();
+                        return [3 /*break*/, 41];
+                    case 40: return [3 /*break*/, 41];
+                    case 41:
+                        _i++;
+                        return [3 /*break*/, 1];
+                    case 42:
+                        /**
+                         * 放在任务状态更新后面执行刷新操作，以防数据未变化就刷新操作
+                         */
+                        if (entity_1.TaskFunction.taskHistory) {
+                            entity_1.TaskFunction.taskHistory();
+                        }
+                        // await services.auction.updateAuctionList(LoginInfo.getCurrentAddress());
+                        for (index in this.functionList) {
+                            if (this.functionList.hasOwnProperty(index)) {
+                                element = this.functionList[index];
+                                element();
+                            }
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 类似 js 数组的 map方法
+     * @param tasks Task数组
+     * @param call 回调方法
+     */
+    TaskManager.forConfirm = function (tasks, call) {
+        var taskarr = [];
+        for (var index = 0; index < tasks.length; index++) {
+            var tasknew = void 0;
+            var task = tasks[index];
+            if (task.state == entity_1.TaskState.watting) {
+                tasknew = call(task);
+            }
+            else {
+                tasknew = task;
+            }
+            taskarr.push(tasknew);
+        }
+        return taskarr;
+    };
+    /**
+     * 循环得到任务返回的结果
+     * @param tasks 任务类
+     */
+    TaskManager.getResult = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, index, element, _a, _b, _c, _d, _e, _f, _g, _h, _j;
+            return __generator(this, function (_k) {
+                switch (_k.label) {
+                    case 0:
+                        ress = {};
+                        index = 0;
+                        _k.label = 1;
+                    case 1:
+                        if (!(index < tasks.length)) return [3 /*break*/, 13];
+                        element = tasks[index];
+                        if (!(element.state == entity_1.TaskState.watting)) return [3 /*break*/, 11];
+                        _a = element.type;
+                        switch (_a) {
+                            case entity_1.ConfirmType.tranfer: return [3 /*break*/, 2];
+                            case entity_1.ConfirmType.contract: return [3 /*break*/, 4];
+                            case entity_1.ConfirmType.recharge: return [3 /*break*/, 6];
+                        }
+                        return [3 /*break*/, 8];
+                    case 2:
+                        _b = ress;
+                        _c = element.txid;
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.hastx(element.txid)];
+                    case 3:
+                        _b[_c] = _k.sent();
+                        return [3 /*break*/, 10];
+                    case 4:
+                        _d = ress;
+                        _e = element.txid;
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.hascontract(element.txid)];
+                    case 5:
+                        _d[_e] = _k.sent();
+                        return [3 /*break*/, 10];
+                    case 6:
+                        _f = ress;
+                        _g = element.txid;
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.getrechargeandtransfer(element.txid)];
+                    case 7:
+                        _f[_g] = _k.sent();
+                        return [3 /*break*/, 10];
+                    case 8:
+                        _h = ress;
+                        _j = element.txid;
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.hastx(element.txid)];
+                    case 9:
+                        _h[_j] = _k.sent();
+                        return [3 /*break*/, 10];
+                    case 10: return [3 /*break*/, 12];
+                    case 11:
+                        ress[element.txid] = undefined;
+                        _k.label = 12;
+                    case 12:
+                        index++;
+                        return [3 /*break*/, 1];
+                    case 13: return [2 /*return*/, ress];
+                }
+            });
+        });
+    };
+    TaskManager.addTask = function (task, type) {
+        this.taskStore.push(type.toString(), task);
+        entity_1.TaskFunction.newTaskNumber();
+    };
+    /**
+     * 交易确认
+     * @param tasks
+     */
+    TaskManager.confirm_tranfer = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                task.state = entity_1.TaskState.success;
+                                if (task.message.type && task.message.type == "Claim") //判断此交易是否是claim
+                                 {
+                                    // TaskFunction.claimGas();
+                                    importpack_1.tools.coinTool.claimGas()
+                                        .then(function (res) {
+                                        if (res["sendrawtransactionresult"]) {
+                                            if (entity_1.TaskFunction.claimState)
+                                                entity_1.TaskFunction.claimState(2);
+                                            var txid = res["txid"];
+                                            var amount = JSON.parse(res['amount']);
+                                            TaskManager.addTask(new entity_1.Task(entity_1.ConfirmType.tranfer, txid, { amount: amount }), entity_1.TaskType.ClaimGas);
+                                            sessionStorage.setItem("claimState", "2");
+                                        }
+                                    })
+                                        .catch(function (err) {
+                                        console.error(err);
+                                    });
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.tranfer.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 交易确认
+     * @param tasks
+     */
+    TaskManager.confirm_claimGas = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     TaskFunction.claimState(0);
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                task.state = entity_1.TaskState.success;
+                                entity_1.TaskFunction.claimState(1);
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.ClaimGas.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 退币操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_withdraw = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.withdraw)
+                            //         TaskFunction.withdraw();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                task.state = entity_1.TaskState.success;
+                                if (entity_1.TaskFunction.withdraw)
+                                    entity_1.TaskFunction.withdraw();
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.withdraw.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 注册器充值操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_topup = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.topup)
+                            //         TaskFunction.topup();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                task.state = entity_1.TaskState.success;
+                                if (entity_1.TaskFunction.topup)
+                                    entity_1.TaskFunction.topup();
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.topup.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 域名开标操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_open = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    StorageMap_1.default.session_open.delete(task.message.domain);
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("startAuction")) {
+                                    task.state = entity_1.TaskState.success;
+                                    StorageMap_1.default.session_open.delete(task.message.domain);
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    StorageMap_1.default.session_open.delete(task.message.domain);
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.openAuction.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 域名加价操作跟踪
+     * @param tasks 加价操作对象数组
+     */
+    TaskManager.confirm_bid = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("raise")) //检测是否有对应的通知 addprice
+                                 {
+                                    task.state = entity_1.TaskState.success;
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("bidSettlement")) {
+                                    task.state = entity_1.TaskState.fail;
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.addPrice.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 确认Gas到SGas的兑换
+     * @param tasks 任务数组
+     */
+    TaskManager.confirm_sgasToGas = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result['errCode']) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                switch (result['errCode']) {
+                                    case '0000': //成功
+                                        task.state = entity_1.TaskState.success;
+                                        if (entity_1.TaskFunction.exchange)
+                                            entity_1.TaskFunction.exchange();
+                                        break;
+                                    case '3001': //失败
+                                        task.state = entity_1.TaskState.fail;
+                                        if (entity_1.TaskFunction.exchange)
+                                            entity_1.TaskFunction.exchange();
+                                        break;
+                                    case '3002': //失败
+                                        task.state = entity_1.TaskState.fail;
+                                        if (entity_1.TaskFunction.exchange)
+                                            entity_1.TaskFunction.exchange();
+                                        break;
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.sgasToGas.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 确认Sgas到 Gas的兑换
+     * @param tasks 任务数组
+     */
+    TaskManager.confirm_gasToSgas = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 9)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     if (TaskFunction.exchange)
+                            //         TaskFunction.exchange();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result.issucces) //检测是否有对应的通知 changeOwnerInfo
+                             {
+                                task.state = entity_1.TaskState.success;
+                                if (entity_1.TaskFunction.exchange)
+                                    entity_1.TaskFunction.exchange();
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.gasToSgas.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 确认域名解析器的注册
+     * @param tasks 任务列表
+     */
+    TaskManager.confirm_resovler = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainResovle)
+                                        entity_1.TaskFunction.domainResovle(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'resolver');
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo")) //检测是否有对应的通知 changeOwnerInfo
+                                 {
+                                    task.state = entity_1.TaskState.success;
+                                    if (entity_1.TaskFunction.domainResovle)
+                                        entity_1.TaskFunction.domainResovle(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'resolver');
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainResovle)
+                                        entity_1.TaskFunction.domainResovle(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'resolver');
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.domainResovle.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    TaskManager.confirm_domain_transfer = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid];
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainTransfer)
+                                            entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                    }, 15000);
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo")) {
+                                    task.state = entity_1.TaskState.success;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainTransfer)
+                                            entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                    }, 15000);
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainTransfer)
+                                            entity_1.TaskFunction.domainTransfer(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'domain_transfer');
+                                    }, 15000);
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.domainTransfer.toString(), taskarr);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 确认域名映射的结果
+     * @param tasks 所有映射的任务
+     */
+    TaskManager.confirm_mapping = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainMapping)
+                                        entity_1.TaskFunction.domainMapping(task['domain'], undefined);
+                                    domainEdit.delete(task.message['domain'], 'mapping');
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("setResolverData")) //如果返回的通知有 setResolveData则域名映射设置成功
+                                 {
+                                    task.state = entity_1.TaskState.success;
+                                    if (entity_1.TaskFunction.domainMapping)
+                                        entity_1.TaskFunction.domainMapping(task.message['domain'], task.message['address']);
+                                    domainEdit.delete(task.message['domain'], 'mapping');
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainMapping)
+                                        entity_1.TaskFunction.domainMapping(task['domain'], undefined);
+                                    domainEdit.delete(task.message['domain'], 'mapping');
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.domainMapping.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 续约确认方法
+     * @param tasks 任务数组
+     */
+    TaskManager.confirm_renewal = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainRenewal)
+                                        entity_1.TaskFunction.domainRenewal(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'renewal');
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("changeOwnerInfo")) {
+                                    task.state = entity_1.TaskState.success;
+                                    if (entity_1.TaskFunction.domainRenewal)
+                                        entity_1.TaskFunction.domainRenewal(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'renewal');
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.domainRenewal)
+                                        entity_1.TaskFunction.domainRenewal(task.message['domain']);
+                                    domainEdit.delete(task.message['domain'], 'renewal');
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.domainRenewal.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获得域名状态跟踪
+     * @param tasks 任务数组
+     */
+    TaskManager.confirm_getDomain = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (task.type == entity_1.ConfirmType.recharge) {
+                                if (result && result['errCode']) //检测是否有对应的通知 changeOwnerInfo
+                                 {
+                                    switch (result['errCode']) {
+                                        case '0000': //成功
+                                            task.state = entity_1.TaskState.success;
+                                            StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                            if (entity_1.TaskFunction.auctionStateUpdate)
+                                                entity_1.TaskFunction.auctionStateUpdate();
+                                            break;
+                                        case '3001': //失败
+                                            task.state = entity_1.TaskState.fail;
+                                            StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                            if (entity_1.TaskFunction.auctionStateUpdate)
+                                                entity_1.TaskFunction.auctionStateUpdate();
+                                            break;
+                                        case '3002': //失败
+                                            task.state = entity_1.TaskState.fail;
+                                            StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                            if (entity_1.TaskFunction.auctionStateUpdate)
+                                                entity_1.TaskFunction.auctionStateUpdate();
+                                            break;
+                                    }
+                                }
+                            }
+                            else {
+                                if (result && result["vmstate"] && result["vmstate"] != "") {
+                                    if (result.vmstate == "FAULT, BREAK") {
+                                        task.state = entity_1.TaskState.fail;
+                                        StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                        if (entity_1.TaskFunction.auctionStateUpdate)
+                                            entity_1.TaskFunction.auctionStateUpdate();
+                                    }
+                                    else if (result && result.displayNameList && result.displayNameList.includes("collectDomain")) {
+                                        task.state = entity_1.TaskState.success;
+                                        StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                        if (entity_1.TaskFunction.auctionStateUpdate)
+                                            entity_1.TaskFunction.auctionStateUpdate();
+                                    }
+                                    else {
+                                        task.state = entity_1.TaskState.fail;
+                                        StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isGetDomainWait');
+                                        if (entity_1.TaskFunction.auctionStateUpdate)
+                                            entity_1.TaskFunction.auctionStateUpdate();
+                                    }
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.getDomain.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 退回sgas状态跟踪
+     * @param tasks 任务数组
+     */
+    TaskManager.confirm_recoverSgas = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            // if (task.confirm > 3)   //交易确认的次数超过三次，等同于三个块也没有查询到对应的数据 默认失败;
+                            // {
+                            //     task.state = TaskState.fail;
+                            //     Store.auctionInfo.put(task.message[ "domain" ], false, 'isRecoverWait');
+                            //     if (TaskFunction.auctionStateUpdate)
+                            //         TaskFunction.auctionStateUpdate();
+                            // } else
+                            // {
+                            // }
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result.issucces) {
+                                task.state = entity_1.TaskState.success;
+                                StorageMap_1.default.auctionInfo.put(task.message["domain"], false, 'isRecoverWait');
+                                if (entity_1.TaskFunction.auctionStateUpdate)
+                                    entity_1.TaskFunction.auctionStateUpdate();
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.recoverSgas.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获取 测试 Gas
+     * @param tasks
+     */
+    TaskManager.confirm_getGas = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var taskarr, index, task, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        taskarr = [];
+                        index = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(index < tasks.length)) return [3 /*break*/, 5];
+                        task = tasks[index];
+                        if (!(task.state == entity_1.TaskState.watting)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_hasclaimgas(task.message.address)];
+                    case 2:
+                        res = _a.sent();
+                        if (res) {
+                            if (res[0].code == "3010") //可领取
+                             {
+                                task.state = entity_1.TaskState.fail;
+                                if (entity_1.TaskFunction.getGasTest)
+                                    entity_1.TaskFunction.getGasTest(0); //可领取
+                            }
+                            else if (res[0].code == "3012") //已领取
+                             {
+                                task.state = entity_1.TaskState.success;
+                                if (entity_1.TaskFunction.getGasTest)
+                                    entity_1.TaskFunction.getGasTest(1); //已领取
+                            }
+                            else if (res[0].code == "3011") //正在领取
+                             {
+                                task.state = entity_1.TaskState.watting;
+                                if (entity_1.TaskFunction.getGasTest)
+                                    entity_1.TaskFunction.getGasTest(2); //已领取
+                            }
+                        }
+                        _a.label = 3;
+                    case 3:
+                        task.confirm++;
+                        taskarr.push(task);
+                        _a.label = 4;
+                    case 4:
+                        index++;
+                        return [3 /*break*/, 1];
+                    case 5:
+                        this.taskStore.put(entity_1.TaskType.getGasTest.toString(), taskarr);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 域名出售操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_sale = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainSale)
+                                            entity_1.TaskFunction.domainSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'sale');
+                                    }, 15000);
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingLaunched")) {
+                                    task.state = entity_1.TaskState.success;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainSale)
+                                            entity_1.TaskFunction.domainSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'sale');
+                                    }, 15000);
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainSale)
+                                            entity_1.TaskFunction.domainSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'sale');
+                                    }, 15000);
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.saleDomain.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 域名下架操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_unsale = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, domainEdit, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        domainEdit = new storagetool_1.sessionStoreTool("domain-edit");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainUnSale)
+                                            entity_1.TaskFunction.domainUnSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'unsale');
+                                    }, 15000);
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("NNSfixedSellingDiscontinued")) {
+                                    task.state = entity_1.TaskState.success;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainUnSale)
+                                            entity_1.TaskFunction.domainUnSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'unsale');
+                                    }, 15000);
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    setTimeout(function () {
+                                        if (entity_1.TaskFunction.domainUnSale)
+                                            entity_1.TaskFunction.domainUnSale(task.message['domain']);
+                                        domainEdit.delete(task.message['domain'], 'unsale');
+                                    }, 15000);
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.unSaleDomain.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 域名购买操作跟踪
+     * @param tasks
+     */
+    TaskManager.confirm_buyDomain = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, buyDomain, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        buyDomain = new storagetool_1.sessionStoreTool("buyDomain");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (task.type == entity_1.ConfirmType.recharge) {
+                                if (result && result['errCode']) //检测是否有对应的通知 changeOwnerInfo
+                                 {
+                                    switch (result['errCode']) {
+                                        case '0000': //成功
+                                            task.state = entity_1.TaskState.success;
+                                            // if (TaskFunction.domainUnSale)
+                                            //     TaskFunction.domainUnSale(task.message[ 'domain' ])
+                                            buyDomain.delete(task.message['domain'], 'buy');
+                                            break;
+                                        case '3001': //失败
+                                            task.state = entity_1.TaskState.fail;
+                                            buyDomain.delete(task.message['domain'], 'buy');
+                                            break;
+                                        case '3002': //失败
+                                            task.state = entity_1.TaskState.fail;
+                                            buyDomain.delete(task.message['domain'], 'buy');
+                                            break;
+                                    }
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.buyDomain.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 提取NNC
+     * @param tasks
+     */
+    TaskManager.confirm_getNNC = function (tasks) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ress, getNNC, taskarr;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getResult(tasks)];
+                    case 1:
+                        ress = _a.sent();
+                        getNNC = new storagetool_1.sessionStoreTool("getnnc");
+                        taskarr = this.forConfirm(tasks, function (task) {
+                            var result = ress[task.txid]; //获取通知数组
+                            if (result && result["vmstate"] && result["vmstate"] != "") {
+                                if (result.vmstate == "FAULT, BREAK") {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.getNNC)
+                                        entity_1.TaskFunction.getNNC();
+                                    getNNC.delete('getnnc');
+                                }
+                                else if (result && result.displayNameList && result.displayNameList.includes("getMoneyBack")) {
+                                    task.state = entity_1.TaskState.success;
+                                    if (entity_1.TaskFunction.getNNC)
+                                        entity_1.TaskFunction.getNNC();
+                                    getNNC.delete('getnnc');
+                                }
+                                else {
+                                    task.state = entity_1.TaskState.fail;
+                                    if (entity_1.TaskFunction.getNNC)
+                                        entity_1.TaskFunction.getNNC();
+                                    getNNC.delete('getnnc');
+                                }
+                            }
+                            task.confirm++;
+                            return task;
+                        });
+                        this.taskStore.put(entity_1.TaskType.getMyNNC.toString(), taskarr); //保存修改的状态
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    TaskManager.taskStore = new storagetool_1.sessionStoreTool("task-manager");
+    TaskManager.refresh = new storagetool_1.sessionStoreTool("refresh_auction");
+    TaskManager.oldBlock = new storagetool_1.sessionStoreTool("block");
+    TaskManager.functionList = [];
+    return TaskManager;
+}());
+exports.TaskManager = TaskManager;
+
+
+/***/ }),
+
+/***/ "Y4zF":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "YRcM":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_class_component_1 = __webpack_require__("c+8m");
+var Main_vue_1 = __webpack_require__("l7Tq");
+var VLink_vue_1 = __webpack_require__("N5E8");
+var taskmanager_1 = __webpack_require__("XfB5");
+var entity_1 = __webpack_require__("6nHw");
+var StorageMap_1 = __webpack_require__("slXE");
+var FeatureComponent = /** @class */ (function (_super) {
+    __extends(FeatureComponent, _super);
+    function FeatureComponent() {
+        var _this = _super.call(this) || this;
+        _this.tasktypeswitch = entity_1.TaskType;
+        _this.blockheight = 0;
+        _this.showHistory = false;
+        _this.taskList = [];
+        _this.taskNumber = sessionStorage.getItem("newTaskNumber") ? parseInt(sessionStorage.getItem("newTaskNumber")) : 0;
+        return _this;
+    }
+    FeatureComponent.prototype.mounted = function () {
+        if (this.$router.currentRoute.fullPath.length <= 1) {
+            this.$router.push("login");
+        }
+        var arr = sessionStorage.getItem("login-info-arr");
+        if (!arr || arr.length == 0) {
+            this.$router.push("login");
+        }
+        this.getHeight();
+        entity_1.TaskFunction.taskHistory = this.taskHistory;
+        entity_1.TaskFunction.heightRefresh = this.getHeight;
+        entity_1.TaskFunction.newTaskNumber = this.newTaskNumber;
+    };
+    FeatureComponent.prototype.isActive = function (page) {
+        return this.$router.currentRoute.fullPath.includes(page);
+    };
+    FeatureComponent.prototype.beforeDestroy = function () {
+        this.clearTimer();
+    };
+    FeatureComponent.prototype.getHeight = function () {
+        this.blockheight = StorageMap_1.default.blockheight.select("height");
+    };
+    FeatureComponent.prototype.onshowHistory = function () {
+        this.showHistory = !this.showHistory;
+        this.taskNumber = 0;
+        sessionStorage.setItem("newTaskNumber", this.taskNumber.toString());
+        this.taskHistory();
+    };
+    FeatureComponent.prototype.newTaskNumber = function () {
+        this.taskNumber++;
+        sessionStorage.setItem("newTaskNumber", this.taskNumber.toString());
+    };
+    FeatureComponent.prototype.taskHistory = function () {
+        var _this = this;
+        this.clearTimer();
+        var list = taskmanager_1.TaskManager.taskStore.getList();
+        this.taskList = [];
+        for (var type in list) {
+            if (list.hasOwnProperty(type)) {
+                var tasks = list[type];
+                switch (parseInt(type)) {
+                    case entity_1.TaskType.tranfer:
+                        this.makeTaskList(tasks, entity_1.TaskType.tranfer);
+                        break;
+                    case entity_1.TaskType.openAuction:
+                        this.makeTaskList(tasks, entity_1.TaskType.openAuction);
+                        break;
+                    case entity_1.TaskType.addPrice:
+                        this.makeTaskList(tasks, entity_1.TaskType.addPrice);
+                        break;
+                    case entity_1.TaskType.gasToSgas:
+                        this.makeTaskList(tasks, entity_1.TaskType.gasToSgas);
+                        break;
+                    case entity_1.TaskType.sgasToGas:
+                        this.makeTaskList(tasks, entity_1.TaskType.sgasToGas);
+                        break;
+                    case entity_1.TaskType.topup:
+                        this.makeTaskList(tasks, entity_1.TaskType.topup);
+                        break;
+                    case entity_1.TaskType.withdraw:
+                        this.makeTaskList(tasks, entity_1.TaskType.withdraw);
+                        break;
+                    case entity_1.TaskType.getGasTest:
+                        this.makeTaskList(tasks, entity_1.TaskType.getGasTest);
+                        break;
+                    case entity_1.TaskType.domainMapping:
+                        this.makeTaskList(tasks, entity_1.TaskType.domainMapping);
+                        break;
+                    case entity_1.TaskType.domainResovle:
+                        this.makeTaskList(tasks, entity_1.TaskType.domainResovle);
+                        break;
+                    case entity_1.TaskType.domainRenewal:
+                        this.makeTaskList(tasks, entity_1.TaskType.domainRenewal);
+                        break;
+                    case entity_1.TaskType.getDomain:
+                        this.makeTaskList(tasks, entity_1.TaskType.getDomain);
+                        break;
+                    case entity_1.TaskType.recoverSgas:
+                        this.makeTaskList(tasks, entity_1.TaskType.recoverSgas);
+                        break;
+                    case entity_1.TaskType.ClaimGas:
+                        this.makeTaskList(tasks, entity_1.TaskType.ClaimGas);
+                        break;
+                    case entity_1.TaskType.domainTransfer:
+                        this.makeTaskList(tasks, entity_1.TaskType.domainTransfer);
+                        break;
+                    case entity_1.TaskType.saleDomain:
+                        this.makeTaskList(tasks, entity_1.TaskType.saleDomain);
+                        break;
+                    case entity_1.TaskType.unSaleDomain:
+                        this.makeTaskList(tasks, entity_1.TaskType.unSaleDomain);
+                        break;
+                    case entity_1.TaskType.buyDomain:
+                        this.makeTaskList(tasks, entity_1.TaskType.buyDomain);
+                        break;
+                    case entity_1.TaskType.getMyNNC:
+                        this.makeTaskList(tasks, entity_1.TaskType.getMyNNC);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        this.taskList.sort(function (n1, n2) {
+            return n1.startTime > n2.startTime ? -1 : 1;
+        });
+        this.taskList.forEach(function (v) {
+            if (v.state == 0) {
+                _this.timer(v);
+            }
+        });
+    };
+    FeatureComponent.prototype.makeHref = function () {
+        var str = "wallet.nel.group";
+        // let currentHost = window.location.hostname;
+        var href = "";
+        if (str.includes("testwallet")) {
+            href = "https://scan.nel.group/test/";
+        }
+        else {
+            href = "https://scan.nel.group/";
+        }
+        return href;
+    };
+    FeatureComponent.prototype.makeTaskList = function (tasks, tasktype) {
+        for (var i in tasks) {
+            var arr = [];
+            var href = this.makeHref();
+            arr["tasktype"] = tasktype;
+            arr["startTime"] = tasks[i].startTime;
+            arr["txid"] = tasks[i].txid.substring(0, 6) + "..." + tasks[i].txid.substring(tasks[i].txid.length - 6);
+            arr["txidhref"] = href + "transaction/" + tasks[i].txid;
+            arr["height"] = tasks[i].height;
+            arr["state"] = tasks[i].state;
+            arr["addrhref"] = href + "address/" + (tasks[i].message.toaddress ? tasks[i].message.toaddress : tasks[i].message.address);
+            arr["message"] = tasks[i].message;
+            arr["domainhref"] = href + "nnsinfo/" + (tasks[i].message.domain ? tasks[i].message.domain : "");
+            arr["resolver"] = "" + (tasks[i].message.contract ? (tasks[i].message.contract.substring(0, 4) + "..." + tasks[i].message.contract.substring(tasks[i].message.contract.length - 4)) : "");
+            this.taskList.push(arr);
+        }
+    };
+    FeatureComponent.prototype.timer = function (item) {
+        var _this = this;
+        if (item.timer) {
+            clearInterval(item.timer);
+        }
+        var pendingText = '';
+        var seconds = '' + (new Date().getTime() - item["startTime"]) / 1000;
+        pendingText = "(" + parseInt(seconds) + "s)";
+        this.$set(item, 'pendingText', pendingText);
+        var timer = setInterval(function () {
+            if (item.state != 0) {
+                clearInterval(timer);
+            }
+            var seconds = '' + (new Date().getTime() - item["startTime"]) / 1000;
+            pendingText = "(" + parseInt(seconds) + "s)";
+            _this.$set(item, 'pendingText', pendingText);
+        }, 1000);
+        item.timer = timer;
+    };
+    FeatureComponent.prototype.clearTimer = function () {
+        this.taskList.forEach(function (v) {
+            if (v.timer) {
+                clearInterval(v.timer);
+                v.timer = null;
+            }
+        });
+    };
+    FeatureComponent = __decorate([
+        vue_class_component_1.default({
+            components: {
+                VLink: VLink_vue_1.default,
+                MainLayout: Main_vue_1.default
+            }
+        }),
+        __metadata("design:paramtypes", [])
+    ], FeatureComponent);
+    return FeatureComponent;
+}(vue_1.default));
+exports.default = FeatureComponent;
+
+
+/***/ }),
+
+/***/ "Yj+Z":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAARpJREFUWAntltENwiAQhotxjDqQL4zhUI7RFxfqHniX9EfSIOEqRzG5JgYs6H1+vx5Ok11mwAz8twEH/GVZ7s65Zwhhxr0zRmJYieHhvX9x/QsgRoBjFhbELOC6YgJzRB6tYq3nSEkSyifFaLAnhKSWAUps5faawZwVyb3hDcY2I/lUNXtbNX41g60av5pBNFtp4+dGnSakBpgW4Tki5znBx7OWn5euboBp5NtZeyuBYU3tO4gCv47dADlWMrfyg+e14N0i3v7fVcWawqsBbqbm/a8yLV4zV4sYkdZAlPaoGTwa6d64msGSFcmaAUps5faawZwVyb3hDcY206qxSux828ssWIsGWzVWvPHRUXpWH61jrzMDZqCXgTfzHmZQoUeFngAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "Yvh6":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts__ = __webpack_require__("Sxgl");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_749fb928_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confrim_vue__ = __webpack_require__("nos4");
+function injectStyle (ssrContext) {
+  __webpack_require__("L1xo")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-749fb928"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_confrim_ts___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_749fb928_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_confrim_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "ar5l":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+/**
+ * @name NEONameServiceTool
+ * @method initRootDomain_初始化根域名信息
+ */
+var NNSTool = /** @class */ (function () {
+    function NNSTool() {
+        Neo.Cryptography.RandomNumberGenerator.startCollectors();
+    }
+    /**
+     * @method 初始化根域名信息
+     */
+    NNSTool.initRootDomain = function (root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var rootInfo, scriptaddress, domain;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        rootInfo = new entity_1.RootDomainInfo();
+                        rootInfo.roothash = NNSTool.nameHash(root);
+                        rootInfo.rootname = root;
+                        scriptaddress = entity_1.Consts.baseContract;
+                        return [4 /*yield*/, NNSTool.getOwnerInfo(rootInfo.roothash, scriptaddress)];
+                    case 1:
+                        domain = _a.sent();
+                        rootInfo.owner = domain.owner;
+                        rootInfo.register = domain.register;
+                        rootInfo.resolver = domain.resolver;
+                        rootInfo.ttl = domain.ttl;
+                        return [2 /*return*/, rootInfo];
+                }
+            });
+        });
+    };
+    NNSTool.getRootInfo = function (root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var info, info;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(root == "test")) return [3 /*break*/, 3];
+                        if (!!this.ROOT_TEST) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.initRootDomain(root)];
+                    case 1:
+                        info = _a.sent();
+                        this.ROOT_TEST = info;
+                        _a.label = 2;
+                    case 2: return [2 /*return*/, this.ROOT_TEST];
+                    case 3:
+                        if (!(root == "neo")) return [3 /*break*/, 6];
+                        if (!!this.ROOT_NEO) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.initRootDomain(root)];
+                    case 4:
+                        info = _a.sent();
+                        this.ROOT_NEO = info;
+                        _a.label = 5;
+                    case 5: return [2 /*return*/, this.ROOT_NEO];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @method 查询域名信息
+     * @param doamin 域名字符串
+     */
+    NNSTool.queryDomainInfo = function (doamin) {
+        return __awaiter(this, void 0, void 0, function () {
+            var domainarr, nnshash, doamininfo;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        domainarr = doamin.split('.');
+                        nnshash = NNSTool.nameHashArray(domainarr);
+                        return [4 /*yield*/, NNSTool.getOwnerInfo(nnshash, entity_1.Consts.baseContract)];
+                    case 1:
+                        doamininfo = _a.sent();
+                        // let info = await NNSTool.getNameInfo(nnshash)
+                        // var owner = doamininfo.owner.toHexString();
+                        // return address;
+                        return [2 /*return*/, doamininfo];
+                }
+            });
+        });
+    };
+    /**
+     * 先到先得——注册域名
+     * @param doamin 域名字符串
+     */
+    NNSTool.registerDomain = function (doamin) {
+        return __awaiter(this, void 0, void 0, function () {
+            var nnshash, address, sb, scriptaddress, random_uint8, random_int, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        nnshash = NNSTool.nameHash(NNSTool.ROOT_TEST.rootname);
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        sb = new ThinNeo.ScriptBuilder();
+                        scriptaddress = NNSTool.ROOT_TEST.register;
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        sb.EmitParamJson(["(addr)" + address, "(hex256)" + nnshash.toString(), "(str)" + doamin]); //第二个参数是个数组
+                        sb.EmitPushString("requestSubDomain");
+                        sb.EmitAppCall(scriptaddress);
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        if (!res.err) {
+                            // WWW.setnnsinfo(address,doamin,);
+                        }
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * @method 返回根域名名称
+     */
+    NNSTool.getRootName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var name, sb, scriptaddress, data, result, state, stack, bs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        name = "";
+                        sb = new ThinNeo.ScriptBuilder();
+                        sb.EmitParamJson(JSON.parse("[]"));
+                        sb.EmitPushString("rootName");
+                        scriptaddress = entity_1.Consts.baseContract;
+                        sb.EmitAppCall(scriptaddress);
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1:
+                        result = _a.sent();
+                        try {
+                            state = result.state;
+                            // info2.textContent = "";
+                            if (state.includes("HALT, BREAK")) {
+                                // info2.textContent += "Succ\n";
+                            }
+                            stack = result.stack;
+                            //find name 他的type 有可能是string 或者ByteArray
+                            if (stack[0].type == "Array") {
+                                // info2.textContent += "name=" + stack[0].value + "\n";
+                                length = stack[0].lenght;
+                            }
+                            else if (stack[0].type == "ByteArray") {
+                                bs = stack[0].value.hexToBytes();
+                                name = ThinNeo.Helper.Bytes2String(bs);
+                            }
+                            return [2 /*return*/, name];
+                        }
+                        catch (e) {
+                            return [2 /*return*/, e.message];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @method 返回根域名hash
+     */
+    NNSTool.getRootNameHash = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var nameHash, sb, scriptaddress, data, result, state, stack;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        sb = new ThinNeo.ScriptBuilder();
+                        sb.EmitParamJson(JSON.parse("[]"));
+                        sb.EmitPushString("rootNameHash");
+                        scriptaddress = entity_1.Consts.baseContract;
+                        sb.EmitAppCall(scriptaddress);
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1:
+                        result = _a.sent();
+                        try {
+                            state = result["state"];
+                            // info2.textContent = "";
+                            if (state.includes("HALT, BREAK")) {
+                                // info2.textContent += "Succ\n";
+                            }
+                            stack = result["stack"];
+                            //find name 他的type 有可能是string 或者ByteArray
+                            if (stack[0].type == "ByteArray") {
+                                nameHash = stack[0]["value"].hexToBytes();
+                            }
+                            return [2 /*return*/, nameHash];
+                        }
+                        catch (e) {
+                            return [2 /*return*/, e.message];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //返回域名详情
+    NNSTool.getOwnerInfo = function (domain, scriptaddress) {
+        return __awaiter(this, void 0, void 0, function () {
+            var info, data, result, state, rest, stackarr, stack;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        info = new entity_1.DomainInfo();
+                        data = importpack_1.tools.contract.buildScript(scriptaddress, "getOwnerInfo", ["(hex256)" + domain.toString()]);
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1:
+                        result = _a.sent();
+                        try {
+                            state = result.state;
+                            // info2.textContent = "";
+                            if (state.includes("HALT, BREAK")) {
+                                // info2.textContent += "Succ\n";
+                            }
+                            rest = new entity_1.NNSResult();
+                            rest.textInfo = result;
+                            stackarr = result["stack"];
+                            stack = entity_1.ResultItem.FromJson(entity_1.DataType.Array, stackarr).subItem[0].subItem;
+                            if (stackarr[0].type == "Array") {
+                                info.owner = stack[0].AsHash160();
+                                info.register = stack[1].AsHash160();
+                                info.resolver = stack[2].AsHash160();
+                                info.ttl = stack[3].AsInteger().toString();
+                            }
+                        }
+                        catch (e) {
+                            console.error(e);
+                        }
+                        return [2 /*return*/, info];
+                }
+            });
+        });
+    };
+    /**
+     * 域名转让
+     * @param domain
+     * @param newOwner
+     */
+    NNSTool.setOwner = function (domain, newOwner) {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, ownerHash, ownerHashStr, arr, nnshash, scriptaddress, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        ownerHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(newOwner);
+                        ownerHashStr = ownerHash.reverse().toHexString();
+                        arr = domain.split(".");
+                        nnshash = importpack_1.tools.nnstool.nameHashArray(arr);
+                        scriptaddress = entity_1.Consts.baseContract;
+                        data = importpack_1.tools.contract.buildScript_random(scriptaddress, "owner_SetOwner", [
+                            "(hex160)" + hashstr,
+                            "(hex256)" + nnshash.toString(),
+                            "(hex160)" + ownerHashStr
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * 域名出售
+     * @param domain
+     * @param newOwner
+     */
+    NNSTool.saleDomain = function (domain, price) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result, arr, scriptaddress, count, data, res, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.getNep5Asset(importpack_1.tools.coinTool.id_NNC.toString())];
+                    case 1:
+                        result = _a.sent();
+                        if (!result) {
+                            return [2 /*return*/];
+                        }
+                        arr = domain.split(".").reverse();
+                        arr[0] = "(str)" + arr[0];
+                        arr[1] = "(str)" + arr[1];
+                        scriptaddress = entity_1.Consts.saleContract;
+                        count = parseFloat(price).toFixed(result.decimals).replace(".", "");
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 4, , 5]);
+                        data = importpack_1.tools.contract.buildScript_random(scriptaddress, "launch", [
+                            arr,
+                            "(int)" + count
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 3:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                    case 4:
+                        error_1 = _a.sent();
+                        throw new Error("");
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 下架域名
+     * @param domain 域名
+     */
+    NNSTool.unSaleDomain = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var domainHash, scriptaddress, data, res, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        domainHash = importpack_1.tools.nnstool.domainToHash(domain);
+                        scriptaddress = entity_1.Consts.saleContract;
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        data = importpack_1.tools.contract.buildScript_random(scriptaddress, "discontinue", [
+                            "(hex256)" + domainHash.toString()
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 2:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                    case 3:
+                        error_2 = _a.sent();
+                        throw new Error("");
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    NNSTool.registerNNC = function (amount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result, register, value, addressto, address, sb, random_uint8, random_int, script, data1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.getNep5Asset(importpack_1.tools.coinTool.id_NNC.toString())];
+                    case 1:
+                        result = _a.sent();
+                        if (!result) {
+                            return [2 /*return*/];
+                        }
+                        register = entity_1.Consts.saleContract;
+                        value = parseFloat(amount).toFixed(result.decimals).replace(".", "");
+                        addressto = ThinNeo.Helper.GetAddressFromScriptHash(register);
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        sb = new ThinNeo.ScriptBuilder();
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        sb.EmitParamJson([
+                            "(addr)" + address,
+                            "(addr)" + addressto,
+                            "(int)" + value //value
+                        ]); //参数倒序入
+                        sb.EmitPushString("transfer"); //参数倒序入
+                        sb.EmitAppCall(importpack_1.tools.coinTool.id_NNC); //nep5脚本
+                        ////这个方法是为了在同一笔交易中转账并充值
+                        ////当然你也可以分为两笔交易
+                        ////插入下述两条语句，能得到txid
+                        sb.EmitSysCall("System.ExecutionEngine.GetScriptContainer");
+                        sb.EmitSysCall("Neo.Transaction.GetHash");
+                        //把TXID包进Array里
+                        sb.EmitPushNumber(Neo.BigInteger.fromString("1"));
+                        sb.Emit(ThinNeo.OpCode.PACK);
+                        sb.EmitPushString("setMoneyIn");
+                        sb.EmitAppCall(register);
+                        script = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(script)];
+                    case 2:
+                        data1 = _a.sent();
+                        return [2 /*return*/, data1];
+                }
+            });
+        });
+    };
+    /**
+     * 购买域名
+     * @param domain 域名
+     * @param address 购买者
+     */
+    NNSTool.buyDomain = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, domainHash, scriptaddress, buysb, data2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        domainHash = importpack_1.tools.nnstool.domainToHash(domain);
+                        scriptaddress = entity_1.Consts.saleContract;
+                        buysb = importpack_1.tools.contract.buildScript_random(scriptaddress, "buy", [
+                            "(hex160)" + hashstr,
+                            "(hex256)" + domainHash.toString()
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(buysb)];
+                    case 1:
+                        data2 = _a.sent();
+                        return [2 /*return*/, data2];
+                }
+            });
+        });
+    };
+    /**
+     * 获取收益的nnc
+     * @param address 地址
+     */
+    NNSTool.getAllMyNNC = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, scriptaddress, data, res, error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        scriptaddress = entity_1.Consts.saleContract;
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        data = importpack_1.tools.contract.buildScript_random(scriptaddress, "getMoneyBackAll", [
+                            "(hex160)" + hashstr,
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 2:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                    case 3:
+                        error_3 = _a.sent();
+                        throw new Error("");
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 生成解析器
+     * @param protocol
+     * @param nnshash
+     * @param scriptaddress
+     */
+    NNSTool.setResolve = function (domain, resolverhash) {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, arr, nnshash, resolvestr, scriptaddress, sb, random_uint8, random_int, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        arr = domain.split(".");
+                        nnshash = importpack_1.tools.nnstool.nameHashArray(arr);
+                        resolvestr = resolverhash.reverse().toHexString();
+                        scriptaddress = entity_1.Consts.baseContract;
+                        sb = new ThinNeo.ScriptBuilder();
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        sb.EmitParamJson([
+                            "(hex160)" + hashstr,
+                            "(hex256)" + nnshash.toString(),
+                            "(hex160)" + resolvestr
+                        ]); //第二个参数是个数组
+                        sb.EmitPushString("owner_SetResolver");
+                        sb.EmitAppCall(scriptaddress);
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * 设置解析器映射地址
+     * @param domain 域名
+     * @param str 映射内容
+     * @param resolve 解析器
+     */
+    NNSTool.setResolveData = function (domain, str, resolve) {
+        return __awaiter(this, void 0, void 0, function () {
+            var hash, hashstr, arr, nnshash, scriptaddress, sb, random_uint8, random_int, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        hash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
+                        hashstr = hash.reverse().toHexString();
+                        arr = domain.split(".");
+                        nnshash = importpack_1.tools.nnstool.nameHashArray(arr);
+                        scriptaddress = resolve.hexToBytes();
+                        sb = new ThinNeo.ScriptBuilder();
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        sb.EmitParamJson([
+                            "(hex160)" + hashstr,
+                            "(hex256)" + nnshash.toString(),
+                            "(str)",
+                            "(str)addr",
+                            "(str)" + str
+                        ]);
+                        sb.EmitPushString("setResolverData");
+                        sb.EmitAppCall(scriptaddress.reverse());
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    NNSTool.resolveData = function (domain) {
+        return __awaiter(this, void 0, void 0, function () {
+            var scriptaddress, arr, nnshash, nnshashstr, sb, data, res, addr, state, stack, value;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        scriptaddress = entity_1.Consts.baseContract;
+                        arr = domain.split(".");
+                        nnshash = NNSTool.nameHashArray(arr);
+                        nnshashstr = nnshash;
+                        sb = new ThinNeo.ScriptBuilder();
+                        sb.EmitParamJson([
+                            "(str)addr",
+                            "(hex256)" + nnshashstr,
+                            "(str)" + ""
+                        ]);
+                        sb.EmitPushString("resolve");
+                        sb.EmitAppCall(scriptaddress);
+                        data = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1:
+                        res = _a.sent();
+                        addr = "";
+                        try {
+                            state = res.state;
+                            // info2.textContent = "";
+                            if (state.includes("HALT, BREAK")) {
+                                stack = res.stack;
+                                //find name 他的type 有可能是string 或者ByteArray
+                                if (stack[0].type == "ByteArray") {
+                                    if (stack[0].value != "00") {
+                                        value = stack[0].value.hexToBytes();
+                                        addr = ThinNeo.Helper.Bytes2String(value);
+                                    }
+                                }
+                            }
+                        }
+                        catch (e) {
+                            console.log(e);
+                        }
+                        return [2 /*return*/, addr];
+                }
+            });
+        });
+    };
+    //解析域名完整模式
+    NNSTool.resolveFull = function (protocol, nameArray) {
+        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/];
+        }); });
+    };
+    /**
+     * 域名转hash
+     * #region 域名转hash算法
+     * 域名转hash算法
+     * aaa.bb.test =>{"test","bb","aa"}
+     * @param domain 域名
+     */
+    NNSTool.nameHash = function (domain) {
+        var domain_bytes = ThinNeo.Helper.String2Bytes(domain);
+        var hashd = Neo.Cryptography.Sha256.computeHash(domain_bytes);
+        return new Neo.Uint256(hashd);
+    };
+    /**
+     * 子域名转hash
+     * @param roothash  根域名hash
+     * @param subdomain 子域名
+     */
+    NNSTool.nameHashSub = function (roothash, subdomain) {
+        var bs = ThinNeo.Helper.String2Bytes(subdomain);
+        if (bs.length == 0)
+            return roothash;
+        var domain = Neo.Cryptography.Sha256.computeHash(bs);
+        var domain_bytes = new Uint8Array(domain);
+        var domainUint8arry = domain_bytes.concat(new Uint8Array(roothash.bits.buffer));
+        var sub = Neo.Cryptography.Sha256.computeHash(domainUint8arry);
+        return new Neo.Uint256(sub);
+    };
+    /**
+     * 返回一组域名的最终hash
+     * @param domainarray 域名倒叙的数组
+     */
+    NNSTool.nameHashArray = function (domainarray) {
+        domainarray.reverse();
+        var hash = NNSTool.nameHash(domainarray[0]);
+        for (var i = 1; i < domainarray.length; i++) {
+            hash = NNSTool.nameHashSub(hash, domainarray[i]);
+        }
+        return hash;
+    };
+    NNSTool.domainToHash = function (domain) {
+        return this.nameHashArray(domain.split("."));
+    };
+    NNSTool.verifyDomain = function (domain) {
+        //check domain valid
+        var reg = /^(.+\.)(test|TEST|neo|NEO[a-z][a-z])$/;
+        if (!reg.test(domain)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    NNSTool.verifyAddr = function (addr) {
+        var reg = /^[a-zA-Z0-9]{34,34}$/;
+        if (!reg.test(addr)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    NNSTool.verifyNeoDomain = function (domain) {
+        //check domain valid
+        var reg = /^(.+\.)(neo|Neo)$/;
+        if (!reg.test(domain)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    NNSTool.setDomainStatus = function () {
+    };
+    NNSTool.initStatus = function () {
+        NNSTool.domainStatus = entity_1.DomainStatus.getStatus();
+    };
+    return NNSTool;
+}());
+exports.NNSTool = NNSTool;
+
+
+/***/ }),
+
+/***/ "asp0":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "fgqV":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAe9JREFUWAntl7FugzAQhuOKd2j2LM3MwtrO6dMmc9ORhbV06d48A0jk/gpXBmx8Z5sUqbGETOzz/38+bEw2m3v5jxnouk7det4uzwlInudHgtvTdaiq6vMWoOT5RD4numryfDU9H8wf/SwAt1NKnYuiwP2iBR7k9U4mO7r240wOACmwo6AD1d8UuG3b9m1JSGjDg7we4dl7g+G3DADRiseaZdnL0pAG3BZe8LQtqcka1Og2gbIsa90fU0u0nYAAkAhxgaWas4CpIaVw8PcCpoIMgWMDxkKGwokALZAX2nnPvo3Tw531qwS71TcGXrqwHrEORj0ynIWUxJoe5r0YkAuZAg5eQYA+yFRwUYAuSLTT8aXX3OwSQKyvBGdQC4+zhfZ+Q0TDQSsaECIm5I+oUkngoDX5WEDjmkp0Bs3s0VfJBZNbzSMew+HFDcBVbBIbnD4h5vowAUkJesQcAE4MB1QMKDGWxLpgRYAhhiFjTFg2YIxRzFgWYIyBzkaohhcwVFiDmXWI1ixgiKAJZLuXajoBpUI2GFebRNsKKBFwQfjauR4TQO5AHwCnn+M1+JqhQ17ROXpKedjPgeJoxPmNjwx4Nk1zBIM5ZgBIgdTffVDAF+cfmykUeq8h4UlXDQav1ngW3gEJAv7CMwH2XSI+A1eUZqtZKYqlAgAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "l7Tq":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue__ = __webpack_require__("Gc41");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue__);
+/* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a054328e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Main_vue__ = __webpack_require__("+hRd");
+function injectStyle (ssrContext) {
+  __webpack_require__("6By6")
+}
+var normalizeComponent = __webpack_require__("VU/8")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__ts_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Main_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a054328e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Main_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "lJF1":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "lXdV":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_property_decorator_1 = __webpack_require__("443i");
+// import { LoginInfo } from "../tools/entity";
+var Hint = /** @class */ (function (_super) {
+    __extends(Hint, _super);
+    //   @Prop({ default: true })
+    function Hint() {
+        return _super.call(this) || this;
+    }
+    Hint = __decorate([
+        vue_property_decorator_1.Component({
+            components: {}
+        }),
+        __metadata("design:paramtypes", [])
+    ], Hint);
+    return Hint;
+}(vue_1.default));
+exports.default = Hint;
+
+
+/***/ }),
+
+/***/ "mthI":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "njKD":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAYlJREFUWAljYBgFoyEwsCHASC/rVXpfdTAwMtj9+/Un4l6F1CNi7WUiViHF6hgZlBkZGC2Z2Vj2K3U8kyPWPPo58NPHZKCjTjIwMCqR4ki6RTEoxFQabvMx8gnsAjLNGRj+3/v7648joeimqwNBjlTquMvPzMa3E+zI///v//39xwGfI+nuQFIdOSAOJMWRA+ZAYh05oA4kxpED7kBCjmQBKQAB1d5XWxkYGb0gvAEkGRkVmdhYLwNdwA9yBf0KalL8/P//N1KUj6odDYHREBgNgeEcAvCqDthnuM3IyKgyKDz7//+228Vi3iC3INckfIPCcSBHMDL8h7kFXhd///lLi4udbS+wPtYHSl7//ee/04MysRcwhQNFw6MY5ADptifCg82RKA4cjI7EcOBgcyRWB8IdycG2D5hi9YD8AUuTOB04WByJ14GDwZEEHTjQjkQuqEFuwQqeVsm8/fbjlxNwuOISUIEmKwvjBqwKaSBIlANB9sIc+f///4NA/JoGbhk1cjQEBmUIAAAeccpVL1/ckwAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "nos4":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.show),expression:"show"}],staticClass:"confrim-alert-wrap"},[_c('div',{staticClass:"confrim-box"},[_c('div',{staticClass:"alert-title"},[_vm._v(_vm._s(_vm.title))]),_vm._v(" "),_vm._l((_vm.messageList),function(msg){return _c('div',{key:msg.title,staticClass:"line-wrap"},[_c('div',{staticClass:"line-box"},[_c('div',{staticClass:"line-title"},[_vm._v(_vm._s(msg.title))]),_vm._v(" "),_c('div',{staticClass:"line-content"},[_vm._v(_vm._s(msg.value))])])])}),_vm._v(" "),(_vm.deblocking)?_c('div',{staticClass:"line-wrap"},[_c('div',{staticClass:"line-box"},[_c('div',{staticClass:"line-title"},[_vm._v(_vm._s(_vm.$t("confirm.pwd")))]),_vm._v(" "),_c('div',{staticClass:"pwd-content"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.password),expression:"password"}],attrs:{"type":"password"},domProps:{"value":(_vm.password)},on:{"input":[function($event){if($event.target.composing){ return; }_vm.password=$event.target.value},function($event){_vm.passwordError=false}]}}),_vm._v(" "),_c('div',{staticClass:"err-msg"},[_vm._v(_vm._s(_vm.passwordError?_vm.$t("confirm.pwderror"):""))])])])]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"confrim-msg"},[_c('label',{class:_vm.payFee?'checked-input':'',attrs:{"for":""}},[_c('span',[_c('span',{staticClass:"select-img",on:{"click":function($event){_vm.payFee=!_vm.payFee}}},[_c('img',{attrs:{"src":__webpack_require__("o1/X"),"alt":""}})]),_vm._v(" "),_c('span',{staticClass:"select-msg"},[_vm._v(_vm._s(_vm.$t("confirm.msg")))])])])]),_vm._v(" "),_c('div',{staticClass:"confrim-msg"},[_c('button',{staticClass:"btn btn-nel btn-big",attrs:{"id":"transaction-confirm"}},[_vm._v(_vm._s(_vm.$t("confirm.confirm")))])]),_vm._v(" "),_c('div',{staticClass:"alert-tips"}),_vm._v(" "),_c('div',{staticClass:"alert-close",attrs:{"id":"transaction-mudloe-close"},on:{"click":_vm.closemudloe}},[_c('span',{attrs:{"aria-hidden":"true"}},[_vm._v("×")])])],2)])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ "o1/X":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAWlBMVEUAAAAceegbd+gbd+YcduUcd+Ybd+Ucd+Ycd+Ybd+Ycd+Ydd+YbeOYdeOcgeOf///8bduYbduX///8tgefX5/rY5/pyqu6Bs/DK3/henuzn8fy71veOu/Jwqe4Cm0HOAAAAEXRSTlMAQjfz7ebZwb+rpZiCaiABjFvTkxAAAAEBSURBVDjLldXdkoMgDAXgiIoIVHtst9vuz/u/Zi+YNkoqknPnzDcMYEgoy2yid7ZtrfPRzFRKE3qs0odml5oBIoP5SKcRHzNO0jYddtKJvZxQyGlrzyjmLNatXLvBYd77nrpj3L3uZERFxmQNqpL+zlCHh+x0x2cMJXC5/+KVQDT3JXtd7lyDM5my/bqsjxirLSL5agtPrtrCkeWPx2Nrr1sLSy1//CzfhXWBdo3/l6TZ5tiCc0uabb4NB6nZZgf0yLWwfHURuf7bsYhkIPSOhZGFdBP3y4UkSzRRmaAqfs2zUj1YTStQNRlN+9I0Rk3L1TRzzZjQDCD1aNMPTdU4fgIy22SeoellCAAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "ojCp":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "pKg8":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    language: {
+        name: 'English'
+    },
+    navbar: {
+        explorer: 'Explorer',
+        wallet: 'Wallet',
+        mainnet: 'MainNet',
+        testnet: "TestNet",
+        logout: "logout",
+        blockheight: "Block Height",
+        toggle: "Toggle navigation"
+    },
+    btn: {
+        confirm: "Confirm",
+        confirming: "Confirming",
+        reset: "Reset",
+        close: "Close",
+        transfer: "Transfer",
+        switch: "Switch",
+        claim: "Claim",
+        claiming: "Claiming",
+        cancel: "Cancel",
+        openauction: "Start Auction",
+        openingauction: "Opening Auction",
+        bid: "Place bid",
+        getdomain: "Claim domain",
+        recoversgas: "Reclaim CGAS",
+        gettingdomain: "Claiming domain",
+        recoveringsgas: "Reclaiming CGAS",
+        receivedsgas: "Reclaimed",
+        receivednns: "Claimed",
+        newbid: "Join Auction",
+        viewmore: "View more",
+        edit: "Edit",
+        renewal: "Renew",
+        renewaling: "Renewing",
+        setOwner: "Set owner",
+        settingOwner: "Setting owner",
+        exchange: "Exchange",
+        exchanging: "Exchanging",
+        withdraw: "Withdraw",
+        topup: "Top up",
+        getGas: "Request Gas",
+        gettingGas: "Requesting Gas",
+        sell: "Sell",
+        selling: "Selling",
+        delist: "Delist",
+        delisting: "Delisting",
+        check: "Confirm",
+        lookinfo: "View details",
+        buy: "Buy",
+        apply: "Apply",
+        applying: "Applyed",
+        applyed: "Distributed"
+    },
+    toast: {
+        msg1: "Loading ...",
+        msg2: "Authentication passed...",
+        msg3: "Login failed. Please check your password or file",
+        msg4: "Please enter the correct string"
+    },
+    login: {
+        login: "Login",
+        title: "Login your wallet",
+        selectplaceholder: "Select keystore file.",
+        selectbtn: "Select",
+        passwordholder: "Enter password.",
+        loginbtn: "Login",
+        cutlinemsg: "or you can",
+        wifmsg: "Import key from WIF String",
+        nep2msg: "Import key from Nep2 String"
+    },
+    wif: {
+        title: "WIF Private Key",
+        wifplaceholder: "Enter your private key.",
+        back: "Back"
+    },
+    nep2: {
+        title: "Nep2",
+        placeholder: "Enter your Nep2.",
+        password: "Enter password."
+    },
+    generate: {
+        generate: "Generate",
+        title: "Generate a new wallet",
+        name: "Name your wallet",
+        password: "Enter password",
+        passwordagain: "Confirm password",
+        nameempty: "Wallet name cannot be empty.",
+        namepass: "Verification pass.",
+        pwderrmsg1: "Please enter a password of at least eight characters",
+        pwderrmsg2: "Use at least one character and one number",
+        pwderrmsg3: "Please enter the same password as above.",
+        createmsg: "Your keystore file has been created.",
+        downloadmsg: "You can click the ‘download’ button to save your keystore file!",
+        download: "Download",
+        msg: "Do not lose it!",
+        msg2: "It can’t be reclaimed if you lose it."
+    },
+    balance: {
+        balance: "Balance",
+        title1: "NEO Balance",
+        title2: "Key Address",
+        title3: "GAS available to claim",
+        title4: "Asset",
+        title5: "Choose address",
+        title6: "Select Nep6 File",
+        msg1: "Sending NEO to account address…",
+        msg2: "Waiting for confirmation of transfer…",
+        msg3: "Claiming GAS…",
+        msg4: "Your GAS claim is successful!",
+        tips: "You can click this button to request 10 GAS. It can only be clicked once in 24 hours. ",
+        errmsg1: "Operation failed! And You can try it again later!",
+        errmsg2: "Insufficient inventory! And You can try it again later!",
+        errmsg3: "Data exception！And You can try it again later!",
+        successmsg: "Successful operation！Please wait for a moment.",
+        tipsnnc: "You can click this button to request 100 NNC. It can only be clicked once in 24 hours. ",
+    },
+    transfer: {
+        transfer: "Transfer",
+        title1: "Asset",
+        title2: "Address",
+        title3: "Amount",
+        title4: "History",
+        msg1: "Your address is incorrect.",
+        send: "Send",
+        from: "from",
+        to: "to",
+        details: "Details",
+        placeholder: "Please enter an address or domain name",
+        msg2: "Your transaction has been sent, please check it later",
+        msg3: "Transaction failure",
+        msg4: "-_-!!!You don't have enough change, you have to wait for the block height to change before you can make the next transaction.",
+        msg5: "available",
+        msg6: "Server exception. Please go to the browser to confirm the transaction result.",
+        waiting: "Waiting for transaction confirmation",
+        errdomain: "This domain hasn't been mapped to any address",
+        timeMsg: "Expiry date: ",
+        netfee: "Network fee",
+        sysfee: "System fee"
+    },
+    nns: {
+        nns: "NNS",
+        title1: "Register Neo Name",
+        placeholder1: "enter a name",
+        register: "Register",
+        title2: "My Neo Name",
+        msg1: "The testing has ended. Thanks for your participation. ",
+        msg2: 'You will be rewarded with 50 NNCs on Mainnet for the first time you map your wallet address to an ending in ".test"  name successfully.',
+        msg3: "Register your domain name and collect the reward.",
+        err1: "The domain name has been registered.",
+        text1: "Address resolver",
+        text2: "Address mapping",
+        owner: "Address Owner",
+        text3: "Expiration Time",
+        text4: "Expiration",
+        waiting: "Try to refresh the page after the NEO block height is updated.",
+        edit: "Edit",
+        alerttitle: "Edit information",
+        alerttitle1: "Neo Name",
+        alerttitle2: "Adrress Resolver",
+        alerttitle3: "Adrress Mapping",
+        alertmessage1: "It is the official address resolver , you have to confirm this address resolver first to map your address.",
+        alertmessage2: "Please enter the correct format of the address.",
+    },
+    setting: {
+        createnep2: "My NEP2",
+        settings: "Settings",
+        title1: "My Wallet Address",
+        title2: "My WIF",
+        title3: "My Wallet file",
+        msg1: "This information is very important . It may cause your loss if you lose it . ",
+        msg2: "Save your keystore file and make copies of your wallet address and your WIF . Don't lose them .",
+        msg3: "Set the password ",
+        msg4: "Enter your password",
+        msg5: "Create a wallet",
+        btn1: "Visible",
+        btn2: "Create",
+        btn3: "download"
+    },
+    nnsneo: {
+        auction: "Neo Name Auction",
+        myneoname: "Domain Management",
+        bonus: "Bonus",
+        tutorial: "Tutorial"
+    },
+    auction: {
+        title1: "Neo Name Auction",
+        title2: "My Auction",
+        title3: "Auction Information",
+        title4: "Raise my bid",
+        title5: "Timeline",
+        title6: "Claim domain",
+        title7: "Reclaim CGAS",
+        entername: "type a name",
+        nottopup: "Contract upgrade, recharge function suspended。",
+        checkavailable: "This name is available.",
+        checkbeing: 'This domain is currently under auction. Click "Join Auction" to bid for it.',
+        checkformat: "Domain names must be English characters or numbers, and can only be 2 to 32 characters in length",
+        checkbuyer: "This name is unavailable.",
+        checksale: "This name is on selling.",
+        sendingmsg: "We are currently opening the auction. Please wait.",
+        searchmsg: "Search by domain",
+        status: "Status",
+        lastauctionprice: "Highest bid price",
+        currentbidder: "Current bidder",
+        opentime: "Bid openting time",
+        fixedperiod: "Auction period",
+        randomperiod: "Overtime bidding",
+        ended: "Ended",
+        me: "Me",
+        other: "Other people",
+        buyer: "Buyer",
+        hammerprice: "Hammer price",
+        acutiontitle: "Auction",
+        domain: "Domain",
+        highest: "Highest bid price",
+        raisebid: "Raise my bid",
+        enterbid: "Enter a raise",
+        yourbidmsg: "Your cumulative bid",
+        mybidmsg: "My cumulative bid ",
+        mywillbid: "My cumulative bid will be",
+        price: "Price: ",
+        tips1: "Tip: The minimum bid increment is 0.1 CGAS. If your bid is lower than the current highest bid, your raise will be unsuccessful.",
+        isAvailable: "is available",
+        errmsg5: "Only",
+        errmsg1: "Only",
+        errmsg2: "CGAS is available.",
+        errmsg4: "Please enter the right format.",
+        errmsg6: "Your bid raise must not be less than 10% of the current highest bid price",
+        nobalance: "You have insufficient CGAS left in your auction account. Please top it up.",
+        goback: "Go back",
+        waitmsg1: "Waiting for confirmation",
+        waitmsg2: "Your raise will be confirmed after a new block is generated. Please wait.",
+        waitmsg3: "Your buy the domain will be confirmed after a new block is generated. Please wait.",
+        getdomaintips: "Tip: After successfully claiming your domain, you can modify its settings in Domain Management.",
+        waitgetdomain: "Your operation will be confirmed after the new block is generated. Please wait patiently...",
+        fee: "Fee",
+        remainingsgas: "Remaining CGAS",
+        timetips1: "Tips : If nobody bids on the last day of the auction period, the auction period end time will be the end of the auction.",
+        timetips2: "Tip: Once the auction moves into the overtime bidding, it may end at any time",
+        timetips3: "Tips : The auction may end at any point during the overtime bidding, so it’s better to bid as early as possible.",
+        bidstarttimemsg: "Bid start time",
+        endtimemsg: "Auction period end time",
+        randomtimemsg: "Overtime bidding start time",
+        maxtimemsg: "Maximum end time of overtime bidding",
+        tipsmsg1: "Tips: Before participating in an auction, you need to know the following:",
+        tipsmsg2: "The asset used for auctions is CGAS. You will need CGAS in your Auction Account to place a bid.",
+        tipsmsg3: 'GAS can be exchanged for CGAS at the rate of 1:1 using the CGAS Exchange page. Once you have CGAS in your wallet, you can use top-up function below to deposit CGAS into your Auction Account.',
+        titleaccount: "Your Auction Account",
+        withdraw: "Withdraw",
+        topup: "Top up",
+        from: "From: ",
+        to: "To",
+        topupamount: "Amount",
+        withdrawamount: "Amount",
+        amount: "Amount",
+        asset: "Asset",
+        errmsg3: "is available.",
+        tipsmsg4: "Tips: When you are using Gas to recharge, before being recharged into your Auction Account, GAS will be automatically switched to CGAS. The entire process takes two blocks of confirmation time. Please wait patiently. ",
+        yourbalance: "Your Balance",
+        waiting: "Waiting",
+        successwithdraw: "Your withdrawal request has been successfully submitted.",
+        successwithdraw2: "CGAS will be refunded to your address in the next block !",
+        successtop: "Successesfully toped up",
+        successtopup: "Your top-up request has been successfully submitted. ",
+        successtopup2: " CGAS will be in your auction account after 2 blocks are confirmed !",
+        successtopup3: " CGAS will be deposited into your Auction Account in the next block.",
+        failtopup: "Top up failed ! And your Gas has been exchanged into CGAS",
+        fail: "Operation failed !",
+        auctionopen: "Auction Opened",
+        domainname: "Domain name",
+        successbid: "Raise succesful!",
+        failbid: "Raise failed!",
+        failbid2: "Its auction has ended. Your raise is not executed.",
+        successbid1: "Your bid of ",
+        successbid2: " CGAS has been sent to the blockchain for confirmation.",
+        successgetdomain: "Domain acquired",
+        failgetdomain: "Please click again to acquire domain",
+        tips: "Tips: ",
+        statustips: "The auction period is the first stage of the auction and its duration is 3 days, during which all bids are valid. An overtime bidding of up to 2 days will be triggered when someone bids on the last day of the auction period. Otherwise the auction ends at the end of the auction period.",
+        statustips2: "The overtime bidding is the second stage of the auction. Its maximum duration is 2 days. During this period, any bid may trigger the end of the bidding of this domain and the bid will be invalid. The latter one bids, the more likely it triggers the end of the bidding. So it's advised to place a bid as early as possible to avoid missing this domain. ",
+        teststatustips: "The auction period is the first stage of the auction and its duration is 15 minutes, during which all bids are valid. An overtime bidding of up to 10 minutes will be triggered when someone bids on the last day of the auction period. Otherwise the auction ends at the end of the auction period.",
+        teststatustips2: "The overtime bidding is the second stage of the auction. Its maximum duration is 10 minutes. During this period, any bid may trigger the end of the bidding of this domain and the bid will be invalid. The latter one bids, the more likely it triggers the end of the bidding. So it's advised to place a bid as early as possible to avoid missing this domain.",
+        toptips: "Tips: When the system prompts you have successfully submited your CGAS top up transaction. It will be confirmed and added to your Auction Account in the next block. Please be patient.",
+        withdrawtips: "Tips: When the system prompts you have successfully submited your CGAS withdrawal transaction. It will be confirmed and added to your wallet in the next block. Please be patient.",
+        getall: "Max",
+        all: "All",
+        nodata: "No related data was found.",
+        Bidder: "Bidder",
+        Status: "Status",
+        domaininfo: "Domain information",
+        saleprice: "Selling price",
+        unbuytips: "You can’t buy it due to insufficient NNC balance."
+    },
+    exchange: {
+        title: "CGAS Exchange",
+        tosgas: "Exchange Gas for CGAS",
+        togas: "Exchange CGAS for Gas",
+        tips: "Tips：CGAS is a NEP5 token，which is bound with NEO’s GAS at the ratio of 1:1 and they can be converted with each other freely. The exchange needs to be confirmed after one block. Please be patient. ",
+        spend: "Amount you will spend : ",
+        receive: "Amount you will receive : ",
+        warnmsg: "Insufficient balance.",
+        waittitle: "Waiting for transaction records",
+        balance: "Balance",
+        amount: "Amount"
+    },
+    myneoname: {
+        title: "My Neo Name",
+        resolver: "Address Resolver",
+        mapping: "Address Mapping",
+        time: "Expiration Time",
+        expiring: "Expiring soon",
+        edittitle: "Edit information",
+        neoname: "Neo Name",
+        owner: "Owner Address",
+        notconfigure: "not configured",
+        expired: "Expired",
+        transfer: "Transfer",
+        transferto: "Transfer to",
+        transferring: "Transferring",
+        domaintransfer: "Domain transfer",
+        msg: "Please enter the address you want to transfer to",
+        transferDomainMsg1: "Are you sure to transfer",
+        transferDomainMsg2: "to",
+        transferDomainMsg3: "?",
+        tips: "Tips : Address mapping can only be performed after the address resolver is confirmed by you. ",
+        waitmsg2: "Successful operation! This domain will be transferred to the target address after it’s confirmed in the block.",
+        waitmsg3: "Successful operation! This domain will be listed after it’s confirmed in the block.",
+        waitmsg4: "Successful operation! This domain will be delisted after it’s confirmed in the block.",
+        myIncome: "My income",
+        unclaimed: "Unclaimed NNC",
+        all: "All",
+        note: "Tips: The NNC income from selling domain names is shown here. You can claim it into your wallet by clicking the Claim button.",
+        note2: "Tips: If you want to sell a domain name, please make sure it’s not mapped to a wallet address (Please use the Reset function in the Edit page to make it unmapped.)",
+        btntip: "Clear the address map in the edit window",
+        status: "Status",
+        selling: "On Selling",
+        unsell: "Unsold",
+        mysellrecord: "My trading history",
+        selltime: "Trading time：",
+        sellprice: "Trading price：",
+        domainsell: "Domain for sale",
+        selltips: "Tips: The domain name on sale will be automatically delisted after the domain name expires, so as not to lose the domain name, please delist the nearly expired domain to renew it.",
+        domainname: "Domain name",
+        setprice: "Set selling price",
+        surecheck1: "Are you sure to delist ",
+        surecheck2: "?",
+        type: "Types",
+        salelist: "Sold",
+        buylist: "Bought"
+    },
+    bonus: {
+        title: "Bonus",
+        title2: "Bonus History",
+        mydividend: "Dividends claimable: ",
+        distribution: "Distribution pool snapshot: ",
+        mytotal: "My total NNC holdings: ",
+        snapshot: "Snapshot time:",
+        tips: 'Tips: In order to prevent network congestion caused by the previous airdrop of CGAS dividends, we changed it to a claim-based NNS dividends distribution. You need to click the "Apply" button  and the CGAS dividends will be distributed within one week following your claim.',
+        waiting: "Successful operation！It will be distributed within one week following your claim."
+    },
+    tutorial: {},
+    operation: {
+        welcome: "Welcome!",
+        title: "Operation record",
+        tips: "These records will be erased when you log out or close the page.",
+        waiting: "Confirmation pending...",
+        txid: "TXID:",
+        transfer: "Transfer to",
+        openauction: "Start Auction",
+        raisebid: "Raise bid",
+        exchange: "CGAS exchange",
+        topup: "Top up",
+        withdraw: "Withdraw",
+        requestgas: "Request Gas",
+        editdomain: "Edit domain",
+        addrmapping: "Address mapping:",
+        addrresolver: "Address resolver:",
+        renew: "Renewal expiration time",
+        getdomain: "Claim domain",
+        recover: "Reclaim CGAS",
+        gasclaim: "Gas claim",
+        nodata: "There is no data",
+        fail: "Operation failed",
+        waitinggas: "Waiting for system confirmation",
+        sentok: "System sent",
+        list: "List",
+        delist: "Delist",
+        buy: "Buy",
+        claimnnc: "NNC Claim",
+        requestnnc: "Request NNC",
+        domaintransfer: "Domain transfer",
+    },
+    notify: {
+        utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
+        fee: "Note: When your balance is less than 0.001GAS, your transactions cannot be prioritized. "
+    },
+    errormsg: {
+        interface: "Interface call exception",
+        noMoney: "There's not enough money."
+    },
+    page: {
+        page: "Page",
+        total1: ",",
+        total2: " pages in total"
+    },
+    confirm: {
+        pwd: "Password",
+        msg: "This transaction will be prioritized(Pay 0.001 GAS)",
+        confirm: "confirm",
+        pwderror: "Password error",
+        transferConfirm: "Transfer Confirmation",
+        transferTo: "Transfer to",
+        transferAmount: "Amount",
+        exchangeConfirm: "Exchange Confirmation",
+        exchangeTo: "Exchange to",
+        exchangeAmount: "Amount",
+        topupConfrim: "Top-up Confirmation",
+        topupTo: "Top up to",
+        topupAmount: "Amount",
+        auctionAccount: "Your Auction Account",
+        withdrawConfirm: "Withdraw Confirmation",
+        withdrawTo: "Withdraw to",
+        withdrawAmount: "Amount",
+        yourbalance: "Your Balance",
+        startAuctionConfirm: "Auction-starting Confirmation",
+        domain: "Domain",
+        bidConfirm: "Bid Confirmation",
+        bidPrice: "Bid price",
+        domainClaimingConfirm: "Domain-claiming Confirmation",
+        cgasReclaimingConfirm: "CGAS-reclaiming Confirmation",
+        reclaimCgas: "Reclaim CGAS",
+        nncClaimConfirm: "NNC-claiming Confirmation",
+        claimto: "Claim to",
+        claimAmount: "Amount",
+        addrResolverConfirm: "Address Resolver Confirmation ",
+        addrresolver: "Address resolver",
+        addrMappingConfirm: "Address Mapping Confirmation",
+        addrmapping: "Address mapping",
+        renewalConfirm: "Renewal Confirmation",
+        renewalto: "Renewal to",
+        domainTransferConfirm: "Domain Transfer Confirmation",
+        domainTransferTo: "Tranfer to",
+        listingConfirm: "Listing Confirmation",
+        price: "Price",
+        expirationTime: "Expiration time",
+        delistingConfirm: "Delisting Confirmation",
+        purchaseConfirm: "Purchase Confirmation",
+    }
+};
+
+
+/***/ }),
+
+/***/ "pLPz":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+var CoinTool = /** @class */ (function () {
+    function CoinTool() {
+    }
+    /**
+     * @method 初始化资产
+     */
+    CoinTool.initAllAsset = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var allassets, a, asset, names, id, name, i;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.api_getAllAssets()];
+                    case 1:
+                        allassets = _a.sent();
+                        for (a in allassets) {
+                            asset = allassets[a];
+                            names = asset.name;
+                            id = asset.id;
+                            name = "";
+                            if (id == CoinTool.id_GAS) {
+                                name = "GAS";
+                            }
+                            else if (id == CoinTool.id_NEO) {
+                                name = "NEO";
+                            }
+                            else if (id == CoinTool.id_SGAS.toString()) {
+                                name = "CGAS";
+                            }
+                            else {
+                                for (i in names) {
+                                    name = names[i].name;
+                                    if (names[i].lang == "en")
+                                        break;
+                                }
+                            }
+                            CoinTool.assetID2name[id] = name;
+                            CoinTool.name2assetID[name] = id;
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * @method 获得可用的utxo
+     * @returns 筛选排序后的utxo
+     */
+    CoinTool.getassets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var height, utxos, olds, olds2, n, old, findutxo, i_1, utxo, assets, i, item, asset, utxo;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
+                    case 1:
+                        height = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getUTXO(entity_1.LoginInfo.getCurrentAddress())];
+                    case 2:
+                        utxos = _a.sent();
+                        if (utxos == undefined) {
+                            return [2 /*return*/, {}];
+                        }
+                        olds = entity_1.OldUTXO.getOldutxos();
+                        olds2 = new Array();
+                        for (n = 0; n < olds.length; n++) {
+                            old = olds[n];
+                            findutxo = false;
+                            for (i_1 = 0; i_1 < utxos.length; i_1++) {
+                                utxo = utxos[i_1];
+                                if (utxo.txid == old.txid) {
+                                    console.log(old);
+                                    console.log(utxo);
+                                    console.log(height - old.height);
+                                }
+                                if (utxo.txid == old.txid && old.n == utxo.n && height - old.height < 3) {
+                                    findutxo = true;
+                                    utxos.splice(i_1, 1);
+                                }
+                            }
+                            if (findutxo) {
+                                olds2.push(old);
+                            }
+                        }
+                        entity_1.OldUTXO.setOldutxos(olds2);
+                        assets = {};
+                        for (i in utxos) {
+                            item = utxos[i];
+                            asset = item.asset;
+                            if (assets[asset] == undefined || assets[asset] == null) {
+                                assets[asset] = [];
+                            }
+                            utxo = new entity_1.UTXO();
+                            utxo.addr = item.addr;
+                            utxo.asset = item.asset;
+                            utxo.n = item.n;
+                            utxo.txid = item.txid;
+                            utxo.count = Neo.Fixed8.parse(item.value);
+                            assets[asset].push(utxo);
+                        }
+                        // }
+                        return [2 /*return*/, assets];
+                }
+            });
+        });
+    };
+    /**
+     * @method 创建交易对象 ThinNeo.Transaction
+     * @param utxos utxo列表
+     * @param targetaddr 对方地址
+     * @param assetid 资产id
+     * @param sendcount 金额
+     */
+    CoinTool.makeTran = function (utxos, targetaddr, assetid, sendcount) {
+        var res = new entity_1.Result();
+        var us = utxos[assetid];
+        var gasutxos = utxos[importpack_1.tools.coinTool.id_GAS];
+        if (us == undefined) {
+            throw new Error("no enough money.");
+        }
+        var tran = new ThinNeo.Transaction();
+        tran.type = ThinNeo.TransactionType.ContractTransaction;
+        tran.version = 0; //0 or 1
+        tran.extdata = null;
+        tran.attributes = [];
+        utxos[assetid].sort(function (a, b) {
+            return b.count.compareTo(a.count);
+        });
+        var old = [];
+        tran.outputs = [];
+        tran.inputs = [];
+        var payfee = entity_1.LoginInfo.info.payfee;
+        var fee = Neo.Fixed8.fromNumber(0.001);
+        var sumcount = Neo.Fixed8.Zero; //初始化
+        if (gasutxos) {
+            for (var i = 0; i < gasutxos.length; i++) //循环塞入utxo用于判断总数是否足够
+             {
+                sumcount.add(gasutxos[i].count);
+            }
+        }
+        if (gasutxos && importpack_1.tools.coinTool.id_GAS == assetid) //如果转账的金额是gas
+         {
+            // let addcount = sendcount.add(fee);
+            var tranRes = this.creatInuptAndOutup(gasutxos, sendcount, targetaddr);
+            tran.inputs = tranRes.inputs;
+            tran.outputs = tranRes.outputs;
+            if (payfee && tran.outputs && tran.outputs.length > 1) {
+                tran.outputs[1].value = tran.outputs[1].value.subtract(fee);
+            }
+        }
+        else {
+            if (payfee && gasutxos) {
+                // 创建 fee的输入输出
+                var feeRes = this.creatInuptAndOutup(gasutxos, fee);
+                tran.inputs = tran.inputs.concat(feeRes.inputs);
+                tran.outputs = tran.outputs.concat(feeRes.outputs);
+            }
+            //构造原本想要交易的输入输出
+            var tranRes = this.creatInuptAndOutup(us, sendcount, targetaddr);
+            tran.inputs = tran.inputs.concat(tranRes.inputs);
+            tran.outputs = tran.outputs.concat(tranRes.outputs);
+        }
+        if (tran.witnesses == null)
+            tran.witnesses = [];
+        for (var i in tran.inputs) {
+            var input = tran.inputs[i];
+            old.push(new entity_1.OldUTXO(input.hash.reverse().toHexString(), input.index));
+        }
+        res.err = false;
+        res.info = { "tran": tran, "oldarr": old };
+        return res;
+    };
+    /**
+     * 创建一个交易中的输入和输出
+     * @param utxos 资产的utxo
+     * @param sendcount 输出总数
+     * @param target 对方地址
+     * @returns res:{ inputs: ThinNeo.TransactionInput[], outputs: ThinNeo.TransactionOutput[] }
+     */
+    CoinTool.creatInuptAndOutup = function (utxos, sendcount, target) {
+        var count = Neo.Fixed8.Zero;
+        var res = {};
+        res["inputs"] = [];
+        res["outputs"] = [];
+        res["oldutxo"] = [];
+        var scraddr = "";
+        var assetId;
+        for (var i = 0; i < utxos.length; i++) {
+            var input = new ThinNeo.TransactionInput();
+            input.hash = utxos[i].txid.hexToBytes();
+            input.index = utxos[i].n;
+            input["_addr"] = utxos[i].addr; //利用js的隨意性，臨時傳個值
+            res.inputs.push(input); //将utxo塞入input
+            count = count.add(utxos[i].count); //添加至count中
+            scraddr = utxos[i].addr;
+            assetId = utxos[i].asset.hexToBytes().reverse();
+            var old = new entity_1.OldUTXO(utxos[i].txid, utxos[i].n);
+            res.oldutxo.push(old);
+            if (count.compareTo(sendcount) > 0) //判断输入是否足够
+             {
+                break; //如果足够则跳出循环
+            }
+        }
+        if (count.compareTo(sendcount) >= 0) {
+            //输出
+            if (target) {
+                if (sendcount.compareTo(Neo.Fixed8.Zero) > 0) {
+                    var output = new ThinNeo.TransactionOutput();
+                    output.assetId = assetId;
+                    output.value = sendcount;
+                    output.toAddress = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(target);
+                    res.outputs.push(output);
+                }
+            }
+            var change = count.subtract(sendcount); //应该找零的值
+            if (change.compareTo(Neo.Fixed8.Zero) > 0) {
+                var outputchange = new ThinNeo.TransactionOutput();
+                outputchange.toAddress = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(scraddr);
+                outputchange.value = change;
+                outputchange.assetId = assetId;
+                res.outputs.push(outputchange);
+            }
+            return res;
+        }
+        else {
+            throw "You don't have enough utxo;";
+        }
+    };
+    /**
+     * 构造并发送交易
+     * @param {ThinNeo.Transaction} tran
+     * @param {string} randomStr
+     */
+    CoinTool.signData = function (tran) {
+        return __awaiter(this, void 0, void 0, function () {
+            var info, addr, current, msg, pubkey, prekey, signdata, data, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, entity_1.LoginInfo.deblocking()];
+                    case 1:
+                        info = _a.sent();
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        current = entity_1.LoginInfo.info;
+                        msg = tran.GetMessage().clone();
+                        pubkey = current.pubkey.clone();
+                        prekey = current.prikey.clone();
+                        signdata = ThinNeo.Helper.Sign(msg, prekey);
+                        tran.AddWitness(signdata, pubkey, addr);
+                        data = tran.GetRawData();
+                        return [2 /*return*/, data];
+                    case 2:
+                        error_1 = _a.sent();
+                        throw "Signature interrupt";
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * utxo转账方法
+     * @param targetaddr 转入的地址
+     * @param asset 资产
+     * @param count 金额
+     */
+    CoinTool.rawTransaction = function (targetaddr, asset, count) {
+        return __awaiter(this, void 0, void 0, function () {
+            var arr, add, n, _count, utxos, tranres, tran, txid, data, res, height, result, olds, error_2, error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        arr = importpack_1.tools.storagetool.getLoginArr();
+                        add = importpack_1.tools.storagetool.getStorage("current-address");
+                        n = arr.findIndex(function (login) { return login.address == add; });
+                        _count = Neo.Fixed8.parse(count + "");
+                        return [4 /*yield*/, CoinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 9, , 10]);
+                        tranres = CoinTool.makeTran(utxos, targetaddr, asset, _count);
+                        tran = tranres.info['tran'];
+                        if (tran.witnesses == null)
+                            tran.witnesses = [];
+                        txid = tran.GetHash().clone().reverse().toHexString();
+                        data = void 0;
+                        _a.label = 3;
+                    case 3:
+                        _a.trys.push([3, 7, , 8]);
+                        return [4 /*yield*/, this.signData(tran)];
+                    case 4:
+                        data = _a.sent();
+                        res = new entity_1.Result();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
+                    case 5:
+                        height = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 6:
+                        result = _a.sent();
+                        if (result["sendrawtransactionresult"]) {
+                            res.err = !result;
+                            res.info = result['txid'];
+                            olds = tranres.info['oldarr'];
+                            olds.map(function (old) { return old.height = height; });
+                            entity_1.OldUTXO.oldutxosPush(olds);
+                        }
+                        return [2 /*return*/, res];
+                    case 7:
+                        error_2 = _a.sent();
+                        console.log(error_2);
+                        throw error_2;
+                    case 8: return [3 /*break*/, 10];
+                    case 9:
+                        error_3 = _a.sent();
+                        console.log("error  input");
+                        throw error_3;
+                    case 10: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 从api中得到claim的交易体发送 Claim交易
+     */
+    CoinTool.claimgas = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var claimtxhex, tran, buf, data, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.api_getclaimtxhex(entity_1.LoginInfo.getCurrentAddress())];
+                    case 1:
+                        claimtxhex = _a.sent();
+                        tran = new ThinNeo.Transaction();
+                        buf = claimtxhex.hexToBytes();
+                        tran.Deserialize(new Neo.IO.BinaryReader(new Neo.IO.MemoryStream(buf.buffer, 0, buf.byteLength)));
+                        return [4 /*yield*/, this.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 3:
+                        result = _a.sent();
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    /**
+     * 自己构造 claim交易
+     */
+    CoinTool.claimGas = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var address, claimsstr, claims, sum, tran, i, claim, input, output, data, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getclaimgas(address, 0)];
+                    case 1:
+                        claimsstr = _a.sent();
+                        claims = claimsstr["claims"];
+                        sum = claimsstr["gas"].toFixed(8);
+                        tran = new ThinNeo.Transaction();
+                        //交易类型为合约交易
+                        tran.type = ThinNeo.TransactionType.ClaimTransaction;
+                        tran.version = 0; //0 or 1
+                        tran.extdata = new ThinNeo.ClaimTransData(); //JSON.parse(JSON.stringify(claims));
+                        tran.extdata.claims = [];
+                        tran.attributes = [];
+                        tran.inputs = [];
+                        for (i in claims) {
+                            claim = claims[i];
+                            input = new ThinNeo.TransactionInput();
+                            input.hash = (claim.txid).hexToBytes().reverse();
+                            input.index = claim.n;
+                            input["_addr"] = claim.addr;
+                            tran.extdata.claims.push(input);
+                        }
+                        output = new ThinNeo.TransactionOutput();
+                        output.assetId = (CoinTool.id_GAS).hexToBytes().reverse();
+                        output.toAddress = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(address);
+                        output.value = Neo.Fixed8.parse(sum);
+                        tran.outputs = [];
+                        tran.outputs.push(output);
+                        return [4 /*yield*/, this.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 3:
+                        result = _a.sent();
+                        result['amount'] = sum;
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    /**
+     * invokeTrans 方式调用合约塞入attributes
+     * @param script 合约的script
+     */
+    CoinTool.contractInvokeTrans = function (script) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, assetid, utxos, tranmsg, tran, data, res, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        assetid = CoinTool.id_GAS;
+                        return [4 /*yield*/, CoinTool.getassets()];
+                    case 1:
+                        utxos = _a.sent();
+                        tranmsg = CoinTool.makeTran(utxos, addr, assetid, Neo.Fixed8.Zero);
+                        tran = tranmsg.info['tran'];
+                        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+                        tran.extdata = new ThinNeo.InvokeTransData();
+                        //塞入脚本
+                        tran.extdata.script = script;
+                        // (tran.extdata as ThinNeo.InvokeTransData).gas = Neo.Fixed8.fromNumber(1.0);
+                        if (tran.witnesses == null)
+                            tran.witnesses = [];
+                        return [4 /*yield*/, this.signData(tran)];
+                    case 2:
+                        data = _a.sent();
+                        res = new entity_1.Result();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_postRawTransaction(data)];
+                    case 3:
+                        result = _a.sent();
+                        res.err = !result;
+                        res.info = "成功";
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * nep5转账
+     * @param address 自己的地址
+     * @param tatgeraddr 转账的地址
+     * @param asset nep5资产id
+     * @param amount 转账数额
+     */
+    CoinTool.nep5Transaction = function (address, tatgeraddr, asset, amount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res, decimals, intv, sb, scriptaddress, random_uint8, random_int, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, importpack_1.tools.wwwtool.getNep5Asset(asset)];
+                    case 1:
+                        res = _a.sent();
+                        decimals = res["decimals"];
+                        intv = amount.toFixed(decimals).replace(".", "");
+                        sb = new ThinNeo.ScriptBuilder();
+                        scriptaddress = asset.hexToBytes().reverse();
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        //塞值
+                        sb.EmitParamJson(["(address)" + address, "(address)" + tatgeraddr, "(integer)" + intv]); //第二个参数是个数组
+                        sb.EmitPushString("transfer");
+                        sb.EmitAppCall(scriptaddress);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(sb.ToArray())];
+                    case 2:
+                        result = _a.sent();
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
+    /**
+     * @method 获得Sgas账户下的utxo
+     */
+    CoinTool.getavailableutxos = function (count) {
+        return __awaiter(this, void 0, void 0, function () {
+            var currentaddr, utxos, assets, addr, asset, i, item, utxo;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        currentaddr = entity_1.LoginInfo.getCurrentAddress();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.getavailableutxos(currentaddr, count)];
+                    case 1:
+                        utxos = _a.sent();
+                        assets = {};
+                        addr = ThinNeo.Helper.GetAddressFromScriptHash(importpack_1.tools.coinTool.id_SGAS);
+                        asset = importpack_1.tools.coinTool.id_GAS;
+                        assets[asset] = [];
+                        for (i in utxos) {
+                            item = utxos[i];
+                            utxo = new entity_1.UTXO();
+                            utxo.addr = addr;
+                            utxo.asset = asset;
+                            utxo.n = item.n;
+                            utxo.txid = item.txid;
+                            utxo.count = Neo.Fixed8.parse(item.value);
+                            assets[asset].push(utxo);
+                        }
+                        return [2 /*return*/, assets];
+                }
+            });
+        });
+    };
+    CoinTool.id_GAS = "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7";
+    CoinTool.id_NEO = "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b";
+    CoinTool.id_SGAS = Neo.Uint160.parse('74f2dc36a68fdc4682034178eb2220729231db76');
+    CoinTool.id_NNC = Neo.Uint160.parse('fc732edee1efdf968c23c20a9628eaa5a6ccb934');
+    CoinTool.dapp_nnc = Neo.Uint160.parse("fc732edee1efdf968c23c20a9628eaa5a6ccb934");
+    CoinTool.assetID2name = {};
+    CoinTool.name2assetID = {};
+    return CoinTool;
+}());
+exports.CoinTool = CoinTool;
+
+
+/***/ }),
+
+/***/ "pNRP":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "rVEi":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAABP5JREFUWAntWF1oHEUcn9mPS9KkH1JyV5uk6eVSxVYUqSIoQcX3loJPWgtCFetDxbuLSR+EgKCJyaWoYKUvQrH0RSjti4JgA6YFacBWKKLmcs2nuQSttmmaZG/n72/2ste9zd1m75ILPnTuYXbm//Xb3/zvPzPL2IP2P2cgkphsavhoYnu5MJVyDf3YtSZmnlK4/nNNVeBKuDf9hB8bt05FAQpitYzx7ZzzR1RFuVgOyIoCHIkHLwuid4mY4Jw1WyAT6SfdLHmNuZdwvWSRxMxxzvhJgFQAdtRk4mAqFrrux39FGbQBJGPBzxij4xgbFpNMuRD2yWTJDIZ6p2s3G7TJJKWkl1viRqamOhBlxDtLYdIXwOaeqcd0VTvEFf4SmGghxjbDsCSAjBgRZyYA1kuAWXbpJhlLbcMdjRM22+5ec084x4394w01VP0B4/Qa/o11WRmyyank9xlGll2eMd/NeFUQLkoHGP5kpk0l9hW8RqRrIlqAo5/AwBCGUxgb6PPCeWGFBwN+9jHO34aRKnXho3N4/otrXnYFGWztn30BS3IeS/HQsqMzpqBEqj30i5czL1lrz0Qj0wJv5oGLBXu8bKRsBQPhvinUK30QgkakzTze8lgyFjqzmiMvebhn8lFV0y/Kgi31LOZ8gJO6KxjUuPox5hvBYEYQP4pie04qlttWgBN0Yji+OnN2vDwGW/r+fEZVtMsQ6iiop4Zj9e/YiuX0Ld1TuxRd+74c5ux4eQyqXD28DO6WMIxuW6ncnge0vfgflbysznj3Ab41pCMjX8wK6YeRzp1jTsVyns3bdwd4XV2UcTE7HAt97emj65IW2fL4K0zQv8l48FtbNwewKRKsJ8Z3ZdecD9oKa+lvdoVlaTrpx0e4bt9zqN7nUMwXmnun946270hJO8xlW5Wqb+PENlkjogl7fqN6lYRV0lAndU7KVjtuDmBGqAGgtwooI4GiusGNK7qMCJJMTTGX7Og5gMKk2yhQFjAcBP62FTau500yFkiaXzSNf+y4uRwcOxEaifTPHEIR3Zq6OnDFVijWtybShxkp9Zm5uVPLuVZM1d88p+flvoEtcWw8OTNrG+UAyolkNPidLfDqcdfoQG3rlvuQuqX2V+j6sivmU+5eyL2XpVwwdomdfjqXYnkAizlwzufAYRJs/44z6A2nvJxnRdE78a7bYGuQMM86feRy0DlZ7NkNzswYB5KxhvFi+n7m9/RPv6oQO2rpkvhmJP7wVaedb4CFwKU6Gn5zOiv1OZJIH0Een0aqaNhax03D7HT78LXETnBY2GvEjAMAVzZz8j6iMh5FHh+RgADuFkC+Xmj3yjssuNGzri5lT92xOFMU69yGoz6O7PQlXN7ArmPVrRU2hSZwbgMY6IsG/FP3Q+VZjKulKvI4aZrsjdT7wR8LmXoCjPTN7sfVaKiQ4drnaA6wz97jCx9ORJsmi/nzXGJuLqYZD6RQAsLSAZZCoNTPotpjhfAroYF9AYM78JHEWXPAMDPnRzt2yhLl2VYNIj9XaCq/gKXZbQFk1HNvcSkRIN3z5dxRVS7EHZ3Pp9t33HXLvMarApTGTpDZkzZFcST63Mvxesl8AXSDxHIRF/TeH/Hgp+sFpJgf3wA9QOKzBnitUCsJoBukHOM62oaL1WCF8N0/sPoNIO/GGZMOZvdh+kvhrKSk9xtnzXrys678vLtmRw8cVJiB/wAxG+0C0vBDHQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "rjrR":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAABW9JREFUWAntmH1I3VUYx6de9ZZviBpWAxfDRWQ0WzgExRwrK8qXGdIydWyEq7aWDYPaIumvClthgyXRbEusLF+uRau2one2FhnBqs3Nshe9ORAsV77b53v5ncu9uob3/n4E1R54eJ5zznPO8z3PeZ5zz+8uWXKe/uMRiHBqf93d3WsjIiI2wt65ubkXS0pKvnZibdsA29vbL3C73c2AqQoANI7+UHFx8TMBfWGpkWHNCpgUExPzAM0qonYMvnt2dnYncgJu7OzszAswDUt1hTXLmtTU1BTLkQrc7zMzM+ugExriuAcjIyP3RkVFVdL8xDIPS9iKYEpKyoUATMPzkAFnoTgiyVi61Q5b2AIYHR39G55PwZd1dXXdYFAAbL2lf2f6wpW2i8Tj8VQCqFXHDIgu9GTkrfDI9PR07rzIhozTNkB5JOfqyLmHUVPVBuw3AN1KFb+vth1yBKAAULFXUxSfox4bHR3Nr66uPmMHmJlrKwfNIpIc569EbQ71D6fAaV3HALJWlBaEHDsVLeYkQK3nOP1/AFIgs1b4lIeOkWMRdLlciVwv1EmEu7m5OdophI4A7Onp2QSwd+EYgK1KT0//iLtxtRMgbVccQMq4pDuJ3iSA3oaTAZpPe0i/JOXl5QN2gNqKIG/BKMDVA2YGvp1HqqgAfRcgL+bYN9kBp7m2AE5NTSnvVgCmv7S0tMsCM8fTq0U6/VdZfWELWwD7+vr0QNATP62joyPDoKCis6TzeP3J9IUrbeUgR3xpbGzsm0RqJSCPwE+j6334CPIi5IHx8fGNFRUV3n8cIM+s63G6ByDLATZsATI4plF+gTMYO04kN5eVlX1gBkORIR9xQ0ODC3A7AfSWBW4P1boSEDWAmcF5P3re2NjYtbT3YnM5hfQOc+qZG7K/kI5YeUZl7sbpLQAZAUgdxbFfEWlra0uNj4//GfUo78B89YkAdhf2jagqqE7kVip9UGOLoUXviPvuZp74Hwocjj4D3HUGnBzFxcX5XjOMBW0aMM9T7YX0f8HcdZjqEl+7GHCyCVpMHS0tLe6kpKTVHEsaC56YmJjo57tXd52OVRtqIvF3kPhjsjfEN0kOc/QF9y1zChkfMWOSFFQSBfU4a2ymqRx9lNTQ93SWfLH+SfL0K9pBFASQV3EWR/gCFjmyYpIeACdZdAXyNLyN43sZ6SflVXZ29g466rFL0ADzvoe3EeE3/IaWwpHXoD6FbQo2g8hLAmxeou9eoq7ry0f+I25tbU0EnJznYHQQ3oXeZ4H7kd0WzAenFQC3AZvHUCc59meRbbSXEZVWfqOvlE0g4Xwf7RLW/1PgjC/kcfqr4CcC7f0ASfCbGMjC8DUWKYK3A0q58wP9CVy+QUemRYieC7EF1j8JZUTsPjZRia6IJsIb4AUEsFTYjd3rvb29N8oXRmvki/5qinGpmeQHyECu1elB+t50/NAPoX8KJzN5GTKIMjMzE5iXoYUB97EZpK01dNSZpi9QEukraCu9PGzS944EpCpbvuIoxrMCNAlaiJGPyBcBWIWjSY5s2PQbyUJnGPNis1T5a/ppF1i6rp0FxLjpn+/rGvmi6v2+tAsfUWVpVOtRGhkY7UP2stBtyDzar7DDO9B9kUX6iU1sx64Rm1N0qip1fFtou4hUPpWpT9EgmudrP4NfGl/or5Im65E+X/4j5lo4zYJK0n6Ma2D9dSZwh7g26swEZBANDAzsxuY57JfDT8IP0p5C3nM2cJosX+T3najyVQ0bXwe5wu4PdOCPoOnU7rivipiUybPp8PDw8KHa2topM/53kiPOJQ3WMG+UjR4AnCJ6TtKvDxd8EUbK1cNer/c9y5dwLTitcy52fvDfGoG/ANUKeD3MewLDAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "s6Yv":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var importpack_1 = __webpack_require__("VKSY");
+var entity_1 = __webpack_require__("6nHw");
+var AuctionEntitys_1 = __webpack_require__("Wj+m");
+var NNSSell = /** @class */ (function () {
+    function NNSSell() {
+    }
+    /**
+     * 获得竞拍域名详情
+     * @param domain 域名
+     */
+    NNSSell.getSellingStateByDomain = function (domain, root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var nnshash, data, result, domainInfo, info, state, rest, stackarr, stack, _a, e_1;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        nnshash = importpack_1.tools.nnstool.nameHashSub(root.roothash, domain);
+                        data = importpack_1.tools.contract.buildScript(root.register, "getAuctionStateByFullhash", ["(hex256)" + nnshash.toString()]);
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(data)];
+                    case 1:
+                        result = _b.sent();
+                        return [4 /*yield*/, importpack_1.tools.nnstool.getOwnerInfo(nnshash, entity_1.Consts.baseContract)];
+                    case 2:
+                        domainInfo = _b.sent();
+                        info = new entity_1.SellDomainInfo();
+                        info.copyDomainInfoToThis(domainInfo);
+                        info.domain = [domain, root.rootname].join(".");
+                        _b.label = 3;
+                    case 3:
+                        _b.trys.push([3, 6, , 7]);
+                        state = result.state;
+                        // info2.textContent = "";
+                        if (state.includes("FAULT, BREAK")) {
+                            throw "FAULT, BREAK";
+                        }
+                        rest = new entity_1.NNSResult();
+                        rest.textInfo = result;
+                        stackarr = result["stack"];
+                        stack = entity_1.ResultItem.FromJson(entity_1.DataType.Array, stackarr).subItem[0].subItem;
+                        info.id = stack[0].AsHash256();
+                        info.startBlockSelling = stack[4].AsInteger();
+                        info.endBlock = stack[5].AsInteger();
+                        info.maxPrice = stack[6].AsInteger();
+                        info.maxBuyer = stack[7].AsHash160();
+                        info.lastBlock = stack[8].AsInteger();
+                        if (!!!info.id) return [3 /*break*/, 5];
+                        _a = info;
+                        return [4 /*yield*/, this.getBalanceOfBid(info.id, root.register)];
+                    case 4:
+                        _a.balanceOfSelling = _b.sent();
+                        _b.label = 5;
+                    case 5: return [2 /*return*/, info];
+                    case 6:
+                        e_1 = _b.sent();
+                        console.error(e_1);
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 获得
+     * @param id 竞拍id
+     */
+    NNSSell.getBalanceOfBid = function (id, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, res, stackarr, stack, balance;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeScript(register, "balanceOfBid", "(hex160)" + who.toString(), "(hex256)" + id.toString())];
+                    case 1:
+                        res = _a.sent();
+                        stackarr = res["stack"];
+                        stack = entity_1.ResultItem.FromJson(entity_1.DataType.Array, stackarr).subItem[0];
+                        balance = stack.AsInteger();
+                        return [2 /*return*/, balance];
+                }
+            });
+        });
+    };
+    /**
+     * 获得
+     * @param id 竞拍id
+     */
+    NNSSell.getBalanceOfBidArray = function (ids, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, sb, index, id, res, stackarr, stack, obj, i, id;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        sb = new ThinNeo.ScriptBuilder();
+                        for (index in ids) {
+                            if (ids.hasOwnProperty(index)) {
+                                id = ids[index];
+                                sb.EmitParamJson([
+                                    "(hex160)" + who.toString(),
+                                    "(hex256)" + id
+                                ]); //第二个参数是个数组
+                                sb.EmitPushString("balanceOfBid");
+                                sb.EmitAppCall(register);
+                            }
+                        }
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rpc_getInvokescript(sb.ToArray())];
+                    case 1:
+                        res = _a.sent();
+                        stackarr = res["stack"];
+                        stack = entity_1.ResultItem.FromJson(entity_1.DataType.Array, stackarr);
+                        obj = {};
+                        for (i = 0; i < ids.length; i++) {
+                            id = ids[i];
+                            obj[id] = stack.subItem[i].AsInteger();
+                        }
+                        return [2 /*return*/, obj];
+                }
+            });
+        });
+    };
+    /**
+     * gasToRecharge
+     * @param transcount
+     * @param register
+     */
+    NNSSell.gasToRecharge = function (transcount, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var script, sgasaddr, data1, data2, res, height, txid, olds, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        script = importpack_1.tools.contract.buildScript(importpack_1.tools.coinTool.id_SGAS, "mintTokens", []);
+                        sgasaddr = ThinNeo.Helper.GetAddressFromScriptHash(importpack_1.tools.coinTool.id_SGAS);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 8, , 9]);
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData(script, sgasaddr, importpack_1.tools.coinTool.id_GAS, Neo.Fixed8.fromNumber(transcount))];
+                    case 2:
+                        data1 = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.nnssell.rechargeReg(transcount.toFixed(8), register)];
+                    case 3:
+                        data2 = _a.sent();
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.rechargeandtransfer(data1.data, data2)];
+                    case 4:
+                        res = _a.sent();
+                        if (!(res['errCode'] == '0000')) return [3 /*break*/, 6];
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getHeight()];
+                    case 5:
+                        height = _a.sent();
+                        txid = res['txid'];
+                        olds = data1.tranmsg.info['oldarr'];
+                        olds.map(function (old) { return old.height = height; });
+                        entity_1.OldUTXO.oldutxosPush(olds);
+                        return [2 /*return*/, txid];
+                    case 6: return [2 /*return*/, undefined];
+                    case 7: return [3 /*break*/, 9];
+                    case 8:
+                        error_1 = _a.sent();
+                        throw error_1;
+                    case 9: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 注册器充值
+     * @param amount 充值金额
+     */
+    NNSSell.rechargeReg = function (amount, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addressto, address, sb, random_uint8, random_int, script, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addressto = ThinNeo.Helper.GetAddressFromScriptHash(register);
+                        address = entity_1.LoginInfo.getCurrentAddress();
+                        sb = new ThinNeo.ScriptBuilder();
+                        random_uint8 = Neo.Cryptography.RandomNumberGenerator.getRandomValues(new Uint8Array(32));
+                        random_int = Neo.BigInteger.fromUint8Array(random_uint8);
+                        //塞入随机数
+                        sb.EmitPushNumber(random_int);
+                        sb.Emit(ThinNeo.OpCode.DROP);
+                        sb.EmitParamJson([
+                            "(addr)" + address,
+                            "(addr)" + addressto,
+                            "(int)" + amount.replace(".", "") //value
+                        ]); //参数倒序入
+                        sb.EmitPushString("transfer"); //参数倒序入
+                        sb.EmitAppCall(importpack_1.tools.coinTool.id_SGAS); //nep5脚本
+                        ////这个方法是为了在同一笔交易中转账并充值
+                        ////当然你也可以分为两笔交易
+                        ////插入下述两条语句，能得到txid
+                        sb.EmitSysCall("System.ExecutionEngine.GetScriptContainer");
+                        sb.EmitSysCall("Neo.Transaction.GetHash");
+                        //把TXID包进Array里
+                        sb.EmitPushNumber(Neo.BigInteger.fromString("1"));
+                        sb.Emit(ThinNeo.OpCode.PACK);
+                        sb.EmitPushString("setmoneyin");
+                        sb.EmitAppCall(register);
+                        script = sb.ToArray();
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(script)];
+                    case 1:
+                        res = _a.sent();
+                        // console.log(res);
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * 域名开标
+     */
+    NNSSell.startAuciton = function (subname, root) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, param, data, res, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        param = [
+                            '(hex160)' + who.toString(),
+                            "(hex256)" + root.roothash.toString(),
+                            "(str)" + subname
+                        ];
+                        data = importpack_1.tools.contract.buildScript_random(root.register, "startAuction", param);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                    case 2:
+                        error_2 = _a.sent();
+                        throw error_2;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * 竞标加价
+     * @param domain 域名
+     */
+    NNSSell.raise = function (id, amount, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var who, count, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress()).buffer);
+                        count = Neo.Fixed8.parse(amount.toString()).getData().toNumber();
+                        data = importpack_1.tools.contract.buildScript_random(register, "raise", ["(hex160)" + who.toString(), "(hex256)" + id, "(int)" + count]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     *
+     * @param info 域名状态信息
+     */
+    NNSSell.getAuctionByStateInfo = function (info, day) {
+        return __awaiter(this, void 0, void 0, function () {
+            var auction, startTime, ttltime, currentTime, dtime, lastTime, dlast;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        day = day ? day : 24 * 60 * 60; //如果没有传值，默认一天是24小时
+                        auction = new AuctionEntitys_1.Auction();
+                        auction.auctionId = info.id.toString();
+                        auction.fulldomain = info.domain;
+                        auction.maxBuyer = !info.maxBuyer ? "" : ThinNeo.Helper.GetAddressFromScriptHash(info.maxBuyer);
+                        auction.maxPrice = !info.maxPrice ? 0 : accDiv(info.maxPrice.toString(), 100000000);
+                        auction.addWho = new AuctionEntitys_1.AuctionAddress(entity_1.LoginInfo.getCurrentAddress(), accDiv(info.balanceOfSelling.toString(), 100000000));
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getBlockInfo(parseInt(info.startBlockSelling.toString()))];
+                    case 1:
+                        startTime = _a.sent();
+                        ttltime = parseInt(info.ttl);
+                        currentTime = importpack_1.tools.timetool.currentTime();
+                        if (ttltime > currentTime) {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.end;
+                            return [2 /*return*/, auction];
+                        }
+                        dtime = currentTime - startTime;
+                        if (!(dtime > 365 * day)) return [3 /*break*/, 2];
+                        auction.auctionState = AuctionEntitys_1.AuctionState.expire;
+                        return [3 /*break*/, 5];
+                    case 2:
+                        if (!(dtime > 3 * day)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getBlockInfo(parseInt(info.lastBlock.toString()))];
+                    case 3:
+                        lastTime = _a.sent();
+                        dlast = lastTime - startTime;
+                        //最大金额为0，无人加价，流拍数据，或者域名到期，都可以重新开标
+                        if (info.maxPrice.compareTo(Neo.BigInteger.Zero) == 0) {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.pass;
+                        }
+                        //先判断最后出价时间是否在第三天之前
+                        else if (dlast < 2 * day) {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.end;
+                        }
+                        //判断是否已有结束竞拍的区块高度。如果结束区块大于零则状态为结束
+                        else if (info.endBlock.compareTo(Neo.BigInteger.Zero) > 0) {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.end;
+                        }
+                        //如果不超过五天则是随机器
+                        else if (dtime < 5 * day) {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.random;
+                        }
+                        //超过五天则是结束 
+                        else {
+                            auction.auctionState = AuctionEntitys_1.AuctionState.end;
+                        }
+                        return [3 /*break*/, 5];
+                    case 4:
+                        auction.auctionState = AuctionEntitys_1.AuctionState.fixed;
+                        _a.label = 5;
+                    case 5: return [2 /*return*/, auction];
+                }
+            });
+        });
+    };
+    /**
+     * 结束竞拍
+     * @param domain 域名
+     */
+    NNSSell.bidSettlement = function (id, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, script, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        script = importpack_1.tools.contract.buildScript_random(register, "bidSettlement", [
+                            "(hex160)" + who.toString(),
+                            "(hex256)" + id
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(script)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    /**
+     * 获得领取域名
+     * @param domain 域名
+     */
+    NNSSell.collectDomain = function (id, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, script, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        script = importpack_1.tools.contract.buildScript_random(register, "collectDomain", [
+                            "(hex160)" + who.toString(),
+                            "(hex256)" + id
+                        ]);
+                        return [4 /*yield*/, importpack_1.tools.contract.buildInvokeTransData_attributes(script)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    NNSSell.getBalanceOf = function (addr, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var who, info, stackarr, stack, num, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeScript(register, "balanceOf", "(hex160)" + who.toString())];
+                    case 1:
+                        info = _a.sent();
+                        stackarr = info["stack"];
+                        stack = entity_1.ResultItem.FromJson(entity_1.DataType.Array, stackarr);
+                        num = stack.subItem[0].AsInteger();
+                        res = accDiv(num.toString(), 100000000);
+                        return [2 /*return*/, res.toString()];
+                }
+            });
+        });
+    };
+    /**
+     * 取回存储器下的sgas
+     */
+    NNSSell.getMoneyBack = function (amount, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, transcount, data, res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        transcount = amount.toFixed(8).replace(".", "");
+                        data = importpack_1.tools.contract.buildScript_random(register, "getmoneyback", ["(addr)" + addr, "(int)" + transcount]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 1:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    NNSSell.renewDomain = function (domain, register) {
+        return __awaiter(this, void 0, void 0, function () {
+            var addr, who, domainarr, str, roothash, data, res, error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        addr = entity_1.LoginInfo.getCurrentAddress();
+                        who = new Neo.Uint160(ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(addr).buffer);
+                        domainarr = domain.split(".").reverse();
+                        str = domainarr[1];
+                        roothash = importpack_1.tools.nnstool.nameHash(domainarr[0]);
+                        data = importpack_1.tools.contract.buildScript_random(register, "renewDomain", [
+                            "(hex160)" + who.toString(),
+                            "(hex256)" + roothash.toString(),
+                            "(str)" + str
+                        ]);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, importpack_1.tools.contract.contractInvokeTrans_attributes(data)];
+                    case 2:
+                        res = _a.sent();
+                        return [2 /*return*/, res];
+                    case 3:
+                        error_3 = _a.sent();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return NNSSell;
+}());
+exports.default = NNSSell;
+
+
+/***/ }),
+
+/***/ "shbj":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_class_component_1 = __webpack_require__("c+8m");
+var Spinner_vue_1 = __webpack_require__("+jyM");
+var Valert = /** @class */ (function (_super) {
+    __extends(Valert, _super);
+    function Valert() {
+        var _this = _super.call(this) || this;
+        _this.show = false;
+        return _this;
+    }
+    Valert.prototype.showmudloe = function () {
+        this.show = true;
+    };
+    Valert.prototype.closemudloe = function () {
+        this.show = false;
+    };
+    Valert.prototype.mounted = function () { };
+    Valert = __decorate([
+        vue_class_component_1.default({
+            components: {
+                "spinner-wrap": Spinner_vue_1.default
+            }
+        }),
+        __metadata("design:paramtypes", [])
+    ], Valert);
+    return Valert;
+}(vue_1.default));
+exports.default = Valert;
+
+
+/***/ }),
+
+/***/ "slXE":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var storagetool_1 = __webpack_require__("5LD5");
+var Store = /** @class */ (function () {
+    function Store() {
+    }
+    Store.blockheight = new storagetool_1.sessionStoreTool("block");
+    Store.auctionInfo = new storagetool_1.sessionStoreTool("auctionInfo");
+    Store.session_open = new storagetool_1.sessionStoreTool("auction-openSession");
+    Store.buyDomain = new storagetool_1.sessionStoreTool("buyDomain");
+    return Store;
+}());
+exports.default = Store;
+
+
+/***/ }),
+
+/***/ "vcAA":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var vue_property_decorator_1 = __webpack_require__("443i");
+var Toast = /** @class */ (function (_super) {
+    __extends(Toast, _super);
+    function Toast() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.msg = "";
+        _this.type = "";
+        _this.isshow = false;
+        return _this;
+    }
+    /**
+     * @method 显示弹框
+     * @param type 类型('success','error','')空则不显示
+     * @param msg 显示内容
+     * @param time 停留时间(单位:毫秒)5秒=5000
+     */
+    Toast.prototype.isShow = function (type, msg, time) {
+        var _this = this;
+        this.isshow = true;
+        this.type = type;
+        this.msg = msg;
+        setTimeout(function () {
+            _this.isshow = false;
+            _this.type = "";
+            _this.msg = "";
+        }, time);
+    };
+    __decorate([
+        vue_property_decorator_1.Watch("opneToast"),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [String, String, Number]),
+        __metadata("design:returntype", void 0)
+    ], Toast.prototype, "isShow", null);
+    Toast = __decorate([
+        vue_property_decorator_1.Component
+    ], Toast);
+    return Toast;
+}(vue_1.default));
+exports.default = Toast;
+
+
+/***/ }),
+
+/***/ "w5Tq":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAABGdJREFUWAntmF1IVEEUx3U/UqxQEUOw0gqMDAqJCAqpHntx/Qgf+lgQDIogS4LsIRB6qB4irIeyHgIpAklX96WeIsiCKMgSiQLT1MKQdvuU1faj39nu3W7X9e6966704MB1zsyc85//nDlzZtaMjMXyn3ugp6dnVXd3d0GyNG3JGpqx6+3trcjMzHxht9ufIG8yY6PXSSvBUCi0FIIFfGV83mRIppVgbW3t43A43BSJRMJ4pkRIst2b9V4yamcaDaZqjDg8BrlLfOKQ98Fg0AX5l2bwF4SgEIHkUYWk0wpJywQ7OjqWZmdn52RlZVkKD+IxaLPZmiHZYsWTpggSNxscDkcNsbQb8LV4YDmyJYLYYRIJYVuoEMygPcJ2V9bV1Y3TH7c44vYqnZ2dncV46wxA++laBnBMXSvHOhMIehvapZis4LNOkJipBOAmxusU4ADyU8g+p/5I3y9O6F/GdBoV0Wd8I99hZLui2zIwMNBvZBfXg2zpTuLFg2G+GEOqg+qiy+V6Je1kSldX10rC5JCWXFVV1YVEWLM8AFAJQH0ArcR4Ci8dqa6uFoJJFxL0eoy9YJYpIC1myInurECH3DmFXJDxxlSTY8GnzZKbRRDvbaVzrwywrTcAuiNysoVDthrbfzzHgs9bwfsnBp1O5wGMJZH6p6enLQHFm5RcWZ7MtmqxYgTb29udeG0XgDL+oL6+flSrmIzs8/ke5ufnS3Ke5IDdMsJobW11VFRU7CUEvtbU1NxTdWMEi4qKCumULZHS96ea39+GhgZJTZfMoEBuOwu5w9Ms4PV6ywmvYbGLHRK8l0c7RzpZxbjUC1kgp6Y0J9dirjq3luASOqMJlBwoSXVBC06R2JcSguzMH1HjQRS+MRAlhuxTFRawXqXMNQWPL+q8sRjkwn5HQpUHQe7MzMwTVWGuGt0D6Bb6/f6rSqzNpWqqn13boSiOTkxMTKpGs24SdcCoJohPMR5NQ5Dcwwm9b6SfaEy5vfrxXB54beAdV21iMah2JKp15N4COJjIJtE4t5e8EYXcL55ft7X6lgjqyQFUxc0wpgW0KvNq2ge5RsXuLqH2TIthmmA8cmzFGy2YVRlybmLvOnYOvDfG7dWix4gdEv2Atq0j1w/YvDwnv+xIyHLDuJV5/OS+g/FuL8NDwvVjI8OfBCj6boOYPNmv8Q0iq3lLu5a4Ml5CPapfDNYWlLbxZYsy/UN8DYTKI2nriyFBj8ezhZXKCzrlBVI/IHs7EAicxXMf5prAcItJ2J9Y/TBAawQAUPkBPknbjmy4OP2E2Ijtd+yGkB+ypR5+G7/W6+nbCSdR/l3RC2ipQvAC4BfxrOHi9BNxAMJ4a8rtdv/Ujxm1ExIUYy1JmvLSbua1cUXG0l1MpRnSifxYcuHBEWrxXBukm6jTXkx5UGWh8yR8Iycgf5nxiKqT6toSQZlcRzJD/jNAsPelmpiKZ2qLVWWpNdst9/BnDouloNdipVXmNijgqlLfcGmdaxF8Ph74DWFU4koKB9gcAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "wOXa":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    language: {
+        name: '中文'
+    },
+    navbar: {
+        explorer: '浏览器',
+        wallet: '钱包',
+        mainnet: '主网',
+        testnet: "测试网",
+        logout: "退出",
+        blockheight: "高度",
+        toggle: "切换导航"
+    },
+    btn: {
+        confirm: "提交",
+        confirming: "提交中",
+        reset: "重置",
+        close: "关闭",
+        transfer: "转账",
+        switch: "切换",
+        claim: "提取",
+        claiming: "提取中",
+        cancel: "取消",
+        openauction: "开标",
+        openingauction: "正在开标",
+        bid: "竞标",
+        getdomain: "领取域名",
+        recoversgas: "领回竞拍金",
+        gettingdomain: "域名领取中...",
+        recoveringsgas: "竞拍金领回中...",
+        receivedsgas: "已退回余额",
+        receivednns: "已领取域名",
+        newbid: "参加竞拍",
+        viewmore: "查看更多",
+        edit: "编辑",
+        renewal: "续约",
+        renewaling: "续约中",
+        setOwner: "设置所有者",
+        settingOwner: "设置所有者...",
+        exchange: "兑换",
+        exchanging: "兑换中",
+        withdraw: "提取",
+        topup: "充值",
+        getGas: "索取Gas",
+        gettingGas: "Gas领取中",
+        sell: "出售",
+        selling: "出售中",
+        delist: "下架",
+        delisting: "下架中",
+        check: "确认",
+        lookinfo: "查看详情",
+        buy: "购买",
+        apply: "申请",
+        applying: "已申请",
+        applyed: "已发放"
+    },
+    toast: {
+        msg1: "登陆中...",
+        msg2: "登陆成功...",
+        msg3: "登陆失败，请重新尝试",
+        msg4: "请输入正确的字符串"
+    },
+    login: {
+        login: "登陆",
+        title: "登陆你的钱包",
+        selectplaceholder: "选择密钥存储库文件",
+        selectbtn: "选择",
+        passwordholder: "输入密码",
+        loginbtn: "登陆",
+        cutlinemsg: "或者",
+        wifmsg: "从WIF字符串导入密钥",
+        nep2msg: "从nep2字符串导入密钥"
+    },
+    wif: {
+        title: "WIF 密钥",
+        wifplaceholder: "输入您的密钥",
+        back: "返回"
+    },
+    nep2: {
+        title: "Nep2",
+        placeholder: "输入您的Nep2",
+        password: "输入密码"
+    },
+    generate: {
+        generate: "新建",
+        title: "创建一个新的钱包",
+        name: "您的钱包名",
+        password: "输入密码",
+        passwordagain: "重复密码",
+        nameempty: "钱包名不能为空",
+        namepass: "验证通过",
+        pwderrmsg1: "请输入至少8个字符的密码",
+        pwderrmsg2: "至少使用一个字符和一个数字",
+        pwderrmsg3: "请输入与上面相同的密码",
+        createmsg: "您的密钥库文件已经创建。",
+        downloadmsg: "你可以点击“下载”按钮来保存你的密钥库文件！",
+        download: "下载",
+        msg: "不要丢失它!",
+        msg2: "如果你失去了它，它是无法恢复的。"
+    },
+    balance: {
+        balance: "资产",
+        title1: "NEO 资产余额",
+        title2: "当前地址",
+        title3: "可提取的GAS",
+        title4: "资产",
+        title5: "选择地址",
+        title6: "选择 NEP6 钱包文件",
+        msg1: "向自己的地址进行转账…",
+        msg2: "等待交易确认…",
+        msg3: "提取 GAS 中…",
+        msg4: "Gas提取成功!",
+        tips: "您可以通过点击此按钮来获取10Gas, 该按钮每24小时只能点击一次。",
+        errmsg1: "操作失败！请您稍后再进行尝试！",
+        errmsg2: "库存不足！请您稍后再进行尝试！",
+        errmsg3: "数据异常！请您稍后再进行尝试！",
+        successmsg: "操作成功！正在领取中，请稍等。",
+        tipsnnc: "您可以通过点击此按钮来获取100NNC, 该按钮每24小时只能点击一次。"
+    },
+    transfer: {
+        transfer: "转账",
+        title1: "资产",
+        title2: "地址",
+        title3: "金额",
+        title4: "历史记录",
+        msg1: "您的地址不正确",
+        send: "发送",
+        from: "来自",
+        to: "发往",
+        details: "详情",
+        placeholder: "请输入地址或域名",
+        msg2: "您的交易已发送，请稍后查验",
+        msg3: "交易失败",
+        msg4: "您没有足够的utxo进行交易，请等待高度变化后再尝试下笔交易",
+        msg5: "可用",
+        msg6: "服务器异常，请前往浏览器确认交易结果",
+        waiting: "等待交易确认",
+        errdomain: "该域名尚未映射地址",
+        timeMsg: "有效期至: ",
+        netfee: "网络费",
+        sysfee: "系统费"
+    },
+    nns: {
+        nns: "NNS",
+        title1: "注册NEO域名",
+        placeholder1: "输入名称",
+        register: "注册",
+        title2: "我的NEO域名",
+        msg1: "活动已结束，谢谢大家的参与。",
+        msg2: '我们将会在NNS在主网上线后的一个月内给予你主网钱包50NNC的奖励！',
+        msg3: "注册你的域名并收集奖励。",
+        err1: "当前域名已经被注册。",
+        text1: "地址解析器",
+        text2: "地址映射",
+        text3: "域名到期时间",
+        text4: "已到期",
+        waiting: "等待NEO区块高度更新后，尝试刷新页面",
+        edit: "编辑",
+        alerttitle: "编辑信息",
+        alerttitle1: "注册Neo域名",
+        alerttitle2: "地址解析器",
+        alerttitle3: "地址映射",
+        alertmessage1: "这是官方地址解析器，你必须先确认此地址解析器才能映射你的地址。",
+        alertmessage2: "请输入正确格式的地址",
+    },
+    setting: {
+        createnep2: "我的nep2",
+        settings: "设置",
+        title1: "我的钱包地址",
+        title2: "我的私钥",
+        title3: "我的钱包文件",
+        msg1: "这些信息非常重要。如果你失去了它，它可能会导致你的损失。",
+        msg2: "保存您的密钥库文件并复制您的钱包地址和您的WIF。不要失去他们。",
+        msg3: "设置密码 ",
+        msg4: "输入你的密码",
+        msg5: "创建钱包",
+        btn1: "查看",
+        btn2: "创建",
+        btn3: "下载"
+    },
+    nnsneo: {
+        auction: "域名竞拍",
+        myneoname: "我的域名管理",
+        bonus: "我的分红",
+        tutorial: "竞拍教程"
+    },
+    auction: {
+        title1: "域名竞拍",
+        title2: "我的竞拍",
+        title3: "竞拍信息",
+        title4: "我的加价",
+        title5: "竞拍进度",
+        title6: "领取域名",
+        title7: "领回竞拍金",
+        entername: "请输入您想要的域名",
+        nottopup: "合约升级中，充值功能暂停。",
+        checkavailable: "此域名可以进行竞拍。",
+        checkbeing: "此域名正在进行竞拍。",
+        checkformat: "域名长度需要在2～32个字节之间，只能是字母和数字。",
+        checkbuyer: "此域名已经被其他人竞拍了。",
+        checksale: "该域名正在出售中。",
+        sendingmsg: "正在发送交易，请耐心等待...",
+        searchmsg: "按域名搜索",
+        status: "状态",
+        lastauctionprice: "当前最高价",
+        currentbidder: "当前竞标人",
+        opentime: "开标时间",
+        fixedperiod: "确定期",
+        randomperiod: "随机期",
+        ended: "已结束",
+        me: "我",
+        other: "他人",
+        buyer: "中标人",
+        hammerprice: "成交价",
+        acutiontitle: "竞拍",
+        domain: "域名",
+        highest: "当前最高价",
+        raisebid: "加价",
+        enterbid: "请输入您的价格",
+        yourbidmsg: "您的累积竞价",
+        mybidmsg: "我的累积竞价 ",
+        mywillbid: "我的累积竞价将会是 ",
+        price: "竞拍价: ",
+        tips1: "注意 : 每次加价的最小值为 0.1 CGAS. 当您的累积竞价小于当前最高价时，该次出价不成功。",
+        isAvailable: "可用",
+        errmsg5: "您当前的账户仅拥有",
+        errmsg1: "您当前的竞拍账户仅拥有",
+        errmsg2: "CGAS.",
+        errmsg4: "请输入正确的格式。",
+        errmsg6: "您的出价低于最高出价的百分之十",
+        nobalance: "余额不足，请充值",
+        goback: "返回",
+        waitmsg1: "未确认",
+        waitmsg2: "您的加价将会在新区块生成之后被确认，请耐心等待...",
+        waitmsg3: "您购买域名的操作将会在新区块生成之后被确认，请耐心等待...",
+        getdomaintips: "注意 : 当您成功领取域名后，您可以在“我的域名管理”中进行编辑。",
+        waitgetdomain: "您的操作将会在新区块生成之后被确认，请耐心等待...",
+        fee: "手续费 ",
+        remainingsgas: "可以领回的竞拍金 ",
+        timetips1: "注意 : 如果确定期最后一天无人竞拍, 则确定期结束时间为该次竞拍的结束时间。",
+        timetips2: "注意 : 竞拍即将进入随机期, 在随机期竞拍结束时间是不确定的，请尽早出价。",
+        timetips3: "注意 : 在随机期竞拍结束时间是不确定的，请尽早出价。",
+        bidstarttimemsg: "开标时间",
+        endtimemsg: "确定期结束时间",
+        randomtimemsg: "随机期开始时间",
+        maxtimemsg: "随机期最大结束时间",
+        tipsmsg1: "注意：竞拍开始之前，你需要知道2件事:",
+        tipsmsg2: "竞拍所使用的资产是CGAS，并且您需要将CGAS充值进您的“竞拍账户”才能使用。",
+        tipsmsg3: 'CGAS需要在“CGAS兑换”页面中用Gas1:1兑换获得, 然后使用“竞拍账户”中的充值功能，将CGAS充值进您的竞拍账户',
+        titleaccount: "您的竞拍账户",
+        withdraw: "提取",
+        topup: "充值",
+        from: "充值源: ",
+        to: "提取到",
+        topupamount: "充值金额",
+        withdrawamount: "提取金额",
+        amount: "金额",
+        asset: "资产",
+        errmsg3: "是可用的",
+        tipsmsg4: "注意：当你在使用Gas进行充值时，充值进你的“拍卖账户”之前，他会自动转换成CGAS，整个过程需要两个区块的确认时间，请耐心等待...",
+        yourbalance: "您的钱包",
+        waiting: "等待",
+        successwithdraw: "提取成功",
+        successtop: "充值成功",
+        successtopup: "充值成功!您的 ",
+        successtopup2: " 个CGAS将会在2个区块被确认后进入您的竞拍账户!",
+        successtopup3: " 个CGAS将会在1个区块被确认后进入您的竞拍账户!",
+        successwithdraw2: " 个CGAS将会在1个区块后退回到您的地址!",
+        failtopup: "充值失败 !你的Gas被转换成了CGAS",
+        fail: "操作失败 !",
+        auctionopen: "开标",
+        domainname: "域名",
+        successbid: "加价成功",
+        failbid: "加价失败",
+        failbid2: "此域名竞拍结束，本次加价未执行",
+        successbid1: "您加价了 ",
+        successbid2: " CGAS ，请等待区块确认。",
+        successgetdomain: "域名领取成功",
+        failgetdomain: "域名领取失败",
+        tips: "注意: ",
+        statustips: "确定期为竞拍第一阶段，时长为3天，此期间所有的出价都有效。当确定期最后一天有人出价时将触发最大时长为2天的随机期。否则竞拍即在确定期结束。",
+        statustips2: "随机期为竞拍第二阶段，最大时长为2天，此期间任意一个出价都有可能触发该域名竞拍的结束从而出价无效，越靠后的出价触发结束的可能性越大，因此请尽早出价以免错失该域名。 ",
+        teststatustips: "确定期为竞拍第一阶段，时长为3天，此期间所有的出价都有效。当确定期最后一天有人出价时将触发最大时长为2天的随机期。否则竞拍即在确定期结束。",
+        teststatustips2: "随机期为竞拍第二阶段，最大时长为2天，此期间任意一个出价都有可能触发该域名竞拍的结束从而出价无效，越靠后的出价触发结束的可能性越大，因此请尽早出价以免错失该域名。 ",
+        toptips: "注意: 当系统提示您充值成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
+        withdrawtips: "注意: 当系统提示您提取成功之后，仍需要一个区块的时间来确认这笔操作，请耐心等待。",
+        getall: "全部",
+        all: "全部",
+        nodata: "没有查询到相关数据",
+        Bidder: "出价者",
+        Status: "状态",
+        domaininfo: "域名详情",
+        saleprice: "出售价格",
+        unbuytips: "NNC的余额不足，无法购买。"
+    },
+    exchange: {
+        title: "CGAS兑换",
+        tosgas: "兑换CGAS",
+        togas: "兑换Gas",
+        tips: "注意 : CGAS是一种NEP5资产，与NEO的GAS按照1：1比例绑定，它们之间可自由兑换。兑换需要一个区块的确认时间，请耐心等待。",
+        spend: "我将花费 : ",
+        receive: "我将获得 : ",
+        warnmsg: "余额不足",
+        waittitle: "交易记录",
+        balance: "余额",
+        amount: "金额"
+    },
+    myneoname: {
+        title: "我的域名管理",
+        resolver: "地址解析器",
+        mapping: "地址映射",
+        time: "域名到期时间",
+        owner: "所有者地址",
+        expiring: "即将过期",
+        edittitle: "编辑信息",
+        neoname: "域名",
+        notconfigure: "未配置",
+        expired: "已过期",
+        transfer: "转让",
+        transferto: "转让到",
+        transferring: "转让中",
+        domaintransfer: "转让域名",
+        msg: "请输入你想转让到的地址",
+        transferDomainMsg1: "您确定要将",
+        transferDomainMsg2: "转让给",
+        transferDomainMsg3: "吗?",
+        tips: "注意 : 您需要在成功确认地址解析器之后，才能进行地址映射。",
+        waitmsg2: "操作成功 ! 该域名将会在被区块确认之后转让给目标地址 !",
+        waitmsg3: "操作成功 ! 该域名将会在被区块确认之后上架 !",
+        waitmsg4: "操作成功 ! 该域名将会在被区块确认之后下架 !",
+        myIncome: "我的收入",
+        unclaimed: "未提取的NNC",
+        all: "全部",
+        note: "注意 : 出售域名所获的NNC会显示在这里，您可以点击提取按钮，将其提取至您的钱包余额。",
+        note2: "注意 : 如果您要出售您的地址，请确保域名的地址映射栏处于未配置的状态（设置过的域名请在在编辑页中使用重置功能。）",
+        btntip: "请在编辑窗口清空地址映射",
+        status: "状态",
+        selling: "上架中",
+        unsell: "未出售",
+        mysellrecord: "我的交易记录",
+        selltime: "交易时间：",
+        sellprice: "交易金额：",
+        domainsell: "域名出售",
+        selltips: "注意 : 出售中的域名将会在域名过期后自动下架，请注意对快到期的域名进行下架并续约，以免错失域名。",
+        domainname: "域名",
+        setprice: "设置出售价格",
+        surecheck1: "您确定要将 ",
+        surecheck2: " 下架吗？",
+        type: "类型",
+        salelist: "出售",
+        buylist: "购买"
+    },
+    bonus: {
+        title: "分红",
+        title2: "分红历史",
+        mydividend: "可领取分红 ：",
+        distribution: "奖金池快照 ：",
+        mytotal: "我持有的NNC总量 ：",
+        snapshot: "快照时间 ：",
+        tips: "注意: 为了防止自动分红所造成的网络拥堵，我们在NNS分红上增加了手动申请的步骤，您需要点击申请来获得您的分红，分红会在您申请的一周内发放。",
+        waiting: "操作成功，分红会在您申请的一周内发放。"
+    },
+    operation: {
+        welcome: "欢迎!",
+        title: "操作记录",
+        tips: "注意：这些记录将会在您登出或关闭网页时清空。",
+        waiting: "等待区块确认...",
+        txid: "交易ID:",
+        transfer: "转出",
+        openauction: "开标",
+        raisebid: "加价",
+        exchange: "CGAS兑换",
+        topup: "充值",
+        withdraw: "提取",
+        requestgas: "索取Gas",
+        editdomain: "域名编辑",
+        addrmapping: "地址映射:",
+        addrresolver: "确认地址解析器: ",
+        renew: "续约",
+        getdomain: "领取域名",
+        recover: "领回CGAS",
+        gasclaim: "Gas提取",
+        nodata: "没有数据",
+        fail: "操作失败",
+        waitinggas: "等待系统发送",
+        sentok: "系统已发送",
+        list: "上架",
+        delist: "下架",
+        buy: "购买",
+        claimnnc: "提取NNC",
+        requestnnc: "索取NNC",
+        domaintransfer: "转让域名",
+    },
+    notify: {
+        utxo: "您的UTXO过于分散，将可能造成CGAS兑换失败（GAS也会损失），请先对自己的地址执行一次不小于兑换金额的转账，待转账操作生效后再行兑换",
+        fee: "注意：gas余额不足0.001时，钱包会发送免费交易。"
+    },
+    errormsg: {
+        interface: "接口返回失败",
+        noMoney: "cgas合约账户没有足够的utxo供您兑换gas,请稍后重试"
+    },
+    page: {
+        page: "第",
+        total1: "页，共 ",
+        total2: " 页"
+    },
+    confirm: {
+        pwd: "输入密码",
+        msg: "优先处理此笔交易 （ 支付0.001 GAS ）",
+        pwderror: "密码错误请重新输入",
+        confirm: "确认",
+        transferConfirm: "转账确认",
+        transferTo: "转账至",
+        transferAmount: "转账数量",
+        exchangeConfirm: "兑换信息",
+        exchangeTo: "目标资产",
+        exchangeAmount: "兑换数量",
+        topupConfrim: "充值信息",
+        topupTo: "充值至",
+        topupAmount: "充值数量",
+        auctionAccount: "竞拍账户",
+        withdrawConfirm: "提取信息",
+        withdrawTo: "提取至",
+        withdrawAmount: "提取数量",
+        yourbalance: "钱包账户",
+        startAuctionConfirm: "域名开标",
+        domain: "域名",
+        bidConfirm: "竞拍加价",
+        bidPrice: "加价金额",
+        domainClaimingConfirm: "领取域名",
+        cgasReclaimingConfirm: "领回竞拍金",
+        reclaimCgas: "可领回的竞拍金",
+        nncClaimConfirm: "提取NNC",
+        claimto: "提取至",
+        claimAmount: "提取数量",
+        addrResolverConfirm: "确认地址解析器",
+        addrresolver: "地址解析器",
+        addrMappingConfirm: "确认地址映射",
+        addrmapping: "映射地址",
+        renewalConfirm: "域名续约",
+        renewalto: "续约至",
+        domainTransferConfirm: "域名转让确认",
+        domainTransferTo: "转让至",
+        listingConfirm: "域名上架确认",
+        price: "出售价格",
+        expirationTime: "域名到期时间",
+        delistingConfirm: "域名下架确认",
+        purchaseConfirm: "域名购买",
+    }
+};
+
+
+/***/ }),
+
+/***/ "wtuE":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,DQo8c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5ICg1MTAwMikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+DQogICAgPGRlZnM+PC9kZWZzPg0KICAgIDxnIGlkPSJiYWxhbmNlNC10ZXN0bmV0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgaWQ9IummlumhtS10cmFuc2Zlci1pbnB1dCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTkyMi4wMDAwMDAsIC0zNzguMDAwMDAwKSI+DQogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwLjAwMDAwMCwgMjI2LjAwMDAwMCkiPg0KICAgICAgICAgICAgICAgIDxnIGlkPSLmiZPli74iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgyMi4wMDAwMDAsIDE1Mi4wMDAwMDApIj4NCiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTI0LDEyLjE0ODE0ODEgQzI0LDUuMzcyNDQ0NDQgMTguNjI3NTU1NiwwIDExLjg1MTg1MTksMCBDNS4zNzI0NDQ0NCwwIDAsNS4zNzI0NDQ0NCAwLDEyLjE0ODE0ODEgQzAsMTguNjI3NTU1NiA1LjM3MjQ0NDQ0LDI0IDExLjg1MTg1MTksMjQgQzE4LjYyNzU1NTYsMjQgMjQsMTguNjI3NTU1NiAyNCwxMi4xNDgxNDgxIFoiIGlkPSJGaWxsLSIgZmlsbD0iIzJEREU0RiI+PC9wYXRoPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNi4yNDQ5NTE3MywxMi44NDYzNTA0IEM1Ljg1NjI5Mzc1LDEyLjQ0NjI2NzIgNS44MDk5NDA0OCwxMS43NTgyNjA2IDYuMTMyMDI0OTksMTEuMzIyMzU4MiBMNS42NTA2MzE3NSwxMS45NzM4NjU3IEM1Ljk3NjkyMjAyLDExLjUzMjI3MTMgNi41OTc0OTM2MiwxMS40NDU3MjQzIDcuMDQxMjU0NzcsMTEuNzg0MDE2NiBMOC44OTAxMDY5NywxMy4xOTM0NTE2IEM5LjMzMTgzNjU5LDEzLjUzMDE5NTIgMTAuMDM3NTcyNSwxMy41MTUxMTkgMTAuNDY1NjkwNiwxMy4xNjAzNzU5IEwxNy4wMDQ3NzQ2LDcuNzQyMDIzMTIgQzE3LjQzMzIxNTgsNy4zODcwMTIzMiAxOC4wOTc4NjA3LDcuNDEwOTI2MjQgMTguNDgwNzQ0NCw3Ljc4NzAzMTc1IEwxNy43ODA1MzYsNy4wOTkyMTkxOSBDMTguMTY3MjUwNCw3LjQ3OTA4NzU4IDE4LjE2Nzg2NTQsOC4wOTMyOTg5OSAxNy43NjEzMzQsOC40OTEyMzk2OSBMMTAuNDA5MDgxOSwxNS42ODgxMjUzIEMxMC4wMTE3NjI1LDE2LjA3NzA0ODYgOS4zNzc4NjM2OSwxNi4wNzEzNTk0IDguOTg1OTQzOTUsMTUuNjY3OTE4NSBMNi4yNDQ5NTE3MywxMi44NDYzNTA0IFoiIGlkPSJGaWxsLSIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPg0KICAgICAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgPC9nPg0KICAgIDwvZz4NCjwvc3ZnPg=="
+
+/***/ }),
+
+/***/ "x35b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = __webpack_require__("/5sW");
+var importpack_1 = __webpack_require__("VKSY");
+var taskmanager_1 = __webpack_require__("XfB5");
+var index_1 = __webpack_require__("OrGm");
+var entity_1 = __webpack_require__("6nHw");
+var app_vue_1 = __webpack_require__("5VpT");
+var router_1 = __webpack_require__("LJj6");
+var I18n_1 = __webpack_require__("I0Fu");
+vue_1.default.use(index_1.default);
+// const notFound = () => import('./pages/404.vue');
+vue_1.default.config.productionTip = false;
+new vue_1.default({
+    el: '#app',
+    i18n: I18n_1.default,
+    render: function (h) { return h(app_vue_1.default); },
+    router: router_1.default,
+    components: index_1.default
+});
+//初始化鼠标随机方法
+Neo.Cryptography.RandomNumberGenerator.startCollectors();
+//初始化根域名
+importpack_1.tools.nnstool.initRootDomain("neo");
+importpack_1.tools.nnstool.initRootDomain("test");
+// console.log(tools.nnstool.root_neo.register.toString());
+setInterval(function () {
+    var oldBlock = new importpack_1.tools.sessionstoretool("block");
+    importpack_1.tools.wwwtool.api_getHeight()
+        .then(function (data) {
+        var oldHeight = oldBlock.select("height");
+        if (oldHeight) {
+            if (data > oldHeight) {
+                oldBlock.put("height", data);
+                /**
+                 * 高度变化放在最开始高度变化就启动高度刷新
+                 */
+                if (entity_1.TaskFunction.heightRefresh) {
+                    entity_1.TaskFunction.heightRefresh();
+                }
+                taskmanager_1.TaskManager.update();
+            }
+        }
+        else {
+            oldBlock.put("height", data);
+        }
+    });
+}, 15000);
+
+
+/***/ })
+
+},["x35b"]);
