@@ -151,10 +151,10 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getnep5asset", asset);
         var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json[ "result" ][ 0 ];        
-        if (json["result"])
+        var r = json[ "result" ][ 0 ];
+        if (json[ "result" ])
         {
-            var r = json["result"][0];
+            var r = json[ "result" ][ 0 ];
             return r;
         } else
         {
@@ -189,6 +189,8 @@ export class WWW
     static async api_postRawTransaction(data: Uint8Array): Promise<any>
     {
         var postdata = WWW.makeRpcPostBody("sendrawtransaction", data.toHexString());
+        console.log(data.toHexString());
+
         var result = await fetch(WWW.api, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
         if (json[ "result" ])
@@ -364,7 +366,7 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getdomainstate", domain);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        var r = json["result"];
+        var r = json[ "result" ];
         return r;
     }
     /**
@@ -580,9 +582,9 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getbonusbyaddress", address, page, pagesize);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        if (json["result"])
+        if (json[ "result" ])
         {
-            var r = json["result"][0];
+            var r = json[ "result" ][ 0 ];
             return r;
         } else
         {
@@ -620,9 +622,9 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getNNCfromSellingHash", address);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        if (json["result"])
+        if (json[ "result" ])
         {
-            var r = json["result"][0];
+            var r = json[ "result" ][ 0 ];
             return r;
         } else
         {
@@ -643,9 +645,9 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getDomainSellingListByAddress", address, type, showtype, page, pagesize);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        if (json["result"])
+        if (json[ "result" ])
         {
-            var r = json["result"];
+            var r = json[ "result" ];
             return r;
         } else
         {
@@ -662,9 +664,9 @@ export class WWW
         var postdata = WWW.makeRpcPostBody("getNNSfixedSellingInfo", domain);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
-        if (json["result"])
+        if (json[ "result" ])
         {
-            var r = json["result"][0];
+            var r = json[ "result" ][ 0 ];
             return r;
         } else
         {

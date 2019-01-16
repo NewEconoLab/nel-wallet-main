@@ -79,7 +79,7 @@ export class CoinTool
                     console.log(height - old.height);
 
                 }
-                if (utxo.txid == old.txid && old.n == utxo.n && height - old.height < 3)
+                if ((utxo.txid as string).includes(old.txid) && old.n == utxo.n)
                 {
                     findutxo = true;
                     utxos.splice(i, 1);
@@ -184,7 +184,7 @@ export class CoinTool
         for (const i in tran.inputs)
         {
             const input = tran.inputs[ i ];
-            old.push(new OldUTXO(input.hash.reverse().toHexString(), input.index))
+            old.push(new OldUTXO(input.hash.toHexString(), input.index))
         }
         res.err = false;
         res.info = { "tran": tran, "oldarr": old };
@@ -252,7 +252,7 @@ export class CoinTool
         }
         else
         {
-            throw "You don't have enough utxo;";
+            throw new Error("no enough money.");
 
         }
     }
@@ -291,34 +291,37 @@ export class CoinTool
      */
     static async rawTransaction(targetaddr: string, asset: string, count: string): Promise<Result>
     {
-
-        var arr = tools.storagetool.getLoginArr();
-        var add = tools.storagetool.getStorage("current-address")
-        var n = arr.findIndex(login => login.address == add);
         var _count = Neo.Fixed8.parse(count + "");
-        var utxos = await CoinTool.getassets();
         try
         {
+            var utxos = await CoinTool.getassets();
             var tranres = CoinTool.makeTran(utxos, targetaddr, asset, _count);  //获得tran和改变后的utxo
             var tran: ThinNeo.Transaction = tranres.info[ 'tran' ];
             if (tran.witnesses == null)
                 tran.witnesses = [];
             let txid = tran.GetHash().clone().reverse().toHexString();
-            let data;
+            let data: Uint8Array;
             try
             {
                 data = await this.signData(tran);
                 var res: Result = new Result();
                 var height = await tools.wwwtool.api_getHeight();
+                console.log(data.toHexString());
+
                 var result = await tools.wwwtool.api_postRawTransaction(data);
                 if (result[ "sendrawtransactionresult" ])
                 {
                     res.err = !result;
                     res.info = result[ 'txid' ];
-                    let olds = tranres.info[ 'oldarr' ] as OldUTXO[];
-                    olds.map(old => old.height = height);
-                    OldUTXO.oldutxosPush(olds);
                 }
+                else
+                {
+                    res.err = true;
+                    res.info = "交易发送失败"
+                }
+                let olds = tranres.info[ 'oldarr' ] as OldUTXO[];
+                olds.map(old => old.height = height);
+                OldUTXO.oldutxosPush(olds);
                 return res;
             } catch (error)
             {
@@ -329,6 +332,7 @@ export class CoinTool
         } catch (error) 
         {
             console.log("error  input");
+            console.log(error);
 
             throw error;
         }

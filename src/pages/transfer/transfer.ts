@@ -249,6 +249,7 @@ export default class transfer extends Vue
                         if (res.err)
                         {
                             this.openToast("error", "" + this.$t("transfer.msg3") + res.info, 3000);
+                            return;
                         } else
                         {
                             this.openToast("success", "" + this.$t("transfer.msg2"), 3000);
@@ -271,10 +272,10 @@ export default class transfer extends Vue
             } catch (error)
             {
                 this.sendWait = false;
-                if (error == "Signature interrupt")
+                if (error.message == "Signature interrupt")
                 {
                 }
-                else if (error == "no enough money.")
+                else if (error.message == "no enough money.")
                 {
                     mui.alert(this.$t("transfer.msg4").toString());
                 }
