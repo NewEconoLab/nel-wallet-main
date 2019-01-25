@@ -7673,7 +7673,7 @@ exports.default = {
     confirm: {
         pwd: "Password",
         msg: "This transaction will be prioritized(Pay 0.001 GAS)",
-        confirm: "confirm",
+        confirm: "Confirm",
         pwderror: "Password error",
         transferConfirm: "Transfer Confirmation",
         transferTo: "Transfer to",
