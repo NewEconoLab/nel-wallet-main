@@ -45,14 +45,14 @@
           <label>{{$t('myneoname.status')}}：</label>
           <select class="form-control" @change="selectSellDomain()" v-model="sellStatus">
             <option value="all">{{$t('myneoname.all')}}</option>
-            <option value="0901">{{$t('myneoname.selling')}}</option>
-            <option value>{{$t('myneoname.unsell')}}</option>
+            <option value="selling">{{$t('myneoname.selling')}}</option>
+            <option value="notSelling">{{$t('myneoname.unsell')}}</option>
           </select>
         </div>
       </div>
     </div>
     <div class="mydomain-tips">{{$t('myneoname.note2')}}</div>
-    <div class="form-box" v-if="neonameList" v-for="(item,index) in showMydomainList" :key="index">
+    <div class="form-box" v-if="neonameList" v-for="(item,index) in neonameList" :key="index">
       <div class="neoname">{{item.domain}}</div>
       <div
         class="addr-resolver"
@@ -64,7 +64,7 @@
       <div
         class="addr-mapping"
         v-if="!item.expired && item.state == '0901'"
-      >( {{$t('auction.saleprice')}}: {{item.price ? item.price : "0"}} NNC)</div>
+      >( {{$t('auction.saleprice')}}: {{item.price ? item.price.$numberDecimal : "0"}} NNC)</div>
       <div class="time-msg" v-if="!item.expired">
         ( {{$t('myneoname.time')}}: {{item.ttl}}
         <span
