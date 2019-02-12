@@ -247,6 +247,11 @@ export default class MyNeo extends Vue
         {
             res = await tools.wwwtool.getnnsinfo(this.currentAddress, '.neo', this.sellStatus, this.myDomainListPage.currentPage, this.myDomainListPage.pageSize);
         }
+        if (!res)
+        {
+            this.neonameList = null;
+            return false;
+        }
         await this.initListData(res[ 0 ].list);
 
     }
