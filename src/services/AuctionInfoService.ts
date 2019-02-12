@@ -5,22 +5,23 @@ import { AuctionStore } from "../store/AuctionStore";
 export class AuctionInfoService
 {
     day: number;
-    store: AuctionStore;
+    // store: AuctionStore;
+    auctionInfo: Auction;
     auctionId: string;
 
-    constructor(store: AuctionStore, day: number)
+    constructor(day: number)
     {
-        this.store = store;
+        // this.store = store;
         this.day = day;
     }
 
     getAuctionInfo()
     {
         // this.auctionId = id;
-        let auction = this.store.queryStore(this.auctionId);
-        let auctionInfo = new AuctionInfoView(auction);
-        auctionInfo.process = this.getProcess(auctionInfo);
-        return auctionInfo;
+        // let auction = this.store.queryStore(this.auctionId);
+        let auctionInfoItem = new AuctionInfoView(this.auctionInfo);
+        auctionInfoItem.process = this.getProcess(auctionInfoItem);
+        return auctionInfoItem;
     }
 
     /**
@@ -47,6 +48,8 @@ export class AuctionInfoService
         } else
         {
             process.state = AuctionState.end;
+            console.log(auction.addwho.lastTime.blocktime);
+
             let subtime = accSub(auction.addwho.lastTime.blocktime, auction.startTime.blocktime);
             if (subtime < 2 * this.day)  //判断第三天有无出价
             {

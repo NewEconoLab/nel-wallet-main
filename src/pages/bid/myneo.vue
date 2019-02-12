@@ -36,10 +36,11 @@
             id
             :placeholder="$t('auction.searchmsg')"
             autocomplete="off"
-            v-model="InputDomainName"
-            @input="toSearchDomain"
+            v-model="inputDomainName"
+            @input="searchMyDomainInput"
+            @keyup.enter="toSearchDomain"
           >
-          <img src="../../../static/img/seach.png" alt>
+          <img src="../../../static/img/seach.png" alt @click="toSearchDomain">
         </div>
         <div class="select-box">
           <label>{{$t('myneoname.status')}}：</label>
@@ -52,7 +53,7 @@
       </div>
     </div>
     <div class="mydomain-tips">{{$t('myneoname.note2')}}</div>
-    <div class="form-box" v-if="neonameList" v-for="(item,index) in neonameList" :key="index">
+    <div class="form-box" v-for="(item,index) in neonameList" :key="index">
       <div class="neoname">{{item.domain}}</div>
       <div
         class="addr-resolver"
@@ -163,12 +164,7 @@
       </div>
     </div>
     <div class="form-box">
-      <div
-        class="sale-list-wraper"
-        v-if="saleOutDomainList"
-        v-for="(item,index) in saleOutDomainList"
-        :key="index"
-      >
+      <div class="sale-list-wraper" v-for="(item,index) in saleOutDomainList" :key="index">
         <div class="sale-content">
           <div class="sale-domainname">{{item.fullDomain}}</div>
           <p>
@@ -497,6 +493,7 @@
           position: absolute;
           top: 6px;
           right: 6px;
+          cursor: pointer;
         }
       }
       .select-box {

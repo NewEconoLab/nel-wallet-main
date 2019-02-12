@@ -324,9 +324,9 @@ export class WWW
      * @param currentpage 当前页码
      * @param pagesize 页面条数
      */
-    static async getauctioninfobyaddress(address: string, currentpage: number, pagesize: number, root: string)
+    static async getauctioninfobyaddress(address: string, currentpage: number, pagesize: number, root: string, searchStr: string)
     {
-        var postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root);
+        var postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root, searchStr);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
         var r = json[ "result" ];
