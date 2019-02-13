@@ -137,14 +137,14 @@ export default class NeoAuction extends Vue
         let res = [];
         if (isFirst)
         {
-            res = await tools.wwwtool.getauctioninfobyaddress(this.address, 1, this.myAuctionPage.pageSize, ".neo", this.searchDomain);
+            res = await tools.wwwtool.getauctioninfobyaddress(this.address, 1, this.myAuctionPage.pageSize, ".neo", this.searchDomain, this.groupBuyer, this.groupState);
             if (res)
             {
                 this.myAuctionPage = new PageUtil(res[ 0 ].count, 5);
             }
         } else
         {
-            res = await tools.wwwtool.getauctioninfobyaddress(this.address, this.myAuctionPage.currentPage, this.myAuctionPage.pageSize, ".neo", this.searchDomain);
+            res = await tools.wwwtool.getauctioninfobyaddress(this.address, this.myAuctionPage.currentPage, this.myAuctionPage.pageSize, ".neo", this.searchDomain, this.groupBuyer, this.groupState);
         }
         if (!res)
         {
@@ -760,13 +760,14 @@ export default class NeoAuction extends Vue
      */
     doSearchDomain()
     {
+        this.groupBuyer = "";
+        this.groupState = "";
         if (this.searchDomain.length)
         {
             this.isSearchTime = true;
             // this.searchAuctionList = services.auction_neo.fuzzyQueryDomain(this.searchDomain);
             this.getBidList(true);
-            this.groupBuyer = "";
-            this.groupState = "";
+
         }
         else
         {
@@ -776,38 +777,40 @@ export default class NeoAuction extends Vue
 
     selectBuyerDomain()
     {
-        if (this.groupBuyer === "")
+        if (this.groupBuyer === "" && this.groupState === "")
         {
             this.isSearchTime = false;
         }
-        else if (this.groupBuyer == "me")
-        {
-            this.searchDomain = "";
-            this.searchAuctionList = services.auction_neo.selectBuyerDomain(true, this.address);
-            this.isSearchTime = true;
-            this.groupState = "";
-        }
+        // else if (this.groupBuyer == "me")
+        // {
+        //     this.searchDomain = "";
+        //     // this.searchAuctionList = services.auction_neo.selectBuyerDomain(true, this.address);
+        //     this.isSearchTime = true;
+        //     this.groupState = "";
+        // }
         else
         {
             this.searchDomain = "";
-            this.searchAuctionList = services.auction_neo.selectBuyerDomain(false, this.address);
+            // this.searchAuctionList = services.auction_neo.selectBuyerDomain(false, this.address);
             this.isSearchTime = true;
-            this.groupState = "";
+            // this.groupState = "";
         }
+        this.getBidList(true);
     }
 
     groupByAuctionState()
     {
-        if (this.groupState === "")
+        if (this.groupState === "" && this.groupBuyer === "")
         {
             this.isSearchTime = false;
         } else
         {
             this.searchDomain = "";
-            this.searchAuctionList = services.auction_neo.selectStateDomain(this.groupState);
+            // this.searchAuctionList = services.auction_neo.selectStateDomain(this.groupState);
             this.isSearchTime = true;
-            this.groupBuyer = "";
+            // this.groupBuyer = "";
         }
+        this.getBidList(true);
     }
     /**
      * 获取域名购买信息

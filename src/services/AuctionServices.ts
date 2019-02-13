@@ -77,7 +77,7 @@ export class AuctionService
             {
                 //从列表种拉取数据
                 let count = await tools.wwwtool.getauctioninfocount(address, "." + this.root.rootname);
-                let result = await tools.wwwtool.getauctioninfobyaddress(address, 1, count, "." + this.root.rootname, '');
+                let result = await tools.wwwtool.getauctioninfobyaddress(address, 1, count, "." + this.root.rootname, '', '2', 'all');
                 if (result)
                 {
                     let auctionList = result[ 0 ].list as Auction[];

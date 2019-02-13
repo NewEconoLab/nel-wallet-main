@@ -777,18 +777,22 @@ var WWW = /** @class */ (function () {
         });
     };
     /**
-     * 获得全量的地址列表的数据
+     * 获得竞拍列表的数据
      * @param address 地址
      * @param currentpage 当前页码
      * @param pagesize 页面条数
+     * @param root 根节点
+     * @param searchStr 搜索字段
+     * @param people 出价者
+     * @param status 域名竞拍状态
      */
-    WWW.getauctioninfobyaddress = function (address, currentpage, pagesize, root) {
+    WWW.getauctioninfobyaddress = function (address, currentpage, pagesize, root, searchStr, people, status) {
         return __awaiter(this, void 0, void 0, function () {
             var postdata, result, json, r;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root);
+                        postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root, searchStr, people, status);
                         return [4 /*yield*/, fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) })];
                     case 1:
                         result = _a.sent();

@@ -110,8 +110,8 @@
             v-model="groupBuyer"
           >
             <option value>{{($t('auction.all'))}}</option>
-            <option value="me">{{$t('auction.me')}}</option>
-            <option value="other">{{$t('auction.other')}}</option>
+            <option value="1">{{$t('auction.me')}}</option>
+            <option value="0">{{$t('auction.other')}}</option>
           </select>
         </div>
         <div class="rank-class">

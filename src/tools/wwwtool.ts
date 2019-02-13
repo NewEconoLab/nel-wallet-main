@@ -319,14 +319,18 @@ export class WWW
     }
 
     /**
-     * 获得全量的地址列表的数据
+     * 获得竞拍列表的数据
      * @param address 地址
      * @param currentpage 当前页码
      * @param pagesize 页面条数
+     * @param root 根节点
+     * @param searchStr 搜索字段
+     * @param people 出价者
+     * @param status 域名竞拍状态
      */
-    static async getauctioninfobyaddress(address: string, currentpage: number, pagesize: number, root: string, searchStr: string)
+    static async getauctioninfobyaddress(address: string, currentpage: number, pagesize: number, root: string, searchStr: string, people: string, status: string)
     {
-        var postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root, searchStr);
+        var postdata = WWW.makeRpcPostBody("getauctioninfobyaddress", address, currentpage, pagesize, root, searchStr, people, status);
         var result = await fetch(WWW.apiaggr, { "method": "post", "body": JSON.stringify(postdata) });
         var json = await result.json();
         var r = json[ "result" ];
