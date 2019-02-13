@@ -55,8 +55,7 @@ export default class MyNeo extends Vue
     {
         super();
         this.isShowEdit = false;
-        this.currentAddress = 'AHdKj4Vi71wEjGjCZeN85L3yox1TUYyT7f';
-        // this.currentAddress = LoginInfo.getCurrentAddress();
+        this.currentAddress = LoginInfo.getCurrentAddress();
         this.neonameList = null;
         this.showMydomainList = null;
         this.set_contract = "0x6e2aea28af9c5febea0774759b1b76398e3167f1";

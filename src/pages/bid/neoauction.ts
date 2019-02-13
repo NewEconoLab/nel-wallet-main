@@ -68,7 +68,6 @@ export default class NeoAuction extends Vue
         this.auctionMsg_alert = new MyAuction();
         this.domain = "";
         this.alert_myBid = "";
-        // this.address = 'AHdKj4Vi71wEjGjCZeN85L3yox1TUYyT7f';
         this.address = LoginInfo.getCurrentAddress();
         this.regBalance = '0';
         let SGas = tools.coinTool.id_SGAS.toString();
