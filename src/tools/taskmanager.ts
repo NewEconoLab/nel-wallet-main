@@ -92,6 +92,12 @@ export class TaskManager
                     case TaskType.getMyNNC:
                         await this.confirm_getNNC(tasks);
                         break;
+                    case TaskType.bindDomain:
+                        await this.confirm_bindDomain(tasks);
+                        break;
+                    case TaskType.delBindDomain:
+                        await this.confirm_delBindDomain(tasks);
+                        break;
                     default:
                         break;
                 }
@@ -960,5 +966,105 @@ export class TaskManager
             return task;
         });
         this.taskStore.put(TaskType.getMyNNC.toString(), taskarr); //保存修改的状态
+    }
+
+    /**
+     * 域名绑定操作跟踪
+     * @param tasks 
+     */
+    static async confirm_bindDomain(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let bindDomain = new sessionStoreTool("domain-edit");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (task.type == ConfirmType.contract)
+            {
+                if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+                {
+
+                    if (result.vmstate == "FAULT, BREAK")
+                    {
+                        task.state = TaskState.fail;
+                        setTimeout(() =>
+                        {
+                            bindDomain.delete(task.message[ 'domain' ], 'bind');
+                        }, 15000);
+                    }
+                    else if (result && result.displayNameList && result.displayNameList.includes("addrCreditRegistered"))
+                    {
+                        task.state = TaskState.success;
+                        setTimeout(() =>
+                        {
+                            bindDomain.delete(task.message[ 'domain' ], 'bind');
+                        }, 15000);
+                    } else
+                    {
+                        task.state = TaskState.fail;
+                        setTimeout(() =>
+                        {
+                            bindDomain.delete(task.message[ 'domain' ], 'bind');
+                        }, 15000);
+                    }
+                }
+            }
+
+            task.confirm++;
+            return task;
+        });
+
+        this.taskStore.put(TaskType.bindDomain.toString(), taskarr); //保存修改的状态
+    }
+    /**
+     * 域名解绑操作跟踪
+     * @param tasks 
+     */
+    static async confirm_delBindDomain(tasks: Task[])
+    {
+        let ress = await this.getResult(tasks); //得到所有的watting返回的查询结果
+        let delBindDomain = new sessionStoreTool("domain-edit");
+        //遍历管理类数组，在回调中处理后返回新的对象并用数组接收
+        let taskarr = this.forConfirm(tasks, (task: Task) =>
+        {
+            let result = ress[ task.txid ]; //获取通知数组
+            if (task.type == ConfirmType.contract)
+            {
+                if (result && result[ "vmstate" ] && result[ "vmstate" ] != "")
+                {
+
+                    if (result.vmstate == "FAULT, BREAK")
+                    {
+                        task.state = TaskState.fail;
+                        setTimeout(() =>
+                        {
+                            delBindDomain.delete(task.message[ 'domain' ], 'unbind');
+                        }, 15000);
+                    }
+                    else if (result && result.displayNameList && result.displayNameList.includes("addrCreditRevoke"))
+                    {
+                        task.state = TaskState.success;
+                        setTimeout(() =>
+                        {
+                            delBindDomain.delete(task.message[ 'domain' ], 'unbind');
+                        }, 15000);
+                    } else
+                    {
+                        task.state = TaskState.fail;
+                        setTimeout(() =>
+                        {
+                            delBindDomain.delete(task.message[ 'domain' ], 'unbind');
+                        }, 15000);
+                    }
+
+                }
+            }
+
+            task.confirm++;
+            return task;
+        });
+
+        this.taskStore.put(TaskType.delBindDomain.toString(), taskarr); //保存修改的状态
     }
 }

@@ -75,6 +75,7 @@
                 </div>
                 <div class="tranhistory-list" v-if="taskList.length != 0">
                   <div class="th-onelist" v-for="item in taskList" :key="item.tasktype">
+                    <!-- 交易确认 -->
                     <div v-if="item.tasktype == 0">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.transfer')}}</div>
@@ -106,6 +107,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 开标 -->
                     <div v-if="item.tasktype == 1">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.openauction')}}</div>
@@ -136,6 +138,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 资产更新 -->
                     <div v-if="item.tasktype == 2">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.raisebid')}}</div>
@@ -167,6 +170,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- gas转sgas -->
                     <div v-if="item.tasktype == 3">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.exchange')}}</div>
@@ -195,6 +199,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- sgas转gas -->
                     <div v-if="item.tasktype == 4">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.exchange')}}</div>
@@ -223,6 +228,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 充值 -->
                     <div v-if="item.tasktype == 5">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.topup')}}</div>
@@ -249,6 +255,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 退款 -->
                     <div v-if="item.tasktype == 6">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.withdraw')}}</div>
@@ -275,6 +282,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 测试网领取gas -->
                     <div v-if="item.tasktype == 7">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.requestgas')}}</div>
@@ -293,6 +301,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 域名映射 -->
                     <div v-if="item.tasktype == 8">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
@@ -331,6 +340,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 域名合约地址 -->
                     <div v-if="item.tasktype == 9">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
@@ -362,6 +372,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 域名续约 -->
                     <div v-if="item.tasktype == 10">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.editdomain')}}</div>
@@ -393,6 +404,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 领取域名 -->
                     <div v-if="item.tasktype == 11">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.getdomain')}}</div>
@@ -423,6 +435,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 退回sgas -->
                     <div v-if="item.tasktype == 12">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.recover')}}</div>
@@ -454,6 +467,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 领取Gas -->
                     <div v-if="item.tasktype == 13">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.gasclaim')}}</div>
@@ -480,6 +494,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 域名转让 -->
                     <div v-if="item.tasktype == 14">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.domaintransfer')}}</div>
@@ -518,6 +533,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 出售域名 -->
                     <div v-if="item.tasktype == 15">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.list')}}</div>
@@ -549,6 +565,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 下架域名 -->
                     <div v-if="item.tasktype == 16">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.delist')}}</div>
@@ -579,6 +596,7 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 购买域名 -->
                     <div v-if="item.tasktype == 17">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.buy')}}</div>
@@ -610,11 +628,100 @@
                         <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
                       </div>
                     </div>
+                    <!-- 获取收入的NNC -->
                     <div v-if="item.tasktype == 18">
                       <div class="th-type">
                         <div class="th-typename">{{$t('operation.claimnnc')}}</div>
                         <div class="th-other">
                           <div class="th-number">{{item.message.amount}} NNC</div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <!-- 索取NNC -->
+                    <div v-if="item.tasktype == 19">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.requestnnc')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <span>{{item.message.amount}} NNC</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waitinggas')}} {{item.pendingText}}</span>
+                        <span class="green-text" v-if="item.state==1">{{$t('operation.sentok')}}</span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <!-- 绑定域名 -->
+                    <div v-if="item.tasktype == 20">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.bind')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                            <!-- <span>
+                              <a
+                                class="green-text"
+                                :href="item.addrhref"
+                                target="_blank"
+                              >{{item.message.address}}</a>
+                            </span>-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th-block-txid">
+                        <span class="th-txid" style="padding-right:10px">
+                          {{$t('operation.txid')}}
+                          <a
+                            class="green-text"
+                            :href="item.txidhref"
+                            target="_blank"
+                          >{{item.txid}}</a>
+                        </span>
+                        <span
+                          class="red-text"
+                          v-if="item.state==0"
+                        >{{$t('operation.waiting')}} {{item.pendingText}}</span>
+                        <span class="th-txid" v-if="item.state==1"></span>
+                        <span class="red-text" v-if="item.state==2">{{$t('operation.fail')}}</span>
+                      </div>
+                    </div>
+                    <!-- 取消绑定域名 -->
+                    <div v-if="item.tasktype == 21">
+                      <div class="th-type">
+                        <div class="th-typename">{{$t('operation.unbind')}}</div>
+                        <div class="th-other">
+                          <div class="th-number">
+                            <a
+                              class="green-text"
+                              target="_blank"
+                              :href="item.domainhref"
+                            >{{item.message.domain}}</a>
+                          </div>
                         </div>
                       </div>
                       <div class="th-block-txid">

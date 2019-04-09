@@ -68,6 +68,10 @@
                 <img class="transfer-icon" src="../../../static/img/transfer.png" alt>
                 <span class="map-address">{{toaddress}}</span>
               </p>
+              <p v-if="isAddress&&bindDomain!=''">
+                <img class="transfer-icon" src="../../../static/img/transfer.png" alt>
+                <span class="map-address">{{bindDomain}}</span>
+              </p>
             </div>
             <div class="col-sm-3 mess">
               <p v-if="addrerr==2||addrerr==4">
@@ -241,6 +245,18 @@
   font-size: 16px;
   color: #198cee;
   line-height: 16px;
+}
+.transfer-icon {
+  width: 13px;
+  height: 13px;
+  margin-left: 15px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.map-address {
+  font-size: 12px !important;
+  color: #000 !important;
+  vertical-align: middle;
 }
 .history-panel {
   background: #fff;

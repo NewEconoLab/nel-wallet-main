@@ -52,7 +52,12 @@ export default {
         buy: "Buy",
         apply: "Apply",
         applying: "Applyed",
-        applyed: "Distributed"
+        applyed: "Distributed",
+        getNNC: "Request NNC",
+        gettingNNC: "Requesting NNC",
+        unbind: "Unbind",
+        bind: "Bind domain",
+        tibind: "Replace"
     },
     toast: {
         msg1: "Loading ...",
@@ -349,7 +354,16 @@ export default {
         surecheck2: "?",
         type: "Types",
         salelist: "Sold",
-        buylist: "Bought"
+        buylist: "Bought",
+        mybind: "My bound domain",
+        mybindtips: "Bind a unique domain to your wallet address. After that the bound domain will be displayed when others enter the wallet address.",
+        binddomain: "Bind the domain name",
+        mybindtips2: "No domain bound",
+        bindtips: "Bind a unique domain to your wallet address. After that the bound domain will be displayed when others enter the wallet address.The binding automatically expires after the domain expires. When the address with a  bound domain is re-bound, the new domain will replace the old domain.",
+        addr: "Address",
+        binded: "Domain bound",
+        waitbind: "Operation successful, the binding will be complete after it's confirmed in the block.",
+        waidunbind: "Operation successful,the unbinding domain will be complete after it's confirmed in the block."
     },
     bonus: {
         title: "Bonus",
@@ -394,6 +408,8 @@ export default {
         claimnnc: "NNC Claim",
         requestnnc: "Request NNC",
         domaintransfer: "Domain transfer",
+        unbind: "Unbind",
+        bind: "Bind domain",
     },
     notify: {
         utxo: "Your UTXO is too scattered, which may cause the CGAS conversion to fail (GAS will also be lost). Please transfer some GAS( the amount shall be no less than your conversion amount) to your own address first and then convert GAS into CGAS after the transfer operation is confirmed.",
@@ -450,5 +466,10 @@ export default {
         expirationTime: "Expiration time",
         delistingConfirm: "Delisting Confirmation",
         purchaseConfirm: "Purchase Confirmation",
+        addr: "Address",
+        unbind: "Unbind domain",
+        unbindtitle: "Unbinding domain confirmation",
+        bind: "Bind domain",
+        bindtitle: "Binding domain confirmation"
     }
 }

@@ -35,6 +35,7 @@ export default class transfer extends Vue
     openToast: Function;
     isAddress: boolean;//判断输入的交易地址是否正确
     isNumber: boolean;//判断输入的交易金额是否正确
+    bindDomain: string; // 绑定的域名
     sendWait: boolean;
     tranConfirm: Function;
     constructor() 
@@ -50,12 +51,17 @@ export default class transfer extends Vue
         this.amount = "";
         this.asset = "";
         this.txpage = 1;
+        this.bindDomain = '';
         this.sendWait = false;
         // this.openToast = this.$refs.toast[ "isShow" ];
     }
     @Watch("$i18n.locale")
     valueChange(val, oldval)
     {
+        if (this.expiryTime == '')
+        {
+            return
+        }
         if (val == "cn")
         {
             this.tipAddress = "" + this.$t("transfer.timeMsg") + this.expiryTime;
@@ -115,6 +121,10 @@ export default class transfer extends Vue
         let isDomain = tools.nnstool.verifyDomain(this.target);
         let isAddress = tools.nnstool.verifyAddr(this.target);
         let neoDomain = tools.nnstool.verifyNeoDomain(this.target);
+        this.toaddress = "";
+        this.tipAddress = "";
+        this.bindDomain = "";
+        this.expiryTime = "";
         if (isDomain)
         {
             this.target = this.target.toLowerCase();
@@ -132,9 +142,6 @@ export default class transfer extends Vue
             }
             else
             {
-                this.toaddress = "";
-                this.expiryTime = "";
-                this.tipAddress = "";
                 this.addrerr = 2;
                 this.isDomain = false;
                 this.isAddress = false;
@@ -147,15 +154,25 @@ export default class transfer extends Vue
             {
                 this.toaddress = this.target;
                 this.addrerr = 1;
-                this.tipAddress = "";
                 this.isAddress = true;
+                this.isDomain = false;
+                // 获取绑定域名
+                let res = await tools.wwwtool.getboundDomain(this.target);
+                if (res)
+                {
+                    this.bindDomain = res.fulldomain;
+                    // this.bindExpiryTime = tools.timetool.getTime(res.ttl);
+                } else
+                {
+                    this.bindDomain = "";
+                    // this.bindExpiryTime = "";
+                }
                 return true;
             } else
             {
-                this.toaddress = "";
                 this.addrerr = 3;
-                this.tipAddress = "";
                 this.isAddress = false;
+                this.isDomain = false;
                 return false;
             }
         }
@@ -175,9 +192,6 @@ export default class transfer extends Vue
             }
             else
             {
-                this.toaddress = "";
-                this.expiryTime = "";
-                this.tipAddress = "";
                 this.addrerr = 4;
                 this.isDomain = false;
                 this.isAddress = false;
@@ -187,8 +201,8 @@ export default class transfer extends Vue
         else
         {
             this.addrerr = 3;
-            this.toaddress = "";
             this.isAddress = false;
+            this.isDomain = false;
             return false;
         }
     }

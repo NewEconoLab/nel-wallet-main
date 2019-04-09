@@ -55,6 +55,99 @@ export class NNSTool
             return this.ROOT_NEO;
         }
     }
+    /**
+     * 获取绑定的域名
+     * @param address 当前地址
+     */
+    static async getBindDomain(address: string)
+    {
+        const scriptaddress = Consts.bindContract;
+        try
+        {
+            const data = tools.contract.buildScript(
+                scriptaddress,
+                "getCreditInfo",
+                [
+                    `(addr)${address}`
+                ]
+            );
+
+            let res = await tools.wwwtool.rpc_getInvokescript(data);
+            if (res)
+            {
+                const result = ResultItem.FromJson("Array", res['stack'])
+                const subData = result.subItem[0].subItem;
+                let obj = {
+                    domain: subData[1].AsString(),
+                    ttl: subData[2].AsInteger().toString()
+                }
+                return obj;
+            } else
+            {
+                return null;
+            }
+
+        } catch (error)
+        {
+            throw new Error(error)
+        }
+    }
+
+    /**
+     * 绑定域名地址
+     * @param doamin 域名字符串
+     * @param address 当前地址
+     */
+    static async bindDomain(domain: string, address: string)
+    {
+        let arr = domain.split(".").reverse();
+        arr = arr.map(str => `(str)${str}`);
+        // arr[0] = "(str)" + arr[0]
+        // arr[1] = "(str)" + arr[1]
+        const scriptaddress = Consts.bindContract;
+
+        try
+        {
+            const data = tools.contract.buildScript_random(
+                scriptaddress,
+                "authenticate",
+                [
+                    `(addr)${address}`,
+                    arr
+                ]
+            );
+
+            let res = await tools.contract.contractInvokeTrans_attributes(data);
+            return res;
+        } catch (error)
+        {
+            throw new Error(error)
+        }
+    }
+    /**
+     * 解除绑定域名地址
+     * @param address 当前地址
+     */
+    static async cancalBindDomain(address: string)
+    {
+        const scriptaddress = Consts.bindContract;
+        try
+        {
+            const data = tools.contract.buildScript_random(
+                scriptaddress,
+                "revoke",
+                [
+                    `(addr)${address}`
+                ]
+            );
+
+            let res = await tools.contract.contractInvokeTrans_attributes(data);
+            return res;
+        } catch (error)
+        {
+            throw new Error(error)
+        }
+    }
 
 
 
