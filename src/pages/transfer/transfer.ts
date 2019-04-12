@@ -121,7 +121,6 @@ export default class transfer extends Vue
         let isDomain = tools.nnstool.verifyDomain(this.target);
         let isAddress = tools.nnstool.verifyAddr(this.target);
         let neoDomain = tools.nnstool.verifyNeoDomain(this.target);
-        this.toaddress = "";
         this.tipAddress = "";
         this.bindDomain = "";
         this.expiryTime = "";
@@ -132,6 +131,7 @@ export default class transfer extends Vue
             // let addr = await tools.nnstool.resolveData(this.target);
             if (res && res.data)
             {
+                this.toaddress = "";
                 this.toaddress = res.data
                 this.expiryTime = tools.timetool.getTime(res.TTL);
                 this.tipAddress = "" + this.$t("transfer.timeMsg") + this.expiryTime;
@@ -232,7 +232,7 @@ export default class transfer extends Vue
         {
             try
             {
-                if (this.verify_addr() && this.verify_Amount())
+                if (await this.verify_addr() && this.verify_Amount())
                 {
                     this.sendWait = true;
                     let height = Store.blockheight.select("height");
