@@ -86,39 +86,27 @@ export default class SgasTool
             throw "";
         }
 
-        var r = await tools.wwwtool.api_getcontractstate(tools.coinTool.id_SGAS.toString())
-        if (r && r[ 'script' ])
-        {
-            var sgasScript = r[ 'script' ].hexToBytes();
+        var scriptHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(LoginInfo.getCurrentAddress())
 
-            var scriptHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(LoginInfo.getCurrentAddress())
+        tran.type = ThinNeo.TransactionType.InvocationTransaction;
+        (tran.extdata as ThinNeo.InvokeTransData).script
+            = tools.contract.buildScript(tools.coinTool.id_SGAS, "refund", [ "(bytes)" + scriptHash.toHexString() ]);
 
-            tran.type = ThinNeo.TransactionType.InvocationTransaction;
-            (tran.extdata as ThinNeo.InvokeTransData).script
-                = tools.contract.buildScript(tools.coinTool.id_SGAS, "refund", [ "(bytes)" + scriptHash.toHexString() ]);
+        //附加鉴证
+        tran.attributes = new Array<ThinNeo.Attribute>(1);
+        tran.attributes[ 0 ] = new ThinNeo.Attribute();
+        tran.attributes[ 0 ].usage = ThinNeo.TransactionAttributeUsage.Script;
+        tran.attributes[ 0 ].data = scriptHash;
+        //构建一个script
+        let sb = new ThinNeo.ScriptBuilder();
+        sb.EmitPushString("whatever")
+        sb.EmitPushNumber(new Neo.BigInteger(250));
+        tran.AddWitnessScript(new Uint8Array(0), sb.ToArray(), tools.coinTool.id_SGAS.toArray());
 
-            //附加鉴证
-            tran.attributes = new Array<ThinNeo.Attribute>(1);
-            tran.attributes[ 0 ] = new ThinNeo.Attribute();
-            tran.attributes[ 0 ].usage = ThinNeo.TransactionAttributeUsage.Script;
-            tran.attributes[ 0 ].data = scriptHash;
-            //构建一个script
-            let sb = new ThinNeo.ScriptBuilder();
-            sb.EmitPushString("whatever")
-            sb.EmitPushNumber(new Neo.BigInteger(250));
-            tran.AddWitnessScript(sgasScript, sb.ToArray());
-
-            let txid = tran.GetHash().clone().reverse().toHexString();
-            //做提款人的签名
-            var data = await tools.coinTool.signData(tran);
-            return { txid, data };
-        }
-        else
-        {
-            throw "Contract acquisition failure";
-        }
-
-
+        let txid = tran.GetHash().clone().reverse().toHexString();
+        //做提款人的签名
+        var data = await tools.coinTool.signData(tran);
+        return { txid, data };
     }
 
     /**
@@ -157,25 +145,13 @@ export default class SgasTool
         {
 
         }
-        //sign and broadcast
-        //做智能合约的签名
-        var r = await tools.wwwtool.api_getcontractstate(tools.coinTool.id_SGAS.toString())
+        var sb = new ThinNeo.ScriptBuilder();
+        sb.EmitPushNumber(new Neo.BigInteger(0));
+        sb.EmitPushNumber(new Neo.BigInteger(0));
+        tran.AddWitnessScript(new Uint8Array(0), sb.ToArray(), tools.coinTool.id_SGAS.toArray());
+        var trandata = tran.GetRawData();
 
-        if (r && r[ 'script' ])
-        {
-            var sgasScript = r[ 'script' ].hexToBytes();
-            var sb = new ThinNeo.ScriptBuilder();
-            sb.EmitPushNumber(new Neo.BigInteger(0));
-            sb.EmitPushNumber(new Neo.BigInteger(0));
-            tran.AddWitnessScript(sgasScript, sb.ToArray());
-            var trandata = tran.GetRawData();
-
-            return trandata;
-        }
-        else
-        {
-            throw ("获取转换合约失败！")
-        }
+        return trandata;
 
     }
 

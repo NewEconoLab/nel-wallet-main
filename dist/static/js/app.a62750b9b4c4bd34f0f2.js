@@ -3049,7 +3049,7 @@ var SgasTool = /** @class */ (function () {
      */
     SgasTool.makeRefundTransaction = function (transcount) {
         return __awaiter(this, void 0, void 0, function () {
-            var utxos_current, utxos_cgas, cgasAddress, gass, cgass, i, item, utxo, tran, cgasRes, feeRes, i_1, r, sgasScript, scriptHash, sb, txid, data;
+            var utxos_current, utxos_cgas, cgasAddress, gass, cgass, i, item, utxo, tran, cgasRes, feeRes, i_1, scriptHash, sb, txid, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, importpack_1.tools.coinTool.getassets()];
@@ -3099,11 +3099,6 @@ var SgasTool = /** @class */ (function () {
                         catch (e) {
                             throw "";
                         }
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getcontractstate(importpack_1.tools.coinTool.id_SGAS.toString())];
-                    case 3:
-                        r = _a.sent();
-                        if (!(r && r['script'])) return [3 /*break*/, 5];
-                        sgasScript = r['script'].hexToBytes();
                         scriptHash = ThinNeo.Helper.GetPublicKeyScriptHash_FromAddress(entity_1.LoginInfo.getCurrentAddress());
                         tran.type = ThinNeo.TransactionType.InvocationTransaction;
                         tran.extdata.script
@@ -3116,13 +3111,12 @@ var SgasTool = /** @class */ (function () {
                         sb = new ThinNeo.ScriptBuilder();
                         sb.EmitPushString("whatever");
                         sb.EmitPushNumber(new Neo.BigInteger(250));
-                        tran.AddWitnessScript(sgasScript, sb.ToArray());
+                        tran.AddWitnessScript(new Uint8Array(0), sb.ToArray(), importpack_1.tools.coinTool.id_SGAS.toArray());
                         txid = tran.GetHash().clone().reverse().toHexString();
                         return [4 /*yield*/, importpack_1.tools.coinTool.signData(tran)];
-                    case 4:
+                    case 3:
                         data = _a.sent();
                         return [2 /*return*/, { txid: txid, data: data }];
-                    case 5: throw "Contract acquisition failure";
                 }
             });
         });
@@ -3134,51 +3128,38 @@ var SgasTool = /** @class */ (function () {
      */
     SgasTool.makeRefundTransaction_tranGas = function (utxo, transcount) {
         return __awaiter(this, void 0, void 0, function () {
-            var tran, sendcount, fee, tranRes, n, r, sgasScript, sb, trandata;
+            var tran, sendcount, fee, tranRes, n, sb, trandata;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        tran = new ThinNeo.Transaction();
-                        //合约类型
-                        tran.inputs = [];
-                        tran.outputs = [];
-                        tran.type = ThinNeo.TransactionType.ContractTransaction;
-                        tran.version = 0;
-                        tran.extdata = null;
-                        tran.attributes = [];
-                        try {
-                            sendcount = transcount;
-                            if (entity_1.LoginInfo.info.payfee) {
-                                fee = Neo.Fixed8.fromNumber(0.001);
-                                sendcount = transcount.subtract(fee); //由于转账使用的utxo和需要转换的金额一样大所以输入只需要塞入减去交易费的金额，utxo也足够使用交易费
-                            }
-                            tranRes = importpack_1.tools.coinTool.creatInuptAndOutup([utxo], sendcount, entity_1.LoginInfo.getCurrentAddress());
-                            tran.inputs = tranRes.inputs;
-                            tran.outputs = tranRes.outputs;
-                            tran.outputs.length = 1; //去掉找零的部分，只保留一个转账位
-                            for (n in tran.inputs) {
-                                tran.inputs[n].hash = tran.inputs[n].hash.reverse();
-                            }
-                        }
-                        catch (error) {
-                        }
-                        return [4 /*yield*/, importpack_1.tools.wwwtool.api_getcontractstate(importpack_1.tools.coinTool.id_SGAS.toString())];
-                    case 1:
-                        r = _a.sent();
-                        if (r && r['script']) {
-                            sgasScript = r['script'].hexToBytes();
-                            sb = new ThinNeo.ScriptBuilder();
-                            sb.EmitPushNumber(new Neo.BigInteger(0));
-                            sb.EmitPushNumber(new Neo.BigInteger(0));
-                            tran.AddWitnessScript(sgasScript, sb.ToArray());
-                            trandata = tran.GetRawData();
-                            return [2 /*return*/, trandata];
-                        }
-                        else {
-                            throw ("获取转换合约失败！");
-                        }
-                        return [2 /*return*/];
+                tran = new ThinNeo.Transaction();
+                //合约类型
+                tran.inputs = [];
+                tran.outputs = [];
+                tran.type = ThinNeo.TransactionType.ContractTransaction;
+                tran.version = 0;
+                tran.extdata = null;
+                tran.attributes = [];
+                try {
+                    sendcount = transcount;
+                    if (entity_1.LoginInfo.info.payfee) {
+                        fee = Neo.Fixed8.fromNumber(0.001);
+                        sendcount = transcount.subtract(fee); //由于转账使用的utxo和需要转换的金额一样大所以输入只需要塞入减去交易费的金额，utxo也足够使用交易费
+                    }
+                    tranRes = importpack_1.tools.coinTool.creatInuptAndOutup([utxo], sendcount, entity_1.LoginInfo.getCurrentAddress());
+                    tran.inputs = tranRes.inputs;
+                    tran.outputs = tranRes.outputs;
+                    tran.outputs.length = 1; //去掉找零的部分，只保留一个转账位
+                    for (n in tran.inputs) {
+                        tran.inputs[n].hash = tran.inputs[n].hash.reverse();
+                    }
                 }
+                catch (error) {
+                }
+                sb = new ThinNeo.ScriptBuilder();
+                sb.EmitPushNumber(new Neo.BigInteger(0));
+                sb.EmitPushNumber(new Neo.BigInteger(0));
+                tran.AddWitnessScript(new Uint8Array(0), sb.ToArray(), importpack_1.tools.coinTool.id_SGAS.toArray());
+                trandata = tran.GetRawData();
+                return [2 /*return*/, trandata];
             });
         });
     };
